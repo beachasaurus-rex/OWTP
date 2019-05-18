@@ -19,7 +19,7 @@ static double _pi_R2(double inputPress)
 }
 static double _tau_R2(double inputTemp)
 {
-	return inputTemp / _tStar_R2;
+	return _tStar_R2 / inputTemp;
 }
 
 //Basic Ideal Gibbs Free Energy Functions
@@ -236,7 +236,7 @@ double cp_R2_T_P(double inputTemp, double inputPress)
 {
 	double pi = _pi_R2(inputPress);
 	double tau = _tau_R2(inputTemp);
-	double gibbs_ddtau = _gibbs_R2_dtau(pi, tau);
+	double gibbs_ddtau = _gibbs_R2_ddtau(pi, tau);
 
 	return R * (-1) * pow(tau, 2) * gibbs_ddtau;
 }
@@ -245,12 +245,13 @@ double cv_R2_T_P(double inputTemp, double inputPress)
 {
 	double pi = _pi_R2(inputPress);
 	double tau = _tau_R2(inputTemp);
-	double gibbs_ddtau = _gibbs_R2_dtau(pi, tau);
+	double gibbs_ddtau = _gibbs_R2_ddtau(pi, tau);
 	double gibbs_res_dpi = _gibbs_res_R2_dpi(pi, tau);
 	double gibbs_res_ddpi = _gibbs_res_R2_ddpi(pi, tau);
+	double gibbs_res_dpi_dtau = _gibbs_res_R2_dpi_dtau(pi, tau);
 
 	double c1 = -1 * pow(tau, 2) * gibbs_ddtau;
-	double c2 = 1 + (pi * gibbs_res_dpi) - (pi * tau * gibbs_res_ddpi);
+	double c2 = 1 + (pi * gibbs_res_dpi) - (pi * tau * gibbs_res_dpi_dtau);
 	double c3 = pow(c2, 2);
 	double c4 = 1 - (pow(pi, 2) * gibbs_res_ddpi);
 	double c5 = c3 / c4;
@@ -260,9 +261,12 @@ double cv_R2_T_P(double inputTemp, double inputPress)
 //speed of sound of region 2 as a function of temperature and pressure
 double w_R2_T_P(double inputTemp, double inputPress)
 {
+	//convert to J / (kg * K) from kJ / (kg * K)
+	double _R = R * 1000;
+
 	double pi = _pi_R2(inputPress);
 	double tau = _tau_R2(inputTemp);
-	double gibbs_ddtau = _gibbs_R2_dtau(pi, tau);
+	double gibbs_ddtau = _gibbs_R2_ddtau(pi, tau);
 	double gibbs_res_dpi = _gibbs_res_R2_dpi(pi, tau);
 	double gibbs_res_ddpi = _gibbs_res_R2_ddpi(pi, tau);
 	double gibbs_res_dpi_dtau = _gibbs_res_R2_dpi_dtau(pi, tau);
@@ -276,5 +280,5 @@ double w_R2_T_P(double inputTemp, double inputPress)
 	double c7 = c2 + c6;
 	double c8 = c1 / c7;
 
-	return R * inputTemp * c8;
+	return pow(_R * inputTemp * c8, 0.5);
 }

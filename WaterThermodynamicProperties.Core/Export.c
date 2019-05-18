@@ -130,4 +130,36 @@
 		return w_R1_h_s(enthalpy, entropy);
 	}
 
+	//REGION 2:
+	//properties as a function of temperature and pressure
+
+	DLL_EXPORT double v_T_P_R2(double temp, double press)
+	{
+		return v_R2_T_P(temp, press);
+	}
+	DLL_EXPORT double u_T_P_R2(double temp, double press)
+	{
+		return u_R2_T_P(temp, press);
+	}
+	DLL_EXPORT double s_T_P_R2(double temp, double press)
+	{
+		return s_R2_T_P(temp, press);
+	}
+	DLL_EXPORT double h_T_P_R2(double temp, double press)
+	{
+		return h_R2_T_P(temp, press);
+	}
+	DLL_EXPORT double cp_T_P_R2(double temp, double press)
+	{
+		return cp_R2_T_P(temp, press);
+	}
+	DLL_EXPORT double cv_T_P_R2(double temp, double press)
+	{
+		return cv_R2_T_P(temp, press);
+	}
+	DLL_EXPORT double w_T_P_R2(double temp, double press)
+	{
+		return w_R2_T_P(temp, press);
+	}
+
 #endif
