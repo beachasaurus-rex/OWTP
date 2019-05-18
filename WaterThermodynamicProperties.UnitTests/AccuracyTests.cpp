@@ -9,40 +9,40 @@
 extern "C"
 {
 	//properties as a function of temperature and pressure
-	DLL_IMPORT  double v_T_P(double, double);
-	DLL_IMPORT  double u_T_P(double, double);
-	DLL_IMPORT  double s_T_P(double, double);
-	DLL_IMPORT  double h_T_P(double, double);
-	DLL_IMPORT  double cp_T_P(double, double);
-	DLL_IMPORT  double cv_T_P(double, double);
-	DLL_IMPORT  double w_T_P(double, double);
+	DLL_IMPORT  double v_T_P_R1(double, double);
+	DLL_IMPORT  double u_T_P_R1(double, double);
+	DLL_IMPORT  double s_T_P_R1(double, double);
+	DLL_IMPORT  double h_T_P_R1(double, double);
+	DLL_IMPORT  double cp_T_P_R1(double, double);
+	DLL_IMPORT  double cv_T_P_R1(double, double);
+	DLL_IMPORT  double w_T_P_R1(double, double);
 
 	//properties as a function of pressure and enthalpy
-	DLL_IMPORT  double v_P_h(double, double);
-	DLL_IMPORT  double u_P_h(double, double);
-	DLL_IMPORT  double s_P_h(double, double);
-	DLL_IMPORT  double T_P_h(double, double);
-	DLL_IMPORT  double cp_P_h(double, double);
-	DLL_IMPORT  double cv_P_h(double, double);
-	DLL_IMPORT  double w_P_h(double, double);
+	DLL_IMPORT  double v_P_h_R1(double, double);
+	DLL_IMPORT  double u_P_h_R1(double, double);
+	DLL_IMPORT  double s_P_h_R1(double, double);
+	DLL_IMPORT  double T_P_h_R1(double, double);
+	DLL_IMPORT  double cp_P_h_R1(double, double);
+	DLL_IMPORT  double cv_P_h_R1(double, double);
+	DLL_IMPORT  double w_P_h_R1(double, double);
 
 	//properties as a function of pressure and entropy
-	DLL_IMPORT  double v_P_s(double, double);
-	DLL_IMPORT  double u_P_s(double, double);
-	DLL_IMPORT  double h_P_s(double, double);
-	DLL_IMPORT  double T_P_s(double, double);
-	DLL_IMPORT  double cp_P_s(double, double);
-	DLL_IMPORT  double cv_P_s(double, double);
-	DLL_IMPORT  double w_P_s(double, double);
+	DLL_IMPORT  double v_P_s_R1(double, double);
+	DLL_IMPORT  double u_P_s_R1(double, double);
+	DLL_IMPORT  double h_P_s_R1(double, double);
+	DLL_IMPORT  double T_P_s_R1(double, double);
+	DLL_IMPORT  double cp_P_s_R1(double, double);
+	DLL_IMPORT  double cv_P_s_R1(double, double);
+	DLL_IMPORT  double w_P_s_R1(double, double);
 
 	//properties as a function of enthalpy and entropy
-	DLL_IMPORT double v_h_s(double, double);
-	DLL_IMPORT double u_h_s(double, double);
-	DLL_IMPORT double P_h_s(double, double);
-	DLL_IMPORT double T_h_s(double, double);
-	DLL_IMPORT double cp_h_s(double, double);
-	DLL_IMPORT double cv_h_s(double, double);
-	DLL_IMPORT double w_h_s(double, double);
+	DLL_IMPORT double v_h_s_R1(double, double);
+	DLL_IMPORT double u_h_s_R1(double, double);
+	DLL_IMPORT double P_h_s_R1(double, double);
+	DLL_IMPORT double T_h_s_R1(double, double);
+	DLL_IMPORT double cp_h_s_R1(double, double);
+	DLL_IMPORT double cv_h_s_R1(double, double);
+	DLL_IMPORT double w_h_s_R1(double, double);
 }
 
 namespace Tests_Region1
@@ -59,13 +59,13 @@ namespace Tests_Region1
 		//kPa
 		double testPressure = 3000;
 		
-		double v = v_T_P(testTemp, testPressure);
-		double u = u_T_P(testTemp, testPressure);
-		double s = s_T_P(testTemp, testPressure);
-		double h = h_T_P(testTemp, testPressure);
-		double cp = cp_T_P(testTemp, testPressure);
-		double cv = cv_T_P(testTemp, testPressure);
-		double w = w_T_P(testTemp, testPressure);
+		double v = v_T_P_R1(testTemp, testPressure);
+		double u = u_T_P_R1(testTemp, testPressure);
+		double s = s_T_P_R1(testTemp, testPressure);
+		double h = h_T_P_R1(testTemp, testPressure);
+		double cp = cp_T_P_R1(testTemp, testPressure);
+		double cv = cv_T_P_R1(testTemp, testPressure);
+		double w = w_T_P_R1(testTemp, testPressure);
 
 		double vErr = CALC_ABSERR(v, 0.100215168E-02);
 		double uErr = CALC_ABSERR(u, 0.112324818E+03);
@@ -98,13 +98,13 @@ namespace Tests_Region1
 		//kPa
 		double testPressure = 80000;
 
-		double v = v_T_P(testTemp, testPressure);
-		double u = u_T_P(testTemp, testPressure);
-		double s = s_T_P(testTemp, testPressure);
-		double h = h_T_P(testTemp, testPressure);
-		double cp = cp_T_P(testTemp, testPressure);
-		double cv = cv_T_P(testTemp, testPressure);
-		double w = w_T_P(testTemp, testPressure);
+		double v = v_T_P_R1(testTemp, testPressure);
+		double u = u_T_P_R1(testTemp, testPressure);
+		double s = s_T_P_R1(testTemp, testPressure);
+		double h = h_T_P_R1(testTemp, testPressure);
+		double cp = cp_T_P_R1(testTemp, testPressure);
+		double cv = cv_T_P_R1(testTemp, testPressure);
+		double w = w_T_P_R1(testTemp, testPressure);
 
 		double vErr = CALC_ABSERR(v, 0.971180894E-03);
 		double uErr = CALC_ABSERR(u, 0.106448356E+03);
@@ -137,13 +137,13 @@ namespace Tests_Region1
 		//kPa
 		double testPressure = 3000;
 
-		double v = v_T_P(testTemp, testPressure);
-		double u = u_T_P(testTemp, testPressure);
-		double s = s_T_P(testTemp, testPressure);
-		double h = h_T_P(testTemp, testPressure);
-		double cp = cp_T_P(testTemp, testPressure);
-		double cv = cv_T_P(testTemp, testPressure);
-		double w = w_T_P(testTemp, testPressure);
+		double v = v_T_P_R1(testTemp, testPressure);
+		double u = u_T_P_R1(testTemp, testPressure);
+		double s = s_T_P_R1(testTemp, testPressure);
+		double h = h_T_P_R1(testTemp, testPressure);
+		double cp = cp_T_P_R1(testTemp, testPressure);
+		double cv = cv_T_P_R1(testTemp, testPressure);
+		double w = w_T_P_R1(testTemp, testPressure);
 
 		double vErr = CALC_ABSERR(v, 0.120241800E-02);
 		double uErr = CALC_ABSERR(u, 0.971934985E+03);
@@ -177,13 +177,13 @@ namespace Tests_Region1
 		//kJ / kg
 		double testEnthalpy = 0.115331273E+03;
 
-		double v = v_P_h(testPress, testEnthalpy);
-		double u = u_P_h(testPress, testEnthalpy);
-		double s = s_P_h(testPress, testEnthalpy);
-		double T = T_P_h(testPress, testEnthalpy);
-		double cp = cp_P_h(testPress, testEnthalpy);
-		double cv = cv_P_h(testPress, testEnthalpy);
-		double w = w_P_h(testPress, testEnthalpy);
+		double v = v_P_h_R1(testPress, testEnthalpy);
+		double u = u_P_h_R1(testPress, testEnthalpy);
+		double s = s_P_h_R1(testPress, testEnthalpy);
+		double T = T_P_h_R1(testPress, testEnthalpy);
+		double cp = cp_P_h_R1(testPress, testEnthalpy);
+		double cv = cv_P_h_R1(testPress, testEnthalpy);
+		double w = w_P_h_R1(testPress, testEnthalpy);
 
 		double vErr = CALC_ABSERR(v, 0.100215168E-02);
 		double uErr = CALC_ABSERR(u, 0.112324818E+03);
@@ -216,13 +216,13 @@ namespace Tests_Region1
 		//kJ / kg
 		double testEnthalpy = 0.184142828E+03;
 
-		double v = v_P_h(testPress, testEnthalpy);
-		double u = u_P_h(testPress, testEnthalpy);
-		double s = s_P_h(testPress, testEnthalpy);
-		double T = T_P_h(testPress, testEnthalpy);
-		double cp = cp_P_h(testPress, testEnthalpy);
-		double cv = cv_P_h(testPress, testEnthalpy);
-		double w = w_P_h(testPress, testEnthalpy);
+		double v = v_P_h_R1(testPress, testEnthalpy);
+		double u = u_P_h_R1(testPress, testEnthalpy);
+		double s = s_P_h_R1(testPress, testEnthalpy);
+		double T = T_P_h_R1(testPress, testEnthalpy);
+		double cp = cp_P_h_R1(testPress, testEnthalpy);
+		double cv = cv_P_h_R1(testPress, testEnthalpy);
+		double w = w_P_h_R1(testPress, testEnthalpy);
 
 		double vErr = CALC_ABSERR(v, 0.971180894E-03);
 		double uErr = CALC_ABSERR(u, 0.106448356E+03);
@@ -255,13 +255,13 @@ namespace Tests_Region1
 		//kJ / kg
 		double testEnthalpy = 0.975542239E+03;
 
-		double v = v_P_h(testPress, testEnthalpy);
-		double u = u_P_h(testPress, testEnthalpy);
-		double s = s_P_h(testPress, testEnthalpy);
-		double T = T_P_h(testPress, testEnthalpy);
-		double cp = cp_P_h(testPress, testEnthalpy);
-		double cv = cv_P_h(testPress, testEnthalpy);
-		double w = w_P_h(testPress, testEnthalpy);
+		double v = v_P_h_R1(testPress, testEnthalpy);
+		double u = u_P_h_R1(testPress, testEnthalpy);
+		double s = s_P_h_R1(testPress, testEnthalpy);
+		double T = T_P_h_R1(testPress, testEnthalpy);
+		double cp = cp_P_h_R1(testPress, testEnthalpy);
+		double cv = cv_P_h_R1(testPress, testEnthalpy);
+		double w = w_P_h_R1(testPress, testEnthalpy);
 
 		double vErr = CALC_ABSERR(v, 0.120241800E-02);
 		double uErr = CALC_ABSERR(u, 0.971934985E+03);
@@ -295,13 +295,13 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.392294792;
 
-		double v = v_P_s(testPress, testEntropy);
-		double u = u_P_s(testPress, testEntropy);
-		double h = h_P_s(testPress, testEntropy);
-		double T = T_P_s(testPress, testEntropy);
-		double cp = cp_P_s(testPress, testEntropy);
-		double cv = cv_P_s(testPress, testEntropy);
-		double w = w_P_s(testPress, testEntropy);
+		double v = v_P_s_R1(testPress, testEntropy);
+		double u = u_P_s_R1(testPress, testEntropy);
+		double h = h_P_s_R1(testPress, testEntropy);
+		double T = T_P_s_R1(testPress, testEntropy);
+		double cp = cp_P_s_R1(testPress, testEntropy);
+		double cv = cv_P_s_R1(testPress, testEntropy);
+		double w = w_P_s_R1(testPress, testEntropy);
 
 		double vErr = CALC_ABSERR(v, 0.100215168E-02);
 		double uErr = CALC_ABSERR(u, 0.112324818E+03);
@@ -334,13 +334,13 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.368563852;
 
-		double v = v_P_s(testPress, testEntropy);
-		double u = u_P_s(testPress, testEntropy);
-		double h = h_P_s(testPress, testEntropy);
-		double T = T_P_s(testPress, testEntropy);
-		double cp = cp_P_s(testPress, testEntropy);
-		double cv = cv_P_s(testPress, testEntropy);
-		double w = w_P_s(testPress, testEntropy);
+		double v = v_P_s_R1(testPress, testEntropy);
+		double u = u_P_s_R1(testPress, testEntropy);
+		double h = h_P_s_R1(testPress, testEntropy);
+		double T = T_P_s_R1(testPress, testEntropy);
+		double cp = cp_P_s_R1(testPress, testEntropy);
+		double cv = cv_P_s_R1(testPress, testEntropy);
+		double w = w_P_s_R1(testPress, testEntropy);
 
 		double vErr = CALC_ABSERR(v, 0.971180894E-03);
 		double uErr = CALC_ABSERR(u, 0.106448356E+03);
@@ -373,13 +373,13 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.258041912E+01;
 
-		double v = v_P_s(testPress, testEntropy);
-		double u = u_P_s(testPress, testEntropy);
-		double h = h_P_s(testPress, testEntropy);
-		double T = T_P_s(testPress, testEntropy);
-		double cp = cp_P_s(testPress, testEntropy);
-		double cv = cv_P_s(testPress, testEntropy);
-		double w = w_P_s(testPress, testEntropy);
+		double v = v_P_s_R1(testPress, testEntropy);
+		double u = u_P_s_R1(testPress, testEntropy);
+		double h = h_P_s_R1(testPress, testEntropy);
+		double T = T_P_s_R1(testPress, testEntropy);
+		double cp = cp_P_s_R1(testPress, testEntropy);
+		double cv = cv_P_s_R1(testPress, testEntropy);
+		double w = w_P_s_R1(testPress, testEntropy);
 
 		double vErr = CALC_ABSERR(v, 0.120241800E-02);
 		double uErr = CALC_ABSERR(u, 0.971934985E+03);
@@ -413,13 +413,13 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.392294792;
 
-		double v = v_h_s(testEnthalpy, testEntropy);
-		double u = u_h_s(testEnthalpy, testEntropy);
-		double P = P_h_s(testEnthalpy, testEntropy);
-		double T = T_h_s(testEnthalpy, testEntropy);
-		double cp = cp_h_s(testEnthalpy, testEntropy);
-		double cv = cv_h_s(testEnthalpy, testEntropy);
-		double w = w_h_s(testEnthalpy, testEntropy);
+		double v = v_h_s_R1(testEnthalpy, testEntropy);
+		double u = u_h_s_R1(testEnthalpy, testEntropy);
+		double P = P_h_s_R1(testEnthalpy, testEntropy);
+		double T = T_h_s_R1(testEnthalpy, testEntropy);
+		double cp = cp_h_s_R1(testEnthalpy, testEntropy);
+		double cv = cv_h_s_R1(testEnthalpy, testEntropy);
+		double w = w_h_s_R1(testEnthalpy, testEntropy);
 
 		double vErr = CALC_ABSERR(v, 0.100215168E-02);
 		double uErr = CALC_ABSERR(u, 0.112324818E+03);
@@ -452,13 +452,13 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.368563852;
 
-		double v = v_h_s(testEnthalpy, testEntropy);
-		double u = u_h_s(testEnthalpy, testEntropy);
-		double P = P_h_s(testEnthalpy, testEntropy);
-		double T = T_h_s(testEnthalpy, testEntropy);
-		double cp = cp_h_s(testEnthalpy, testEntropy);
-		double cv = cv_h_s(testEnthalpy, testEntropy);
-		double w = w_h_s(testEnthalpy, testEntropy);
+		double v = v_h_s_R1(testEnthalpy, testEntropy);
+		double u = u_h_s_R1(testEnthalpy, testEntropy);
+		double P = P_h_s_R1(testEnthalpy, testEntropy);
+		double T = T_h_s_R1(testEnthalpy, testEntropy);
+		double cp = cp_h_s_R1(testEnthalpy, testEntropy);
+		double cv = cv_h_s_R1(testEnthalpy, testEntropy);
+		double w = w_h_s_R1(testEnthalpy, testEntropy);
 
 		double vErr = CALC_ABSERR(v, 0.971180894E-03);
 		double uErr = CALC_ABSERR(u, 0.106448356E+03);
@@ -491,13 +491,13 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.258041912E+01;
 
-		double v = v_h_s(testEnthalpy, testEntropy);
-		double u = u_h_s(testEnthalpy, testEntropy);
-		double P = P_h_s(testEnthalpy, testEntropy);
-		double T = T_h_s(testEnthalpy, testEntropy);
-		double cp = cp_h_s(testEnthalpy, testEntropy);
-		double cv = cv_h_s(testEnthalpy, testEntropy);
-		double w = w_h_s(testEnthalpy, testEntropy);
+		double v = v_h_s_R1(testEnthalpy, testEntropy);
+		double u = u_h_s_R1(testEnthalpy, testEntropy);
+		double P = P_h_s_R1(testEnthalpy, testEntropy);
+		double T = T_h_s_R1(testEnthalpy, testEntropy);
+		double cp = cp_h_s_R1(testEnthalpy, testEntropy);
+		double cv = cv_h_s_R1(testEnthalpy, testEntropy);
+		double w = w_h_s_R1(testEnthalpy, testEntropy);
 
 		double vErr = CALC_ABSERR(v, 0.120241800E-02);
 		double uErr = CALC_ABSERR(u, 0.971934985E+03);
@@ -536,7 +536,7 @@ namespace Tests_Region1
 		//kJ / kg
 		double testEnth = 500;
 
-		double T = T_P_h(testPressure, testEnth);
+		double T = T_P_h_R1(testPressure, testEnth);
 
 		double TErr = CALC_ABSERR(T, 0.391798509E+03);
 
@@ -551,7 +551,7 @@ namespace Tests_Region1
 		//kJ / kg
 		double testEnth = 500;
 
-		double T = T_P_h(testPressure, testEnth);
+		double T = T_P_h_R1(testPressure, testEnth);
 
 		double TErr = CALC_ABSERR(T, 0.378108626E+03);
 
@@ -566,7 +566,7 @@ namespace Tests_Region1
 		//kJ / kg
 		double testEnth = 1500;
 
-		double T = T_P_h(testPressure, testEnth);
+		double T = T_P_h_R1(testPressure, testEnth);
 
 		double TErr = CALC_ABSERR(T, 0.611041229E+03);
 
@@ -587,7 +587,7 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.5;
 
-		double T = T_P_s(testPressure, testEntropy);
+		double T = T_P_s_R1(testPressure, testEntropy);
 
 		double TErr = CALC_ABSERR(T, 0.307842258E+03);
 
@@ -602,7 +602,7 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 0.5;
 
-		double T = T_P_s(testPressure, testEntropy);
+		double T = T_P_s_R1(testPressure, testEntropy);
 
 		double TErr = CALC_ABSERR(T, 0.309979785E+03);
 
@@ -617,7 +617,7 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntropy = 3;
 
-		double T = T_P_s(testPressure, testEntropy);
+		double T = T_P_s_R1(testPressure, testEntropy);
 
 		double TErr = CALC_ABSERR(T, 0.565899909E+03);
 
@@ -640,7 +640,7 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntr = 0;
 
-		double P = (P_h_s(testEnth, testEntr)) / 1000;
+		double P = (P_h_s_R1(testEnth, testEntr)) / 1000;
 
 		double PErr = CALC_ABSERR(P, 9.800980612E-04);
 
@@ -655,7 +655,7 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntr = 0;
 
-		double P = (P_h_s(testEnth, testEntr)) / 1000;
+		double P = (P_h_s_R1(testEnth, testEntr)) / 1000;
 
 		double PErr = CALC_ABSERR(P, 9.192954727E+01);
 
@@ -670,7 +670,7 @@ namespace Tests_Region1
 		//kJ / (kg * K)
 		double testEntr = 3.4;
 
-		double P = (P_h_s(testEnth, testEntr)) / 1000;
+		double P = (P_h_s_R1(testEnth, testEntr)) / 1000;
 
 		double PErr = CALC_ABSERR(P, 5.868294423E+01);
 
