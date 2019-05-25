@@ -59,6 +59,9 @@ extern "C"
 	DLL_IMPORT  double cp_T_P_R2(double, double);
 	DLL_IMPORT  double cv_T_P_R2(double, double);
 	DLL_IMPORT  double w_T_P_R2(double, double);
+
+	//properties as a function of pressure and enthalpy
+	DLL_IMPORT double T_P_h_R2(double, double);
 }
 
 namespace Tests_Region1
@@ -819,6 +822,147 @@ namespace Tests_Region2
 		ASSERT_TRUE(cpPass);
 		ASSERT_TRUE(cvPass);
 		ASSERT_TRUE(wPass);
+	}
+
+	//The pressure and enthalpy data points for Region2 were 
+	//suggested by the IAPWS in "Revised Release on IAPWS
+	//Inductrial Formulation 1997 for the Thermodynamic
+	//Properties of Water and Steam" in Table 24 on page 25.
+
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_0_001MPa_3000h)
+	{
+		//kPa
+		double testPressure = 0.001 * 1000;
+		//kJ / kg
+		double testEnthalpy = 3000;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.534433241E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_3MPa_3000h)
+	{
+		//kPa
+		double testPressure = 3 * 1000;
+		//kJ / kg
+		double testEnthalpy = 3000;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.575373370E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_3MPa_4000h)
+	{
+		//kPa
+		double testPressure = 3 * 1000;
+		//kJ / kg
+		double testEnthalpy = 4000;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.101077577E+04);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_5MPa_3500h)
+	{
+		//kPa
+		double testPressure = 5 * 1000;
+		//kJ / kg
+		double testEnthalpy = 3500;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.801299102E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_5MPa_4000h)
+	{
+		//kPa
+		double testPressure = 5 * 1000;
+		//kJ / kg
+		double testEnthalpy = 4000;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.101531583E+04);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_25MPa_3500h)
+	{
+		//kPa
+		double testPressure = 25 * 1000;
+		//kJ / kg
+		double testEnthalpy = 3500;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.875279054E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_40MPa_2700h)
+	{
+		//kPa
+		double testPressure = 40 * 1000;
+		//kJ / kg
+		double testEnthalpy = 2700;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.743056411E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_60MPa_2700h)
+	{
+		//kPa
+		double testPressure = 60 * 1000;
+		//kJ / kg
+		double testEnthalpy = 2700;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.791137067E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_enthalpy_Region2_60MPa_3200h)
+	{
+		//kPa
+		double testPressure = 60 * 1000;
+		//kJ / kg
+		double testEnthalpy = 3200;
+
+		double T = T_P_h_R2(testPressure, testEnthalpy);
+
+		double TErr = CALC_ABSERR(T, 0.882756860E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
 	}
 }
 

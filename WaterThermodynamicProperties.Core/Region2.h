@@ -405,14 +405,14 @@ static double _T_R2c_P_h(double pi, double eta)
 
 	for (int i = 0; i < ITERCONST(_i_R2c_T_P_h); i++)
 	{
-		sum = sum + _n_R2c_T_P_h[i] * pow(pi - 25, _I_R2c_T_P_h[i]) * pow(eta - 1.8, _J_R2c_T_P_h[i]);
+		sum = sum + _n_R2c_T_P_h[i] * pow(pi + 25, _I_R2c_T_P_h[i]) * pow(eta - 1.8, _J_R2c_T_P_h[i]);
 	}
 
 	return sum * _tStar_R2c_T_P_h;
 }
 
 //Temperature as a function of pressure and enthalpy
-static double _T_R2_P_h(double inputPress, double inputEnth)
+static double T_R2_P_h(double inputPress, double inputEnth)
 {
 	//kPa
 	double P_R2a_Bound = 4000;
