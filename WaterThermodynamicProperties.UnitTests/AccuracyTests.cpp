@@ -61,7 +61,12 @@ extern "C"
 	DLL_IMPORT  double w_T_P_R2(double, double);
 
 	//properties as a function of pressure and enthalpy
+
 	DLL_IMPORT double T_P_h_R2(double, double);
+
+	//properties as a function of pressure and enthalpy
+
+	DLL_IMPORT double T_P_s_R2(double, double);
 }
 
 namespace Tests_Region1
@@ -959,6 +964,147 @@ namespace Tests_Region2
 		double T = T_P_h_R2(testPressure, testEnthalpy);
 
 		double TErr = CALC_ABSERR(T, 0.882756860E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+
+	//The pressure and enthalpy data points for Region2 were 
+	//suggested by the IAPWS in "Revised Release on IAPWS
+	//Inductrial Formulation 1997 for the Thermodynamic
+	//Properties of Water and Steam" in Table 29 on page 29.
+
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_0_1MPa_7_5s)
+	{
+		//kPa
+		double testPressure = 0.1 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 7.5;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.399517097E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_0_1MPa_8s)
+	{
+		//kPa
+		double testPressure = 0.1 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 8;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.514127081E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_2_5MPa_8s)
+	{
+		//kPa
+		double testPressure = 2.5 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 8;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.103984917E+04);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_8MPa_6s)
+	{
+		//kPa
+		double testPressure = 8 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 6;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.600484040E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_8MPa_7_5s)
+	{
+		//kPa
+		double testPressure = 8 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 7.5;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.106495556E+04);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_90MPa_6s)
+	{
+		//kPa
+		double testPressure = 90 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 6;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.103801126E+04);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_20MPa_5_75s)
+	{
+		//kPa
+		double testPressure = 20 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 5.75;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.697992849E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_80MPa_5_25s)
+	{
+		//kPa
+		double testPressure = 80 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 5.25;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.854011484E+03);
+
+		bool TPass = IS_ACCEPTABLE(TErr);
+
+		ASSERT_TRUE(TPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Temperature_as_a_functions_of_pressure_entropy_Region2_80MPa_5_75s)
+	{
+		//kPa
+		double testPressure = 80 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 5.75;
+
+		double T = T_P_s_R2(testPressure, testEntropy);
+
+		double TErr = CALC_ABSERR(T, 0.949017998E+03);
 
 		bool TPass = IS_ACCEPTABLE(TErr);
 
