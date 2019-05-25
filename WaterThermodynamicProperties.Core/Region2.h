@@ -432,6 +432,7 @@ static double _T_R2_P_h(double inputPress, double inputEnth)
 
 		return _T_R2b_P_h(pi, eta);
 	}
+
 	else
 	{
 		double pi = _pi_R2c_T_P_h(inputPress);
