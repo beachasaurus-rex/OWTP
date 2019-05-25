@@ -162,4 +162,10 @@
 		return w_R2_T_P(temp, press);
 	}
 
+	//properties as a function of pressure and enthalpy
+	DLL_EXPORT double T_P_h_R2(double press, double enth)
+	{
+		return T_R2_P_h(press, enth);
+	}
+
 #endif
