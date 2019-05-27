@@ -207,9 +207,9 @@
 	{
 		return u_R2_P_s(press, entr);
 	}
-	DLL_EXPORT double s_P_s_R2(double press, double entr)
+	DLL_EXPORT double h_P_s_R2(double press, double entr)
 	{
-		return s_R2_P_s(press, entr);
+		return h_R2_P_s(press, entr);
 	}
 	DLL_EXPORT double cp_P_s_R2(double press, double entr)
 	{
