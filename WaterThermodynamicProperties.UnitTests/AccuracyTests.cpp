@@ -835,6 +835,124 @@ namespace Tests_Region2
 		ASSERT_TRUE(wPass);
 	}
 
+	TEST(TestPropertyAccuracy_Region2, Properties_as_functions_of_pressure_enthalpy_Region2_h_at_300K_0_0035MPa)
+	{
+		//kPa
+		double testPress = 0.0035 * 1000;
+		//kJ / kg
+		double testEnthalpy = 0.254991145E+04;
+
+		double v = v_P_h_R2(testPress, testEnthalpy);
+		double u = u_P_h_R2(testPress, testEnthalpy);
+		double s = s_P_h_R2(testPress, testEnthalpy);
+		double T = T_P_h_R2(testPress, testEnthalpy);
+		double cp = cp_P_h_R2(testPress, testEnthalpy);
+		double cv = cv_P_h_R2(testPress, testEnthalpy);
+		double w = w_P_h_R2(testPress, testEnthalpy);
+
+		double vErr = CALC_ABSERR(v, 0.394913866E+02);
+		double uErr = CALC_ABSERR(u, 0.241169160E+04);
+		double sErr = CALC_ABSERR(s, 0.852238967E+01);
+		double TErr = CALC_ABSERR(T, 300);
+		double cpErr = CALC_ABSERR(cp, 0.191300162E+01);
+		double cvErr = CALC_ABSERR(cv, 1.441326618975);
+		double wErr = CALC_ABSERR(w, 0.427920172E+03);
+
+		bool vPass = IS_ACCEPTABLE(vErr);
+		bool uPass = IS_ACCEPTABLE(uErr);
+		bool sPass = IS_ACCEPTABLE(sErr);
+		bool TPass = IS_ACCEPTABLE(TErr);
+		bool cpPass = IS_ACCEPTABLE(cpErr);
+		bool cvPass = IS_ACCEPTABLE(cvErr);
+		bool wPass = IS_ACCEPTABLE(wErr);
+
+		ASSERT_TRUE(vPass);
+		ASSERT_TRUE(uPass);
+		ASSERT_TRUE(sPass);
+		ASSERT_TRUE(TPass);
+		ASSERT_TRUE(cpPass);
+		ASSERT_TRUE(cvPass);
+		ASSERT_TRUE(wPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Properties_as_functions_of_pressure_enthalpy_Region2_h_at_700K_0_0035MPa)
+	{
+		//kPa
+		double testPress = 0.0035 * 1000;
+		//kJ / kg
+		double testEnthalpy = 0.333568375E+04;
+
+		double v = v_P_h_R2(testPress, testEnthalpy);
+		double u = u_P_h_R2(testPress, testEnthalpy);
+		double s = s_P_h_R2(testPress, testEnthalpy);
+		double T = T_P_h_R2(testPress, testEnthalpy);
+		double cp = cp_P_h_R2(testPress, testEnthalpy);
+		double cv = cv_P_h_R2(testPress, testEnthalpy);
+		double w = w_P_h_R2(testPress, testEnthalpy);
+
+		double vErr = CALC_ABSERR(v, 0.923015898E+02);
+		double uErr = CALC_ABSERR(u, 0.301262819E+04);
+		double sErr = CALC_ABSERR(s, 0.101749996E+02);
+		double TErr = CALC_ABSERR(T, 700);
+		double cpErr = CALC_ABSERR(cp, 0.208141274E+01);
+		double cvErr = CALC_ABSERR(cv, 1.6197833256);
+		double wErr = CALC_ABSERR(w, 0.644289068E+03);
+
+		bool vPass = IS_ACCEPTABLE(vErr);
+		bool uPass = IS_ACCEPTABLE(uErr);
+		bool sPass = IS_ACCEPTABLE(sErr);
+		bool TPass = IS_ACCEPTABLE(TErr);
+		bool cpPass = IS_ACCEPTABLE(cpErr);
+		bool cvPass = IS_ACCEPTABLE(cvErr);
+		bool wPass = IS_ACCEPTABLE(wErr);
+
+		ASSERT_TRUE(vPass);
+		ASSERT_TRUE(uPass);
+		ASSERT_TRUE(sPass);
+		ASSERT_TRUE(TPass);
+		ASSERT_TRUE(cpPass);
+		ASSERT_TRUE(cvPass);
+		ASSERT_TRUE(wPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Properties_as_functions_of_pressure_enthalpy_Region2_h_at_700K_30MPa)
+	{
+		//kPa
+		double testPress = 30 * 1000;
+		//kJ / kg
+		double testEnthalpy = 0.263149474E+04;
+
+		double v = v_P_h_R2(testPress, testEnthalpy);
+		double u = u_P_h_R2(testPress, testEnthalpy);
+		double s = s_P_h_R2(testPress, testEnthalpy);
+		double T = T_P_h_R2(testPress, testEnthalpy);
+		double cp = cp_P_h_R2(testPress, testEnthalpy);
+		double cv = cv_P_h_R2(testPress, testEnthalpy);
+		double w = w_P_h_R2(testPress, testEnthalpy);
+
+		double vErr = CALC_ABSERR(v, 0.542946619E-02);
+		double uErr = CALC_ABSERR(u, 0.246861076E+04);
+		double sErr = CALC_ABSERR(s, 0.517540298E+01);
+		double TErr = CALC_ABSERR(T, 700);
+		double cpErr = CALC_ABSERR(cp, 0.103505092E+02);
+		double cvErr = CALC_ABSERR(cv, 2.975538368909);
+		double wErr = CALC_ABSERR(w, 0.480386523E+03);
+
+		bool vPass = IS_ACCEPTABLE(vErr);
+		bool uPass = IS_ACCEPTABLE(uErr);
+		bool sPass = IS_ACCEPTABLE(sErr);
+		bool TPass = IS_ACCEPTABLE(TErr);
+		bool cpPass = IS_ACCEPTABLE(cpErr);
+		bool cvPass = IS_ACCEPTABLE(cvErr);
+		bool wPass = IS_ACCEPTABLE(wErr);
+
+		ASSERT_TRUE(vPass);
+		ASSERT_TRUE(uPass);
+		ASSERT_TRUE(sPass);
+		ASSERT_TRUE(TPass);
+		ASSERT_TRUE(cpPass);
+		ASSERT_TRUE(cvPass);
+		ASSERT_TRUE(wPass);
+	}
+
 	//The pressure and enthalpy data points for Region2 were 
 	//suggested by the IAPWS in "Revised Release on IAPWS
 	//Inductrial Formulation 1997 for the Thermodynamic
