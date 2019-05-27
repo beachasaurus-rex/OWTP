@@ -63,6 +63,12 @@ extern "C"
 	//properties as a function of pressure and enthalpy
 
 	DLL_IMPORT double T_P_h_R2(double, double);
+	DLL_IMPORT double v_P_h_R2(double, double);
+	DLL_IMPORT double u_P_h_R2(double, double);
+	DLL_IMPORT double s_P_h_R2(double, double);
+	DLL_IMPORT double cp_P_h_R2(double, double);
+	DLL_IMPORT double cv_P_h_R2(double, double);
+	DLL_IMPORT double w_P_h_R2(double, double);
 
 	//properties as a function of pressure and enthalpy
 
