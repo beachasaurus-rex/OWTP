@@ -168,29 +168,29 @@
 	{
 		return T_R2_P_h(press, enth);
 	}
-	DLL_EXPORT double v_P_h_R2(double temp, double press)
+	DLL_EXPORT double v_P_h_R2(double press, double enth)
 	{
-		return v_R2_P_h(temp, press);
+		return v_R2_P_h(press, enth);
 	}
-	DLL_EXPORT double u_P_h_R2(double temp, double press)
+	DLL_EXPORT double u_P_h_R2(double press, double enth)
 	{
-		return u_R2_P_h(temp, press);
+		return u_R2_P_h(press, enth);
 	}
-	DLL_EXPORT double s_P_h_R2(double temp, double press)
+	DLL_EXPORT double s_P_h_R2(double press, double enth)
 	{
-		return s_R2_P_h(temp, press);
+		return s_R2_P_h(press, enth);
 	}
-	DLL_EXPORT double cp_P_h_R2(double temp, double press)
+	DLL_EXPORT double cp_P_h_R2(double press, double enth)
 	{
-		return cp_R2_P_h(temp, press);
+		return cp_R2_P_h(press, enth);
 	}
-	DLL_EXPORT double cv_P_h_R2(double temp, double press)
+	DLL_EXPORT double cv_P_h_R2(double press, double enth)
 	{
-		return cv_R2_P_h(temp, press);
+		return cv_R2_P_h(press, enth);
 	}
-	DLL_EXPORT double w_P_h_R2(double temp, double press)
+	DLL_EXPORT double w_P_h_R2(double press, double enth)
 	{
-		return w_R2_P_h(temp, press);
+		return w_R2_P_h(press, enth);
 	}
 
 	//properties as a function of pressure and entropy
@@ -198,6 +198,30 @@
 	DLL_EXPORT double T_P_s_R2(double press, double entr)
 	{
 		return T_R2_P_s(press, entr);
+	}
+	DLL_EXPORT double v_P_s_R2(double press, double entr)
+	{
+		return v_R2_P_s(press, entr);
+	}
+	DLL_EXPORT double u_P_s_R2(double press, double entr)
+	{
+		return u_R2_P_s(press, entr);
+	}
+	DLL_EXPORT double h_P_s_R2(double press, double entr)
+	{
+		return h_R2_P_s(press, entr);
+	}
+	DLL_EXPORT double cp_P_s_R2(double press, double entr)
+	{
+		return cp_R2_P_s(press, entr);
+	}
+	DLL_EXPORT double cv_P_s_R2(double press, double entr)
+	{
+		return cv_R2_P_s(press, entr);
+	}
+	DLL_EXPORT double w_P_s_R2(double press, double entr)
+	{
+		return w_R2_P_s(press, entr);
 	}
 
 #endif

@@ -70,9 +70,15 @@ extern "C"
 	DLL_IMPORT double cv_P_h_R2(double, double);
 	DLL_IMPORT double w_P_h_R2(double, double);
 
-	//properties as a function of pressure and enthalpy
+	//properties as a function of pressure and entropy
 
 	DLL_IMPORT double T_P_s_R2(double, double);
+	DLL_IMPORT double v_P_s_R2(double, double);
+	DLL_IMPORT double u_P_s_R2(double, double);
+	DLL_IMPORT double h_P_s_R2(double, double);
+	DLL_IMPORT double cp_P_s_R2(double, double);
+	DLL_IMPORT double cv_P_s_R2(double, double);
+	DLL_IMPORT double w_P_s_R2(double, double);
 }
 
 namespace Tests_Region1
@@ -947,6 +953,124 @@ namespace Tests_Region2
 		ASSERT_TRUE(vPass);
 		ASSERT_TRUE(uPass);
 		ASSERT_TRUE(sPass);
+		ASSERT_TRUE(TPass);
+		ASSERT_TRUE(cpPass);
+		ASSERT_TRUE(cvPass);
+		ASSERT_TRUE(wPass);
+	}
+
+	TEST(TestPropertyAccuracy_Region2, Properties_as_functions_of_pressure_entropy_Region2_s_at_300K_0_0035MPa)
+	{
+		//kPa
+		double testPress = 0.0035 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 0.852238967E+01;
+
+		double v = v_P_s_R2(testPress, testEntropy);
+		double u = u_P_s_R2(testPress, testEntropy);
+		double h = h_P_s_R2(testPress, testEntropy);
+		double T = T_P_s_R2(testPress, testEntropy);
+		double cp = cp_P_s_R2(testPress, testEntropy);
+		double cv = cv_P_s_R2(testPress, testEntropy);
+		double w = w_P_s_R2(testPress, testEntropy);
+
+		double vErr = CALC_ABSERR(v, 0.394913866E+02);
+		double uErr = CALC_ABSERR(u, 0.241169160E+04);
+		double hErr = CALC_ABSERR(h, 0.254991145E+04);
+		double TErr = CALC_ABSERR(T, 300);
+		double cpErr = CALC_ABSERR(cp, 0.191300162E+01);
+		double cvErr = CALC_ABSERR(cv, 1.441326618975);
+		double wErr = CALC_ABSERR(w, 0.427920172E+03);
+
+		bool vPass = IS_ACCEPTABLE(vErr);
+		bool uPass = IS_ACCEPTABLE(uErr);
+		bool hPass = IS_ACCEPTABLE(hErr);
+		bool TPass = IS_ACCEPTABLE(TErr);
+		bool cpPass = IS_ACCEPTABLE(cpErr);
+		bool cvPass = IS_ACCEPTABLE(cvErr);
+		bool wPass = IS_ACCEPTABLE(wErr);
+
+		ASSERT_TRUE(vPass);
+		ASSERT_TRUE(uPass);
+		ASSERT_TRUE(hPass);
+		ASSERT_TRUE(TPass);
+		ASSERT_TRUE(cpPass);
+		ASSERT_TRUE(cvPass);
+		ASSERT_TRUE(wPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Properties_as_functions_of_pressure_entropy_Region2_s_at_700K_0_0035MPa)
+	{
+		//kPa
+		double testPress = 0.0035 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 0.101749996E+02;
+
+		double v = v_P_s_R2(testPress, testEntropy);
+		double u = u_P_s_R2(testPress, testEntropy);
+		double h = h_P_s_R2(testPress, testEntropy);
+		double T = T_P_s_R2(testPress, testEntropy);
+		double cp = cp_P_s_R2(testPress, testEntropy);
+		double cv = cv_P_s_R2(testPress, testEntropy);
+		double w = w_P_s_R2(testPress, testEntropy);
+
+		double vErr = CALC_ABSERR(v, 0.923015898E+02);
+		double uErr = CALC_ABSERR(u, 0.301262819E+04);
+		double hErr = CALC_ABSERR(h, 0.333568375E+04);
+		double TErr = CALC_ABSERR(T, 700);
+		double cpErr = CALC_ABSERR(cp, 0.208141274E+01);
+		double cvErr = CALC_ABSERR(cv, 1.6197833256);
+		double wErr = CALC_ABSERR(w, 0.644289068E+03);
+
+		bool vPass = IS_ACCEPTABLE(vErr);
+		bool uPass = IS_ACCEPTABLE(uErr);
+		bool hPass = IS_ACCEPTABLE(hErr);
+		bool TPass = IS_ACCEPTABLE(TErr);
+		bool cpPass = IS_ACCEPTABLE(cpErr);
+		bool cvPass = IS_ACCEPTABLE(cvErr);
+		bool wPass = IS_ACCEPTABLE(wErr);
+
+		ASSERT_TRUE(vPass);
+		ASSERT_TRUE(uPass);
+		ASSERT_TRUE(hPass);
+		ASSERT_TRUE(TPass);
+		ASSERT_TRUE(cpPass);
+		ASSERT_TRUE(cvPass);
+		ASSERT_TRUE(wPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Properties_as_functions_of_pressure_entropy_Region2_s_at_700K_30MPa)
+	{
+		//kPa
+		double testPress = 30 * 1000;
+		//kJ / (kg * K)
+		double testEntropy = 0.517540298E+01;
+
+		double v = v_P_s_R2(testPress, testEntropy);
+		double u = u_P_s_R2(testPress, testEntropy);
+		double h = h_P_s_R2(testPress, testEntropy);
+		double T = T_P_s_R2(testPress, testEntropy);
+		double cp = cp_P_s_R2(testPress, testEntropy);
+		double cv = cv_P_s_R2(testPress, testEntropy);
+		double w = w_P_s_R2(testPress, testEntropy);
+
+		double vErr = CALC_ABSERR(v, 0.542946619E-02);
+		double uErr = CALC_ABSERR(u, 0.246861076E+04);
+		double hErr = CALC_ABSERR(h, 0.263149474E+04);
+		double TErr = CALC_ABSERR(T, 700);
+		double cpErr = CALC_ABSERR(cp, 0.103505092E+02);
+		double cvErr = CALC_ABSERR(cv, 2.975538368909);
+		double wErr = CALC_ABSERR(w, 0.480386523E+03);
+
+		bool vPass = IS_ACCEPTABLE(vErr);
+		bool uPass = IS_ACCEPTABLE(uErr);
+		bool hPass = IS_ACCEPTABLE(hErr);
+		bool TPass = IS_ACCEPTABLE(TErr);
+		bool cpPass = IS_ACCEPTABLE(cpErr);
+		bool cvPass = IS_ACCEPTABLE(cvErr);
+		bool wPass = IS_ACCEPTABLE(wErr);
+
+		ASSERT_TRUE(vPass);
+		ASSERT_TRUE(uPass);
+		ASSERT_TRUE(hPass);
 		ASSERT_TRUE(TPass);
 		ASSERT_TRUE(cpPass);
 		ASSERT_TRUE(cvPass);

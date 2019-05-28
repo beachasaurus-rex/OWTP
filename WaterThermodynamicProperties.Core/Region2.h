@@ -411,7 +411,7 @@ static double _T_R2c_P_h(double pi, double eta)
 	return sum * _tStar_R2c_T_P_h;
 }
 
-//State Property Functions as a Function of Pressure and enthalpy
+//State Property Functions as a Function of Pressure and Enthalpy
 
 //temperature of region 2 as a function of pressure and enthalpy
 double T_R2_P_h(double inputPress, double inputEnth)
@@ -588,7 +588,9 @@ static double _T_R2c_P_s(double pi, double sigma)
 	return sum * _tStar_R2c_T_P_s;
 }
 
-//Temperature as a function of pressure and entropy
+//State Property Functions as a Function of Pressure and Entropy
+
+//temperature of region 2 as a function of pressure and entropy
 static double T_R2_P_s(double inputPress, double inputEntr)
 {
 	//kPa
@@ -617,4 +619,40 @@ static double T_R2_P_s(double inputPress, double inputEntr)
 
 		return _T_R2c_P_s(pi, sigma);
 	}
+}
+//specific volume of region 2 as a function of pressure and entropy
+double v_R2_P_s(double inputPress, double inputEntr)
+{
+	double T = T_R2_P_s(inputPress, inputEntr);
+	return v_R2_T_P(T, inputPress);
+}
+//specific internal energy of region 2 as a function of pressure and entropy
+double u_R2_P_s(double inputPress, double inputEntr)
+{
+	double T = T_R2_P_s(inputPress, inputEntr);
+	return u_R2_T_P(T, inputPress);
+}
+//specific entropy of region 2 as a function of pressure and entropy
+double h_R2_P_s(double inputPress, double inputEntr)
+{
+	double T = T_R2_P_s(inputPress, inputEntr);
+	return h_R2_T_P(T, inputPress);
+}
+//specific isobaric heat capacity of region 2 as a function of pressure and entropy
+double cp_R2_P_s(double inputPress, double inputEntr)
+{
+	double T = T_R2_P_s(inputPress, inputEntr);
+	return cp_R2_T_P(T, inputPress);
+}
+//specific isochoric heat capacity of region 2 as a function of pressure and entropy
+double cv_R2_P_s(double inputPress, double inputEntr)
+{
+	double T = T_R2_P_s(inputPress, inputEntr);
+	return cv_R2_T_P(T, inputPress);
+}
+//speed of sound of region 2 as a function of pressure and entropy
+double w_R2_P_s(double inputPress, double inputEntr)
+{
+	double T = T_R2_P_s(inputPress, inputEntr);
+	return w_R2_T_P(T, inputPress);
 }
