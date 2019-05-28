@@ -228,7 +228,7 @@
 
 	DLL_EXPORT double P_h_s_R2(double enthalpy, double entropy)
 	{
-		return P_h_s_R2(enthalpy, entropy);
+		return P_R2_h_s(enthalpy, entropy);
 	}
 
 #endif

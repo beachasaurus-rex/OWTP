@@ -79,6 +79,10 @@ extern "C"
 	DLL_IMPORT double cp_P_s_R2(double, double);
 	DLL_IMPORT double cv_P_s_R2(double, double);
 	DLL_IMPORT double w_P_s_R2(double, double);
+
+	//properties as a function of enthalpy and entropy
+
+	DLL_IMPORT double P_h_s_R2(double, double);
 }
 
 namespace Tests_Region1
@@ -1357,6 +1361,158 @@ namespace Tests_Region2
 		bool TPass = IS_ACCEPTABLE(TErr);
 
 		ASSERT_TRUE(TPass);
+	}
+
+	//The pressure and enthalpy data points for Region2 were 
+	//suggested by the IAPWS in "Supplementary Release on Backward
+	//Equations for Pressure as a Function of Enthalpy and Entropy
+	//p(h,s) for Regions 1 and 2 of the IAPWS Industrial Formulation
+	//1997 for the Thermodynamic Properties of Water and Steam" in 
+	//Table 9 on page 10.
+
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_2800h_6_5s)
+	{
+		//kJ / kg
+		double testEnthalpy = 2800;
+		//kJ / (kg * K)
+		double testEntropy = 6.5;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 1.371012767);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_2800h_9_5s)
+	{
+		//kJ / kg
+		double testEnthalpy = 2800;
+		//kJ / (kg * K)
+		double testEntropy = 9.5;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 1.879743844E-03);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_4100h_9_5s)
+	{
+		//kJ / kg
+		double testEnthalpy = 4100;
+		//kJ / (kg * K)
+		double testEntropy = 9.5;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 1.024788997E-01);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_2800h_6s)
+	{
+		//kJ / kg
+		double testEnthalpy = 2800;
+		//kJ / (kg * K)
+		double testEntropy = 6;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 4.793911442);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_3600h_6s)
+	{
+		//kJ / kg
+		double testEnthalpy = 3600;
+		//kJ / (kg * K)
+		double testEntropy = 6;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 8.395519209E+01);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_3600h_7s)
+	{
+		//kJ / kg
+		double testEnthalpy = 3600;
+		//kJ / (kg * K)
+		double testEntropy = 7;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 7.527161441);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_2800h_5_1s)
+	{
+		//kJ / kg
+		double testEnthalpy = 2800;
+		//kJ / (kg * K)
+		double testEntropy = 5.1;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 9.439202060E+01);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_2800h_5_8s)
+	{
+		//kJ / kg
+		double testEnthalpy = 2800;
+		//kJ / (kg * K)
+		double testEntropy = 5.8;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 8.414574124);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
+	}
+	TEST(TestPropertyAccuracy_Region2, Pressure_as_a_functions_of_enthalpy_entropy_Region2_3400h_5_8s)
+	{
+		//kJ / kg
+		double testEnthalpy = 3400;
+		//kJ / (kg * K)
+		double testEntropy = 5.8;
+
+		double P = P_h_s_R2(testEnthalpy, testEntropy);
+		P = P / 1000;
+
+		double PErr = CALC_ABSERR(P, 8.376903879E+01);
+
+		bool PPass = IS_ACCEPTABLE(PErr);
+
+		ASSERT_TRUE(PPass);
 	}
 }
 
