@@ -656,3 +656,171 @@ double w_R2_P_s(double inputPress, double inputEntr)
 	double T = T_R2_P_s(inputPress, inputEntr);
 	return w_R2_T_P(T, inputPress);
 }
+
+//Boundary Iteration Constants for boundary equation between Regions 2a and 2b for
+//Pressure as a function of Enthalpy and Entropy
+
+static double _n_R2B_P_h_s[4] = { -0.349898083432139E+04, 0.257560716905876E+04, -0.421073558227969E+03, 0.276349063799944E+02 };
+
+//kJ / kg
+static double _hStar_R2B_P_h_s = 1;
+//kJ / (kg * K)
+static double _sStar_R2B_P_h_s = 1;
+static double _sigma_R2B_P_h_s(double inputEntropy)
+{
+	return inputEntropy / _sStar_R2B_P_h_s;
+}
+
+//enthalpy on the boundary of regions 2b and 2a
+static double _h_R2B_P_h_s(double inputEntropy)
+{
+	double sigma = _sigma_R2B_P_h_s(inputEntropy);
+	return _hStar_R2B_P_h_s * (_n_R2B_P_h_s[0] + (_n_R2B_P_h_s[1] * sigma) + (_n_R2B_P_h_s[2] * pow(sigma, 2)) + (_n_R2B_P_h_s[3] * pow(sigma, 3)));
+}
+
+//Iteration Constants for Region 2a for Pressure as a function of
+//Enthalpy and Entropy
+
+static int _i_R2a_P_h_s[29] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 };
+static double _I_R2a_P_h_s[29] = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 6, 7 };
+static double _J_R2a_P_h_s[29] = { 1, 3, 6, 16, 20, 22, 0, 1, 2, 3, 5, 6, 10, 16, 20, 22, 3, 16, 20, 0, 2, 3, 6, 16, 16, 3, 16, 3, 1 };
+static double _n_R2a_P_h_s[29] = { -1.82575361923032E-02, -0.125229548799536, 0.592290437320145, 6.04769706185122, 238.624965444474, -298.639090222922, 0.051225081304075, -0.437266515606486, 0.413336902999504, -5.16468254574773, -5.57014838445711, 12.8555037824478, 11.414410895329, -119.504225652714, -2847.7798596156, 4317.57846408006, 1.1289404080265, 1974.09186206319, 1516.12444706087, 1.41324451421235E-02, 0.585501282219601, -2.97258075863012, 5.94567314847319, -6236.56565798905, 9659.86235133332, 6.81500934948134, -6332.07286824489, -5.5891922446576, 4.00645798472063E-02 };
+
+//kPa
+static double _pStar_R2a_P_h_s = 4 * 1000;
+//kJ / kg
+static double _hStar_R2a_P_h_s = 4200;
+//kJ / (kg * K)
+static double _sStar_R2a_P_h_s = 12;
+static double _eta_R2a_P_h_s(double inputEnthalpy)
+{
+	return inputEnthalpy / _hStar_R2a_P_h_s;
+}
+static double _sigma_R2a_P_h_s(double inputEntropy)
+{
+	return inputEntropy / _sStar_R2a_P_h_s;
+}
+
+//Pressure as a function of enthalpy and entropy for region 2a
+static double _P_R2a_h_s(double eta, double sigma)
+{
+	double sum = 0;
+
+	for (int i = 0; i < ITERCONST(_i_R2a_P_h_s); i++)
+	{
+		sum = sum + _n_R2a_P_h_s[i] * pow(eta - 0.5, _I_R2a_P_h_s[i]) * pow(sigma - 1.2, _J_R2a_P_h_s[i]);
+	}
+
+	sum = pow(sum, 4);
+
+	return sum * _pStar_R2a_P_h_s;
+}
+
+//Iteration Constants for Region 2b for Pressure as a function of
+//Enthalpy and Entropy
+
+static int _i_R2b_P_h_s[33] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 };
+static double _I_R2b_P_h_s[33] = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 8, 12, 14 };
+static double _J_R2b_P_h_s[33] = { 0, 1, 2, 4, 8, 0, 1, 2, 3, 5, 12, 1, 6, 18, 0, 1, 7, 12, 1, 16, 1, 12, 1, 8, 18, 1, 16, 1, 3, 14, 18, 10, 16 };
+static double _n_R2b_P_h_s[33] = { 8.01496989929495E-02, -0.543862807146111, 0.337455597421283, 8.9055545115745, 313.840736431485, 0.797367065977789, -1.2161697355624, 8.72803386937477, -16.9769781757602, -186.552827328416, 95115.9274344237, -18.9168510120494, -4334.0703719484, 543212633.012715, 0.144793408386013, 128.024559637516, -67230.9534071268, 33697238.0095287, -586.63419676272, -22140322476.9889, 1716.06668708389, -570817595.806302, -3121.09693178482, -2078413.8463301, 3056059461577.86, 3221.57004314333, 326810259797.295, -1441.04158934487, 410.694867802691, 109077066873.024, -24796465425889.3, 1888019068.65134, -123651009018773 };
+
+//kPa
+static double _pStar_R2b_P_h_s = 100 * 1000;
+//kJ / kg
+static double _hStar_R2b_P_h_s = 4100;
+//kJ / (kg * K)
+static double _sStar_R2b_P_h_s = 7.9;
+static double _eta_R2b_P_h_s(double inputEnthalpy)
+{
+	return inputEnthalpy / _hStar_R2b_P_h_s;
+}
+static double _sigma_R2b_P_h_s(double inputEntropy)
+{
+	return inputEntropy / _sStar_R2b_P_h_s;
+}
+
+//Pressure as a function of enthalpy and entropy for region 2b
+static double _P_R2b_h_s(double eta, double sigma)
+{
+	double sum = 0;
+
+	for (int i = 0; i < ITERCONST(_i_R2b_P_h_s); i++)
+	{
+		sum = sum + _n_R2b_P_h_s[i] * pow(eta - 0.6, _I_R2b_P_h_s[i]) * pow(sigma - 1.01, _J_R2b_P_h_s[i]);
+	}
+
+	sum = pow(sum, 4);
+
+	return sum * _pStar_R2b_P_h_s;
+}
+
+//Iteration Constants for Region 2c for Pressure as a function of
+//Enthalpy and Entropy
+
+static int _i_R2c_P_h_s[31] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 };
+static double _I_R2c_P_h_s[31] = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 6, 6, 10, 12, 16 };
+static double _J_R2c_P_h_s[31] = { 0, 1, 2, 3, 4, 8, 0, 2, 5, 8, 14, 2, 3, 7, 10, 18, 0, 5, 8, 16, 18, 18, 1, 4, 6, 14, 8, 18, 7, 7, 10 };
+static double _n_R2c_P_h_s[31] = { 0.112225607199012, -3.39005953606712, -32.0503911730094, -197.5973051049, -407.693861553446, 13294.3775222331, 1.70846839774007, 37.3694198142245, 3581.44365815434, 423014.446424664, -751071025.760063, 52.3446127607898, -228.351290812417, -960652.417056937, -80705929.2526074, 1626980172256.69, 0.772465073604171, 46392.9973837746, -13731788.5134128, 1704703926305.12, -25110462818730.8, 31774883083552, 53.8685623675312, -55308.9094625169, -1028615.22421405, 2042494187562.34, 273918446.626977, -2.63963146312685E+15, -1078908541.08088, -29649262098.0124, -1.11754907323424E+15 };
+
+//kPa
+static double _pStar_R2c_P_h_s = 100 * 1000;
+//kJ / kg
+static double _hStar_R2c_P_h_s = 3500;
+//kJ / (kg * K)
+static double _sStar_R2c_P_h_s = 5.9;
+static double _eta_R2c_P_h_s(double inputEnthalpy)
+{
+	return inputEnthalpy / _hStar_R2c_P_h_s;
+}
+static double _sigma_R2c_P_h_s(double inputEntropy)
+{
+	return inputEntropy / _sStar_R2c_P_h_s;
+}
+
+//Pressure as a function of enthalpy and entropy for region 2c
+static double _P_R2c_h_s(double eta, double sigma)
+{
+	double sum = 0;
+
+	for (int i = 0; i < ITERCONST(_i_R2c_P_h_s); i++)
+	{
+		sum = sum + _n_R2c_P_h_s[i] * pow(eta - 0.7, _I_R2c_P_h_s[i]) * pow(sigma - 1.1, _J_R2c_P_h_s[i]);
+	}
+
+	sum = pow(sum, 4);
+
+	return sum * _pStar_R2c_P_h_s;
+}
+
+//State Property Functions as a Function of Enthalpy and Entropy
+
+//pressure of region 2 as a function of enthalpy and entropy
+double P_R2_h_s(double inputEnthalpy, double inputEntropy)
+{
+	//kJ / (kg * K)
+	double sBound = 5.85;
+	//kJ / kg
+	double hBound = _h_R2B_P_h_s(inputEntropy);
+
+	if (inputEntropy < sBound)
+	{
+		double eta = _eta_R2c_P_h_s(inputEnthalpy);
+		double sigma = _sigma_R2c_P_h_s(inputEntropy);
+
+		return _P_R2c_h_s(eta, sigma);
+	}
+	else if (inputEnthalpy > hBound)
+	{
+		double eta = _eta_R2b_P_h_s(inputEnthalpy);
+		double sigma = _sigma_R2b_P_h_s(inputEntropy);
+
+		return _P_R2b_h_s(eta, sigma);
+	}
+	else
+	{
+		double eta = _eta_R2a_P_h_s(inputEnthalpy);
+		double sigma = _sigma_R2a_P_h_s(inputEntropy);
+
+		return _P_R2a_h_s(eta, sigma);
+	}
+}
