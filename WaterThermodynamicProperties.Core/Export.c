@@ -224,4 +224,11 @@
 		return w_R2_P_s(press, entr);
 	}
 
+	//properties as a function of enthalpy and entropy
+
+	DLL_EXPORT double P_h_s_R2(double enthalpy, double entropy)
+	{
+		return P_R2_h_s(enthalpy, entropy);
+	}
+
 #endif
