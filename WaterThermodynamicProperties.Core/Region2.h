@@ -633,10 +633,10 @@ double u_R2_P_s(double inputPress, double inputEntr)
 	return u_R2_T_P(T, inputPress);
 }
 //specific entropy of region 2 as a function of pressure and entropy
-double s_R2_P_s(double inputPress, double inputEntr)
+double h_R2_P_s(double inputPress, double inputEntr)
 {
 	double T = T_R2_P_s(inputPress, inputEntr);
-	return s_R2_T_P(T, inputPress);
+	return h_R2_T_P(T, inputPress);
 }
 //specific isobaric heat capacity of region 2 as a function of pressure and entropy
 double cp_R2_P_s(double inputPress, double inputEntr)
