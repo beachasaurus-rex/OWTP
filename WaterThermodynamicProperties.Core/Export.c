@@ -230,5 +230,29 @@
 	{
 		return P_R2_h_s(enthalpy, entropy);
 	}
+	DLL_EXPORT double T_h_s_R2(double enthalpy, double entropy)
+	{
+		return T_R2_h_s(enthalpy, entropy);
+	}
+	DLL_EXPORT double v_h_s_R2(double enthalpy, double entropy)
+	{
+		return v_R2_h_s(enthalpy, entropy);
+	}
+	DLL_EXPORT double u_h_s_R2(double enthalpy, double entropy)
+	{
+		return u_R2_h_s(enthalpy, entropy);
+	}
+	DLL_EXPORT double cp_h_s_R2(double enthalpy, double entropy)
+	{
+		return cp_R2_h_s(enthalpy, entropy);
+	}
+	DLL_EXPORT double cv_h_s_R2(double enthalpy, double entropy)
+	{
+		return cv_R2_h_s(enthalpy, entropy);
+	}
+	DLL_EXPORT double w_h_s_R2(double enthalpy, double entropy)
+	{
+		return w_R2_h_s(enthalpy, entropy);
+	}
 
 #endif
