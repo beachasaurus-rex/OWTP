@@ -55,6 +55,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region2", "Region2", "{3213
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region3", "Region3", "{E04D5022-B108-4BB0-A35E-D857B1841522}"
+	ProjectSection(SolutionItems) = preProject
+		src\documentation\references\IteratorVariableData\Region3\IAPWS-IF97-Region3-VPT.xlsx = src\documentation\references\IteratorVariableData\Region3\IAPWS-IF97-Region3-VPT.xlsx
+		src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3.csv = src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3.csv
+		src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tph_3a.csv = src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tph_3a.csv
+		src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tps_3a.csv = src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tps_3a.csv
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region4", "Region4", "{06A917AD-D91E-45E6-B1ED-5E91ED0CAFCD}"
 EndProject
