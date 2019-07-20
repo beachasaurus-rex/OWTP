@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AccuracyTests
+namespace WaterThermodynamicProperties.Tests.AccuracyTests
 {
     [TestClass]
     public class Region1AccTests : AccuracyTestBase

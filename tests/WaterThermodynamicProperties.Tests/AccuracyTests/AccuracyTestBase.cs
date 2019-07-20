@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AccuracyTests
+namespace WaterThermodynamicProperties.Tests.AccuracyTests
 {
     public abstract class AccuracyTestBase
     {
