@@ -3,37 +3,110 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaterThermodynamicProperties.Core", "WaterThermodynamicProperties.Core\WaterThermodynamicProperties.Core.vcxproj", "{E1CB8A93-8903-4344-AB04-17D74CF89025}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{84914369-A560-476C-AC87-2EC04699683F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaterThermodynamicProperties.UnitTests", "WaterThermodynamicProperties.UnitTests\WaterThermodynamicProperties.UnitTests.vcxproj", "{86808BCB-233C-47E3-A172-ADB23E2BC01D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FE388E1B-827C-4CF7-A57B-C8C0E133E4B9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaterThermodynamicProperties.Core", "src\WaterThermodynamicProperties.Core\WaterThermodynamicProperties.Core.vcxproj", "{E1CB8A93-8903-4344-AB04-17D74CF89025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterThermodynamicProperties.Tests", "tests\WaterThermodynamicProperties.Tests\WaterThermodynamicProperties.Tests.csproj", "{D0191601-814B-42B0-BDBA-F20CE3D4379E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{E6F4FF6B-1364-424F-8CA6-88D979D8E74A}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\SupportingDocs\Calling_C_Library_DLLs_from_C_sharp.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\SupportingDocs\Calling_C_Library_DLLs_from_C_sharp.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "references", "references", "{852614A2-AB3E-48FA-9E95-39E1F3F2ED6C}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IF97-Rev.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IF97-Rev.pdf
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-PHS12-2014.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-PHS12-2014.pdf
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-phs3-2014.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-phs3-2014.pdf
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-Tv(ph,ps)3-2014.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-Tv(ph,ps)3-2014.pdf
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-VPT3-2016.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-VPT3-2016.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IteratorVariableData", "IteratorVariableData", "{9A99C785-E676-4451-8234-10FA27B167A0}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_3vars.xlsm = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_3vars.xlsm
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_4vars.xlsm = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_4vars.xlsm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region1", "Region1", "{BB290385-6067-4D3E-8AF5-16BFBA162437}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_phs.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_phs.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tph.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tph.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tps.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tps.csv
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region2", "Region2", "{32134F16-B104-4336-AEC0-42C61139448D}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-0.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-0.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-r.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-r.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2a.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2a.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2b.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2b.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2c.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2c.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2a.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2a.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2b.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2b.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2c.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2c.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2a.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2a.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2b.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2b.csv
+		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2c.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2c.csv
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region3", "Region3", "{E04D5022-B108-4BB0-A35E-D857B1841522}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region4", "Region4", "{06A917AD-D91E-45E6-B1ED-5E91ED0CAFCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region5", "Region5", "{A13A014A-9EA6-4A7B-9D3F-610CF76648B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|x64.ActiveCfg = Debug|x64
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|x64.Build.0 = Debug|x64
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|x86.ActiveCfg = Debug|Win32
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|x86.Build.0 = Debug|Win32
+		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Release|Any CPU.ActiveCfg = Release|Win32
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Release|x64.ActiveCfg = Release|x64
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Release|x64.Build.0 = Release|x64
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Release|x86.ActiveCfg = Release|Win32
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Release|x86.Build.0 = Release|Win32
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Debug|x64.ActiveCfg = Debug|x64
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Debug|x64.Build.0 = Debug|x64
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Debug|x86.ActiveCfg = Debug|Win32
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Debug|x86.Build.0 = Debug|Win32
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Release|x64.ActiveCfg = Release|x64
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Release|x64.Build.0 = Release|x64
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Release|x86.ActiveCfg = Release|Win32
-		{86808BCB-233C-47E3-A172-ADB23E2BC01D}.Release|x86.Build.0 = Release|Win32
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Debug|x64.Build.0 = Debug|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Debug|x86.Build.0 = Debug|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Release|x64.ActiveCfg = Release|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Release|x64.Build.0 = Release|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Release|x86.ActiveCfg = Release|Any CPU
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1CB8A93-8903-4344-AB04-17D74CF89025} = {84914369-A560-476C-AC87-2EC04699683F}
+		{D0191601-814B-42B0-BDBA-F20CE3D4379E} = {FE388E1B-827C-4CF7-A57B-C8C0E133E4B9}
+		{E6F4FF6B-1364-424F-8CA6-88D979D8E74A} = {84914369-A560-476C-AC87-2EC04699683F}
+		{852614A2-AB3E-48FA-9E95-39E1F3F2ED6C} = {E6F4FF6B-1364-424F-8CA6-88D979D8E74A}
+		{9A99C785-E676-4451-8234-10FA27B167A0} = {852614A2-AB3E-48FA-9E95-39E1F3F2ED6C}
+		{BB290385-6067-4D3E-8AF5-16BFBA162437} = {9A99C785-E676-4451-8234-10FA27B167A0}
+		{32134F16-B104-4336-AEC0-42C61139448D} = {9A99C785-E676-4451-8234-10FA27B167A0}
+		{E04D5022-B108-4BB0-A35E-D857B1841522} = {9A99C785-E676-4451-8234-10FA27B167A0}
+		{06A917AD-D91E-45E6-B1ED-5E91ED0CAFCD} = {9A99C785-E676-4451-8234-10FA27B167A0}
+		{A13A014A-9EA6-4A7B-9D3F-610CF76648B5} = {9A99C785-E676-4451-8234-10FA27B167A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CF05EEA-F383-4300-8CFE-DE5F2524F2DD}
