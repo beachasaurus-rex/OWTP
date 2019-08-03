@@ -1,10 +1,29 @@
-#include "Region1.h"
-#include "Region2.h"
-
 #define DLL_EXPORT __declspec(dllexport)
 
+#include "Region1.h"
+#include "Region2.h"
+#include "RegionBoundaries.h"
+
 #if _DEBUG
-	
+	//Boundary - Region 2 & 3:
+
+	DLL_EXPORT double pi_R2_R3_b(double pressure)
+	{
+		return _pi_R2_R3_b(pressure);
+	}
+	DLL_EXPORT double theta_R2_R3_b(double temp)
+	{
+		return _theta_R2_R3_b(temp);
+	}
+	DLL_EXPORT double P_R2_R3_b(double theta)
+	{
+		return _P_R2_R3_b(theta);
+	}
+	DLL_EXPORT double T_R2_R3_b(double pi)
+	{
+		return _T_R2_R3_b(pi);
+	}
+
 	//REGION 1:
 	//properties as a function of temperature and pressure
 
@@ -254,5 +273,4 @@
 	{
 		return w_R2_h_s(enthalpy, entropy);
 	}
-
 #endif

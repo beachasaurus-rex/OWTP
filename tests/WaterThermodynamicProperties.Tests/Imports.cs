@@ -139,6 +139,17 @@ namespace WaterThermodynamicProperties.Tests
         [DllImport(_dllName, CallingConvention = CallingConvention.Cdecl)]
         public static extern double w_h_s_R2(double h, double s);
         #endregion Region 2: Debug
+
+        #region Boundary Region 2 & 3: Debug
+        [DllImport(_dllName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern double pi_R2_R3_b(double press);
+        [DllImport(_dllName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern double theta_R2_R3_b(double temp);
+        [DllImport(_dllName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern double P_R2_R3_b(double theta);
+        [DllImport(_dllName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern double T_R2_R3_b(double pi);
+        #endregion Boundary Region 2 & 3: Debug
 #endif
     }
 }
