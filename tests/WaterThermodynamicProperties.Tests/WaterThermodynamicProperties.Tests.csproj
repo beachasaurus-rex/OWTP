@@ -59,8 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccuracyTests\AccuracyTestBase.cs" />
+    <Compile Include="AccuracyTests\BoundaryAccTests.cs" />
     <Compile Include="AccuracyTests\Region1AccTests.cs" />
     <Compile Include="AccuracyTests\Region2AccTests.cs" />
+    <Compile Include="AccuracyTests\Region3AccTests.cs" />
     <Compile Include="Imports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

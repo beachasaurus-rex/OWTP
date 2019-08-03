@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{84914369-A560-476C-AC87-2EC04699683F}"
 EndProject
@@ -13,48 +13,54 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterThermodynamicPropertie
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{E6F4FF6B-1364-424F-8CA6-88D979D8E74A}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\SupportingDocs\Calling_C_Library_DLLs_from_C_sharp.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\SupportingDocs\Calling_C_Library_DLLs_from_C_sharp.pdf
+		src\documentation\Calling_C_Library_DLLs_from_C_sharp.pdf = src\documentation\Calling_C_Library_DLLs_from_C_sharp.pdf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "references", "references", "{852614A2-AB3E-48FA-9E95-39E1F3F2ED6C}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IF97-Rev.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IF97-Rev.pdf
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-PHS12-2014.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-PHS12-2014.pdf
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-phs3-2014.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-phs3-2014.pdf
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-Tv(ph,ps)3-2014.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-Tv(ph,ps)3-2014.pdf
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-VPT3-2016.pdf = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\Supp-VPT3-2016.pdf
+		src\documentation\references\IF97-Rev.pdf = src\documentation\references\IF97-Rev.pdf
+		src\documentation\references\Supp-PHS12-2014.pdf = src\documentation\references\Supp-PHS12-2014.pdf
+		src\documentation\references\Supp-phs3-2014.pdf = src\documentation\references\Supp-phs3-2014.pdf
+		src\documentation\references\Supp-Tv(ph,ps)3-2014.pdf = src\documentation\references\Supp-Tv(ph,ps)3-2014.pdf
+		src\documentation\references\Supp-VPT3-2016.pdf = src\documentation\references\Supp-VPT3-2016.pdf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IteratorVariableData", "IteratorVariableData", "{9A99C785-E676-4451-8234-10FA27B167A0}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_3vars.xlsm = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_3vars.xlsm
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_4vars.xlsm = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\ConvertToCode_4vars.xlsm
+		src\documentation\references\IteratorVariableData\ConvertToCode_3vars.xlsm = src\documentation\references\IteratorVariableData\ConvertToCode_3vars.xlsm
+		src\documentation\references\IteratorVariableData\ConvertToCode_4vars.xlsm = src\documentation\references\IteratorVariableData\ConvertToCode_4vars.xlsm
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region1", "Region1", "{BB290385-6067-4D3E-8AF5-16BFBA162437}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_phs.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_phs.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tph.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tph.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tps.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region1\iapws-if97-region1_backward_tps.csv
+		src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1.csv = src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1.csv
+		src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1_backward_phs.csv = src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1_backward_phs.csv
+		src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1_backward_tph.csv = src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1_backward_tph.csv
+		src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1_backward_tps.csv = src\documentation\references\IteratorVariableData\Region1\iapws-if97-region1_backward_tps.csv
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region2", "Region2", "{32134F16-B104-4336-AEC0-42C61139448D}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-0.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-0.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-r.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2-r.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2a.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2a.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2b.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2b.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2c.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2c.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2a.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2a.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2b.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2b.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2c.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2c.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2a.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2a.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2b.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2b.csv
-		C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2c.csv = C:\Users\JonathanRizk\Desktop\IAPWS-LibraryReferences\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2c.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2-0.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2-0.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2-r.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2-r.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2a.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2a.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2b.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2b.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2c.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_phs_2c.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2a.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2a.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2b.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2b.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2c.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tph_2c.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2a.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2a.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2b.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2b.csv
+		src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2c.csv = src\documentation\references\IteratorVariableData\Region2\iapws-if97-region2_backward_tps_2c.csv
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region3", "Region3", "{E04D5022-B108-4BB0-A35E-D857B1841522}"
+	ProjectSection(SolutionItems) = preProject
+		src\documentation\references\IteratorVariableData\Region3\IAPWS-IF97-Region3-VPT.xlsx = src\documentation\references\IteratorVariableData\Region3\IAPWS-IF97-Region3-VPT.xlsx
+		src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3.csv = src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3.csv
+		src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tph_3a.csv = src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tph_3a.csv
+		src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tps_3a.csv = src\documentation\references\IteratorVariableData\Region3\iapws-if97-region3_backward_tps_3a.csv
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Region4", "Region4", "{06A917AD-D91E-45E6-B1ED-5E91ED0CAFCD}"
 EndProject
@@ -71,6 +77,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|Any CPU.Build.0 = Debug|Win32
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|x64.ActiveCfg = Debug|x64
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|x64.Build.0 = Debug|x64
 		{E1CB8A93-8903-4344-AB04-17D74CF89025}.Debug|x86.ActiveCfg = Debug|Win32
