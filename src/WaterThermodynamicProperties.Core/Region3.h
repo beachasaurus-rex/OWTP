@@ -26,11 +26,9 @@ static double _del_R3(double rho)
 
 //Basic Gibbs Free Energy Functions
 
-static double _gibbs_R3(double rho, double T)
+//base gibbs free energy equation for region 3
+static double _gibbs_R3(double del, double tau)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(T);
-
 	double sum = _ni_R3[0] * log(del);
 
 	for (int i = 1; i < ITERCONST(_i_R3); i++)
@@ -40,11 +38,9 @@ static double _gibbs_R3(double rho, double T)
 
 	return sum;
 }
-static double _gibbs_R3_ddel(double rho, double T)
+//d(gibbs)/d(del)
+static double _gibbs_R3_ddel(double del, double tau)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(T);
-
 	double sum = _ni_R3[0] * pow(del, -1);
 
 	for (int i = 1; i < ITERCONST(_i_R3); i++)
@@ -55,11 +51,9 @@ static double _gibbs_R3_ddel(double rho, double T)
 
 	return sum;
 }
-static double _gibbs_R3_ddel(double rho, double T)
+//d(gibbs)^2/d^2(del)
+static double _gibbs_R3_dddel(double del, double tau)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(T);
-
 	double sum = -_ni_R3[0] * pow(del, -2);
 
 	for (int i = 1; i < ITERCONST(_i_R3); i++)
@@ -70,11 +64,9 @@ static double _gibbs_R3_ddel(double rho, double T)
 
 	return sum;
 }
-static double _gibbs_R3_dtau(double rho, double T)
+//d(gibbs)/d(tau)
+static double _gibbs_R3_dtau(double del, double tau)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(T);
-
 	double sum = 0;
 
 	for (int i = 1; i < ITERCONST(_i_R3); i++)
@@ -85,11 +77,9 @@ static double _gibbs_R3_dtau(double rho, double T)
 
 	return sum;
 }
-static double _gibbs_R3_ddtau(double rho, double T)
+//d(gibbs)^2/d^2(tau)
+static double _gibbs_R3_ddtau(double del, double tau)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(T);
-
 	double sum = 0;
 
 	for (int i = 1; i < ITERCONST(_i_R3); i++)
@@ -100,11 +90,9 @@ static double _gibbs_R3_ddtau(double rho, double T)
 
 	return sum;
 }
-static double _gibbs_R3_ddel_dtau(double rho, double T)
+//d(gibbs)^2/(d(del) * d(tau))
+static double _gibbs_R3_ddel_dtau(double del, double tau)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(T);
-
 	double sum = 0;
 
 	for (int i = 1; i < ITERCONST(_i_R3); i++)
@@ -114,4 +102,116 @@ static double _gibbs_R3_ddel_dtau(double rho, double T)
 	}
 
 	return sum;
+}
+
+//Properties as functions of density and temperature for region 3
+
+//pressure as a function of density and temperature for region 3
+double _P_Rho_T_R3(double rho, double temp)
+{
+	double del = _del_R3(rho);
+	double tau = _tau_R3(temp);
+
+	return _gibbs_R3_ddel(del, tau) * del * rho * R * temp;
+}
+//specific internal energy as a function of density and temperature for region 3
+double _u_Rho_T_R3(double rho, double temp)
+{
+	double del = _del_R3(rho);
+	double tau = _tau_R3(temp);
+
+	return _gibbs_R3_dtau(del, tau) * tau * R * temp;
+}
+//specific entropy as a function of density and temperature for region 3
+double _s_Rho_T_R3(double rho, double temp)
+{
+	double del = _del_R3(rho);
+	double tau = _tau_R3(temp);
+
+	return R * ((tau * _gibbs_R3_dtau(del, tau)) - _gibbs_R3(del, tau));
+}
+//specific enthalpy as a function of density and temperature for region 3
+double _h_Rho_T_R3(double rho, double temp)
+{
+	double del = _del_R3(rho);
+	double tau = _tau_R3(temp);
+
+	return R * temp * ((tau * _gibbs_R3_dtau(del, tau)) + 
+		(del * _gibbs_R3_ddel(del, tau)));
+}
+//specific isochoric heat capacity as a function of density and temperature for region 3
+double _cv_Rho_T_R3(double rho, double temp)
+{
+	double del = _del_R3(rho);
+	double tau = _tau_R3(temp);
+
+	return -R * pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
+}
+//specific isobaric heat capacity as a function of density and temperature for region 3
+double _cp_Rho_T_R3(double rho, double temp)
+{
+	double del = _del_R3(rho);
+	double tau = _tau_R3(temp);
+
+	double a1 = -pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
+	double a2 = pow((del * _gibbs_R3_ddel(del, tau))-
+		(del * tau * _gibbs_R3_ddel_dtau(del, tau)), 2);
+	double a3 = (2 * del * _gibbs_R3_ddel(del, tau)) + 
+		(pow(del, 2) * _gibbs_R3_dddel(del, tau));
+	double a4 = a1 + (a2 / a3);
+
+	return R * a4;
+}
+//speed of sound as a function of density and temperature for region 3
+double _w_Rho_T_R3(double rho, double temp)
+{
+	double del = _del_R3(rho);
+	double tau = _tau_R3(temp);
+
+	double a1 = (2 * del * _gibbs_R3_ddel(del, tau)) + 
+		(pow(del, 2) * _gibbs_R3_dddel(del, tau));
+	double a2 = pow((del * _gibbs_R3_ddel(del, tau)) -
+		(del * tau * _gibbs_R3_ddel_dtau(del, tau)), 2);
+	double a3 = pow(tau,2) * _gibbs_R3_ddtau(del, tau);
+	double a4 = a1 - (a2 / a3);
+
+	return pow(R * temp * a4, 0.5);
+}
+
+//Properties as functions of specific volume and temperature for region 3
+
+//pressure as a function of specific volume and temperature for region 3
+double _P_v_T_R3(double v, double temp)
+{
+	return _P_Rho_T(1/v, temp);
+}
+//specific internal energy as a function of specific volume and temperature for region 3
+double _u_v_T_R3(double v, double temp)
+{
+	return _u_Rho_T(1/v, temp);
+}
+//specific entropy as a function of specific volume and temperature for region 3
+double _s_v_T_R3(double v, double temp)
+{
+	return _s_Rho_T(1/v, temp);
+}
+//specific enthalpy as a function of specific volume and temperature for region 3
+double _h_v_T_R3(double v, double temp)
+{
+	return _h_Rho_T(1/v, temp);
+}
+//specific isochoric heat capacity as a function of specific volume and temperature for region 3
+double _cv_v_T_R3(double v, double temp)
+{
+	return _cv_Rho_T(1/v, temp);
+}
+//specific isobaric heat capacity as a function of specific volume and temperature for region 3
+double _cp_v_T_R3(double v, double temp)
+{
+	return _cp_Rho_T(1/v, temp);
+}
+//speed of sound as a function of specific volume and temperature for region 3
+double _w_v_T_R3(double v, double temp)
+{
+	return _w_Rho_T(1/v, temp);
 }

@@ -6,6 +6,13 @@ namespace WaterThermodynamicProperties.Tests.AccuracyTests
     public class BoundaryAccTests : AccuracyTestBase
     {
 #if DEBUG
+
+        //The temperature and pressure data points for the boundary
+        //between regions 2 and 3 were suggested by the IAPWS in 
+        //"Revised Release on IAPWS Inductrial Formulation 1997 
+        //for the Thermodynamic Properties of Water and Steam" 
+        //on page 6.
+
         [TestMethod]
         public void BoundaryAccTests_Region2AndRegion3_TemperatureAcc()
         {
