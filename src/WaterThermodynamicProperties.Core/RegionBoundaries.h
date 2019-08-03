@@ -3,12 +3,12 @@
 #include <math.h>
 
 //Iteration Constants for Boundary Equations for Boundary between R2 & R3
-static double _ni_R2_R3_b[5] = { 0.34805185628969E+03, -0.11671859879975E+01, 0.10192970039326E-02, 0.57254459862746E+03, 0.13918839778870E+02 };
+static const double _ni_R2_R3_b[5] = { 0.34805185628969E+03, -0.11671859879975E+01, 0.10192970039326E-02, 0.57254459862746E+03, 0.13918839778870E+02 };
 
 //kPa
-static double _pStar_R2_R3_b = 1000;
+static const double _pStar_R2_R3_b = 1000;
 //K
-static double _tStar_R2_R3_b = 1;
+static const double _tStar_R2_R3_b = 1;
 
 double _pi_R2_R3_b(double pressure)
 {
