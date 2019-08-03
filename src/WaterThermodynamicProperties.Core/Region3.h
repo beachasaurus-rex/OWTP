@@ -165,6 +165,9 @@ double _cp_Rho_T_R3(double rho, double temp)
 //speed of sound as a function of density and temperature for region 3
 double _w_Rho_T_R3(double rho, double temp)
 {
+	//convert to J / (kg * K) from kJ / (kg * K)
+	double _R = R * 1000;
+
 	double del = _del_R3(rho);
 	double tau = _tau_R3(temp);
 
@@ -175,7 +178,7 @@ double _w_Rho_T_R3(double rho, double temp)
 	double a3 = pow(tau,2) * _gibbs_R3_ddtau(del, tau);
 	double a4 = a1 - (a2 / a3);
 
-	return pow(R * temp * a4, 0.5);
+	return pow(_R * temp * a4, 0.5);
 }
 
 //Properties as functions of specific volume and temperature for region 3
@@ -183,35 +186,35 @@ double _w_Rho_T_R3(double rho, double temp)
 //pressure as a function of specific volume and temperature for region 3
 double _P_v_T_R3(double v, double temp)
 {
-	return _P_Rho_T(1/v, temp);
+	return _P_Rho_T_R3(1/v, temp);
 }
 //specific internal energy as a function of specific volume and temperature for region 3
 double _u_v_T_R3(double v, double temp)
 {
-	return _u_Rho_T(1/v, temp);
+	return _u_Rho_T_R3(1/v, temp);
 }
 //specific entropy as a function of specific volume and temperature for region 3
 double _s_v_T_R3(double v, double temp)
 {
-	return _s_Rho_T(1/v, temp);
+	return _s_Rho_T_R3(1/v, temp);
 }
 //specific enthalpy as a function of specific volume and temperature for region 3
 double _h_v_T_R3(double v, double temp)
 {
-	return _h_Rho_T(1/v, temp);
+	return _h_Rho_T_R3(1/v, temp);
 }
 //specific isochoric heat capacity as a function of specific volume and temperature for region 3
 double _cv_v_T_R3(double v, double temp)
 {
-	return _cv_Rho_T(1/v, temp);
+	return _cv_Rho_T_R3(1/v, temp);
 }
 //specific isobaric heat capacity as a function of specific volume and temperature for region 3
 double _cp_v_T_R3(double v, double temp)
 {
-	return _cp_Rho_T(1/v, temp);
+	return _cp_Rho_T_R3(1/v, temp);
 }
 //speed of sound as a function of specific volume and temperature for region 3
 double _w_v_T_R3(double v, double temp)
 {
-	return _w_Rho_T(1/v, temp);
+	return _w_Rho_T_R3(1/v, temp);
 }
