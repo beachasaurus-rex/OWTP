@@ -1,9 +1,9 @@
 #define DLL_EXPORT __declspec(dllexport)
 
-#include "Region1.h"
-#include "Region2.h"
-#include "Region3.h"
-#include "RegionBoundaries.h"
+#include "./Regions/Region1.h"
+#include "./Regions/Region2.h"
+#include "./Regions/Region3.h"
+#include "./Regions/RegionBoundaries.h"
 
 #if _DEBUG
 	//Boundary - Region 2 & 3:
