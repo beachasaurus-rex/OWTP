@@ -15,19 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ReferenceConstants.h">
+    <ClInclude Include="Regions\Region1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Region1.h">
+    <ClInclude Include="Regions\Region2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Region2.h">
+    <ClInclude Include="Regions\Region3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Region3.h">
+    <ClInclude Include="Regions\RegionBoundaries.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RegionBoundaries.h">
+    <ClInclude Include="Regions\ReferenceConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

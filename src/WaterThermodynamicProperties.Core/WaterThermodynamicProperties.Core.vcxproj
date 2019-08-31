@@ -119,11 +119,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ReferenceConstants.h" />
-    <ClInclude Include="Region1.h" />
-    <ClInclude Include="Region2.h" />
-    <ClInclude Include="Region3.h" />
-    <ClInclude Include="RegionBoundaries.h" />
+    <ClInclude Include="Regions\ReferenceConstants.h" />
+    <ClInclude Include="Regions\Region1.h" />
+    <ClInclude Include="Regions\Region2.h" />
+    <ClInclude Include="Regions\Region3.h" />
+    <ClInclude Include="Regions\RegionBoundaries.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Export.c" />
