@@ -24,10 +24,13 @@
     <ClInclude Include="Regions\Region3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Regions\RegionBoundaries.h">
+    <ClInclude Include="Regions\ReferenceConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Regions\ReferenceConstants.h">
+    <ClInclude Include="Regions\Boundaries\SubregionBoundaries\Region3\Boundaries_vTP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Regions\Boundaries\RegionBoundaries\R2andR3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
