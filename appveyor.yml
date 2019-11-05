@@ -1,5 +1,8 @@
 version: '0.0.{build}'
 
+branch:
+    - master
+
 environment:
   matrix:
     - compiler: msvc-16-seh
