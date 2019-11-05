@@ -1,0 +1,21 @@
+version: '0.0.{build}'
+
+branches:
+  only:
+    - master
+
+environment:
+  matrix:
+    - compiler: msvc-16-seh
+      generator: "Visual Studio 16 2019"
+      build_system: cmake
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+
+configuration:
+  - Debug
+
+build_script:
+  - build.sh
+
+test_script:
+  - test.sh
