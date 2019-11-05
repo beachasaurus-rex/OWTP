@@ -1,6 +1,7 @@
 version: '0.0.{build}'
 
 branch:
+  only:
     - master
 
 environment:
@@ -14,7 +15,7 @@ configuration:
   - Debug
 
 build_script:
-    - build.sh
+  - build.sh
 
 test_script:
-    - test.sh
+  - test.sh
