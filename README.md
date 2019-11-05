@@ -1,6 +1,6 @@
 # WaterThermodynamicProperties
 
-[https://ci.appveyor.com/project/jonathan-rizk/waterthermodynamicproperties/branch/master?svg=true](https://ci.appveyor.com/project/jonathan-rizk/waterthermodynamicproperties/branch/master?svg=true)
+<img src="https://ci.appveyor.com/project/jonathan-rizk/waterthermodynamicproperties/branch/master?svg=true" alt="Project Badge" width="300">
 
 STILL UNDER CONSTRUCTION
 
