@@ -7,3 +7,4 @@ build/
 
 #whitelist build server scripts
 !build.sh
+!test.sh

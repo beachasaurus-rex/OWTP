@@ -12,3 +12,6 @@ configuration:
 
 build_script:
     - build.sh
+
+test_script:
+    - test.sh
