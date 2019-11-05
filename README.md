@@ -1,5 +1,7 @@
 # WaterThermodynamicProperties
 
+[https://ci.appveyor.com/project/jonathan-rizk/waterthermodynamicproperties/branch/master?svg=true](https://ci.appveyor.com/project/jonathan-rizk/waterthermodynamicproperties/branch/master?svg=true)
+
 STILL UNDER CONSTRUCTION
 
 C library that calculates the thermodynamic properties of water.
