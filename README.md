@@ -1,6 +1,6 @@
 # WaterThermodynamicProperties
 
-https://ci.appveyor.com/api/projects/status/rrr2gbi0pw2dkynv/branch/master?svg=true
+[![Build status](https://ci.appveyor.com/api/projects/status/rrr2gbi0pw2dkynv?svg=true)](https://ci.appveyor.com/project/jonathan-rizk/waterthermodynamicproperties)
 
 STILL UNDER CONSTRUCTION
 
