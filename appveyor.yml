@@ -9,3 +9,6 @@ environment:
 
 configuration:
   - Debug
+
+build_script:
+    - build.sh
