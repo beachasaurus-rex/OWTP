@@ -1,6 +1,7 @@
-#pragma once
-
-#include <math.h>
+#ifndef MATH_H
+	#define MATH_H
+	#include <math.h>
+#endif
 
 //Iteration Constants for Boundary Equations for Boundary between R2 & R3
 static const double _ni_R2_R3_b[5] = { 0.34805185628969E+03, -0.11671859879975E+01, 0.10192970039326E-02, 0.57254459862746E+03, 0.13918839778870E+02 };

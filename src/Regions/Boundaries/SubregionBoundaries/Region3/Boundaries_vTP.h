@@ -1,7 +1,12 @@
-#pragma once
+#ifndef MATH_H
+	#define MATH_H
+	#include <math.h>
+#endif
 
-#include <math.h>
-#include "..\..\..\ReferenceConstants.h"
+#ifndef REF_CONST_H
+	#define REF_CONST_H
+	#include "..\..\..\ReferenceConstants.h"
+#endif
 
 //All Boundary Equations for v(T,P)
 
@@ -11,8 +16,6 @@
 
 //K
 static const int _tStar_T3subregs_v_T_P = 1;
-//kPa
-static const int _pStar_T3_subregs_v_T_P = 1000;
 
 static double _theta_T3_subregs_v_T_P(double temp)
 {
@@ -20,6 +23,9 @@ static double _theta_T3_subregs_v_T_P(double temp)
 }
 static double _pi_T3_subregs_v_T_P(double press)
 {
+	//kPa
+	const int _pStar_T3_subregs_v_T_P = 1000;
+
 	return press / _pStar_T3_subregs_v_T_P;
 }
 
