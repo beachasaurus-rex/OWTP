@@ -15,7 +15,7 @@ configuration:
   - Debug
 
 build_script:
-  - sh: cibuild
+  - cibuild.sh
 
 test_script:
-  - sh: citest
+  - citest.sh
