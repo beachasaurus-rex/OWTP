@@ -1,5 +1,4 @@
-#pragma once
-
+//use this because arrays decompose into pointers when passed into functions
 #define ITERCONST(x) (sizeof(x) / sizeof(x[0]))
 
 //kJ / (kg * K)
