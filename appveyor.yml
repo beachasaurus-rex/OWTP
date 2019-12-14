@@ -15,7 +15,7 @@ configuration:
   - Debug
 
 build_script:
-  - build.sh
+  - ci/build.sh
 
 test_script:
-  - test.sh
+  - ci/test.sh
