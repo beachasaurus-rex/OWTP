@@ -14,8 +14,8 @@ environment:
 configuration:
   - Debug
 
-build_script:
-  - sh: ci/build.sh
-
-test_script:
-  - sh: ci/test.sh
+# build_script:
+#   - sh: ci/build.sh
+#
+# test_script:
+#   - sh: ci/test.sh
