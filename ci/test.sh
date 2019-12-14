@@ -1,1 +1,1 @@
-build/test/bin/TestRunner.exe
+../build/test/bin/TestRunner.exe
