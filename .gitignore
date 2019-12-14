@@ -5,6 +5,5 @@ build/
 #ignore shell scripts
 *.sh
 
-#whitelist build server scripts
-!build.sh
-!test.sh
+#whitelist ci stuff
+!ci/.gitignore
