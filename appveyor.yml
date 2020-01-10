@@ -10,12 +10,14 @@ environment:
       generator: "Visual Studio 16 2019"
       build_system: cmake
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+      build_script: ./ci/build.sh
+      test_script: ./ci/test.sh
 
 configuration:
   - Debug
 
-build_script:
-  - cibuild.sh
-
-test_script:
-  - citest.sh
+# build_script:
+#   - ./ci/build.sh
+#
+# test_script:
+#   - ./ci/citest.sh
