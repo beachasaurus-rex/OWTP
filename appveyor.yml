@@ -17,5 +17,5 @@ configuration:
 build_script:
   - sh: ci/build.sh
 
-# test_script:
-#   - sh: ci/test.sh
+test_script:
+  - sh: ci/test.sh
