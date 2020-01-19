@@ -6,10 +6,20 @@ branches:
 
 environment:
   matrix:
+    - compiler: msvc-14-seh
+      generator: "Visual Studio 14 2015"
+      build_system: cmake
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+
     - compiler: msvc-15-seh
       generator: "Visual Studio 15 2017"
       build_system: cmake
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+
+    - compiler: msvc-16-seh
+      generator: "Visual Studio 16 2017"
+      build_system: cmake
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2016
 
 configuration:
   - Debug
@@ -21,7 +31,7 @@ build_script:
     - cmd: cmake --build build
 
 test_script:
-    - cmd: build/test/bin/TestRunner.exe
+    - cmd: start build/test/bin/TestRunner.exe
 # build_script:
 #   - sh: build.sh
 #
