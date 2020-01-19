@@ -25,13 +25,13 @@ configuration:
   - Debug
 
 before_build:
-    - ci\before_build.ps1
+    - cmake -H. -B./build
 
 build_script:
-    - ci\build_script.ps1
+    - cmake --build build
 
 test_script:
-    - ci\test_script.ps1
+    - build/test/bin/TestRunner.exe
 # build_script:
 #   - sh: build.sh
 #
