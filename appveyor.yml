@@ -14,11 +14,17 @@ environment:
 configuration:
   - Debug
 
-build_script:
-  - sh: build.sh
+before_build:
+    - cmd: cmake -H. -B./build
 
-test_script:
-  - sh: test.sh
+build_script:
+    - cmd: cmake --build build
+
+# build_script:
+#   - sh: build.sh
+#
+# test_script:
+#   - sh: test.sh
 
 # build_script:
 #   - sh: ci/build.sh
