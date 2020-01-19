@@ -25,23 +25,31 @@ environment:
       generator: "Unix Makefiles"
       build_system: cmake
       APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
+      before_build: ci/before_build.sh
+      build_script: ci/build_script.sh
+      test_script: ci/test_script.sh
+      after_test: ci/after_test.sh
 
     - compiler: gcc
       generator: "Unix Makefiles"
       build_system: cmake
       APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1604
+      before_build: ci/before_build.sh
+      build_script: ci/build_script.sh
+      test_script: ci/test_script.sh
+      after_test: ci/after_test.sh
 
 configuration:
   - Debug
 
-before_build:
-    - sh: ci\before_build.sh
-
-build_script:
-    - sh: ci\build_script.sh
-
-test_script:
-    - sh: ci\test_script.sh
-
-after_test:
-    - ps: .\ci\after_test.ps1
+# before_build:
+#     - sh: ci\before_build.sh
+#
+# build_script:
+#     - sh: ci\build_script.sh
+#
+# test_script:
+#     - sh: ci\test_script.sh
+#
+# after_test:
+#     - ps: .\ci\after_test.ps1
