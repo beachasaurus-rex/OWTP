@@ -25,21 +25,20 @@ configuration:
   - Debug
 
 before_build:
-    - cmake -H. -B./build
+    - ci\before_build.sh
 
 build_script:
-    - cmake --build build
+    - ci\build_script.sh
 
 test_script:
-    - build\test\bin\TestRunner.exe
-# build_script:
-#   - sh: build.sh
-#
-# test_script:
-#   - sh: test.sh
+    - ci\test_script.sh
 
+# THIS WORKS
+# before_build:
+#     - cmake -H. -B./build
+#
 # build_script:
-#   - sh: ci/build.sh
+#     - cmake --build build
 #
 # test_script:
-#   - sh: ci/test.sh
+#     - build\test\bin\TestRunner.exe
