@@ -6,30 +6,20 @@ branches:
 
 environment:
   matrix:
-    # - compiler: msvc-16-seh
-    #   generator: "Visual Studio 16 2019"
-    #   build_system: cmake
-    #   APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-    #
-    # - compiler: msvc-15-seh
-    #   generator: "Visual Studio 15 2017"
-    #   build_system: cmake
-    #   APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-    #
-    # - compiler: msvc-14-seh
-    #   generator: "Visual Studio 14 2015"
-    #   build_system: cmake
-    #   APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-
-    - compiler: gcc
-      generator: "Unix Makefiles"
+    - compiler: msvc-16-seh
+      generator: "Visual Studio 16 2019"
       build_system: cmake
-      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
 
-    - compiler: gcc
-      generator: "Unix Makefiles"
+    - compiler: msvc-15-seh
+      generator: "Visual Studio 15 2017"
       build_system: cmake
-      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1604
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+
+    - compiler: msvc-14-seh
+      generator: "Visual Studio 14 2015"
+      build_system: cmake
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 
 configuration:
   - Debug
@@ -45,14 +35,3 @@ test_script:
 
 after_test:
     - ps: .\ci\after_test.ps1
-
-for:
-    - matrix:
-        only:
-            - image: Ubuntu1804
-            - image: Ubuntu1604
-        before_build: ci/before_build.sh
-        build_script: ci/build_script.sh
-        test_script: ci/test_script.sh
-        after_test:
-            - ps: .\ci\after_test.ps1

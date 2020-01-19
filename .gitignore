@@ -7,6 +7,3 @@ build/
 
 #dirs to whitelist
 !ci/*
-
-!build.sh
-!test.sh
