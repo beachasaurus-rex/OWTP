@@ -34,7 +34,10 @@ test_script:
     - ci\test_script.sh
 
 after_test:
-    - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TestRunner_results.xml))
+    - ps: .\ci\after_test.ps1
+# THIS WORKS
+# after_test:
+#     - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TestRunner_results.xml))
 # THIS WORKS
 # before_build:
 #     - cmake -H. -B./build
