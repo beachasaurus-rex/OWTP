@@ -1,10 +1,9 @@
-#ignore the build dir
+#dirs to ignore
 build/
 .vs/
 
-#ignore shell scripts
+#filetypes to ignore
 *.sh
 
-#whitelist ci stuff
-!cibuild.sh
-!citest.sh
+#dirs to whitelist
+!ci/*

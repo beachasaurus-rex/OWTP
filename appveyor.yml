@@ -11,11 +11,27 @@ environment:
       build_system: cmake
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
 
+    - compiler: msvc-15-seh
+      generator: "Visual Studio 15 2017"
+      build_system: cmake
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+
+    - compiler: msvc-14-seh
+      generator: "Visual Studio 14 2015"
+      build_system: cmake
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+
 configuration:
   - Debug
 
+before_build:
+    - ci\before_build.sh
+
 build_script:
-  - cibuild.sh
+    - ci\build_script.sh
 
 test_script:
-  - citest.sh
+    - ci\test_script.sh
+
+after_test:
+    - ps: .\ci\after_test.ps1
