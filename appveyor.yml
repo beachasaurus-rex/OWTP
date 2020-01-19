@@ -35,13 +35,13 @@ configuration:
   - Debug
 
 before_build:
-    - ci\before_build.sh
+    - sh: ci\before_build.sh
 
 build_script:
-    - ci\build_script.sh
+    - sh: ci\build_script.sh
 
 test_script:
-    - ci\test_script.sh
+    - sh: ci\test_script.sh
 
 after_test:
     - ps: .\ci\after_test.ps1
