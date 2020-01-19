@@ -25,13 +25,13 @@ configuration:
   - Debug
 
 before_build:
-    - ci/before_build.ps1
+    - ps: &"ci\before_build.ps1"
 
 build_script:
-    - ci/build_script.ps1
+    - ps: &"ci\build_script.ps1"
 
 test_script:
-    - ci/test_script.ps1
+    - ps: &"ci\test_script.ps1"
 # build_script:
 #   - sh: build.sh
 #
