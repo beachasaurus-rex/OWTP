@@ -31,7 +31,7 @@ build_script:
     - cmake --build build
 
 test_script:
-    - build/test/bin/TestRunner.exe
+    - build\test\bin\TestRunner.exe
 # build_script:
 #   - sh: build.sh
 #
