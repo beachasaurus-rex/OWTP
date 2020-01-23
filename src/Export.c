@@ -276,6 +276,49 @@
 	}
 
 	//Region 3:
+	//subregion boundary equations
+
+	DLL_EXPORT double T3ab_v_T_P(double pressure)
+	{
+		return _T3ab_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3cd_v_T_P(double pressure)
+	{
+		return _T3cd_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3ef_v_T_P(double pressure)
+	{
+		return _T3ef_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3gh_v_T_P(double pressure)
+	{
+		return T3gh_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3ij_v_T_P(double pressure)
+	{
+		return _T3ij_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3jk_v_T_P(double pressure)
+	{
+		return _T3jk_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3mn_v_T_P(double pressure)
+	{
+		return _T3mn_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3op_v_T_P(double pressure)
+	{
+		return _T3op_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3qu_v_T_P(double pressure)
+	{
+		return _T3qu_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3rx_v_T_P(double pressure)
+	{
+		return _T3rx_v_T_P(pressure);
+	}
+
 	//properties as functions of density and temperature
 
 	DLL_EXPORT double P_Rho_T_R3(double rho, double temp)

@@ -83,147 +83,296 @@ static const int _i_v_T_P_R3rx[4] = { 1, 2, 3, 4 };
 static const int _I_v_T_P_R3rx[4] = { 0, 1, 2, 3 };
 static const double _n_v_T_P_R3rx[4] = { 584.561202520006, -1.02961025163669, 0.243293362700452, -2.94905044740799E-03 };
 
-//Boundary Equations R3ab
+#if _DEBUG
+	//Boundary Equations R3ab
 
-static double T3ab_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3ab); i++)
+	double _T3ab_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3ab[i] * pow(log(pi), _I_v_T_P_R3ab[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3ab); i++)
+		{
+			sum = sum + _n_v_T_P_R3ab[i] * pow(log(pi), _I_v_T_P_R3ab[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3cd
 
-//Boundary Equations R3cd
-
-static double T3cd_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3cd); i++)
+	double _T3cd_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3cd[i] * pow(pi, _I_v_T_P_R3cd[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3cd); i++)
+		{
+			sum = sum + _n_v_T_P_R3cd[i] * pow(pi, _I_v_T_P_R3cd[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3ef
 
-//Boundary Equations R3ef
+	static const double _thetaSat_dPi_c_v_T_P = 3.727888004;
 
-static const double _thetaSat_dPi_c_v_T_P = 3.727888004;
-
-static double T3ef_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-	return ((pi - 22.064) + 647.096);
-}
-
-//Boundary Equations R3gh
-
-static double T3gh_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3gh); i++)
+	double _T3ef_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3gh[i] * pow(pi, _I_v_T_P_R3gh[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+		return ((pi - 22.064) + 647.096);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3gh
 
-//Boundary Equations R3ij
-
-static double T3ij_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3ij); i++)
+	double _T3gh_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3ij[i] * pow(pi, _I_v_T_P_R3ij[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3gh); i++)
+		{
+			sum = sum + _n_v_T_P_R3gh[i] * pow(pi, _I_v_T_P_R3gh[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3ij
 
-//Boundary Equations R3jk
-
-static double T3jk_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3jk); i++)
+	double _T3ij_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3jk[i] * pow(pi, _I_v_T_P_R3jk[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3ij); i++)
+		{
+			sum = sum + _n_v_T_P_R3ij[i] * pow(pi, _I_v_T_P_R3ij[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3jk
 
-//Boundary Equations R3mn
-
-static double T3mn_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3mn); i++)
+	double _T3jk_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3mn[i] * pow(pi, _I_v_T_P_R3mn[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3jk); i++)
+		{
+			sum = sum + _n_v_T_P_R3jk[i] * pow(pi, _I_v_T_P_R3jk[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3mn
 
-//Boundary Equations R3op
-
-static double T3op_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3op); i++)
+	double _T3mn_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3op[i] * pow(log(pi), _I_v_T_P_R3op[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3mn); i++)
+		{
+			sum = sum + _n_v_T_P_R3mn[i] * pow(pi, _I_v_T_P_R3mn[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3op
 
-//Boundary Equations R3qu
-
-static double T3qu_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3qu); i++)
+	double _T3op_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3qu[i] * pow(pi, _I_v_T_P_R3qu[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3op); i++)
+		{
+			sum = sum + _n_v_T_P_R3op[i] * pow(log(pi), _I_v_T_P_R3op[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3qu
 
-//Boundary Equations R3rx
-
-static double T3rx_v_T_P(double pressure)
-{
-	double pi = _pi_T3_subregs_v_T_P(pressure);
-
-	double sum = 0;
-	for (int i = 0; i < ITERCONST(_i_v_T_P_R3rx); i++)
+	double _T3qu_v_T_P(double pressure)
 	{
-		sum = sum + _n_v_T_P_R3rx[i] * pow(pi, _I_v_T_P_R3rx[i]);
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3qu); i++)
+		{
+			sum = sum + _n_v_T_P_R3qu[i] * pow(pi, _I_v_T_P_R3qu[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
-}
+	//Boundary Equations R3rx
+
+	double _T3rx_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3rx); i++)
+		{
+			sum = sum + _n_v_T_P_R3rx[i] * pow(pi, _I_v_T_P_R3rx[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+#endif
+
+#if _RELEASE
+	//Boundary Equations R3ab
+
+	static double _T3ab_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3ab); i++)
+		{
+			sum = sum + _n_v_T_P_R3ab[i] * pow(log(pi), _I_v_T_P_R3ab[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3cd
+
+	static double _T3cd_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3cd); i++)
+		{
+			sum = sum + _n_v_T_P_R3cd[i] * pow(pi, _I_v_T_P_R3cd[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3ef
+
+	static const double _thetaSat_dPi_c_v_T_P = 3.727888004;
+
+	static double _T3ef_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+		return ((pi - 22.064) + 647.096);
+	}
+
+	//Boundary Equations R3gh
+
+	static double _T3gh_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3gh); i++)
+		{
+			sum = sum + _n_v_T_P_R3gh[i] * pow(pi, _I_v_T_P_R3gh[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3ij
+
+	static double _T3ij_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3ij); i++)
+		{
+			sum = sum + _n_v_T_P_R3ij[i] * pow(pi, _I_v_T_P_R3ij[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3jk
+
+	static double _T3jk_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3jk); i++)
+		{
+			sum = sum + _n_v_T_P_R3jk[i] * pow(pi, _I_v_T_P_R3jk[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3mn
+
+	static double _T3mn_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3mn); i++)
+		{
+			sum = sum + _n_v_T_P_R3mn[i] * pow(pi, _I_v_T_P_R3mn[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3op
+
+	static double _T3op_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3op); i++)
+		{
+			sum = sum + _n_v_T_P_R3op[i] * pow(log(pi), _I_v_T_P_R3op[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3qu
+
+	static double _T3qu_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3qu); i++)
+		{
+			sum = sum + _n_v_T_P_R3qu[i] * pow(pi, _I_v_T_P_R3qu[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+
+	//Boundary Equations R3rx
+
+	static double _T3rx_v_T_P(double pressure)
+	{
+		double pi = _pi_T3_subregs_v_T_P(pressure);
+
+		double sum = 0;
+		for (int i = 0; i < ITERCONST(_i_v_T_P_R3rx); i++)
+		{
+			sum = sum + _n_v_T_P_R3rx[i] * pow(pi, _I_v_T_P_R3rx[i]);
+		}
+
+		return sum * _tStar_T3subregs_v_T_P;
+	}
+#endif
