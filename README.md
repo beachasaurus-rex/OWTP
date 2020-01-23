@@ -1,6 +1,6 @@
 # Ordinary Water Thermodynamic Properties
 
-[![Build status](https://ci.appveyor.com/api/projects/status/rrr2gbi0pw2dkynv?svg=true)](https://ci.appveyor.com/project/jonathan-rizk/waterthermodynamicproperties)
+[![Build status](https://ci.appveyor.com/api/projects/status/rrr2gbi0pw2dkynv?svg=true)](https://ci.appveyor.com/project/jonathan-rizk/owtp)
 
 STILL UNDER CONSTRUCTION
 
