@@ -17,6 +17,8 @@ extern "C"
 	DLL_IMPORT double T3op_v_T_P(double pressure);
 	DLL_IMPORT double T3qu_v_T_P(double pressure);
 	DLL_IMPORT double T3rx_v_T_P(double pressure);
+    DLL_IMPORT double T3uv_v_T_P(double pressure);
+    DLL_IMPORT double T3wx_v_T_P(double pressure);
 
     DLL_IMPORT double va_P_T(double pressure, double temperature);
     DLL_IMPORT double vb_P_T(double pressure, double temperature);
@@ -155,6 +157,30 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_r_x)
     double pressure = 22 * 1000;
     double Tactual = 6.482622754 * pow(10, 2);
     double Ttest = T3rx_v_T_P(pressure);
+
+    double TErr = AbsRelativeErr(Ttest, Tactual);
+
+    bool TPass = IsAcceptable(TErr);
+
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_u_v)
+{
+    double pressure = 22.3 * 1000;
+    double Tactual = 6.477996121E+02;
+    double Ttest = T3uv_v_T_P(pressure);
+
+    double TErr = AbsRelativeErr(Ttest, Tactual);
+
+    bool TPass = IsAcceptable(TErr);
+
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_w_x)
+{
+    double pressure = 22.3 * 1000;
+    double Tactual = 6.482049480E+02;
+    double Ttest = T3wx_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
 

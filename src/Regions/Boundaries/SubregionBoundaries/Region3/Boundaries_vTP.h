@@ -57,6 +57,16 @@ static const double _n_v_T_P_R3qu[12] = { 565.603648239126, 5.29062258221222, -0
 static const int _I_v_T_P_R3rx[4] = { 0, 1, 2, 3 };
 static const double _n_v_T_P_R3rx[4] = { 584.561202520006, -1.02961025163669, 0.243293362700452, -2.94905044740799E-03 };
 
+//Iteration Constants R3uv
+
+static const int _I_v_T_P_R3uv[4] = {0, 1, 2, 3};
+static const double _n_v_T_P_R3uv[4] = {528.199646263062, 8.90579602135307, -0.222814134903755, 2.86791682263697E-03};
+
+//Iteration Constants R3wx
+
+static const int _I_v_T_P_R3wx[5] = {0, 1, 2, -1, -2};
+static const double _n_v_T_P_R3wx[5] = {7.2805260914538, 97.3505869861952, 14.7370491183191, 329.196213998375, 873.371668682417};
+
 //Generic boundary equation for all subregions except ab, ef, op
 
 static double _T3_v_T_P(double press, const int* IArr, const double* nArr, int arrSize)
@@ -78,7 +88,7 @@ static double _T3_v_T_P(double press, const int* IArr, const double* nArr, int a
 
 //Generic boundary equation for subregions ab, op
 
-static double _T3_ab_op_v_T_P(double press, const int* IArr, const double* nArr,
+static double _T3_ab_op_wx_v_T_P(double press, const int* IArr, const double* nArr,
 	int arrSize)
 {
 	//K
@@ -101,7 +111,7 @@ static double _T3_ab_op_v_T_P(double press, const int* IArr, const double* nArr,
 double _T3ab_v_T_P(double press)
 {
 	int N = ITERCONST(_I_v_T_P_R3ab);
-	return _T3_ab_op_v_T_P(press, _I_v_T_P_R3ab, _n_v_T_P_R3ab, N);
+	return _T3_ab_op_wx_v_T_P(press, _I_v_T_P_R3ab, _n_v_T_P_R3ab, N);
 }
 
 //Boundary Equations R3cd
@@ -163,7 +173,7 @@ double _T3mn_v_T_P(double press)
 double _T3op_v_T_P(double press)
 {
 	int N = ITERCONST(_I_v_T_P_R3op);
-	return _T3_ab_op_v_T_P(press, _I_v_T_P_R3op, _n_v_T_P_R3op, N);
+	return _T3_ab_op_wx_v_T_P(press, _I_v_T_P_R3op, _n_v_T_P_R3op, N);
 }
 
 //Boundary Equations R3qu
@@ -182,7 +192,21 @@ double _T3rx_v_T_P(double press)
 	return _T3_v_T_P(press, _I_v_T_P_R3rx, _n_v_T_P_R3rx, N);
 }
 
+//Boundary Equations R3uv
 
+double _T3uv_v_T_P(double press)
+{
+	int N = ITERCONST(_I_v_T_P_R3uv);
+	return _T3_v_T_P(press, _I_v_T_P_R3uv, _n_v_T_P_R3uv, N);
+}
+
+//Boundary Equations R3wx
+
+double _T3wx_v_T_P(double press)
+{
+	int N = ITERCONST(_I_v_T_P_R3wx);
+	return _T3_ab_op_wx_v_T_P(press, _I_v_T_P_R3wx, _n_v_T_P_R3wx, N);
+}
 
 //Backwards equations for v(P,T)
 

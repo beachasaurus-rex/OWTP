@@ -318,6 +318,14 @@
 	{
 		return _T3rx_v_T_P(pressure);
 	}
+	DLL_EXPORT double T3uv_v_T_P(double pressure)
+	{
+		return _T3uv_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3wx_v_T_P(double pressure)
+	{
+		return _T3wx_v_T_P(pressure);
+	}
 
 	//subregion boundary equations - specific volume
 
