@@ -61,9 +61,9 @@ static const double _n_v_T_P_R3jk[5] = { 617.229772068439, -7.70600270141675, 0.
 
 //Iteration Constants R3mn
 
-static const int _i_v_T_P_R3mn[5] = { 1, 2, 3, 4, 5 };
-static const int _I_v_T_P_R3mn[5] = { 0, 1, 2, -1, -2 };
-static const double _n_v_T_P_R3mn[5] = { 535.339483742384, 7.61978122720128, -0.158365725441648, 1.92871054508108E-03, 1.37897492684194E-04 };
+static const int _i_v_T_P_R3mn[5] = { 1, 2, 3, 4 };
+static const int _I_v_T_P_R3mn[5] = { 0, 1, 2, 3 };
+static const double _n_v_T_P_R3mn[5] = { 535.339483742384, 7.61978122720128, -0.158365725441648, 1.92871054508108E-03 };
 
 //Iteration Constants R3op
 
@@ -116,12 +116,12 @@ static const double _n_v_T_P_R3rx[4] = { 584.561202520006, -1.02961025163669, 0.
 
 	//Boundary Equations R3ef
 
-	static const double _thetaSat_dPi_c_v_T_P = 3.727888004;
-
 	double _T3ef_v_T_P(double pressure)
 	{
+		const double thetaSat = 3.727888004;
 		double pi = _pi_T3_subregs_v_T_P(pressure);
-		return ((pi - 22.064) + 647.096);
+		return _tStar_T3subregs_v_T_P *
+			(thetaSat * (pi - 22.064) + 647.096);
 	}
 
 	//Boundary Equations R3gh
@@ -267,8 +267,10 @@ static const double _n_v_T_P_R3rx[4] = { 584.561202520006, -1.02961025163669, 0.
 
 	static double _T3ef_v_T_P(double pressure)
 	{
+		const double thetaSat = 3.727888004;
 		double pi = _pi_T3_subregs_v_T_P(pressure);
-		return ((pi - 22.064) + 647.096);
+		return _tStar_T3subregs_v_T_P *
+			(thetaSat * (pi - 22.064) + 647.096);
 	}
 
 	//Boundary Equations R3gh

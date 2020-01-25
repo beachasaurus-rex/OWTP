@@ -52,7 +52,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_e_f)
     double Ttest = T3ef_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
+    
     bool TPass = IsAcceptable(TErr);
 
     ASSERT_TRUE(TPass);
