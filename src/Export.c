@@ -276,7 +276,7 @@
 	}
 
 	//Region 3:
-	//subregion boundary equations
+	//subregion boundary equations - temperature
 
 	DLL_EXPORT double T3ab_v_T_P(double pressure)
 	{
@@ -317,6 +317,13 @@
 	DLL_EXPORT double T3rx_v_T_P(double pressure)
 	{
 		return _T3rx_v_T_P(pressure);
+	}
+
+	//subregion boundary equations - specific volume
+
+	DLL_EXPORT double va_P_T(double press, double temp)
+	{
+		return _va_P_T(press,temp);
 	}
 
 	//properties as functions of density and temperature
