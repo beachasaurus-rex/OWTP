@@ -325,6 +325,82 @@
 	{
 		return _va_P_T(press,temp);
 	}
+	DLL_EXPORT double vb_P_T(double press, double temp)
+	{
+		return _vb_P_T(press,temp);
+	}
+	DLL_EXPORT double vc_P_T(double press, double temp)
+	{
+		return _vc_P_T(press,temp);
+	}
+	DLL_EXPORT double vd_P_T(double press, double temp)
+	{
+		return _vd_P_T(press,temp);
+	}
+	DLL_EXPORT double ve_P_T(double press, double temp)
+	{
+		return _ve_P_T(press,temp);
+	}
+	DLL_EXPORT double vf_P_T(double press, double temp)
+	{
+		return _vf_P_T(press,temp);
+	}
+	DLL_EXPORT double vg_P_T(double press, double temp)
+	{
+		return _vg_P_T(press,temp);
+	}
+	DLL_EXPORT double vh_P_T(double press, double temp)
+	{
+		return _vh_P_T(press,temp);
+	}
+	DLL_EXPORT double vi_P_T(double press, double temp)
+	{
+		return _vi_P_T(press,temp);
+	}
+	DLL_EXPORT double vj_P_T(double press, double temp)
+	{
+		return _vj_P_T(press,temp);
+	}
+	DLL_EXPORT double vk_P_T(double press, double temp)
+	{
+		return _vk_P_T(press,temp);
+	}
+	DLL_EXPORT double vl_P_T(double press, double temp)
+	{
+		return _vl_P_T(press,temp);
+	}
+	DLL_EXPORT double vm_P_T(double press, double temp)
+	{
+		return _vm_P_T(press,temp);
+	}
+	DLL_EXPORT double vn_P_T(double press, double temp)
+	{
+		return _vn_P_T(press,temp);
+	}
+	DLL_EXPORT double vo_P_T(double press, double temp)
+	{
+		return _vo_P_T(press,temp);
+	}
+	DLL_EXPORT double vp_P_T(double press, double temp)
+	{
+		return _vp_P_T(press,temp);
+	}
+	DLL_EXPORT double vq_P_T(double press, double temp)
+	{
+		return _vq_P_T(press,temp);
+	}
+	DLL_EXPORT double vr_P_T(double press, double temp)
+	{
+		return _vr_P_T(press,temp);
+	}
+	DLL_EXPORT double vs_P_T(double press, double temp)
+	{
+		return _vs_P_T(press,temp);
+	}
+	DLL_EXPORT double vt_P_T(double press, double temp)
+	{
+		return _vt_P_T(press,temp);
+	}
 
 	//properties as functions of density and temperature
 

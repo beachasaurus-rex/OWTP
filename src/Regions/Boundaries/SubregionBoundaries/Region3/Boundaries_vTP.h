@@ -15,11 +15,11 @@
 //Constants/functions used for all boundary equations
 
 //K
-static const int _tStar_T3subregs_v_T_P = 1;
+static const int _tStar_T3 = 1;
 
-static double _theta_T3_subregs_v_T_P(double temp)
+static double _theta_T3(double temp)
 {
-	return temp / _tStar_T3subregs_v_T_P;
+	return temp / _tStar_T3;
 }
 static double _pi_T3_subregs_v_T_P(double press)
 {
@@ -95,7 +95,7 @@ double _T3ab_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3ab[i] * pow(log(pi), _I_v_T_P_R3ab[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3cd
@@ -110,7 +110,7 @@ double _T3cd_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3cd[i] * pow(pi, _I_v_T_P_R3cd[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3ef
@@ -119,7 +119,7 @@ double _T3ef_v_T_P(double pressure)
 {
 	const double thetaSat = 3.727888004;
 	double pi = _pi_T3_subregs_v_T_P(pressure);
-	return _tStar_T3subregs_v_T_P *
+	return _tStar_T3 *
 		(thetaSat * (pi - 22.064) + 647.096);
 }
 
@@ -135,7 +135,7 @@ double _T3gh_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3gh[i] * pow(pi, _I_v_T_P_R3gh[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3ij
@@ -150,7 +150,7 @@ double _T3ij_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3ij[i] * pow(pi, _I_v_T_P_R3ij[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3jk
@@ -165,7 +165,7 @@ double _T3jk_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3jk[i] * pow(pi, _I_v_T_P_R3jk[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3mn
@@ -180,7 +180,7 @@ double _T3mn_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3mn[i] * pow(pi, _I_v_T_P_R3mn[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3op
@@ -195,7 +195,7 @@ double _T3op_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3op[i] * pow(log(pi), _I_v_T_P_R3op[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3qu
@@ -210,7 +210,7 @@ double _T3qu_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3qu[i] * pow(pi, _I_v_T_P_R3qu[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 //Boundary Equations R3rx
@@ -225,7 +225,7 @@ double _T3rx_v_T_P(double pressure)
 		sum = sum + _n_v_T_P_R3rx[i] * pow(pi, _I_v_T_P_R3rx[i]);
 	}
 
-	return sum * _tStar_T3subregs_v_T_P;
+	return sum * _tStar_T3;
 }
 
 
@@ -355,20 +355,19 @@ static const double _n_v_T_P_R3t[33] = {1.55287249586268, 6.64235115009031, -289
 
 //Generic backward equation for omega(pi,theta)
 
-static double _omega_pi_theta(double press, double temp, double pStar, double tStar, double a,
-	double b, double c, double d, double e, const int* IArr, const int* JArr,
+static double _omega_pi_theta(double press, double temp, double pStar, double tStar,
+	double a, double b, double c, double d, double e, const int* IArr, const int* JArr,
 	const double* nArr, int arrSize)
 {
 	double pi = press / pStar;
 	double theta = temp / tStar;
 	double sum = 0;
-	double calc = 0;
 	for (int i = 0; i < arrSize; i++)
 	{
-		calc = nArr[i] *
-			   pow( pow( pi-a , c ) , IArr[i]) *
-			   pow( pow( theta-b, d) , JArr[i]);
-	    sum = temp + sum;
+		double calc = nArr[i] *
+			   		  pow( pi - a , c * IArr[i]) *
+			   		  pow( theta - b, d * JArr[i]);
+	    sum = calc + sum;
 	}
 	sum = pow(sum, e);
 	return sum;
@@ -395,6 +394,481 @@ double _va_P_T(double press, double temp)
 
 	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e, _I_v_T_P_R3a,
 		_J_v_T_P_R3a, _n_v_T_P_R3a, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion b
+
+double _vb_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 0.0041;
+	//units = kPa
+	double pStar = 100 * 1000;
+	//units = K
+	double tStar = 860;
+
+	double a = 0.280;
+	double b = 0.779;
+	double c = 1;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3b);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e, _I_v_T_P_R3b,
+		_J_v_T_P_R3b, _n_v_T_P_R3b, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion c
+
+double _vc_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 0.0022;
+	//units = kPa
+	double pStar = 40 * 1000;
+	//units = K
+	double tStar = 690;
+
+	double a = 0.259;
+	double b = 0.903;
+	double c = 1;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3c);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3c, _J_v_T_P_R3c, _n_v_T_P_R3c, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion d
+
+double _vd_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 0.0029;
+	//units = kPa
+	double pStar = 40 * 1000;
+	//units = K
+	double tStar = 690;
+
+	double a = 0.559;
+	double b = 0.939;
+	double c = 1;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3d);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3d, _J_v_T_P_R3d, _n_v_T_P_R3d, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion e
+
+double _ve_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 3.2E-03;
+	//units = kPa
+	double pStar = 40 * 1000;
+	//units = K
+	double tStar = 710;
+
+	double a = 0.587;
+	double b = 0.918;
+	double c = 1;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3e);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3e, _J_v_T_P_R3e, _n_v_T_P_R3e, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion f
+
+double _vf_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 6.4E-03;
+	//units = kPa
+	double pStar = 40 * 1000;
+	//units = K
+	double tStar = 730;
+
+	double a = 0.587;
+	double b = 0.891;
+	double c = 0.5;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3f);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3f, _J_v_T_P_R3f, _n_v_T_P_R3f, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion g
+
+double _vg_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 2.7E-03;
+	//units = kPa
+	double pStar = 25 * 1000;
+	//units = K
+	double tStar = 660;
+
+	double a = 0.872;
+	double b = 0.971;
+	double c = 1;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3g);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3g, _J_v_T_P_R3g, _n_v_T_P_R3g, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion h
+
+double _vh_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 32.0E-04;
+	//units = kPa
+	double pStar = 25 * 1000;
+	//units = K
+	double tStar = 660;
+
+	double a = 0.898;
+	double b = 0.983;
+	double c = 1;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3h);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3h, _J_v_T_P_R3h, _n_v_T_P_R3h, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion i
+
+double _vi_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 41.0E-04;
+	//units = kPa
+	double pStar = 25 * 1000;
+	//units = K
+	double tStar = 660;
+
+	double a = 0.910;
+	double b = 0.984;
+	double c = 0.5;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3i);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3i, _J_v_T_P_R3i, _n_v_T_P_R3i, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion j
+
+double _vj_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 54.0E-04;
+	//units = kPa
+	double pStar = 25 * 1000;
+	//units = K
+	double tStar = 670;
+
+	double a = 0.875;
+	double b = 0.964;
+	double c = 0.5;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3j);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3j, _J_v_T_P_R3j, _n_v_T_P_R3j, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion k
+
+double _vk_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 77.0E-04;
+	//units = kPa
+	double pStar = 25 * 1000;
+	//units = K
+	double tStar = 680;
+
+	double a = 0.802;
+	double b = 0.935;
+	double c = 1;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3k);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3k, _J_v_T_P_R3k, _n_v_T_P_R3k, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion l
+
+double _vl_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 26.0E-04;
+	//units = kPa
+	double pStar = 24 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 0.908;
+	double b = 0.989;
+	double c = 1;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3l);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3l, _J_v_T_P_R3l, _n_v_T_P_R3l, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion m
+
+double _vm_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 28.0E-04;
+	//units = kPa
+	double pStar = 23 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 1.00;
+	double b = 0.997;
+	double c = 1;
+	double d = 0.25;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3m);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3m, _J_v_T_P_R3m, _n_v_T_P_R3m, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion n
+
+double _vn_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 31.0E-04;
+	//units = kPa
+	double pStar = 23 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 0.976;
+	double b = 0.997;
+	double c = 1;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3n);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3n, _J_v_T_P_R3n, _n_v_T_P_R3n, N);
+
+	return vStar * exp(omega);
+}
+
+//Backwards equation for v(P,T) for subregion o
+
+double _vo_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 34.0E-04;
+	//units = kPa
+	double pStar = 23 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 0.974;
+	double b = 0.996;
+	double c = 0.5;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3o);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3o, _J_v_T_P_R3o, _n_v_T_P_R3o, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion p
+
+double _vp_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 41.0E-04;
+	//units = kPa
+	double pStar = 23 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 0.972;
+	double b = 0.997;
+	double c = 0.5;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3p);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3p, _J_v_T_P_R3p, _n_v_T_P_R3p, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion q
+
+double _vq_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 22.0E-04;
+	//units = kPa
+	double pStar = 23 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 0.848;
+	double b = 0.983;
+	double c = 1;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3q);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3q, _J_v_T_P_R3q, _n_v_T_P_R3q, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion r
+
+double _vr_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 54.0E-04;
+	//units = kPa
+	double pStar = 23 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 0.874;
+	double b = 0.982;
+	double c = 1;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3r);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3r, _J_v_T_P_R3r, _n_v_T_P_R3r, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion s
+
+double _vs_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 22.0E-04;
+	//units = kPa
+	double pStar = 21 * 1000;
+	//units = K
+	double tStar = 640;
+
+	double a = 0.886;
+	double b = 0.990;
+	double c = 1;
+	double d = 1;
+	double e = 4;
+
+	int N = ITERCONST(_I_v_T_P_R3s);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3s, _J_v_T_P_R3s, _n_v_T_P_R3s, N);
+
+	return vStar * omega;
+}
+
+//Backwards equation for v(P,T) for subregion t
+
+double _vt_P_T(double press, double temp)
+{
+	//units = m^3/kg
+	double vStar = 88.0E-04;
+	//units = kPa
+	double pStar = 20 * 1000;
+	//units = K
+	double tStar = 650;
+
+	double a = 0.803;
+	double b = 1.02;
+	double c = 1;
+	double d = 1;
+	double e = 1;
+
+	int N = ITERCONST(_I_v_T_P_R3t);
+
+	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+		_I_v_T_P_R3t, _J_v_T_P_R3t, _n_v_T_P_R3t, N);
 
 	return vStar * omega;
 }
