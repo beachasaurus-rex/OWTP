@@ -17,3 +17,8 @@
     #define R2_R3_BOUNDS_H
     #include "Regions/Boundaries/RegionBoundaries/R2andR3.h"
 #endif
+
+#ifndef R3_SUBBOUNDS_H
+    #define R3_SUBBOUNDS_H
+    #include "Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h"
+#endif

@@ -292,7 +292,7 @@
 	}
 	DLL_EXPORT double T3gh_v_T_P(double pressure)
 	{
-		return T3gh_v_T_P(pressure);
+		return _T3gh_v_T_P(pressure);
 	}
 	DLL_EXPORT double T3ij_v_T_P(double pressure)
 	{
