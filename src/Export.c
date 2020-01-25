@@ -409,6 +409,30 @@
 	{
 		return _vt_P_T(press,temp);
 	}
+	DLL_EXPORT double vu_P_T(double press, double temp)
+	{
+		return _vu_P_T(press,temp);
+	}
+	DLL_EXPORT double vv_P_T(double press, double temp)
+	{
+		return _vv_P_T(press,temp);
+	}
+	DLL_EXPORT double vw_P_T(double press, double temp)
+	{
+		return _vw_P_T(press,temp);
+	}
+	DLL_EXPORT double vx_P_T(double press, double temp)
+	{
+		return _vx_P_T(press,temp);
+	}
+	DLL_EXPORT double vy_P_T(double press, double temp)
+	{
+		return _vy_P_T(press,temp);
+	}
+	DLL_EXPORT double vz_P_T(double press, double temp)
+	{
+		return _vz_P_T(press,temp);
+	}
 
 	//properties as functions of density and temperature
 

@@ -40,6 +40,12 @@ extern "C"
     DLL_IMPORT double vr_P_T(double pressure, double temperature);
     DLL_IMPORT double vs_P_T(double pressure, double temperature);
     DLL_IMPORT double vt_P_T(double pressure, double temperature);
+    DLL_IMPORT double vu_P_T(double pressure, double temperature);
+    DLL_IMPORT double vv_P_T(double pressure, double temperature);
+    DLL_IMPORT double vw_P_T(double pressure, double temperature);
+    DLL_IMPORT double vx_P_T(double pressure, double temperature);
+    DLL_IMPORT double vy_P_T(double pressure, double temperature);
+    DLL_IMPORT double vz_P_T(double pressure, double temperature);
 }
 
 //Subregion boundary temperature tests
@@ -47,7 +53,7 @@ extern "C"
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_a_b)
 {
     double pressure = 40 * 1000;
-    double Tactual = 6.930341408 * pow(10, 2);
+    double Tactual = 6.930341408E+02;
     double Ttest = T3ab_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -59,7 +65,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_a_b)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_c_d)
 {
     double pressure = 25 * 1000;
-    double Tactual = 6.493659208 * pow(10, 2);
+    double Tactual = 6.493659208E+02;
     double Ttest = T3cd_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -71,7 +77,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_c_d)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_e_f)
 {
     double pressure = 40 * 1000;
-    double Tactual = 7.139593992 * pow(10, 2);
+    double Tactual = 7.139593992E+02;
     double Ttest = T3ef_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -83,7 +89,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_e_f)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_g_h)
 {
     double pressure = 23 * 1000;
-    double Tactual = 6.498873759 * pow(10, 2);
+    double Tactual = 6.498873759E+02;
     double Ttest = T3gh_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -95,7 +101,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_g_h)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_i_j)
 {
     double pressure = 23 * 1000;
-    double Tactual = 6.515778091 * pow(10, 2);
+    double Tactual = 6.515778091E+02;
     double Ttest = T3ij_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -107,7 +113,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_i_j)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_j_k)
 {
     double pressure = 23 * 1000;
-    double Tactual = 6.558338344 * pow(10, 2);
+    double Tactual = 6.558338344E+02;
     double Ttest = T3jk_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -119,7 +125,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_j_k)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_m_n)
 {
     double pressure = 22.8 * 1000;
-    double Tactual = 6.496054133 * pow(10, 2);
+    double Tactual = 6.496054133E+02;
     double Ttest = T3mn_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -131,7 +137,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_m_n)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_o_p)
 {
     double pressure = 22.8 * 1000;
-    double Tactual = 6.500106943 * pow(10, 2);
+    double Tactual = 6.500106943E+02;
     double Ttest = T3op_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -143,7 +149,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_o_p)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_q_u)
 {
     double pressure = 22 * 1000;
-    double Tactual = 6.456355027 * pow(10, 2);
+    double Tactual = 6.456355027E+02;
     double Ttest = T3qu_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -155,7 +161,7 @@ TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_q_u)
 TEST_F(AccTestsRegion3SubBoundaries, Temperature_Subregions_r_x)
 {
     double pressure = 22 * 1000;
-    double Tactual = 6.482622754 * pow(10, 2);
+    double Tactual = 6.482622754E+02;
     double Ttest = T3rx_v_T_P(pressure);
 
     double TErr = AbsRelativeErr(Ttest, Tactual);
@@ -627,6 +633,138 @@ TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_t_P_20MPa_T_640K)
     double vActual = 6.227528101E-03;
 
     double vTest = vt_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_u_P_21d5MPa_T_644d6K)
+{
+    double pressure = 21.5 * 1000;
+    double temp = 644.6;
+    double vActual = 2.268366647E-03;
+
+    double vTest = vu_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_u_P_22d0MPa_T_646d1K)
+{
+    double pressure = 22.0 * 1000;
+    double temp = 646.1;
+    double vActual = 2.296350553E-03;
+
+    double vTest = vu_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_v_P_22d5MPa_T_648d6K)
+{
+    double pressure = 22.5 * 1000;
+    double temp = 648.6;
+    double vActual = 2.832373260E-03;
+
+    double vTest = vv_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_v_P_22d3MPa_T_647d9K)
+{
+    double pressure = 22.3 * 1000;
+    double temp = 647.9;
+    double vActual = 2.811424405E-03;
+
+    double vTest = vv_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_w_P_22d15MPa_T_647d5K)
+{
+    double pressure = 22.15 * 1000;
+    double temp = 647.5;
+    double vActual = 3.694032281E-03;
+
+    double vTest = vw_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_w_P_22d3MPa_T_648d1K)
+{
+    double pressure = 22.3 * 1000;
+    double temp = 648.1;
+    double vActual = 3.622226305E-03;
+
+    double vTest = vw_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_x_P_22d11MPa_T_648d0K)
+{
+    double pressure = 22.11 * 1000;
+    double temp = 648.0;
+    double vActual = 4.528072649E-03;
+
+    double vTest = vx_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_x_P_22d3MPa_T_649d0K)
+{
+    double pressure = 22.3 * 1000;
+    double temp = 649.0;
+    double vActual = 4.556905799E-03;
+
+    double vTest = vx_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_y_P_22d0MPa_T_646d84K)
+{
+    double pressure = 22.0 * 1000;
+    double temp = 646.84;
+    double vActual = 2.698354719E-03;
+
+    double vTest = vy_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_y_P_22d064MPa_T_647d05K)
+{
+    double pressure = 22.064 * 1000;
+    double temp = 647.05;
+    double vActual = 2.717655648E-03;
+
+    double vTest = vy_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_z_P_22d0MPa_T_646d89K)
+{
+    double pressure = 22.0 * 1000;
+    double temp = 646.89;
+    double vActual = 3.798732962E-03;
+
+    double vTest = vz_P_T(pressure, temp);
+    double vErr = AbsRelativeErr(vTest, vActual);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, v_Subregion_z_P_22d064MPa_T_647d15K)
+{
+    double pressure = 22.064 * 1000;
+    double temp = 647.15;
+    double vActual = 3.701940010E-03;
+
+    double vTest = vz_P_T(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
