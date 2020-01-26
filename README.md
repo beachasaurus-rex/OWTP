@@ -9,7 +9,7 @@ Ordinary Water Thermodynamic Properties (OWTP) is an open-source C library that 
 ## Project Goals
 
 1. Provide a thoroughly-tested library that can be used as a reference for those familiar with conventional steam tables.
-2. Encourage the proliferation of applications that would require the use of conventional steam tables as part of their source code.
+2. Encourage the proliferation of applications that would require the use of conventional steam tables.
 3. Provide compiled functions that can easily interop with most other languages.
 4. Provide a lightweight library only focused around providing the functionality of conventional steam tables.
 
