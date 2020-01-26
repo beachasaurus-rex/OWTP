@@ -3,7 +3,7 @@
     #include "AccTestBase.h"
 #endif
 
-class AccTestsBoundaries : public AccTestBase {};
+class AccTestsRegionBoundaries : public AccTestBase {};
 
 extern "C"
 {
@@ -13,7 +13,7 @@ extern "C"
     DLL_IMPORT double T_R2_R3_b(double);
 }
 
-TEST_F(AccTestsBoundaries, Region2AndRegion3_TemperatureAcc)
+TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_TemperatureAcc)
 {
     double press = 0.165291643E+02 * 1000;
 
@@ -27,7 +27,7 @@ TEST_F(AccTestsBoundaries, Region2AndRegion3_TemperatureAcc)
     ASSERT_TRUE(TPass);
 }
 
-TEST_F(AccTestsBoundaries, Region2AndRegion3_PressureAcc)
+TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_PressureAcc)
 {
     double T = 0.623150000E+03;
 

@@ -276,6 +276,164 @@
 	}
 
 	//Region 3:
+	//subregion boundary equations - temperature
+
+	DLL_EXPORT double T3ab_v_T_P(double pressure)
+	{
+		return _T3ab_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3cd_v_T_P(double pressure)
+	{
+		return _T3cd_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3ef_v_T_P(double pressure)
+	{
+		return _T3ef_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3gh_v_T_P(double pressure)
+	{
+		return _T3gh_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3ij_v_T_P(double pressure)
+	{
+		return _T3ij_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3jk_v_T_P(double pressure)
+	{
+		return _T3jk_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3mn_v_T_P(double pressure)
+	{
+		return _T3mn_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3op_v_T_P(double pressure)
+	{
+		return _T3op_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3qu_v_T_P(double pressure)
+	{
+		return _T3qu_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3rx_v_T_P(double pressure)
+	{
+		return _T3rx_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3uv_v_T_P(double pressure)
+	{
+		return _T3uv_v_T_P(pressure);
+	}
+	DLL_EXPORT double T3wx_v_T_P(double pressure)
+	{
+		return _T3wx_v_T_P(pressure);
+	}
+
+	//subregion boundary equations - specific volume
+
+	DLL_EXPORT double va_P_T(double press, double temp)
+	{
+		return _va_P_T(press,temp);
+	}
+	DLL_EXPORT double vb_P_T(double press, double temp)
+	{
+		return _vb_P_T(press,temp);
+	}
+	DLL_EXPORT double vc_P_T(double press, double temp)
+	{
+		return _vc_P_T(press,temp);
+	}
+	DLL_EXPORT double vd_P_T(double press, double temp)
+	{
+		return _vd_P_T(press,temp);
+	}
+	DLL_EXPORT double ve_P_T(double press, double temp)
+	{
+		return _ve_P_T(press,temp);
+	}
+	DLL_EXPORT double vf_P_T(double press, double temp)
+	{
+		return _vf_P_T(press,temp);
+	}
+	DLL_EXPORT double vg_P_T(double press, double temp)
+	{
+		return _vg_P_T(press,temp);
+	}
+	DLL_EXPORT double vh_P_T(double press, double temp)
+	{
+		return _vh_P_T(press,temp);
+	}
+	DLL_EXPORT double vi_P_T(double press, double temp)
+	{
+		return _vi_P_T(press,temp);
+	}
+	DLL_EXPORT double vj_P_T(double press, double temp)
+	{
+		return _vj_P_T(press,temp);
+	}
+	DLL_EXPORT double vk_P_T(double press, double temp)
+	{
+		return _vk_P_T(press,temp);
+	}
+	DLL_EXPORT double vl_P_T(double press, double temp)
+	{
+		return _vl_P_T(press,temp);
+	}
+	DLL_EXPORT double vm_P_T(double press, double temp)
+	{
+		return _vm_P_T(press,temp);
+	}
+	DLL_EXPORT double vn_P_T(double press, double temp)
+	{
+		return _vn_P_T(press,temp);
+	}
+	DLL_EXPORT double vo_P_T(double press, double temp)
+	{
+		return _vo_P_T(press,temp);
+	}
+	DLL_EXPORT double vp_P_T(double press, double temp)
+	{
+		return _vp_P_T(press,temp);
+	}
+	DLL_EXPORT double vq_P_T(double press, double temp)
+	{
+		return _vq_P_T(press,temp);
+	}
+	DLL_EXPORT double vr_P_T(double press, double temp)
+	{
+		return _vr_P_T(press,temp);
+	}
+	DLL_EXPORT double vs_P_T(double press, double temp)
+	{
+		return _vs_P_T(press,temp);
+	}
+	DLL_EXPORT double vt_P_T(double press, double temp)
+	{
+		return _vt_P_T(press,temp);
+	}
+	DLL_EXPORT double vu_P_T(double press, double temp)
+	{
+		return _vu_P_T(press,temp);
+	}
+	DLL_EXPORT double vv_P_T(double press, double temp)
+	{
+		return _vv_P_T(press,temp);
+	}
+	DLL_EXPORT double vw_P_T(double press, double temp)
+	{
+		return _vw_P_T(press,temp);
+	}
+	DLL_EXPORT double vx_P_T(double press, double temp)
+	{
+		return _vx_P_T(press,temp);
+	}
+	DLL_EXPORT double vy_P_T(double press, double temp)
+	{
+		return _vy_P_T(press,temp);
+	}
+	DLL_EXPORT double vz_P_T(double press, double temp)
+	{
+		return _vz_P_T(press,temp);
+	}
+
 	//properties as functions of density and temperature
 
 	DLL_EXPORT double P_Rho_T_R3(double rho, double temp)
