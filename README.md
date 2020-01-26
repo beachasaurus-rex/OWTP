@@ -4,10 +4,17 @@
 
 ## STILL UNDER CONSTRUCTION
 
-OWTP is an open-source C library that calculates the thermodynamic properties of ordinary water, which is based on release R7-97 from the International Association for the Properties of Water and Steam (IAPWS R7-97).
+Ordinary Water Thermodynamic Properties (OWTP) is an open-source C library that calculates the thermodynamic properties of ordinary water, which is based on release R7-97 from the International Association for the Properties of Water and Steam (IAPWS R7-97).
 
-## Intentions
+## Project Goals
 
-OWTP is intended to be a small, fast, and thoroughly-tested steam tables library. The SI unit system that is used in the IAPWS R7-97 is the unit system that will be exported.
+1. Provide a thoroughly-tested library that can be used as a reference for those familiar with conventional steam tables.
+2. Encourage the proliferation of applications that would require the use of conventional steam tables as part of their source code.
+3. Provide compiled functions that can easily interop with most other languages.
+4. Provide a lightweight library only focused around providing the functionality of conventional steam tables.
+
+## Documentation
+
+Documents will be created once the core functionality has been completed.
 
 Copyright 2019 Jonathan Rizk
