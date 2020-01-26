@@ -1,3 +1,8 @@
+#ifndef STDIO_H
+	#define STDIO_H
+	#include "stdio.h"
+#endif
+
 #ifndef REGION1_H
     #define REGION1_H
     #include "Regions/Region1.h"
