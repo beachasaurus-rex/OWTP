@@ -16,5 +16,3 @@ Ordinary Water Thermodynamic Properties (OWTP) is an open-source C library that 
 ## Documentation
 
 Documents will be created once the core functionality has been completed.
-
-Copyright 2019 Jonathan Rizk
