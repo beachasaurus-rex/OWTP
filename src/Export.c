@@ -8,21 +8,24 @@
 #if _DEBUG
 	//Boundary - Region 2 & 3:
 
-	DLL_EXPORT double pi_R2_R3_b(double pressure)
+	DLL_EXPORT double P_R2_R3_b(double temp)
 	{
-		return _pi_R2_R3_b(pressure);
+		return _P_R2_R3_b(temp);
 	}
-	DLL_EXPORT double theta_R2_R3_b(double temp)
+	DLL_EXPORT double T_R2_R3_b(double press)
 	{
-		return _theta_R2_R3_b(temp);
+		return _T_R2_R3_b(press);
 	}
-	DLL_EXPORT double P_R2_R3_b(double theta)
+
+	//Boundary - Region 3 & 4:
+
+	DLL_EXPORT double pSat_R3_R4_b(double temp)
 	{
-		return _P_R2_R3_b(theta);
+		return _pSat_R3_R4_b(temp);
 	}
-	DLL_EXPORT double T_R2_R3_b(double pi)
+	DLL_EXPORT double tSat_R3_R4_b(double press)
 	{
-		return _T_R2_R3_b(pi);
+		return _tSat_R3_R4_b(press);
 	}
 
 	//REGION 1:
@@ -494,5 +497,12 @@
 	DLL_EXPORT double w_v_T_R3(double v, double temp)
 	{
 		return _w_v_T_R3(v, temp);
+	}
+
+	//properties as functions of pressure and temperature
+
+	DLL_EXPORT double v_P_T_R3(double press, double temp)
+	{
+		return _v_P_T_R3(press,temp);
 	}
 #endif

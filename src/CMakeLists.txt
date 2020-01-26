@@ -6,6 +6,7 @@ set(SRCS Export.c
 	Regions/Region2.h
 	Regions/Region3.h
 	Regions/Boundaries/RegionBoundaries/R2andR3.h
+	Regions/Boundaries/RegionBoundaries/R3andR4.h
 	Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h)
 
 add_library(${LIBNAME} SHARED ${SRCS})

@@ -1,3 +1,8 @@
+#ifndef STDIO_H
+	#define STDIO_H
+	#include "stdio.h"
+#endif
+
 #ifndef REGION1_H
     #define REGION1_H
     #include "Regions/Region1.h"
@@ -21,4 +26,9 @@
 #ifndef R3_SUBBOUNDS_H
     #define R3_SUBBOUNDS_H
     #include "Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h"
+#endif
+
+#ifndef R3_R4_BOUNDS_H
+    #define R3_R4_BOUNDS_H
+    #include "Regions/Boundaries/RegionBoundaries/R3andR4.h"
 #endif

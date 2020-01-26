@@ -13,6 +13,16 @@
 	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h"
 #endif
 
+#ifndef R3_R4_BOUNDS_H
+    #define R3_R4_BOUNDS_H
+    #include "Boundaries/RegionBoundaries/R3andR4.h"
+#endif
+
+#ifndef STDIO_H
+	#define STDIO_H
+	#include "stdio.h"
+#endif
+
 //Basic Free Energy Iteration Constants
 
 static const double _i_R3[40] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 };
@@ -228,4 +238,604 @@ double _cp_v_T_R3(double v, double temp)
 double _w_v_T_R3(double v, double temp)
 {
 	return _w_Rho_T_R3(1/v, temp);
+}
+
+//Properties as functions of pressure and temperature for region 3
+
+//specific volume as a function of pressure and temperature for region 3
+double _v_P_T_R3(double press, double temp)
+{
+	//kPa
+	const double pSat_643d15K = 21.04336732E+03;
+	//kPa
+	double pSat_623d15K = _pSat_R3_R4_b(623.15);
+	//kPa
+	const double p3cd = 19.00881189173929E+03;
+	//kPa
+	const double pSat_v0d00264 = 21.93161551E+03;
+	//kPa
+	const double pSat_v0d00385 = 21.90096265e+03;
+	//K
+	double Tsat = _tSat_R3_R4_b(press);
+
+	//subregions a, b
+	if
+	(
+		press > 40E+03
+		&& press <= 100E+03
+	)
+	{
+		double Tab = _T3ab_v_T_P(press);
+
+		//subregion a
+		if (temp <= Tab)
+		{
+			return _va_P_T(press,temp);
+		}
+		//subregion b
+		else
+		{
+			return _vb_P_T(press,temp);
+		}
+	}
+	//subregions c, d, e, f
+	else if
+	(
+		press > 25E+03
+		&& press <= 40E+03
+	)
+	{
+		double Tab = _T3ab_v_T_P(press);
+		double Tcd = _T3cd_v_T_P(press);
+		double Tef = _T3ef_v_T_P(press);
+
+		//subregion c
+		if (temp <= Tcd)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion d
+		else if
+		(
+			temp > Tcd
+			&& temp <= Tab
+		)
+		{
+			return _vd_P_T(press,temp);
+		}
+		//subregion e
+		else if
+		(
+			temp > Tab
+			&& temp <= Tef
+		)
+		{
+			return _ve_P_T(press,temp);
+		}
+		//subregion f
+		else
+		{
+			return _vf_P_T(press,temp);
+		}
+	}
+	//subregions c, g, h, i, j, k
+	else if
+	(
+		press > 23.5E+03
+		&& press <= 25E+03
+	)
+	{
+		double Tcd = _T3cd_v_T_P(press);
+		double Tef = _T3ef_v_T_P(press);
+		double Tgh = _T3gh_v_T_P(press);
+		double Tij = _T3ij_v_T_P(press);
+		double Tjk = _T3jk_v_T_P(press);
+
+		//subregion c
+		if (temp <= Tcd)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion g
+		else if
+		(
+			temp > Tcd
+			&& temp <= Tgh
+		)
+		{
+			return _vg_P_T(press,temp);
+		}
+		//subregion h
+		else if
+		(
+			temp > Tgh
+			&& temp <= Tef
+		)
+		{
+			return _vh_P_T(press,temp);
+		}
+		//subregion i
+		else if
+		(
+			temp > Tef
+			&& temp <= Tij
+		)
+		{
+			return _vi_P_T(press,temp);
+		}
+		//subregion j
+		else if
+		(
+			temp > Tij
+			&& temp <= Tjk
+		)
+		{
+			return _vj_P_T(press,temp);
+		}
+		//subregion k
+		else
+		{
+			return _vk_P_T(press,temp);
+		}
+	}
+	//subregions c, l, h, i, j, k
+	else if
+	(
+		press > 23E+03
+		&& press <= 23.5E+03
+	)
+	{
+		double Tcd = _T3cd_v_T_P(press);
+		double Tef = _T3ef_v_T_P(press);
+		double Tgh = _T3gh_v_T_P(press);
+		double Tij = _T3ij_v_T_P(press);
+		double Tjk = _T3jk_v_T_P(press);
+
+		//subregion c
+		if (temp <= Tcd)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion l
+		else if
+		(
+			temp > Tcd
+			&& temp <= Tgh
+		)
+		{
+			return _vl_P_T(press,temp);
+		}
+		//subregion h
+		else if
+		(
+			temp > Tgh
+			&& temp <= Tef
+		)
+		{
+			return _vh_P_T(press,temp);
+		}
+		//subregion i
+		else if
+		(
+			temp > Tef
+			&& temp <= Tij
+		)
+		{
+			return _vi_P_T(press,temp);
+		}
+		//subregion j
+		else if
+		(
+			temp > Tij
+			&& temp <= Tjk
+		)
+		{
+			return _vj_P_T(press,temp);
+		}
+		//subregion k
+		else
+		{
+			return _vk_P_T(press,temp);
+		}
+	}
+	//subregions c, l, m, n, o, p, j, k
+	else if
+	(
+		press > 22.5E+03
+		&& press <= 23E+03
+	)
+	{
+		double Tcd = _T3cd_v_T_P(press);
+		double Tef = _T3ef_v_T_P(press);
+		double Tgh = _T3gh_v_T_P(press);
+		double Tij = _T3ij_v_T_P(press);
+		double Tjk = _T3jk_v_T_P(press);
+		double Tmn = _T3mn_v_T_P(press);
+		double Top = _T3op_v_T_P(press);
+
+		//subregion c
+		if (temp <= Tcd)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion l
+		else if
+		(
+			temp > Tcd
+			&& temp <= Tgh
+		)
+		{
+			return _vl_P_T(press,temp);
+		}
+		//subregion m
+		else if
+		(
+			temp > Tgh
+			&& temp <= Tmn
+		)
+		{
+			return _vm_P_T(press,temp);
+		}
+		//subregion n
+		else if
+		(
+			temp > Tmn
+			&& temp <= Tef
+		)
+		{
+			return _vn_P_T(press,temp);
+		}
+		//subregion o
+		else if
+		(
+			temp > Tef
+			&& temp <= Top
+		)
+		{
+			return _vo_P_T(press,temp);
+		}
+		//subregion p
+		else if
+		(
+			temp > Top
+			&& temp <= Tij
+		)
+		{
+			return _vp_P_T(press,temp);
+		}
+		//subregion j
+		else if
+		(
+			temp > Tij
+			&& temp <= Tjk
+		)
+		{
+			return _vj_P_T(press,temp);
+		}
+		//subregion k
+		else
+		{
+			return _vk_P_T(press,temp);
+		}
+	}
+	//subregions c, q, r, k || critical subregions
+	else if
+	(
+		press > pSat_643d15K
+		&& press <= 22.5E+03
+	)
+	{
+
+		//subregions u, w, v, x
+		if
+		(
+			press > 22.11E+03
+			&& press <= 22.5E+03
+		)
+		{
+			double Tef = _T3ef_v_T_P(press);
+			double Tqu = _T3qu_v_T_P(press);
+			double Trx = _T3rx_v_T_P(press);
+			double Twx = _T3wx_v_T_P(press);
+			double Tuv = _T3uv_v_T_P(press);
+
+			//subregion u
+			if
+			(
+				temp > Tqu
+				&& temp <= Tuv
+			)
+			{
+				return _vu_P_T(press,temp);
+			}
+			//subregion w
+			else if
+			(
+				temp > Tef
+				&& temp <= Twx
+			)
+			{
+				return _vw_P_T(press,temp);
+			}
+			//subregion v
+			else if
+			(
+				temp > Tuv
+				&& temp <= Tef
+			)
+			{
+				return _vv_P_T(press,temp);
+			}
+			//subregion x
+			else if
+			(
+				temp > Twx
+				&& temp <= Trx
+			)
+			{
+				return _vx_P_T(press,temp);
+			}
+		}
+		//subregions u, z, y, x
+		else if
+		(
+			press > 22.064E+03
+			&& press <= 22.11E+03
+		)
+		{
+			double Tef = _T3ef_v_T_P(press);
+			double Tqu = _T3qu_v_T_P(press);
+			double Trx = _T3rx_v_T_P(press);
+			double Twx = _T3wx_v_T_P(press);
+			double Tuv = _T3uv_v_T_P(press);
+
+			//subregion u
+			if
+			(
+				temp > Tqu
+				&& temp <= Tuv
+			)
+			{
+				return _vu_P_T(press,temp);
+			}
+			//subregion z
+			else if
+			(
+				temp > Tef
+				&& temp <= Twx
+			)
+			{
+				return _vz_P_T(press,temp);
+			}
+			//subregion y
+			else if
+			(
+				temp > Tuv
+				&& temp <= Tef
+			)
+			{
+				return _vy_P_T(press,temp);
+			}
+			//subregion x
+			else if
+			(
+				temp > Twx
+				&& temp <= Trx
+			)
+			{
+				return _vx_P_T(press,temp);
+			}
+		}
+		//subregions u, y
+		else if
+		(
+			press > pSat_v0d00264
+			&& press <= 22.064E+03
+			&& temp <= Tsat
+		)
+		{
+			double Tqu = _T3qu_v_T_P(press);
+			double Tuv = _T3uv_v_T_P(press);
+
+			//subregion u
+			if
+			(
+				temp > Tqu
+				&& temp <= Tuv
+			)
+			{
+				return _vu_P_T(press,temp);
+			}
+			//subregion y
+			else if (temp > Tqu)
+			{
+				return _vy_P_T(press,temp);
+			}
+		}
+		//subregions u
+		else if
+		(
+			press > pSat_643d15K
+			&& press <= pSat_v0d00264
+			&& temp <= Tsat
+		)
+		{
+			double Tqu = _T3qu_v_T_P(press);
+
+			//subregion u
+			if (temp > Tqu)
+			{
+				return _vu_P_T(press,temp);
+			}
+		}
+		//subregions z, x
+		else if
+		(
+			press > pSat_v0d00385
+			&& press <= 22.064E+03
+			&& temp >= Tsat
+		)
+		{
+			double Trx = _T3rx_v_T_P(press);
+			double Twx = _T3wx_v_T_P(press);
+
+			//subregion z
+			if (temp <= Twx)
+			{
+				return _vz_P_T(press,temp);
+			}
+			//subregion x
+			else if
+			(
+				temp > Twx
+				&& temp <= Trx
+			)
+			{
+				return _vx_P_T(press,temp);
+			}
+		}
+		//subregions x
+		else if
+		(
+			press > pSat_643d15K
+			&& press <= pSat_v0d00385
+			&& temp >= Tsat
+		)
+		{
+			double Trx = _T3rx_v_T_P(press);
+
+			//subregion x
+			if (temp <= Trx)
+			{
+				return _vx_P_T(press,temp);
+			}
+		}
+
+		double Tcd = _T3cd_v_T_P(press);
+		double Tjk = _T3jk_v_T_P(press);
+		double Tqu = _T3qu_v_T_P(press);
+		double Trx = _T3rx_v_T_P(press);
+
+		//subregion c
+		if (temp <= Tcd)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion q
+		else if
+		(
+			temp > Tcd
+			&& temp <= Tqu
+		)
+		{
+			return _vq_P_T(press,temp);
+		}
+		//subregion r
+		else if
+		(
+			temp > Trx
+			&& temp <= Tjk
+		)
+		{
+			return _vr_P_T(press,temp);
+		}
+		//subregion k
+		else
+		{
+			return _vk_P_T(press,temp);
+		}
+	}
+	//subregions c, s, r, k
+	else if
+	(
+		press > 20.5E+03
+		&& press <= pSat_643d15K
+	)
+	{
+		double Tcd = _T3cd_v_T_P(press);
+		double Tjk = _T3jk_v_T_P(press);
+
+		//subregion c
+		if (temp <= Tcd)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion s
+		else if
+		(
+			temp > Tcd
+			&& temp <= Tsat
+		)
+		{
+			return _vs_P_T(press,temp);
+		}
+		//subregion r
+		else if
+		(
+			temp > Tsat
+			&& temp <= Tjk
+		)
+		{
+			return _vr_P_T(press,temp);
+		}
+		//subregion k
+		else
+		{
+			return _vk_P_T(press,temp);
+		}
+	}
+	//subregions c, s, t
+	else if
+	(
+		press > p3cd
+		&& press <= 20.5E+03
+	)
+	{
+		double Tcd = _T3cd_v_T_P(press);
+
+		//subregion c
+		if (temp <= Tcd)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion s
+		else if
+		(
+			temp > Tcd
+			&& temp <= Tsat
+		)
+		{
+			return _vs_P_T(press,temp);
+		}
+		//subregion t
+		else
+		{
+			return _vt_P_T(press,temp);
+		}
+	}
+	//subregions c, t
+	else if
+	(
+		press > pSat_623d15K
+		&& press <= p3cd
+	)
+	{
+		//subregion c
+		if (temp <= Tsat)
+		{
+			return _vc_P_T(press,temp);
+		}
+		//subregion t
+		else
+		{
+			return _vt_P_T(press,temp);
+		}
+	}
+	else
+	{
+		fprintf(stderr,
+			"Warning: v(P,T) for Region 3 reached the default case.\nPressure = %f kPa\nTemperature = %f K\n",
+			press, temp);
+		return -1;
+	}
 }
