@@ -27,6 +27,12 @@ extern "C"
 
     //properties as functions of pressure and temperature
     DLL_IMPORT double v_P_T_R3(double, double);
+    DLL_IMPORT double u_P_T_R3(double, double);
+    DLL_IMPORT double s_P_T_R3(double, double);
+    DLL_IMPORT double h_P_T_R3(double, double);
+    DLL_IMPORT double cv_P_T_R3(double, double);
+    DLL_IMPORT double cp_P_T_R3(double, double);
+    DLL_IMPORT double w_P_T_R3(double, double);
 }
 
 //The testing data points for the following tests were
@@ -151,9 +157,10 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature500rho750K)
     ASSERT_TRUE(cvPass);
     ASSERT_TRUE(wPass);
 }
+
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500v650K)
 {
-    //kg/m^3
+    //m^3/kg
     double testV = 1.0/500.0;
     //K
     double testTemp = 650;
@@ -192,7 +199,7 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500
 }
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over200v650K)
 {
-    //kg/m^3
+    //m^3/kg
     double testV = 1.0/200.0;
     //K
     double testTemp = 650;
@@ -231,7 +238,7 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over200
 }
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500v750K)
 {
-    //kg/m^3
+    //m^3/kg
     double testV = 1.0/500.0;
     //K
     double testTemp = 750;
@@ -261,6 +268,130 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500
     bool wPass = IsAcceptable(wErr);
 
     ASSERT_TRUE(PPass);
+    ASSERT_TRUE(uPass);
+    ASSERT_TRUE(sPass);
+    ASSERT_TRUE(hPass);
+    ASSERT_TRUE(cpPass);
+    ASSERT_TRUE(cvPass);
+    ASSERT_TRUE(wPass);
+}
+
+TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over500v650K)
+{
+    //m^3/kg
+    double vActual = 1.0/500.0;
+    //K
+    double temp = 650;
+    //kPa
+    double press = P_v_T_R3(vActual, temp);
+
+    double v = v_P_T_R3(press,temp);
+    double u = u_P_T_R3(press,temp);
+    double s = s_P_T_R3(press,temp);
+    double h = h_P_T_R3(press,temp);
+    double cp = cp_P_T_R3(press,temp);
+    double cv = cv_P_T_R3(press,temp);
+    double w = w_P_T_R3(press,temp);
+
+    double vErr = AbsRelativeErr(v, vActual);
+    double uErr = AbsRelativeErr(u, 0.181226279E+04);
+    double sErr = AbsRelativeErr(s, 0.405427273E+01);
+    double hErr = AbsRelativeErr(h, 0.186343019E+04);
+    double cpErr = AbsRelativeErr(cp, 0.138935717E+02);
+    double cvErr = AbsRelativeErr(cv, 3.191317871889);
+    double wErr = AbsRelativeErr(w, 0.502005554E+03);
+
+    bool vPass = IsAcceptable(vErr);
+    bool uPass = IsAcceptable(uErr);
+    bool sPass = IsAcceptable(sErr);
+    bool hPass = IsAcceptable(hErr);
+    bool cpPass = IsAcceptable(cpErr);
+    bool cvPass = IsAcceptable(cvErr);
+    bool wPass = IsAcceptable(wErr);
+
+    ASSERT_TRUE(vPass);
+    ASSERT_TRUE(uPass);
+    ASSERT_TRUE(sPass);
+    ASSERT_TRUE(hPass);
+    ASSERT_TRUE(cpPass);
+    ASSERT_TRUE(cvPass);
+    ASSERT_TRUE(wPass);
+}
+TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over200v650K)
+{
+    //m^3/kg
+    double vActual = 1.0/200.0;
+    //K
+    double temp = 650;
+    //kPa
+    double press = P_v_T_R3(vActual, temp);
+
+    double v = v_P_T_R3(press,temp);
+    double u = u_P_T_R3(press,temp);
+    double s = s_P_T_R3(press,temp);
+    double h = h_P_T_R3(press,temp);
+    double cp = cp_P_T_R3(press,temp);
+    double cv = cv_P_T_R3(press,temp);
+    double w = w_P_T_R3(press,temp);
+
+    double vErr = AbsRelativeErr(v, vActual);
+    double uErr = AbsRelativeErr(u, 0.226365868E+04);
+    double sErr = AbsRelativeErr(s, 0.485438792E+01);
+    double hErr = AbsRelativeErr(h, 0.237512401E+04);
+    double cpErr = AbsRelativeErr(cp, 0.446579342E+02);
+    double cvErr = AbsRelativeErr(cv, 4.04118075955);
+    double wErr = AbsRelativeErr(w, 0.383444594E+03);
+
+    bool vPass = IsAcceptable(vErr);
+    bool uPass = IsAcceptable(uErr);
+    bool sPass = IsAcceptable(sErr);
+    bool hPass = IsAcceptable(hErr);
+    bool cpPass = IsAcceptable(cpErr);
+    bool cvPass = IsAcceptable(cvErr);
+    bool wPass = IsAcceptable(wErr);
+
+    ASSERT_TRUE(vPass);
+    ASSERT_TRUE(uPass);
+    ASSERT_TRUE(sPass);
+    ASSERT_TRUE(hPass);
+    ASSERT_TRUE(cpPass);
+    ASSERT_TRUE(cvPass);
+    ASSERT_TRUE(wPass);
+}
+TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over500v750K)
+{
+    //m^3/kg
+    double vActual = 1.0/500.0;
+    //K
+    double temp = 750;
+    //kPa
+    double press = P_v_T_R3(vActual, temp);
+
+    double v = v_P_T_R3(press,temp);
+    double u = u_P_T_R3(press,temp);
+    double s = s_P_T_R3(press,temp);
+    double h = h_P_T_R3(press,temp);
+    double cp = cp_P_T_R3(press,temp);
+    double cv = cv_P_T_R3(press,temp);
+    double w = w_P_T_R3(press,temp);
+
+    double vErr = AbsRelativeErr(v, vActual);
+    double uErr = AbsRelativeErr(u, 0.210206932E+04);
+    double sErr = AbsRelativeErr(s, 0.446971906E+01);
+    double hErr = AbsRelativeErr(h, 0.225868845E+04);
+    double cpErr = AbsRelativeErr(cp, 0.634165359E+01);
+    double cvErr = AbsRelativeErr(cv, 2.71701677121);
+    double wErr = AbsRelativeErr(w, 0.760696041E+03);
+
+    bool vPass = IsAcceptable(vErr);
+    bool uPass = IsAcceptable(uErr);
+    bool sPass = IsAcceptable(sErr);
+    bool hPass = IsAcceptable(hErr);
+    bool cpPass = IsAcceptable(cpErr);
+    bool cvPass = IsAcceptable(cvErr);
+    bool wPass = IsAcceptable(wErr);
+
+    ASSERT_TRUE(vPass);
     ASSERT_TRUE(uPass);
     ASSERT_TRUE(sPass);
     ASSERT_TRUE(hPass);

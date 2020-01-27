@@ -500,9 +500,33 @@
 	}
 
 	//properties as functions of pressure and temperature
-
+	
 	DLL_EXPORT double v_P_T_R3(double press, double temp)
 	{
 		return _v_P_T_R3(press,temp);
+	}
+	DLL_EXPORT double u_P_T_R3(double press, double temp)
+	{
+		return _u_P_T_R3(press,temp);
+	}
+	DLL_EXPORT double s_P_T_R3(double press, double temp)
+	{
+		return _s_P_T_R3(press,temp);
+	}
+	DLL_EXPORT double h_P_T_R3(double press, double temp)
+	{
+		return _h_P_T_R3(press,temp);
+	}
+	DLL_EXPORT double cv_P_T_R3(double press, double temp)
+	{
+		return _cv_P_T_R3(press,temp);
+	}
+	DLL_EXPORT double cp_P_T_R3(double press, double temp)
+	{
+		return _cp_P_T_R3(press,temp);
+	}
+	DLL_EXPORT double w_P_T_R3(double press, double temp)
+	{
+		return _w_P_T_R3(press,temp);
 	}
 #endif
