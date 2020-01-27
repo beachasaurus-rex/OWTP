@@ -839,3 +839,39 @@ double _v_P_T_R3(double press, double temp)
 		return -1;
 	}
 }
+//specific internal energy as a function of pressure and temperature for region 3
+double _u_P_T_R3(double press, double temp)
+{
+	double v = _v_P_T_R3(press,temp);
+	return _u_Rho_T_R3(1/v, temp);
+}
+//specific entropy as a function of pressure and temperature for region 3
+double _s_P_T_R3(double press, double temp)
+{
+	double v = _v_P_T_R3(press,temp);
+	return _s_Rho_T_R3(1/v, temp);
+}
+//specific enthalpy as a function of pressure and temperature for region 3
+double _h_P_T_R3(double press, double temp)
+{
+	double v = _v_P_T_R3(press,temp);
+	return _h_Rho_T_R3(1/v, temp);
+}
+//specific isochoric heat capacity as a function of pressure and temperature for region 3
+double _cv_P_T_R3(double press, double temp)
+{
+	double v = _v_P_T_R3(press,temp);
+	return _cv_Rho_T_R3(1/v, temp);
+}
+//specific isobaric heat capacity as a function of pressure and temperature for region 3
+double _cp_P_T_R3(double press, double temp)
+{
+	double v = _v_P_T_R3(press,temp);
+	return _cp_Rho_T_R3(1/v, temp);
+}
+//speed of sound as a function of pressure and temperature for region 3
+double _w_P_T_R3(double press, double temp)
+{
+	double v = _v_P_T_R3(press,temp);
+	return _w_Rho_T_R3(1/v, temp);
+}
