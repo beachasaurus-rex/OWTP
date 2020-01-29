@@ -459,6 +459,13 @@
 		return _v_R3b_P_h(press,enth);
 	}
 
+	//subregion boundary equation v(P,h) - enthalpy subregion boundary
+
+	DLL_EXPORT double h_R3ab_P(double press)
+	{
+		return _h_R3ab_P(press);
+	}
+
 	//properties as functions of density and temperature
 
 	DLL_EXPORT double P_Rho_T_R3(double rho, double temp)

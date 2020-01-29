@@ -12,6 +12,27 @@
 
 
 
+//Iterator variable data for h(P) for subregion ab
+
+static const double _n_h_P_R3ab[4] = {0.201464004206875E+04, 0.374696550136983E+01, -0.219921901054187E-01, 0.875131686009950E-04};
+
+//Enthalpy(Pressure) for subregion boundary ab
+
+double _h_R3ab_P(double press)
+{
+    //kJ/kg
+    double hStar = 1;
+    //kPa
+    double pStar = 1000;
+
+    double pi = press / pStar;
+    return hStar *
+        (
+        _n_h_P_R3ab[0] + _n_h_P_R3ab[1] * pi + _n_h_P_R3ab[2] * pow(pi,2) +
+        _n_h_P_R3ab[3] * pow(pi,3)
+        );
+}
+
 //Iterator variable data for T(P,h) for subregion a
 
 static const int _I_T_P_h_R3a[31] = {-12, -12, -12, -12, -12, -12, -12, -12, -10, -10, -10, -8, -8, -8, -8, -5, -3, -2, -2, -2, -1, -1, 0, 0, 1, 3, 3, 4, 4, 10, 12};
