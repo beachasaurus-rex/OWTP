@@ -139,3 +139,20 @@ double _v_R3b_P_s(double press, double entr)
 
     return sum * vStar;
 }
+
+//SpecifivVolume(Pressure,Entropy) for region 3
+
+double _v_P_s_R3(double press, double entr)
+{
+    //kJ/(kg*K)
+    const double sCrit = 4.41202148223476;
+
+    if (entr < sCrit)
+    {
+        return _v_R3a_P_s(press, entr);
+    }
+    else
+    {
+        return _v_R3b_P_s(press, entr);
+    }
+}

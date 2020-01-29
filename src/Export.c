@@ -506,6 +506,10 @@
 	{
 		return _v_R3b_P_s(press, entr);
 	}
+	DLL_EXPORT double v_P_s_R3(double press, double entr)
+	{
+		return _v_P_s_R3(press,entr);
+	}
 
 	//properties as functions of density and temperature
 
