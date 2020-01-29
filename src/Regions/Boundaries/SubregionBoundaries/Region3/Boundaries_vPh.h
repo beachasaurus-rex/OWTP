@@ -10,7 +10,34 @@
 
 //All Subregion Boundary Equations for v(P,h)
 
+//Iterator variable data for pSat(h) for subregion ab
 
+static const int _I_PSat_h_R3ab[14] = {0, 1, 1, 1, 1, 5, 7, 8, 14, 20, 22, 24, 28, 36};
+static const int _J_PSat_h_R3ab[14] = {0, 1, 3, 4, 36, 3, 0, 24, 16, 16, 3, 18, 8, 24};
+static const double _n_PSat_h_R3ab[14] = {0.600073641753024, -9.36203654849857, 24.6590798594147, -107.014222858224, -91582131580576.8, -8623.32011700662, -23.5837344740032, 2.52304969384128E+17, -3.89718771997719E+18, -3.33775713645296E+22, 35649946963.6328, -1.48547544720641E+26, 3.30611514838798E+18, 8.13641294467829E+37};
+
+//SaturatedPressure(Enthalpy) for subregion boundary ab
+
+double _pSat_R3ab_h(double enth)
+{
+    //kPa
+    const double pStar = 22E+03;
+    //kJ/kg
+    const double hStar = 2600;
+
+    double eta = enth / hStar;
+    int N = ITERCONST(_I_PSat_h_R3ab);
+    double sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        double calc = _n_PSat_h_R3ab[i] *
+            pow(eta - 1.02, _I_PSat_h_R3ab[i]) *
+            pow(eta - 0.608, _J_PSat_h_R3ab[i]);
+        sum = sum + calc;
+    }
+
+    return sum * pStar;
+}
 
 //Iterator variable data for h(P) for subregion ab
 
@@ -21,9 +48,9 @@ static const double _n_h_P_R3ab[4] = {0.201464004206875E+04, 0.374696550136983E+
 double _h_R3ab_P(double press)
 {
     //kJ/kg
-    double hStar = 1;
+    const double hStar = 1;
     //kPa
-    double pStar = 1000;
+    const double pStar = 1000;
 
     double pi = press / pStar;
     return hStar *
@@ -50,11 +77,11 @@ static const double _n_T_P_h_R3b[33] = {3.2325457364492E-05, -1.27575556587181E-
 double _T_R3a_P_h(double press, double enth)
 {
     //K
-    double tStar = 760;
+    const double tStar = 760;
     //kPa
-    double pStar = 100E+03;
+    const double pStar = 100E+03;
     //kJ/kg
-    double hStar = 2300;
+    const double hStar = 2300;
 
     double eta = enth / hStar;
     double pi = press / pStar;
@@ -76,11 +103,11 @@ double _T_R3a_P_h(double press, double enth)
 double _T_R3b_P_h(double press, double enth)
 {
     //K
-    double tStar = 860;
+    const double tStar = 860;
     //kPa
-    double pStar = 100E+03;
+    const double pStar = 100E+03;
     //kJ/kg
-    double hStar = 2800;
+    const double hStar = 2800;
 
     double eta = enth / hStar;
     double pi = press / pStar;
@@ -114,11 +141,11 @@ static const double _n_v_P_h_R3b[30] = {-2.25196934336318E-09, 1.40674363313486E
 double _v_R3a_P_h(double press, double enth)
 {
     //m^3/kg
-    double vStar = 0.0028;
+    const double vStar = 0.0028;
     //kPa
-    double pStar = 100E+03;
+    const double pStar = 100E+03;
     //kJ/kg
-    double hStar = 2100;
+    const double hStar = 2100;
 
     double pi = press / pStar;
     double eta = enth / hStar;
@@ -140,11 +167,11 @@ double _v_R3a_P_h(double press, double enth)
 double _v_R3b_P_h(double press, double enth)
 {
     //m^3/kg
-    double vStar = 0.0088;
+    const double vStar = 0.0088;
     //kPa
-    double pStar = 100E+03;
+    const double pStar = 100E+03;
     //kJ/kg
-    double hStar = 2800;
+    const double hStar = 2800;
 
     double pi = press / pStar;
     double eta = enth / hStar;

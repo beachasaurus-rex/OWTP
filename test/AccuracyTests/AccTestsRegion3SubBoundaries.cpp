@@ -53,6 +53,8 @@ extern "C"
     DLL_IMPORT double v_R3b_P_h(double, double);
 
     DLL_IMPORT double h_R3ab_P(double);
+
+    DLL_IMPORT double pSat_R3ab_h(double);
 }
 
 //The test data points for the following tests were
@@ -1011,4 +1013,52 @@ TEST_F(AccTestsRegion3SubBoundaries, vPh_h_SubregionBoundary_ab_25MPa)
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
+}
+
+//The test data points for the following tests were
+//suggested by the IAPWS in "Revised Supplementary Release on
+//Backward Equations for the Functions T(p,h), v(p,h) and T(p,s), v(p,s)
+//for Region 3 of the IAPWS Industrial Formulation 1997 for
+//the Thermodynamic Properties of Water and Steam" in table 18 on page 18.
+
+//Subregion boundary v(P,h) - saturated pressure boundary
+
+TEST_F(AccTestsRegion3SubBoundaries, vPh_pSat_SubregionBoundary_ab_1700h)
+{
+    //kJ/kg
+    double h = 1700;
+    //kPa
+    double pExp = 1.724175718E+04;
+    //kPa
+    double pTest = pSat_R3ab_h(h);
+
+    double pErr = AbsRelativeErr(pTest, pExp);
+    bool pPass = IsAcceptable(pErr);
+    ASSERT_TRUE(pPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_pSat_SubregionBoundary_ab_2000h)
+{
+    //kJ/kg
+    double h = 2000;
+    //kPa
+    double pExp = 2.193442957E+04;
+    //kPa
+    double pTest = pSat_R3ab_h(h);
+
+    double pErr = AbsRelativeErr(pTest, pExp);
+    bool pPass = IsAcceptable(pErr);
+    ASSERT_TRUE(pPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_pSat_SubregionBoundary_ab_2400h)
+{
+    //kJ/kg
+    double h = 2400;
+    //kPa
+    double pExp = 2.018090839E+04;
+    //kPa
+    double pTest = pSat_R3ab_h(h);
+
+    double pErr = AbsRelativeErr(pTest, pExp);
+    bool pPass = IsAcceptable(pErr);
+    ASSERT_TRUE(pPass);
 }

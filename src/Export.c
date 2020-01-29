@@ -466,6 +466,13 @@
 		return _h_R3ab_P(press);
 	}
 
+	//subregion boundary equation v(P,h) - saturated pressure boundary
+
+	DLL_EXPORT double pSat_R3ab_h(double enth)
+	{
+		return _pSat_R3ab_h(enth);
+	}
+
 	//properties as functions of density and temperature
 
 	DLL_EXPORT double P_Rho_T_R3(double rho, double temp)
