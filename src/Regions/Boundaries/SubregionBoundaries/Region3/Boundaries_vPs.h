@@ -75,3 +75,67 @@ double _T_R3b_P_s(double press, double entr)
 
     return sum * tStar;
 }
+
+//Iteration Constants for v(P,s) for subregion a
+
+static const int _I_v_P_s_R3a[28] = {-12, -12, -12, -10, -10, -10, -10, -8, -8, -8, -8, -6, -5, -4, -3, -3, -2, -2, -1, -1, 0, 0, 0, 1, 2, 4, 5, 6};
+static const int _J_v_P_s_R3a[28] = {10, 12, 14, 4, 8, 10, 20, 5, 6, 14, 16, 28, 1, 5, 2, 4, 3, 8, 1, 2, 0, 1, 3, 0, 0, 2, 2, 0};
+static const double _n_v_P_s_R3a[28] = {79.5544074093975, -2382.6124298459, 17681.3100617787, -1.10524727080379E-03, -15.3213833655326, 297.544599376982, -35031520.6871242, 0.277513761062119, -0.523964271036888, -148011.182995403, 1600148.99374266, 1708023226634.27, 2.46866996006494E-04, 1.6532608479798, -0.118008384666987, 2.537986423559, 0.965127704669424, -28.2172420532826, 0.203224612353823, 1.10648186063513, 0.52612794845128, 0.277000018736321, 1.08153340501132, -7.44127885357893E-02, 1.64094443541384E-02, -6.80468275301065E-02, 0.025798857610164, -1.45749861944416E-04};
+
+//Iteration Constants for v(P,s) for subregion b
+
+static const int _I_v_P_s_R3b[31] = {-12, -12, -12, -12, -12, -12, -10, -10, -10, -10, -8, -5, -5, -5, -4, -4, -4, -4, -3, -2, -2, -2, -2, -2, -2, 0, 0, 0, 1, 1, 2};
+static const int _J_v_P_s_R3b[31] = {0, 1, 2, 3, 5, 6, 0, 1, 2, 4, 0, 1, 2, 3, 0, 1, 2, 3, 1, 0, 1, 2, 3, 4, 12, 0, 1, 2, 0, 2, 2};
+static const double _n_v_P_s_R3b[31] = {5.91599780322238E-05, -1.85465997137856E-03, 1.04190510480013E-02, 5.9864730203859E-03, -0.771391189901699, 1.72549765557036, -4.67076079846526E-04, 1.34533823384439E-02, -8.08094336805495E-02, 0.508139374365767, 1.28584643361683E-03, -1.63899353915435, 5.86938199318063, -2.92466667918613, -6.14076301499537E-03, 5.76199014049172, -12.1613320606788, 1.67637540957944, -7.44135838773463, 3.78168091437659E-02, 4.01432203027688, 16.0279837479185, 3.17848779347728, -3.58362310304853, -1159952.60446827, 0.199256573577909, -0.122270624794624, -19.1449143716586, -1.50448002905284E-02, 14.6407900162154, -3.2747778718823};
+
+//SpecifivVolume(Pressure,Entropy) for subregion a
+
+double _v_R3a_P_s(double press, double entr)
+{
+    //m^3/kg
+    const double vStar = 0.0028;
+    //kPa
+    const double pStar = 100E+03;
+    //kJ/(kg*K)
+    const double sStar = 4.4;
+
+    double pi = press / pStar;
+    double sigma = entr / sStar;
+    int N = ITERCONST(_I_v_P_s_R3a);
+    double sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        double calc = _n_v_P_s_R3a[i] *
+            pow(pi + 0.187, _I_v_P_s_R3a[i]) *
+            pow(sigma - 0.755, _J_v_P_s_R3a[i]);
+        sum = sum + calc;
+    }
+
+    return sum * vStar;
+}
+
+//SpecifivVolume(Pressure,Entropy) for subregion b
+
+double _v_R3b_P_s(double press, double entr)
+{
+    //m^3/kg
+    const double vStar = 0.0088;
+    //kPa
+    const double pStar = 100E+03;
+    //kJ/(kg*K)
+    const double sStar = 5.3;
+
+    double pi = press / pStar;
+    double sigma = entr / sStar;
+    int N = ITERCONST(_I_v_P_s_R3b);
+    double sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        double calc = _n_v_P_s_R3b[i] *
+            pow(pi + 0.298, _I_v_P_s_R3b[i]) *
+            pow(sigma - 0.816, _J_v_P_s_R3b[i]);
+        sum = sum + calc;
+    }
+
+    return sum * vStar;
+}
