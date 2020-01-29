@@ -27,6 +27,10 @@
 	{
 		return _tSat_R3_R4_b(press);
 	}
+	DLL_EXPORT double pSat_s_R3_R4(double entr)
+	{
+		return _pSat_s_R3_R4(entr);
+	}
 
 	//REGION 1:
 	//properties as functions of temperature and pressure
