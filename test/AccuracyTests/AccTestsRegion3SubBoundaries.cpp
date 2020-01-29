@@ -49,8 +49,10 @@ extern "C"
 
     DLL_IMPORT double T_R3a_P_h(double, double);
     DLL_IMPORT double T_R3b_P_h(double, double);
+
     DLL_IMPORT double v_R3a_P_h(double, double);
     DLL_IMPORT double v_R3b_P_h(double, double);
+    DLL_IMPORT double v_P_h_R3(double, double);
 
     DLL_IMPORT double h_R3ab_P(double);
 
@@ -986,6 +988,96 @@ TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_b_100MPa_2700h)
     double vExp = 2.404234998E-03;
     //K
     double vtest = v_R3b_P_h(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_20MPa_1700h)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/kg
+    double h = 1700;
+    //m^3/kg
+    double vExp = 1.749903962E-03;
+    //K
+    double vtest = v_P_h_R3(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_50MPa_2000h)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/kg
+    double h = 2000;
+    //m^3/kg
+    double vExp = 1.908139035E-03;
+    //K
+    double vtest = v_P_h_R3(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_100MPa_2100h)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/kg
+    double h = 2100;
+    //m^3/kg
+    double vExp = 1.676229776E-03;
+    //K
+    double vtest = v_P_h_R3(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_20MPa_2500h)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/kg
+    double h = 2500;
+    //m^3/kg
+    double vExp = 6.670547043E-03;
+    //K
+    double vtest = v_P_h_R3(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_50MPa_2400h)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/kg
+    double h = 2400;
+    //m^3/kg
+    double vExp = 2.801244590E-03;
+    //K
+    double vtest = v_P_h_R3(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_100MPa_2700h)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/kg
+    double h = 2700;
+    //m^3/kg
+    double vExp = 2.404234998E-03;
+    //K
+    double vtest = v_P_h_R3(press,h);
 
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);

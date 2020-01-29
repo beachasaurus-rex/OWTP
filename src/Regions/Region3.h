@@ -880,12 +880,3 @@ double _w_P_T_R3(double press, double temp)
 	double v = _v_P_T_R3(press,temp);
 	return _w_Rho_T_R3(1/v, temp);
 }
-
-//Properties as functions of pressure and enthalpy for region 3
-
-//specific volume as a function of pressure and temperature for region 3
-// double _v_P_h_R3(double press, double enth)
-// {
-// 	double enthPred = _h_R3ab_P(press);
-//
-// }
