@@ -495,6 +495,10 @@
 	{
 		return _T_R3b_P_s(press, entr);
 	}
+	DLL_EXPORT double T_P_s_R3(double press, double entr)
+	{
+		return _T_P_s_R3(press,entr);
+	}
 
 	//subregion boundary equations v(P,s)
 

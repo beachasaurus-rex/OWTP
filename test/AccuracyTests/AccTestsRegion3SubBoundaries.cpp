@@ -59,6 +59,7 @@ extern "C"
 
     DLL_IMPORT double T_R3a_P_s(double, double);
     DLL_IMPORT double T_R3b_P_s(double, double);
+    DLL_IMPORT double T_P_s_R3(double,double);
 
     DLL_IMPORT double v_R3a_P_s(double, double);
     DLL_IMPORT double v_R3b_P_s(double, double);
@@ -1302,6 +1303,97 @@ TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_Subregion_b_100MPa_5d0s)
     ASSERT_TRUE(TPass);
 }
 
+TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_20MPa_3d8s)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/(kg*K)
+    double s = 3.8;
+    //K
+    double tExp = 6.282959869E+02;
+    //K
+    double Ttest = T_P_s_R3(press,s);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_50MPa_3d6s)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/(kg*K)
+    double s = 3.6;
+    //K
+    double tExp = 6.297158726E+02;
+    //K
+    double Ttest = T_P_s_R3(press,s);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_100MPa_4d0s)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/(kg*K)
+    double s = 4.0;
+    //K
+    double tExp = 7.056880237E+02;
+    //K
+    double Ttest = T_P_s_R3(press,s);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_20MPa_5d0s)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/(kg*K)
+    double s = 5.0;
+    //K
+    double tExp = 6.401176443E+02;
+    //K
+    double Ttest = T_P_s_R3(press,s);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_50MPa_4d5s)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/(kg*K)
+    double s = 4.5;
+    //K
+    double tExp = 7.163687517E+02;
+    //K
+    double Ttest = T_P_s_R3(press,s);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_100MPa_5d0s)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/(kg*K)
+    double s = 5.0;
+    //K
+    double tExp = 8.474332825E+02;
+    //K
+    double Ttest = T_P_s_R3(press,s);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+
 //The test data points for the following tests were
 //suggested by the IAPWS in "Revised Supplementary Release on
 //Backward Equations for the Functions T(p,h), v(p,h) and T(p,s), v(p,s)
@@ -1400,7 +1492,6 @@ TEST_F(AccTestsRegion3SubBoundaries, vPs_v_Subregion_b_100MPa_5d0s)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-
 TEST_F(AccTestsRegion3SubBoundaries, vPs_v_20MPa_3d8s)
 {
     //kPa

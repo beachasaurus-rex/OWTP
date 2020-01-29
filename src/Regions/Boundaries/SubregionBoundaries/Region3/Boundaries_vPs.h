@@ -76,6 +76,23 @@ double _T_R3b_P_s(double press, double entr)
     return sum * tStar;
 }
 
+//Temperature(Pressure,Entropy) for region 3
+
+double _T_P_s_R3(double press, double entr)
+{
+    //kJ/(kg*K)
+    const double sCrit = 4.41202148223476;
+
+    if (entr < sCrit)
+    {
+        return _T_R3a_P_s(press, entr);
+    }
+    else
+    {
+        return _T_R3b_P_s(press, entr);
+    }
+}
+
 //Iteration Constants for v(P,s) for subregion a
 
 static const int _I_v_P_s_R3a[28] = {-12, -12, -12, -10, -10, -10, -10, -8, -8, -8, -8, -6, -5, -4, -3, -3, -2, -2, -1, -1, 0, 0, 0, 1, 2, 4, 5, 6};
