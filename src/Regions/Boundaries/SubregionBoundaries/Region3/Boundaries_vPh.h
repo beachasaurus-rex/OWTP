@@ -124,6 +124,28 @@ double _T_R3b_P_h(double press, double enth)
     return sum * tStar;
 }
 
+//Temperature as a function of pressure and enthalpy for region 3
+
+double _T_P_h_R3(double press, double enth)
+{
+	//kJ/kg
+	double hPred = _h_R3ab_P(press);
+
+	//subregion a
+	if
+	(
+		enth < hPred
+	)
+	{
+		return _T_R3a_P_h(press,enth);
+	}
+	//subregion b
+	else
+	{
+		return _T_R3b_P_h(press,enth);
+	}
+}
+
 //Iterator variable data for v(P,h) for subregion a
 
 static const int _I_v_P_h_R3a[32] = {-12, -12, -12, -12, -10, -10, -10, -8, -8, -6, -6, -6, -4, -4, -3, -2, -2, -1, -1, -1, -1, 0, 0, 1, 1, 1, 2, 2, 3, 4, 5, 8};
@@ -203,6 +225,7 @@ double _v_P_h_R3(double press, double enth)
 	{
 		return _v_R3a_P_h(press,enth);
 	}
+	//subregion b
 	else
 	{
 		return _v_R3b_P_h(press,enth);

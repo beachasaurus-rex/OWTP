@@ -49,6 +49,7 @@ extern "C"
 
     DLL_IMPORT double T_R3a_P_h(double, double);
     DLL_IMPORT double T_R3b_P_h(double, double);
+    DLL_IMPORT double T_P_h_R3(double, double);
 
     DLL_IMPORT double v_R3a_P_h(double, double);
     DLL_IMPORT double v_R3b_P_h(double, double);
@@ -888,6 +889,96 @@ TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_b_100MPa_2700h)
     double tExp = 8.420460876E+02;
     //K
     double Ttest = T_R3b_P_h(press,h);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_20MPa_1700h)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/kg
+    double h = 1700;
+    //K
+    double tExp = 6.293083892E+02;
+    //K
+    double Ttest = T_P_h_R3(press,h);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_50MPa_2000h)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/kg
+    double h = 2000;
+    //K
+    double tExp = 6.905718338E+02;
+    //K
+    double Ttest = T_P_h_R3(press,h);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_100MPa_2100h)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/kg
+    double h = 2100;
+    //K
+    double tExp = 7.336163014E+02;
+    //K
+    double Ttest = T_P_h_R3(press,h);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_20MPa_2500h)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/kg
+    double h = 2500;
+    //K
+    double tExp = 6.418418053E+02;
+    //K
+    double Ttest = T_P_h_R3(press,h);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_50MPa_2400h)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/kg
+    double h = 2400;
+    //K
+    double tExp = 7.351848618E+02;
+    //K
+    double Ttest = T_P_h_R3(press,h);
+
+    double TErr = AbsRelativeErr(Ttest, tExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_100MPa_2700h)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/kg
+    double h = 2700;
+    //K
+    double tExp = 8.420460876E+02;
+    //K
+    double Ttest = T_P_h_R3(press,h);
 
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);

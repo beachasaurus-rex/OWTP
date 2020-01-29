@@ -447,6 +447,10 @@
 	{
 		return _T_R3b_P_h(press,enth);
 	}
+	DLL_EXPORT double T_P_h_R3(double press, double enth)
+	{
+		return _T_P_h_R3(press,enth);
+	}
 
 	//subregion boundary equations v(P,h) - specific volume
 
@@ -476,7 +480,7 @@
 	{
 		return _pSat_R3ab_h(enth);
 	}
-	
+
 	//properties as functions of density and temperature
 
 	DLL_EXPORT double P_Rho_T_R3(double rho, double temp)
