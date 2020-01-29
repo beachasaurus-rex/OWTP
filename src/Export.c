@@ -27,6 +27,10 @@
 	{
 		return _tSat_R3_R4_b(press);
 	}
+	DLL_EXPORT double pSat_s_R3_R4(double entr)
+	{
+		return _pSat_s_R3_R4(entr);
+	}
 
 	//REGION 1:
 	//properties as functions of temperature and pressure
@@ -279,7 +283,7 @@
 	}
 
 	//Region 3:
-	//subregion boundary equations v(P,T) - temperature
+	//subregion boundary equations T(P)
 
 	DLL_EXPORT double T3ab_v_T_P(double pressure)
 	{
@@ -330,7 +334,7 @@
 		return _T3wx_v_T_P(pressure);
 	}
 
-	//subregion boundary equations v(P,T) - specific volume
+	//subregion boundary equations v(P,T)
 
 	DLL_EXPORT double va_P_T(double press, double temp)
 	{
@@ -437,7 +441,7 @@
 		return _vz_P_T(press,temp);
 	}
 
-	//subregion boundary equations v(P,h) - temperature
+	//subregion boundary equations T(P,h)
 
 	DLL_EXPORT double T_R3a_P_h(double press, double enth)
 	{
@@ -452,7 +456,7 @@
 		return _T_P_h_R3(press,enth);
 	}
 
-	//subregion boundary equations v(P,h) - specific volume
+	//subregion boundary equations v(P,h)
 
 	DLL_EXPORT double v_R3a_P_h(double press, double enth)
 	{
@@ -467,18 +471,48 @@
 		return _v_P_h_R3(press,enth);
 	}
 
-	//subregion boundary equation v(P,h) - enthalpy subregion boundary
+	//subregion boundary equation h(P)
 
 	DLL_EXPORT double h_R3ab_P(double press)
 	{
 		return _h_R3ab_P(press);
 	}
 
-	//subregion boundary equation v(P,h) - saturated pressure boundary
+	//subregion boundary equation PSat(P,h)
 
 	DLL_EXPORT double pSat_h_R3_R4(double enth)
 	{
 		return _pSat_h_R3_R4(enth);
+	}
+
+	//subregion boundary equations T(P,s)
+
+	DLL_EXPORT double T_R3a_P_s(double press, double entr)
+	{
+		return _T_R3a_P_s(press, entr);
+	}
+	DLL_EXPORT double T_R3b_P_s(double press, double entr)
+	{
+		return _T_R3b_P_s(press, entr);
+	}
+	DLL_EXPORT double T_P_s_R3(double press, double entr)
+	{
+		return _T_P_s_R3(press,entr);
+	}
+
+	//subregion boundary equations v(P,s)
+
+	DLL_EXPORT double v_R3a_P_s(double press, double entr)
+	{
+		return _v_R3a_P_s(press, entr);
+	}
+	DLL_EXPORT double v_R3b_P_s(double press, double entr)
+	{
+		return _v_R3b_P_s(press, entr);
+	}
+	DLL_EXPORT double v_P_s_R3(double press, double entr)
+	{
+		return _v_P_s_R3(press,entr);
 	}
 
 	//properties as functions of density and temperature

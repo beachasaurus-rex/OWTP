@@ -18,6 +18,11 @@
     #include "Boundaries/SubregionBoundaries/Region3/Boundaries_vPh.h"
 #endif
 
+#ifndef R3_SUBBOUNDS_V_PS_H
+    #define R3_SUBBOUNDS_V_PS_H
+    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_vPs.h"
+#endif
+
 #ifndef R3_R4_BOUNDS_H
     #define R3_R4_BOUNDS_H
     #include "Boundaries/RegionBoundaries/R3andR4.h"

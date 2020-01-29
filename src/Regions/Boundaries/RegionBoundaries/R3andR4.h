@@ -79,3 +79,32 @@ double _pSat_h_R3_R4(double enth)
 
     return sum * pStar;
 }
+
+//Iteration Constants for pSat(s)
+
+static const int _I_PSat_s_R3_R4[10] = {0, 1, 1, 4, 12, 12, 16, 24, 28, 32};
+static const int _J_PSat_s_R3_R4[10] = {0, 1, 32, 7, 4, 14, 36, 10, 0, 18};
+static const double _n_PSat_s_R3_R4[10] = {0.639767553612785, -12.9727445396014, -2.24595125848403E+15, 1774667.41801846, 7170793495.71538, -3.78829107169011E+17, -9.55586736431328E+34, 1.87269814676188E+23, 119254746466.473, 1.10649277244882E+36};
+
+//SaturatedPressure(Entropy)
+
+double _pSat_s_R3_R4(double entr)
+{
+    //kPa
+    const double pStar = 22E+03;
+    //kJ/(kg*K)
+    const double sStar = 5.2;
+
+    double sigma = entr / sStar;
+    int N = ITERCONST(_I_PSat_s_R3_R4);
+    double sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        double calc = _n_PSat_s_R3_R4[i] *
+            pow(sigma - 1.03, _I_PSat_s_R3_R4[i]) *
+            pow(sigma - 0.699, _J_PSat_s_R3_R4[i]);
+        sum = sum + calc;
+    }
+
+    return sum * pStar;
+}
