@@ -43,7 +43,7 @@ double _T_R3a_P_h(double press, double enth)
     {
         double calc = _n_T_P_h_R3a[i] *
             pow(pi + 0.240, _I_T_P_h_R3a[i]) *
-            pow(eta - 0.615, _j_T_P_h_R3a[i]);
+            pow(eta - 0.615, _J_T_P_h_R3a[i]);
         sum = sum + calc;
     }
 
@@ -63,15 +63,17 @@ double _T_R3b_P_h(double press, double enth)
 
     double eta = enth / hStar;
     double pi = press / pStar;
-    int N = ITERCONST(_I_T_P_h_R3a);
+    int N = ITERCONST(_I_T_P_h_R3b);
     double sum = 0;
     for (int i = 0; i < N; i++)
     {
         double calc = _n_T_P_h_R3b[i] *
             pow(pi + 0.298, _I_T_P_h_R3b[i]) *
-            pow(eta - 0.720, _j_T_P_h_R3b[i]);
+            pow(eta - 0.720, _J_T_P_h_R3b[i]);
         sum = sum + calc;
     }
 
     return sum * tStar;
 }
+
+//Iterator variable data for v(P,h) for subregion a
