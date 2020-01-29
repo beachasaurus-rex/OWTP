@@ -49,6 +49,8 @@ extern "C"
 
     DLL_IMPORT double T_R3a_P_h(double, double);
     DLL_IMPORT double T_R3b_P_h(double, double);
+    DLL_IMPORT double v_R3a_P_h(double, double);
+    DLL_IMPORT double v_R3b_P_h(double, double);
 }
 
 //The test data points for the following tests were
@@ -884,4 +886,104 @@ TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_b_100MPa_2700h)
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
+}
+
+//The test data points for the following tests were
+//suggested by the IAPWS in "Revised Supplementary Release on
+//Backward Equations for the Functions T(p,h), v(p,h) and T(p,s), v(p,s)
+//for Region 3 of the IAPWS Industrial Formulation 1997 for
+//the Thermodynamic Properties of Water and Steam" in Table 8 on
+//page 10.
+
+//Subregion boundary v(P,h) - specific volume
+
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_a_20MPa_1700h)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/kg
+    double h = 1700;
+    //m^3/kg
+    double vExp = 1.749903962E-03;
+    //K
+    double vtest = v_R3a_P_h(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_a_50MPa_2000h)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/kg
+    double h = 2000;
+    //m^3/kg
+    double vExp = 1.908139035E-03;
+    //K
+    double vtest = v_R3a_P_h(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_a_100MPa_2100h)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/kg
+    double h = 2100;
+    //m^3/kg
+    double vExp = 1.676229776E-03;
+    //K
+    double vtest = v_R3a_P_h(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_b_20MPa_2500h)
+{
+    //kPa
+    double press = 20 * 1000;
+    //kJ/kg
+    double h = 2500;
+    //m^3/kg
+    double vExp = 6.670547043E-03;
+    //K
+    double vtest = v_R3b_P_h(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_b_50MPa_2400h)
+{
+    //kPa
+    double press = 50 * 1000;
+    //kJ/kg
+    double h = 2400;
+    //m^3/kg
+    double vExp = 2.801244590E-03;
+    //K
+    double vtest = v_R3b_P_h(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_b_100MPa_2700h)
+{
+    //kPa
+    double press = 100 * 1000;
+    //kJ/kg
+    double h = 2700;
+    //m^3/kg
+    double vExp = 2.404234998E-03;
+    //K
+    double vtest = v_R3b_P_h(press,h);
+
+    double vErr = AbsRelativeErr(vtest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
 }
