@@ -8,9 +8,14 @@
 	#include "ReferenceConstants.h"
 #endif
 
-#ifndef R3_SUBBOUNDS_H
-	#define R3_SUBBOUNDS_H
+#ifndef R3_SUBBOUNDS_V_PT_H
+	#define R3_SUBBOUNDS_V_PT_H
 	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h"
+#endif
+
+#ifndef R3_SUBBOUNDS_V_PH_H
+    #define R3_SUBBOUNDS_V_PH_H
+    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_vPh.h"
 #endif
 
 #ifndef R3_R4_BOUNDS_H

@@ -279,7 +279,7 @@
 	}
 
 	//Region 3:
-	//subregion boundary equations - temperature
+	//subregion boundary equations v(P,T) - temperature
 
 	DLL_EXPORT double T3ab_v_T_P(double pressure)
 	{
@@ -330,7 +330,7 @@
 		return _T3wx_v_T_P(pressure);
 	}
 
-	//subregion boundary equations - specific volume
+	//subregion boundary equations v(P,T) - specific volume
 
 	DLL_EXPORT double va_P_T(double press, double temp)
 	{
@@ -437,6 +437,50 @@
 		return _vz_P_T(press,temp);
 	}
 
+	//subregion boundary equations v(P,h) - temperature
+
+	DLL_EXPORT double T_R3a_P_h(double press, double enth)
+	{
+		return _T_R3a_P_h(press,enth);
+	}
+	DLL_EXPORT double T_R3b_P_h(double press, double enth)
+	{
+		return _T_R3b_P_h(press,enth);
+	}
+	DLL_EXPORT double T_P_h_R3(double press, double enth)
+	{
+		return _T_P_h_R3(press,enth);
+	}
+
+	//subregion boundary equations v(P,h) - specific volume
+
+	DLL_EXPORT double v_R3a_P_h(double press, double enth)
+	{
+		return _v_R3a_P_h(press,enth);
+	}
+	DLL_EXPORT double v_R3b_P_h(double press, double enth)
+	{
+		return _v_R3b_P_h(press,enth);
+	}
+	DLL_EXPORT double v_P_h_R3(double press, double enth)
+	{
+		return _v_P_h_R3(press,enth);
+	}
+
+	//subregion boundary equation v(P,h) - enthalpy subregion boundary
+
+	DLL_EXPORT double h_R3ab_P(double press)
+	{
+		return _h_R3ab_P(press);
+	}
+
+	//subregion boundary equation v(P,h) - saturated pressure boundary
+
+	DLL_EXPORT double pSat_h_R3_R4(double enth)
+	{
+		return _pSat_h_R3_R4(enth);
+	}
+
 	//properties as functions of density and temperature
 
 	DLL_EXPORT double P_Rho_T_R3(double rho, double temp)
@@ -500,7 +544,7 @@
 	}
 
 	//properties as functions of pressure and temperature
-	
+
 	DLL_EXPORT double v_P_T_R3(double press, double temp)
 	{
 		return _v_P_T_R3(press,temp);
