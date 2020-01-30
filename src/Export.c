@@ -607,4 +607,15 @@
 	{
 		return _w_P_T_R3(press,temp);
 	}
+
+	//properties as functions of enthalpy and entropy
+	
+	DLL_EXPORT double p_R3a_h_s(double enth, double entr)
+	{
+		return _p_R3a_h_s(enth,entr);
+	}
+	DLL_EXPORT double p_R3b_h_s(double enth, double entr)
+	{
+		return _p_R3b_h_s(enth,entr);
+	}
 #endif
