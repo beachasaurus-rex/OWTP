@@ -8,13 +8,10 @@
 	#include "ReferenceConstants.h"
 #endif
 
-//Iteration constants for determining h1_prime(s)
+//Generic Equation for boundaries h1_prime(s) & h3a_prime(s)
 
-static const int _I_h1_s_prime[27] = {0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 7, 8, 12, 12, 14, 14, 16, 20, 20, 22, 24, 28, 32, 32};
-static const int _J_h1_s_prime[27] = {14, 36, 3, 16, 0, 5, 4, 36, 4, 16, 24, 18, 24, 1, 4, 2, 4, 1, 22, 10, 12, 28, 8, 3, 0, 6, 8};
-static const double _n_h1_s_prime[27] = {0.332171191705237, 0.611217706323496E-03, -0.882092478906822E+01, -0.455628192543250, -0.263483840850452E-04, -0.223949661148062E+02, -0.428398660164013E+01, -0.616679338856916, -0.146823031104040E+02, 0.284523138727299E+03, -0.113398503195444E+03, 0.115671380760859E+04, 0.395551267359325E+03, -0.154891257229285E+01, 0.194486637751291E+02, -0.357915139457043E+01, -0.335369414148819E+01, -0.664426796332460, 0.323321885383934E+05, 0.331766744667084E+04, -0.223501257931087E+05, 0.573953875852936E+07, 0.173226193407919E+03, -0.363968822121321E-01, 0.834596332878346E-06, 0.503611916682674E+01, 0.655444787064505E+02};
-
-double _h1_prime(double entr)
+double _gen_h1_prime_h3a_prime(double entr, const int numElements, const int* IArr,
+    const int* JArr, const double* nArr)
 {
     //kJ/kg
     const double hStar = 1700;
@@ -22,17 +19,29 @@ double _h1_prime(double entr)
     const double sStar = 3.8;
 
     double sigma = entr / sStar;
-    const int N = 27;
     double sum = 0;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < numElements; i++)
     {
-        double calc = _n_h1_s_prime[i] *
-            pow(sigma - 1.09, _I_h1_s_prime[i]) *
-            pow(sigma + 0.366E-04, _J_h1_s_prime[i]);
+        double calc = nArr[i] *
+            pow(sigma - 1.09, IArr[i]) *
+            pow(sigma + 0.366E-04, JArr[i]);
         sum = sum + calc;
     }
 
     return sum * hStar;
+}
+
+//Iteration constants for determining h1_prime(s)
+
+static const int _I_h1_s_prime[27] = {0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 7, 8, 12, 12, 14, 14, 16, 20, 20, 22, 24, 28, 32, 32};
+static const int _J_h1_s_prime[27] = {14, 36, 3, 16, 0, 5, 4, 36, 4, 16, 24, 18, 24, 1, 4, 2, 4, 1, 22, 10, 12, 28, 8, 3, 0, 6, 8};
+static const double _n_h1_s_prime[27] = {0.332171191705237, 0.611217706323496E-03, -0.882092478906822E+01, -0.455628192543250, -0.263483840850452E-04, -0.223949661148062E+02, -0.428398660164013E+01, -0.616679338856916, -0.146823031104040E+02, 0.284523138727299E+03, -0.113398503195444E+03, 0.115671380760859E+04, 0.395551267359325E+03, -0.154891257229285E+01, 0.194486637751291E+02, -0.357915139457043E+01, -0.335369414148819E+01, -0.664426796332460, 0.323321885383934E+05, 0.331766744667084E+04, -0.223501257931087E+05, 0.573953875852936E+07, 0.173226193407919E+03, -0.363968822121321E-01, 0.834596332878346E-06, 0.503611916682674E+01, 0.655444787064505E+02};
+
+//Equation for h1_prime(s)
+
+double _h1_prime(double entr)
+{
+    return _gen_h1_prime_h3a_prime(entr, 27, _I_h1_s_prime, _J_h1_s_prime, _n_h1_s_prime);
 }
 
 //Iteration constants for determining h3a_prime(s)
@@ -40,6 +49,13 @@ double _h1_prime(double entr)
 static const int _I_h3a_s_prime[19] = {0, 0, 0, 0, 2, 3, 4, 4, 5, 5, 6, 7, 7, 7, 10, 10, 10, 32, 32};
 static const int _J_h3a_s_prime[19] = {1, 4, 10, 16, 1, 36, 3, 16, 20, 36, 4, 2, 28, 32, 14, 32, 36, 0, 6};
 static const double _n_h3a_s_prime[19] = {0.822673364673336, 0.181977213534479, -0.112000260313624E-01, -0.746778287048033E-03, -0.179046263257381, 0.424220110836657E-01, -0.341355823438768, -0.209881740853565E+01, -0.822477343323596E+01, -0.499684082076008E+01, 0.191413958471069, 0.581062241093136E-01, -0.165505498701029E+04, 0.158870443421201E+04, -0.850623535172818E+02, -0.317714386511207E+05, -0.945890406632871E+05, -0.139273847088690E-05, 0.631052532240980};
+
+//Equation for h3a_prime(s)
+
+double _h3a_prime(double entr)
+{
+    return _gen_h1_prime_h3a_prime(entr, 19, _I_h3a_s_prime, _J_h3a_s_prime, _n_h3a_s_prime);
+}
 
 //Iteration constants for determining h2ab_2prime(s)
 

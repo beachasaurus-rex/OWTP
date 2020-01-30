@@ -16,6 +16,7 @@ extern "C"
     DLL_IMPORT double pSat_s_R3_R4(double);
 
     DLL_IMPORT double h1_prime(double);
+    DLL_IMPORT double h3a_prime(double);
 }
 
 //The testing data points for the following tests were
@@ -277,6 +278,45 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_h1_prime_3d0s)
     const double hExp = 1.198359754E+03;
     //kJ/kg
     double hTest = h1_prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_3d8s)
+{
+    //kJ/(kg*K)
+    const double s = 3.8;
+    //kJ/kg
+    const double hExp = 1.685025565E+03;
+    //kJ/kg
+    double hTest = h3a_prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_4d0s)
+{
+    //kJ/(kg*K)
+    const double s = 4.0;
+    //kJ/kg
+    const double hExp = 1.816891476E+03;
+    //kJ/kg
+    double hTest = h3a_prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_4d2s)
+{
+    //kJ/(kg*K)
+    const double s = 4.2;
+    //kJ/kg
+    const double hExp = 1.949352563E+03;
+    //kJ/kg
+    double hTest = h3a_prime(s);
 
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
