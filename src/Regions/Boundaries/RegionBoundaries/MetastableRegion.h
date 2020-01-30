@@ -136,3 +136,52 @@ double _h2c3b_s_2prime(double entr)
 
     return hStar * pow(sum, 4);
 }
+
+//Equation for hB13(s)
+
+double _hB13_s(double entr)
+{
+    //kJ/kg
+    const double hStar = 1700;
+    //kJ/(kg*K)
+    const double sStar = 3.8;
+    const int N = 6;
+
+    double sigma = entr / sStar;
+    double sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        double calc = _n_hB13_s[i] *
+            pow(sigma - 0.884, _I_hB13_s[i]) *
+            pow(sigma - 0.864, _J_hB13_s[i]);
+        sum = sum + calc;
+    }
+
+    return hStar * sum;
+}
+
+//Equation for TB23(s)
+
+double _TB23_s(double enth, double entr)
+{
+    //K
+    const double tStar = 900;
+    //kJ/kg
+    const double hStar = 3000;
+    //kJ/(kg*K)
+    const double sStar = 5.3;
+    const int N = 25;
+
+    double eta = enth / hStar;
+    double sigma = entr / sStar;
+    double sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        double calc = _n_TB23_s[i] *
+            pow(eta - 0.727, _I_TB23_s[i]) *
+            pow(sigma - 0.864, _J_TB23_s[i]);
+        sum = sum + calc;
+    }
+
+    return tStar * sum;
+}
