@@ -38,6 +38,11 @@
     #include "Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_vPs.h"
 #endif
 
+#ifndef META_REGION_H
+	#define META_REGION_H
+	#include "Regions/Boundaries/RegionBoundaries/MetastableRegion.h"
+#endif
+
 #ifndef R3_R4_BOUNDS_H
     #define R3_R4_BOUNDS_H
     #include "Regions/Boundaries/RegionBoundaries/R3andR4.h"

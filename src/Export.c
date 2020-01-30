@@ -6,6 +6,13 @@
 #define DLL_EXPORT __declspec(dllexport)
 
 #if _DEBUG
+	//Boundary - Around the Metastable Region:
+
+	DLL_EXPORT double h1_prime(double entr)
+	{
+		return _h1_prime(entr);
+	}
+
 	//Boundary - Region 2 & 3:
 
 	DLL_EXPORT double P_R2_R3_b(double temp)
@@ -609,7 +616,7 @@
 	}
 
 	//properties as functions of enthalpy and entropy
-	
+
 	DLL_EXPORT double p_R3a_h_s(double enth, double entr)
 	{
 		return _p_R3a_h_s(enth,entr);

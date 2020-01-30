@@ -28,6 +28,11 @@
     #include "Boundaries/RegionBoundaries/R3andR4.h"
 #endif
 
+#ifndef META_REGION_H
+	#define META_REGION_H
+	#include "Boundaries/RegionBoundaries/MetastableRegion.h"
+#endif
+
 #ifndef STDIO_H
 	#define STDIO_H
 	#include "stdio.h"
@@ -951,3 +956,13 @@ double _p_R3b_h_s(double h, double s)
 
     return pow(sum, -1) * pStar;
 }
+
+//P(h,s) for region 3
+
+// double _P_h_s_R3(double enth, double entr)
+// {
+// 	//kJ/(kg*K)
+// 	const double sCrit = 4.41202148223476;
+//
+//
+// }

@@ -14,6 +14,8 @@ extern "C"
     DLL_IMPORT double tSat_R3_R4_b(double);
     DLL_IMPORT double pSat_h_R3_R4(double);
     DLL_IMPORT double pSat_s_R3_R4(double);
+
+    DLL_IMPORT double h1_prime(double);
 }
 
 //The testing data points for the following tests were
@@ -232,4 +234,51 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_5d
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
+}
+
+//The testing data points for the following tests were
+//suggested by the IAPWS in "Revised supplementary Release on Backward
+//Equations p(h,s) for Region 3, Equations as a function of h and s for Region
+//Boundaries, and an Equation Tsat(h,s) for Region 4 of the IAPWS Industrial
+//Formulation 1997 for the Thermodynamic Properties of Water and Steam"
+//in table 11 on page 17.
+
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h1_prime_1d0s)
+{
+    //kJ/(kg*K)
+    const double s = 1.0;
+    //kJ/kg
+    const double hExp = 3.085509647E+02;
+    //kJ/kg
+    double hTest = h1_prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h1_prime_2d0s)
+{
+    //kJ/(kg*K)
+    const double s = 2.0;
+    //kJ/kg
+    const double hExp = 7.006304472E+02;
+    //kJ/kg
+    double hTest = h1_prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h1_prime_3d0s)
+{
+    //kJ/(kg*K)
+    const double s = 3.0;
+    //kJ/kg
+    const double hExp = 1.198359754E+03;
+    //kJ/kg
+    double hTest = h1_prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
 }
