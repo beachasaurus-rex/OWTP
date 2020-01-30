@@ -17,6 +17,9 @@ extern "C"
 
     DLL_IMPORT double h1_prime(double);
     DLL_IMPORT double h3a_prime(double);
+
+    DLL_IMPORT double h2ab_s_2prime(double);
+    DLL_IMPORT double h2c3b_s_2prime(double);
 }
 
 //The testing data points for the following tests were
@@ -317,6 +320,92 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_4d2s)
     const double hExp = 1.949352563E+03;
     //kJ/kg
     double hTest = h3a_prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+
+//The testing data points for the following tests were
+//suggested by the IAPWS in "Revised supplementary Release on Backward
+//Equations p(h,s) for Region 3, Equations as a function of h and s for Region
+//Boundaries, and an Equation Tsat(h,s) for Region 4 of the IAPWS Industrial
+//Formulation 1997 for the Thermodynamic Properties of Water and Steam"
+//in table 11 on page 17.
+
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2ab_s_2prime_7d0s)
+{
+    //kJ/(kg*K)
+    const double s = 7.0;
+    //kJ/kg
+    const double hExp = 2.723729985E+03;
+    //kJ/kg
+    double hTest = h2ab_s_2prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2ab_s_2prime_8d0s)
+{
+    //kJ/(kg*K)
+    const double s = 8.0;
+    //kJ/kg
+    const double hExp = 2.599047210E+03;
+    //kJ/kg
+    double hTest = h2ab_s_2prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2ab_s_2prime_9d0s)
+{
+    //kJ/(kg*K)
+    const double s = 9.0;
+    //kJ/kg
+    const double hExp = 2.511861477E+03;
+    //kJ/kg
+    double hTest = h2ab_s_2prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2c3b_s_2prime_5d5s)
+{
+    //kJ/(kg*K)
+    const double s = 5.5;
+    //kJ/kg
+    const double hExp = 2.687693850E+03;
+    //kJ/kg
+    double hTest = h2c3b_s_2prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2c3b_s_2prime_5d0s)
+{
+    //kJ/(kg*K)
+    const double s = 5.0;
+    //kJ/kg
+    const double hExp = 2.451623609E+03;
+    //kJ/kg
+    double hTest = h2c3b_s_2prime(s);
+
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2c3b_s_2prime_4d5s)
+{
+    //kJ/(kg*K)
+    const double s = 4.5;
+    //kJ/kg
+    const double hExp = 2.144360448E+03;
+    //kJ/kg
+    double hTest = h2c3b_s_2prime(s);
 
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);

@@ -16,6 +16,14 @@
 	{
 		return _h3a_prime(entr);
 	}
+	DLL_EXPORT double h2ab_s_2prime(double entr)
+	{
+		return _h2ab_s_2prime(entr);
+	}
+	DLL_EXPORT double h2c3b_s_2prime(double entr)
+	{
+		return _h2c3b_s_2prime(entr);
+	}
 
 	//Boundary - Region 2 & 3:
 
