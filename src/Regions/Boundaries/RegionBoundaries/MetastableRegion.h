@@ -185,3 +185,29 @@ double _TB23_s(double enth, double entr)
 
     return tStar * sum;
 }
+
+//Equation for Tsat_metaphase(s)
+
+double _Tsat_metaphase(double enth, double entr)
+{
+    //K
+    const double tStar = 550;
+    //kJ/kg
+    const double hStar = 2800;
+    //kJ/(kg*K)
+    const double sStar = 9.2;
+    const int N = 36;
+
+    double eta = enth / hStar;
+    double sigma = entr / sStar;
+    double sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        double calc = _n_TSatMetaphase_s[i] *
+            pow(eta - 0.119, _I_TSatMetaphase_s[i]) *
+            pow(sigma - 1.07, _J_TSatMetaphase_s[i]);
+        sum = sum + calc;
+    }
+
+    return sum * tStar;
+}

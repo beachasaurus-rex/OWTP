@@ -22,8 +22,10 @@ extern "C"
     DLL_IMPORT double h2c3b_s_2prime(double);
 
     DLL_IMPORT double hB13_s(double);
-    
+
     DLL_IMPORT double TB23_s(double,double);
+
+    DLL_IMPORT double Tsat_metaphase(double,double);
 }
 
 //The testing data points for the following tests were
@@ -470,7 +472,7 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_hB13_s_3d5s)
 //Formulation 1997 for the Thermodynamic Properties of Water and Steam"
 //in table 26 on page 26.
 
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_s_2600h_5d1s)
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_h_s_2600h_5d1s)
 {
     //kJ/kg
     const double h = 2600;
@@ -485,7 +487,7 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_s_2600h_5d1s)
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_s_2700h_5d15s)
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_h_s_2700h_5d15s)
 {
     //kJ/kg
     const double h = 2700;
@@ -500,7 +502,7 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_s_2700h_5d15s)
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_s_2800h_5d2s)
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_h_s_2800h_5d2s)
 {
     //kJ/kg
     const double h = 2800;
@@ -510,6 +512,59 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_s_2800h_5d2s)
     const double TExp = 8.176202120E+02;
     //kJ/kg
     double TTest = TB23_s(h,s);
+
+    double TErr = AbsRelativeErr(TTest, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+
+//The testing data points for the following tests were
+//suggested by the IAPWS in "Revised supplementary Release on Backward
+//Equations p(h,s) for Region 3, Equations as a function of h and s for Region
+//Boundaries, and an Equation Tsat(h,s) for Region 4 of the IAPWS Industrial
+//Formulation 1997 for the Thermodynamic Properties of Water and Steam"
+//in table 29 on page 31.
+
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_TsatMetaphase_h_s_1800h_5d3s)
+{
+    //kJ/kg
+    const double h = 1800;
+    //kJ/(kg*K)
+    const double s = 5.3;
+    //kJ/kg
+    const double TExp = 3.468475498E+02;
+    //kJ/kg
+    double TTest = Tsat_metaphase(h,s);
+
+    double TErr = AbsRelativeErr(TTest, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_TsatMetaphase_h_s_2400h_6d0s)
+{
+    //kJ/kg
+    const double h = 2400;
+    //kJ/(kg*K)
+    const double s = 6.0;
+    //kJ/kg
+    const double TExp = 4.251373305E+02;
+    //kJ/kg
+    double TTest = Tsat_metaphase(h,s);
+
+    double TErr = AbsRelativeErr(TTest, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegionBoundaries, MetastableRegion_TsatMetaphase_h_s_2500h_5d5s)
+{
+    //kJ/kg
+    const double h = 2500;
+    //kJ/(kg*K)
+    const double s = 5.5;
+    //kJ/kg
+    const double TExp = 5.225579013E+02;
+    //kJ/kg
+    double TTest = Tsat_metaphase(h,s);
 
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);

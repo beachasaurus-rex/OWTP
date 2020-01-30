@@ -32,6 +32,10 @@
 	{
 		return _TB23_s(enth, entr);
 	}
+	DLL_EXPORT double Tsat_metaphase(double enth, double entr)
+	{
+		return _Tsat_metaphase(enth,entr);
+	}
 
 	//Boundary - Region 2 & 3:
 
