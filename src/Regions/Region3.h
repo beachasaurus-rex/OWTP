@@ -879,8 +879,6 @@ double _w_P_T_R3(double press, double temp)
 	return _w_Rho_T_R3(1/v, temp);
 }
 
-//Properties as functions of enthalpy and entropy for region 3
-
 //Iterator Constants for P(h,s) for subregion a
 
 static const int _I_P_h_s_R3a[33] = {0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8, 10, 10, 14, 18, 20, 22, 22, 24, 28, 28, 32, 32};
@@ -945,8 +943,9 @@ double _p_R3b_h_s(double h, double s)
     return pow(sum, -1) * pStar;
 }
 
-//P(h,s) for region 3
+//Properties as functions of enthalpy and entropy for region 3
 
+//P(h,s) for region 3
 double _P_h_s_R3(double enth, double entr)
 {
 	//kJ/(kg*K)
@@ -972,4 +971,9 @@ double _P_h_s_R3(double enth, double entr)
 	{
 		return _p_R3b_h_s(enth, entr);
 	}
+}
+double _T_h_s_R3(double h, double s)
+{
+	double p = _P_h_s_R3(h,s);
+	return _T_P_h_R3(p,h);
 }
