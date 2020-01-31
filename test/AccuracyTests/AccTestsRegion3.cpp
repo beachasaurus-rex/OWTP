@@ -280,14 +280,14 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500
     ASSERT_TRUE(wPass);
 }
 
-TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over500v650K)
+TEST_F(AccTestsRegion3, Properties_P_T_0d255837018Ep02MPa_650K)
 {
     //m^3/kg
     double vActual = 1.0/500.0;
     //K
-    double temp = 650;
+    const double temp = 650;
     //kPa
-    double press = P_v_T_R3(vActual, temp);
+    const double press = 0.255837018E+05;
 
     double v = v_P_T_R3(press,temp);
     double u = u_P_T_R3(press,temp);
@@ -321,14 +321,14 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over500v650K)
     ASSERT_TRUE(cvPass);
     ASSERT_TRUE(wPass);
 }
-TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over200v650K)
+TEST_F(AccTestsRegion3, Properties_P_T_0d222930643Ep02MPa_650K)
 {
     //m^3/kg
     double vActual = 1.0/200.0;
     //K
-    double temp = 650;
+    const double temp = 650;
     //kPa
-    double press = P_v_T_R3(vActual, temp);
+    const double press = 0.222930643E+05;
 
     double v = v_P_T_R3(press,temp);
     double u = u_P_T_R3(press,temp);
@@ -362,14 +362,14 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over200v650K)
     ASSERT_TRUE(cvPass);
     ASSERT_TRUE(wPass);
 }
-TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfPressureTemperature1over500v750K)
+TEST_F(AccTestsRegion3, Properties_P_T_0d783095639Ep02MPa_750K)
 {
     //m^3/kg
     double vActual = 1.0/500.0;
     //K
     double temp = 750;
     //kPa
-    double press = P_v_T_R3(vActual, temp);
+    double press = 0.783095639E+05;
 
     double v = v_P_T_R3(press,temp);
     double u = u_P_T_R3(press,temp);
