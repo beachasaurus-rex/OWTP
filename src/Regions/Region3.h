@@ -972,8 +972,15 @@ double _P_h_s_R3(double enth, double entr)
 		return _p_R3b_h_s(enth, entr);
 	}
 }
+//T(h,s) for region 3
 double _T_h_s_R3(double h, double s)
 {
 	double p = _P_h_s_R3(h,s);
 	return _T_P_h_R3(p,h);
+}
+//v(h,s) for region 3
+double _v_h_s_R3(double h, double s)
+{
+	double p = _P_h_s_R3(h,s);
+	return _v_P_s_R3(p,s);
 }
