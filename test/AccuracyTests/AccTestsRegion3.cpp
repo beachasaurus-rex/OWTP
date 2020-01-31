@@ -37,6 +37,7 @@ extern "C"
     //properties as functions of enthalpy and entropy
     DLL_IMPORT double P_h_s_R3(double,double);
     DLL_IMPORT double T_h_s_R3(double,double);
+    DLL_IMPORT double v_h_s_R3(double,double);
 }
 
 //The testing data points for the following tests were
@@ -448,6 +449,52 @@ TEST_F(AccTestsRegion3, T_h_s_0d225868845Ep04h_0d446971906Ep01s)
     double tErr = AbsRelativeErr(tTest, tExp);
     bool tPass = IsAcceptable(tErr);
     ASSERT_TRUE(tPass);
+}
+
+TEST_F(AccTestsRegion3, v_h_s_0d186343019Ep04h_0d405427273Ep01s)
+{
+    //K
+    double vExp = 1.0/500.0;
+    //kJ/kg
+    const double h = 0.186343019E+04;
+    //kJ/(kg*K)
+    const double s = 0.405427273E+01;
+    //K
+    double vTest = v_h_s_R3(h,s);
+
+    double vErr = AbsRelativeErr(vTest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3, v_h_s_0d237512401Ep04h_0d485438792Ep01s)
+{
+    //K
+    double vExp = 1.0/200.0;
+    //kJ/kg
+    const double h = 0.237512401E+04;
+    //kJ/(kg*K)
+    const double s = 0.485438792E+01;
+    //K
+    double vTest = v_h_s_R3(h,s);
+
+    double vErr = AbsRelativeErr(vTest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3, v_h_s_0d225868845Ep04h_0d446971906Ep01s)
+{
+    //K
+    double vExp = 1.0/500.0;
+    //kJ/kg
+    const double h = 0.225868845E+04;
+    //kJ/(kg*K)
+    const double s = 0.446971906E+01;
+    //K
+    double vTest = v_h_s_R3(h,s);
+
+    double vErr = AbsRelativeErr(vTest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
 }
 
 //The testing data points for the following tests were suggested
