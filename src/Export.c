@@ -6,6 +6,37 @@
 #define DLL_EXPORT __declspec(dllexport)
 
 #if _DEBUG
+	//Boundary - Around the Metastable Region:
+
+	DLL_EXPORT double h1_prime(double entr)
+	{
+		return _h1_prime(entr);
+	}
+	DLL_EXPORT double h3a_prime(double entr)
+	{
+		return _h3a_prime(entr);
+	}
+	DLL_EXPORT double h2ab_s_2prime(double entr)
+	{
+		return _h2ab_s_2prime(entr);
+	}
+	DLL_EXPORT double h2c3b_s_2prime(double entr)
+	{
+		return _h2c3b_s_2prime(entr);
+	}
+	DLL_EXPORT double hB13_s(double entr)
+	{
+		return _hB13_s(entr);
+	}
+	DLL_EXPORT double TB23_s(double enth, double entr)
+	{
+		return _TB23_s(enth, entr);
+	}
+	DLL_EXPORT double Tsat_metaphase(double enth, double entr)
+	{
+		return _Tsat_metaphase(enth,entr);
+	}
+
 	//Boundary - Region 2 & 3:
 
 	DLL_EXPORT double P_R2_R3_b(double temp)
@@ -606,5 +637,20 @@
 	DLL_EXPORT double w_P_T_R3(double press, double temp)
 	{
 		return _w_P_T_R3(press,temp);
+	}
+
+	//properties as functions of enthalpy and entropy
+
+	DLL_EXPORT double p_R3a_h_s(double enth, double entr)
+	{
+		return _p_R3a_h_s(enth,entr);
+	}
+	DLL_EXPORT double p_R3b_h_s(double enth, double entr)
+	{
+		return _p_R3b_h_s(enth,entr);
+	}
+	DLL_EXPORT double P_h_s_R3(double enth, double entr)
+	{
+		return _P_h_s_R3(enth,entr);
 	}
 #endif
