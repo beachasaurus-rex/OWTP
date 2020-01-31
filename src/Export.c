@@ -661,4 +661,20 @@
 	{
 		return _v_h_s_R3(h,s);
 	}
+	DLL_EXPORT double u_h_s_R3(double h, double s)
+	{
+		return _u_h_s_R3(h,s);
+	}
+	DLL_EXPORT double cv_h_s_R3(double h, double s)
+	{
+		return _cv_h_s_R3(h,s);
+	}
+	DLL_EXPORT double cp_h_s_R3(double h, double s)
+	{
+		return _cp_h_s_R3(h,s);
+	}
+	DLL_EXPORT double w_h_s_R3(double h, double s)
+	{
+		return _w_h_s_R3(h,s);
+	}
 #endif

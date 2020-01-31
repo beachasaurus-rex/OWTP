@@ -38,6 +38,10 @@ extern "C"
     DLL_IMPORT double P_h_s_R3(double,double);
     DLL_IMPORT double T_h_s_R3(double,double);
     DLL_IMPORT double v_h_s_R3(double,double);
+    DLL_IMPORT double u_h_s_R3(double,double);
+    DLL_IMPORT double cp_h_s_R3(double,double);
+    DLL_IMPORT double cv_h_s_R3(double,double);
+    DLL_IMPORT double w_h_s_R3(double,double);
 }
 
 //The testing data points for the following tests were
@@ -495,6 +499,105 @@ TEST_F(AccTestsRegion3, v_h_s_0d225868845Ep04h_0d446971906Ep01s)
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
+}
+
+TEST_F(AccTestsRegion3, props_h_s_0d186343019Ep04h_0d405427273Ep01s)
+{
+    //kJ/kg
+    const double h = 0.186343019E+04;
+    //kJ/(kg*K)
+    const double s = 0.405427273E+01;
+
+    const double uExp = 0.181226279E+04;
+    const double cvExp = 3.191317871889;
+    const double cpExp = 0.138935717E+02;
+    const double wExp = 0.502005554E+03;
+
+    double uTest = u_h_s_R3(h,s);
+    double cpTest = cp_h_s_R3(h,s);
+    double cvTest = cv_h_s_R3(h,s);
+    double wTest = w_h_s_R3(h,s);
+
+    double uErr = AbsRelativeErr(uTest, uExp);
+    double cpErr = AbsRelativeErr(cpTest, cpExp);
+    double cvErr = AbsRelativeErr(cvTest, cvExp);
+    double wErr = AbsRelativeErr(wTest, wExp);
+
+    bool uPass = IsAcceptable(uErr);
+    bool cpPass = IsAcceptable(cpErr);
+    bool cvPass = IsAcceptable(cvErr);
+    bool wPass = IsAcceptable(wErr);
+
+    ASSERT_TRUE(uPass);
+    ASSERT_TRUE(cpPass);
+    ASSERT_TRUE(cvPass);
+    ASSERT_TRUE(wPass);
+}
+TEST_F(AccTestsRegion3, props_h_s_0d237512401Ep04h_0d485438792Ep01s)
+{
+    //kJ/kg
+    const double h = 0.237512401E+04;
+    //kJ/(kg*K)
+    const double s = 0.485438792E+01;
+
+    const double uExp = 0.226365868E+04;
+    const double cvExp = 4.04118075955;
+    const double cpExp = 0.446579342E+02;
+    const double wExp = 0.383444594E+03;
+
+    double uTest = u_h_s_R3(h,s);
+    double cpTest = cp_h_s_R3(h,s);
+    double cvTest = cv_h_s_R3(h,s);
+    double wTest = w_h_s_R3(h,s);
+
+    double uErr = AbsRelativeErr(uTest, uExp);
+    double cpErr = AbsRelativeErr(cpTest, cpExp);
+    double cvErr = AbsRelativeErr(cvTest, cvExp);
+    double wErr = AbsRelativeErr(wTest, wExp);
+
+    bool uPass = IsAcceptable(uErr);
+    bool cpPass = IsAcceptable(cpErr);
+    bool cvPass = IsAcceptable(cvErr);
+    bool wPass = IsAcceptable(wErr);
+
+    ASSERT_TRUE(uPass);
+    ASSERT_TRUE(cpPass);
+    ASSERT_TRUE(cvPass);
+    ASSERT_TRUE(wPass);
+}
+TEST_F(AccTestsRegion3, props_h_s_0d225868845Ep04h_0d446971906Ep01s)
+{
+    //K
+    double vExp = 1.0/500.0;
+    //kJ/kg
+    const double h = 0.225868845E+04;
+    //kJ/(kg*K)
+    const double s = 0.446971906E+01;
+
+    const double uExp = 0.210206932E+04;
+    const double cvExp = 2.71701677121;
+    const double cpExp = 0.634165359E+01;
+    const double wExp = 0.760696041E+03;
+
+    double uTest = u_h_s_R3(h,s);
+    double cpTest = cp_h_s_R3(h,s);
+    double cvTest = cv_h_s_R3(h,s);
+    double wTest = w_h_s_R3(h,s);
+
+    double uErr = AbsRelativeErr(uTest, uExp);
+    double cpErr = AbsRelativeErr(cpTest, cpExp);
+    double cvErr = AbsRelativeErr(cvTest, cvExp);
+    double wErr = AbsRelativeErr(wTest, wExp);
+
+    bool uPass = IsAcceptable(uErr);
+    bool cpPass = IsAcceptable(cpErr);
+    bool cvPass = IsAcceptable(cvErr);
+    bool wPass = IsAcceptable(wErr);
+
+    ASSERT_TRUE(uPass);
+    ASSERT_TRUE(cpPass);
+    ASSERT_TRUE(cvPass);
+    ASSERT_TRUE(wPass);
 }
 
 //The testing data points for the following tests were suggested
