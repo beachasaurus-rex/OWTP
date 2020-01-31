@@ -984,3 +984,31 @@ double _v_h_s_R3(double h, double s)
 	double p = _P_h_s_R3(h,s);
 	return _v_P_s_R3(p,s);
 }
+//u(h,s) for region 3
+double _u_h_s_R3(double h, double s)
+{
+	double v = _v_h_s_R3(h,s);
+	double T = _T_h_s_R3(h,s);
+	return _u_v_T_R3(v, T);
+}
+//cv(h,s) for region 3
+double _cv_h_s_R3(double h, double s)
+{
+	double v = _v_h_s_R3(h,s);
+	double T = _T_h_s_R3(h,s);
+	return _cv_v_T_R3(v, T);
+}
+//cp(h,s) for region 3
+double _cp_h_s_R3(double h, double s)
+{
+	double v = _v_h_s_R3(h,s);
+	double T = _T_h_s_R3(h,s);
+	return _cp_v_T_R3(v, T);
+}
+//w(h,s) for region 3
+double _w_h_s_R3(double h, double s)
+{
+	double v = _v_h_s_R3(h,s);
+	double T = _T_h_s_R3(h,s);
+	return _w_v_T_R3(v, T);
+}
