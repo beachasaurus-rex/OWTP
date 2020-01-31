@@ -33,11 +33,6 @@
 	#include "Boundaries/RegionBoundaries/MetastableRegion.h"
 #endif
 
-#ifndef STDIO_H
-	#define STDIO_H
-	#include "stdio.h"
-#endif
-
 //Basic Free Energy Iteration Constants
 
 static const double _i_R3[40] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 };
@@ -846,13 +841,6 @@ double _v_P_T_R3(double press, double temp)
 			return _vt_P_T(press,temp);
 		}
 	}
-	else
-	{
-		fprintf(stderr,
-			"Warning: v(P,T) for Region 3 reached the default case.\nPressure = %f kPa\nTemperature = %f K\n",
-			press, temp);
-		return -1;
-	}
 }
 //specific internal energy as a function of pressure and temperature for region 3
 double _u_P_T_R3(double press, double temp)
@@ -959,10 +947,29 @@ double _p_R3b_h_s(double h, double s)
 
 //P(h,s) for region 3
 
-// double _P_h_s_R3(double enth, double entr)
-// {
-// 	//kJ/(kg*K)
-// 	const double sCrit = 4.41202148223476;
-//
-//
-// }
+double _P_h_s_R3(double enth, double entr)
+{
+	//kJ/(kg*K)
+	const double sCrit = 4.41202148223476;
+	//kJ/kg
+	double h3a = _h3a_prime(entr);
+	//kJ/kg
+	double h2c3b = _h2c3b_s_2prime(entr);
+
+	if
+	(
+		enth <= h3a
+		|| entr <= sCrit
+	)
+	{
+		return _p_R3a_h_s(enth, entr);
+	}
+	else if
+	(
+		enth >= h2c3b
+		|| entr > sCrit
+	)
+	{
+		return _p_R3b_h_s(enth, entr);
+	}
+}

@@ -649,4 +649,8 @@
 	{
 		return _p_R3b_h_s(enth,entr);
 	}
+	DLL_EXPORT double P_h_s_R3(double enth, double entr)
+	{
+		return _P_h_s_R3(enth,entr);
+	}
 #endif
