@@ -653,4 +653,8 @@
 	{
 		return _P_h_s_R3(enth,entr);
 	}
+	DLL_EXPORT double T_h_s_R3(double h, double s)
+	{
+		return _T_h_s_R3(h,s);
+	}
 #endif
