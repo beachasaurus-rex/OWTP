@@ -33,36 +33,18 @@
 	#include "Boundaries/RegionBoundaries/MetastableRegion.h"
 #endif
 
-//Basic Free Energy Iteration Constants
-
-static const double _i_R3[40] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 };
-static const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
-static const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
-static const double  _ni_R3[40] = { 1.0658070028513, -15.732845290239, 20.944396974307, -7.6867707878716, 2.6185947787954, -2.808078114862, 1.2053369696517, -8.4566812812502E-03, -1.2654315477714, -1.1524407806681, 0.88521043984318, -0.64207765181607, 0.38493460186671, -0.85214708824206, 4.8972281541877, -3.0502617256965, 0.039420536879154, 0.12558408424308, -0.2799932969871, 1.389979956946, -2.018991502357, -8.2147637173963E-03, -0.47596035734923, 0.0439840744735, -0.44476435428739, 0.90572070719733, 0.70522450087967, 0.10770512626332, -0.32913623258954, -0.50871062041158, -0.022175400873096, 0.094260751665092, 0.16436278447961, -0.013503372241348, -0.014834345352472, 5.7922953628084E-04, 3.2308904703711E-03, 8.0964802996215E-05, -1.6557679795037E-04, -4.4923899061815E-05 };
-
-static double _tau_R3(double T)
-{
-	//K
-	const double _tStar_R3 = tCrit;
-
-	return _tStar_R3 / T;
-}
-static double _del_R3(double rho)
-{
-	//kg / m^3
-	const double _rhoStar_R3 = rhoCrit;
-
-	return rho / _rhoStar_R3;
-}
-
 //Basic Gibbs Free Energy Functions
 
 //base gibbs free energy equation for region 3
 static double _gibbs_R3(double del, double tau)
 {
-	double sum = _ni_R3[0] * log(del);
+	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
+	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
+	const double  _ni_R3[40] = { 1.0658070028513, -15.732845290239, 20.944396974307, -7.6867707878716, 2.6185947787954, -2.808078114862, 1.2053369696517, -8.4566812812502E-03, -1.2654315477714, -1.1524407806681, 0.88521043984318, -0.64207765181607, 0.38493460186671, -0.85214708824206, 4.8972281541877, -3.0502617256965, 0.039420536879154, 0.12558408424308, -0.2799932969871, 1.389979956946, -2.018991502357, -8.2147637173963E-03, -0.47596035734923, 0.0439840744735, -0.44476435428739, 0.90572070719733, 0.70522450087967, 0.10770512626332, -0.32913623258954, -0.50871062041158, -0.022175400873096, 0.094260751665092, 0.16436278447961, -0.013503372241348, -0.014834345352472, 5.7922953628084E-04, 3.2308904703711E-03, 8.0964802996215E-05, -1.6557679795037E-04, -4.4923899061815E-05 };
+	const int N = 40;
 
-	for (int i = 1; i < ITERCONST(_i_R3); i++)
+	double sum = _ni_R3[0] * log(del);
+	for (int i = 1; i < N; i++)
 	{
 		sum = sum + _ni_R3[i] * pow(del, _Ii_R3[i-1]) * pow(tau, _Ji_R3[i-1]);
 	}
@@ -72,9 +54,13 @@ static double _gibbs_R3(double del, double tau)
 //d(gibbs)/d(del)
 static double _gibbs_R3_ddel(double del, double tau)
 {
-	double sum = _ni_R3[0] * pow(del, -1);
+	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
+	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
+	const double  _ni_R3[40] = { 1.0658070028513, -15.732845290239, 20.944396974307, -7.6867707878716, 2.6185947787954, -2.808078114862, 1.2053369696517, -8.4566812812502E-03, -1.2654315477714, -1.1524407806681, 0.88521043984318, -0.64207765181607, 0.38493460186671, -0.85214708824206, 4.8972281541877, -3.0502617256965, 0.039420536879154, 0.12558408424308, -0.2799932969871, 1.389979956946, -2.018991502357, -8.2147637173963E-03, -0.47596035734923, 0.0439840744735, -0.44476435428739, 0.90572070719733, 0.70522450087967, 0.10770512626332, -0.32913623258954, -0.50871062041158, -0.022175400873096, 0.094260751665092, 0.16436278447961, -0.013503372241348, -0.014834345352472, 5.7922953628084E-04, 3.2308904703711E-03, 8.0964802996215E-05, -1.6557679795037E-04, -4.4923899061815E-05 };
+	const int N = 40;
 
-	for (int i = 1; i < ITERCONST(_i_R3); i++)
+	double sum = _ni_R3[0] * pow(del, -1);
+	for (int i = 1; i < N; i++)
 	{
 		sum = sum + _ni_R3[i] * _Ii_R3[i-1] * pow(del, _Ii_R3[i-1] - 1)
 			* pow(tau, _Ji_R3[i - 1]);
@@ -85,9 +71,13 @@ static double _gibbs_R3_ddel(double del, double tau)
 //d(gibbs)^2/d^2(del)
 static double _gibbs_R3_dddel(double del, double tau)
 {
-	double sum = -_ni_R3[0] * pow(del, -2);
+	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
+	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
+	const double  _ni_R3[40] = { 1.0658070028513, -15.732845290239, 20.944396974307, -7.6867707878716, 2.6185947787954, -2.808078114862, 1.2053369696517, -8.4566812812502E-03, -1.2654315477714, -1.1524407806681, 0.88521043984318, -0.64207765181607, 0.38493460186671, -0.85214708824206, 4.8972281541877, -3.0502617256965, 0.039420536879154, 0.12558408424308, -0.2799932969871, 1.389979956946, -2.018991502357, -8.2147637173963E-03, -0.47596035734923, 0.0439840744735, -0.44476435428739, 0.90572070719733, 0.70522450087967, 0.10770512626332, -0.32913623258954, -0.50871062041158, -0.022175400873096, 0.094260751665092, 0.16436278447961, -0.013503372241348, -0.014834345352472, 5.7922953628084E-04, 3.2308904703711E-03, 8.0964802996215E-05, -1.6557679795037E-04, -4.4923899061815E-05 };
+	const int N = 40;
 
-	for (int i = 1; i < ITERCONST(_i_R3); i++)
+	double sum = -_ni_R3[0] * pow(del, -2);
+	for (int i = 1; i < N; i++)
 	{
 		sum = sum + _ni_R3[i] * _Ii_R3[i - 1] * (_Ii_R3[i - 1] - 1) *
 			pow(del, _Ii_R3[i - 1] - 2) * pow(tau, _Ji_R3[i - 1]);
@@ -98,9 +88,13 @@ static double _gibbs_R3_dddel(double del, double tau)
 //d(gibbs)/d(tau)
 static double _gibbs_R3_dtau(double del, double tau)
 {
-	double sum = 0;
+	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
+	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
+	const double  _ni_R3[40] = { 1.0658070028513, -15.732845290239, 20.944396974307, -7.6867707878716, 2.6185947787954, -2.808078114862, 1.2053369696517, -8.4566812812502E-03, -1.2654315477714, -1.1524407806681, 0.88521043984318, -0.64207765181607, 0.38493460186671, -0.85214708824206, 4.8972281541877, -3.0502617256965, 0.039420536879154, 0.12558408424308, -0.2799932969871, 1.389979956946, -2.018991502357, -8.2147637173963E-03, -0.47596035734923, 0.0439840744735, -0.44476435428739, 0.90572070719733, 0.70522450087967, 0.10770512626332, -0.32913623258954, -0.50871062041158, -0.022175400873096, 0.094260751665092, 0.16436278447961, -0.013503372241348, -0.014834345352472, 5.7922953628084E-04, 3.2308904703711E-03, 8.0964802996215E-05, -1.6557679795037E-04, -4.4923899061815E-05 };
+	const int N = 40;
 
-	for (int i = 1; i < ITERCONST(_i_R3); i++)
+	double sum = 0;
+	for (int i = 1; i < N; i++)
 	{
 		sum = sum + _ni_R3[i] * _Ji_R3[i - 1] * pow(del, _Ii_R3[i - 1])
 			* pow(tau, _Ji_R3[i - 1]-1);
@@ -111,9 +105,13 @@ static double _gibbs_R3_dtau(double del, double tau)
 //d(gibbs)^2/d^2(tau)
 static double _gibbs_R3_ddtau(double del, double tau)
 {
-	double sum = 0;
+	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
+	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
+	const double  _ni_R3[40] = { 1.0658070028513, -15.732845290239, 20.944396974307, -7.6867707878716, 2.6185947787954, -2.808078114862, 1.2053369696517, -8.4566812812502E-03, -1.2654315477714, -1.1524407806681, 0.88521043984318, -0.64207765181607, 0.38493460186671, -0.85214708824206, 4.8972281541877, -3.0502617256965, 0.039420536879154, 0.12558408424308, -0.2799932969871, 1.389979956946, -2.018991502357, -8.2147637173963E-03, -0.47596035734923, 0.0439840744735, -0.44476435428739, 0.90572070719733, 0.70522450087967, 0.10770512626332, -0.32913623258954, -0.50871062041158, -0.022175400873096, 0.094260751665092, 0.16436278447961, -0.013503372241348, -0.014834345352472, 5.7922953628084E-04, 3.2308904703711E-03, 8.0964802996215E-05, -1.6557679795037E-04, -4.4923899061815E-05 };
+	const int N = 40;
 
-	for (int i = 1; i < ITERCONST(_i_R3); i++)
+	double sum = 0;
+	for (int i = 1; i < N; i++)
 	{
 		sum = sum + _ni_R3[i] * _Ji_R3[i - 1] * (_Ji_R3[i - 1]-1)
 			* pow(del, _Ii_R3[i - 1]) * pow(tau, _Ji_R3[i - 1] - 2);
@@ -124,9 +122,13 @@ static double _gibbs_R3_ddtau(double del, double tau)
 //d(gibbs)^2/(d(del) * d(tau))
 static double _gibbs_R3_ddel_dtau(double del, double tau)
 {
-	double sum = 0;
+	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
+	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
+	const double  _ni_R3[40] = { 1.0658070028513, -15.732845290239, 20.944396974307, -7.6867707878716, 2.6185947787954, -2.808078114862, 1.2053369696517, -8.4566812812502E-03, -1.2654315477714, -1.1524407806681, 0.88521043984318, -0.64207765181607, 0.38493460186671, -0.85214708824206, 4.8972281541877, -3.0502617256965, 0.039420536879154, 0.12558408424308, -0.2799932969871, 1.389979956946, -2.018991502357, -8.2147637173963E-03, -0.47596035734923, 0.0439840744735, -0.44476435428739, 0.90572070719733, 0.70522450087967, 0.10770512626332, -0.32913623258954, -0.50871062041158, -0.022175400873096, 0.094260751665092, 0.16436278447961, -0.013503372241348, -0.014834345352472, 5.7922953628084E-04, 3.2308904703711E-03, 8.0964802996215E-05, -1.6557679795037E-04, -4.4923899061815E-05 };
+	const int N = 40;
 
-	for (int i = 1; i < ITERCONST(_i_R3); i++)
+	double sum = 0;
+	for (int i = 1; i < N; i++)
 	{
 		sum = sum + _ni_R3[i] * _Ii_R3[i - 1] * _Ji_R3[i - 1]
 			* pow(del, _Ii_R3[i - 1]-1) * pow(tau, _Ji_R3[i - 1]-1);
@@ -140,32 +142,53 @@ static double _gibbs_R3_ddel_dtau(double del, double tau)
 //pressure as a function of density and temperature for region 3
 double _P_Rho_T_R3(double rho, double temp)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(temp);
+	//K
+	const double tStar = tCrit;
+	//kg / m^3
+	const double rhoStar = rhoCrit;
 
-	return _gibbs_R3_ddel(del, tau) * del * rho * R * temp;
+	double del = rho / rhoStar;
+	double tau = tStar / temp;
+
+	//divide by 1E+03 for difference in units from R & pressure
+	return _gibbs_R3_ddel(del, tau) * del * rho * R * temp / 1E+03;
 }
 //specific internal energy as a function of density and temperature for region 3
 double _u_Rho_T_R3(double rho, double temp)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(temp);
+	//K
+	const double tStar = tCrit;
+	//kg / m^3
+	const double rhoStar = rhoCrit;
+
+	double del = rho / rhoStar;
+	double tau = tStar / temp;
 
 	return _gibbs_R3_dtau(del, tau) * tau * R * temp;
 }
 //specific entropy as a function of density and temperature for region 3
 double _s_Rho_T_R3(double rho, double temp)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(temp);
+	//K
+	const double tStar = tCrit;
+	//kg / m^3
+	const double rhoStar = rhoCrit;
+
+	double del = rho / rhoStar;
+	double tau = tStar / temp;
 
 	return R * ((tau * _gibbs_R3_dtau(del, tau)) - _gibbs_R3(del, tau));
 }
 //specific enthalpy as a function of density and temperature for region 3
 double _h_Rho_T_R3(double rho, double temp)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(temp);
+	//K
+	const double tStar = tCrit;
+	//kg / m^3
+	const double rhoStar = rhoCrit;
+
+	double del = rho / rhoStar;
+	double tau = tStar / temp;
 
 	return R * temp * ((tau * _gibbs_R3_dtau(del, tau)) +
 		(del * _gibbs_R3_ddel(del, tau)));
@@ -173,16 +196,26 @@ double _h_Rho_T_R3(double rho, double temp)
 //specific isochoric heat capacity as a function of density and temperature for region 3
 double _cv_Rho_T_R3(double rho, double temp)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(temp);
+	//K
+	const double tStar = tCrit;
+	//kg / m^3
+	const double rhoStar = rhoCrit;
+
+	double del = rho / rhoStar;
+	double tau = tStar / temp;
 
 	return -R * pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
 }
 //specific isobaric heat capacity as a function of density and temperature for region 3
 double _cp_Rho_T_R3(double rho, double temp)
 {
-	double del = _del_R3(rho);
-	double tau = _tau_R3(temp);
+	//K
+	const double tStar = tCrit;
+	//kg / m^3
+	const double rhoStar = rhoCrit;
+
+	double del = rho / rhoStar;
+	double tau = tStar / temp;
 
 	double a1 = -pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
 	double a2 = pow((del * _gibbs_R3_ddel(del, tau))-
@@ -198,9 +231,13 @@ double _w_Rho_T_R3(double rho, double temp)
 {
 	//convert to J / (kg * K) from kJ / (kg * K)
 	double _R = R * 1000;
+	//K
+	const double tStar = tCrit;
+	//kg / m^3
+	const double rhoStar = rhoCrit;
 
-	double del = _del_R3(rho);
-	double tau = _tau_R3(temp);
+	double del = rho / rhoStar;
+	double tau = tStar / temp;
 
 	double a1 = (2 * del * _gibbs_R3_ddel(del, tau)) +
 		(pow(del, 2) * _gibbs_R3_dddel(del, tau));
@@ -255,24 +292,24 @@ double _w_v_T_R3(double v, double temp)
 //specific volume as a function of pressure and temperature for region 3
 double _v_P_T_R3(double press, double temp)
 {
-	//kPa
-	const double pSat_643d15K = 21.04336732E+03;
-	//kPa
+	//MPa
+	const double pSat_643d15K = 21.04336732;
+	//MPa
 	double pSat_623d15K = _pSat_R3_R4_b(623.15);
-	//kPa
-	const double p3cd = 19.00881189173929E+03;
-	//kPa
-	const double pSat_v0d00264 = 21.93161551E+03;
-	//kPa
-	const double pSat_v0d00385 = 21.90096265e+03;
+	//MPa
+	const double p3cd = 19.00881189173929;
+	//MPa
+	const double pSat_v0d00264 = 21.93161551;
+	//MPa
+	const double pSat_v0d00385 = 21.90096265;
 	//K
 	double Tsat = _tSat_R3_R4_b(press);
 
 	//subregions a, b
 	if
 	(
-		press > 40E+03
-		&& press <= 100E+03
+		press > 40
+		&& press <= 100
 	)
 	{
 		double Tab = _T3ab_v_T_P(press);
@@ -291,8 +328,8 @@ double _v_P_T_R3(double press, double temp)
 	//subregions c, d, e, f
 	else if
 	(
-		press > 25E+03
-		&& press <= 40E+03
+		press > 25
+		&& press <= 40
 	)
 	{
 		double Tab = _T3ab_v_T_P(press);
@@ -331,8 +368,8 @@ double _v_P_T_R3(double press, double temp)
 	//subregions c, g, h, i, j, k
 	else if
 	(
-		press > 23.5E+03
-		&& press <= 25E+03
+		press > 23.5
+		&& press <= 25
 	)
 	{
 		double Tcd = _T3cd_v_T_P(press);
@@ -391,8 +428,8 @@ double _v_P_T_R3(double press, double temp)
 	//subregions c, l, h, i, j, k
 	else if
 	(
-		press > 23E+03
-		&& press <= 23.5E+03
+		press > 23
+		&& press <= 23.5
 	)
 	{
 		double Tcd = _T3cd_v_T_P(press);
@@ -451,8 +488,8 @@ double _v_P_T_R3(double press, double temp)
 	//subregions c, l, m, n, o, p, j, k
 	else if
 	(
-		press > 22.5E+03
-		&& press <= 23E+03
+		press > 22.5
+		&& press <= 23
 	)
 	{
 		double Tcd = _T3cd_v_T_P(press);
@@ -532,15 +569,15 @@ double _v_P_T_R3(double press, double temp)
 	else if
 	(
 		press > pSat_643d15K
-		&& press <= 22.5E+03
+		&& press <= 22.5
 	)
 	{
 
 		//subregions u, w, v, x
 		if
 		(
-			press > 22.11E+03
-			&& press <= 22.5E+03
+			press > 22.11
+			&& press <= 22.5
 		)
 		{
 			double Tef = _T3ef_v_T_P(press);
@@ -589,8 +626,8 @@ double _v_P_T_R3(double press, double temp)
 		//subregions u, z, y, x
 		else if
 		(
-			press > 22.064E+03
-			&& press <= 22.11E+03
+			press > 22.064
+			&& press <= 22.11
 		)
 		{
 			double Tef = _T3ef_v_T_P(press);
@@ -640,7 +677,7 @@ double _v_P_T_R3(double press, double temp)
 		else if
 		(
 			press > pSat_v0d00264
-			&& press <= 22.064E+03
+			&& press <= 22.064
 			&& temp <= Tsat
 		)
 		{
@@ -682,7 +719,7 @@ double _v_P_T_R3(double press, double temp)
 		else if
 		(
 			press > pSat_v0d00385
-			&& press <= 22.064E+03
+			&& press <= 22.064
 			&& temp >= Tsat
 		)
 		{
@@ -758,7 +795,7 @@ double _v_P_T_R3(double press, double temp)
 	//subregions c, s, r, k
 	else if
 	(
-		press > 20.5E+03
+		press > 20.5
 		&& press <= pSat_643d15K
 	)
 	{
@@ -798,7 +835,7 @@ double _v_P_T_R3(double press, double temp)
 	else if
 	(
 		press > p3cd
-		&& press <= 20.5E+03
+		&& press <= 20.5
 	)
 	{
 		double Tcd = _T3cd_v_T_P(press);
@@ -879,18 +916,15 @@ double _w_P_T_R3(double press, double temp)
 	return _w_Rho_T_R3(1/v, temp);
 }
 
-//Iterator Constants for P(h,s) for subregion a
-
-static const int _I_P_h_s_R3a[33] = {0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8, 10, 10, 14, 18, 20, 22, 22, 24, 28, 28, 32, 32};
-static const int _J_P_h_s_R3a[33] = {0, 1, 5, 0, 3, 4, 8, 14, 6, 16, 0, 2, 3, 0, 1, 4, 5, 28, 28, 24, 1, 32, 36, 22, 28, 36, 16, 28, 36, 16, 36, 10, 28};
-static const double _n_P_h_s_R3a[33] = {0.770889828326934E+01, -0.260835009128688E+02, 0.267416218930389E+03, 0.172221089496844E+02, -0.293542332145970E+03, 0.614135601882478E+03, -0.610562757725674E+05, -0.651272251118218E+08, 0.735919313521937E+05, -0.116646505914191E+11, 0.355267086434461E+02, -0.596144543825955E+03, -0.475842430145708E+03, 0.696781965359503E+02, 0.335674250377312E+03, 0.250526809130882E+05, 0.146997380630766E+06, 0.538069315091534E+20, 0.143619827291346E+22, 0.364984866165994E+20, -0.254741561156775E+04, 0.240120197096563E+28, -0.393847464679496E+30, 0.147073407024852E+25, -0.426391250432059E+32, 0.194509340621077E+39, 0.666212132114896E+24, 0.706777016552858E+34, 0.175563621975576E+42, 0.108408607429124E+29, 0.730872705175151E+44, 0.159145847398870E+25, 0.377121605943324E+41};
-
 //P(h,s) for subregion a
-
 double _p_R3a_h_s(double h, double s)
 {
-    //kPa
-    const double pStar = 99E+03;
+	const int _I_P_h_s_R3a[33] = {0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8, 10, 10, 14, 18, 20, 22, 22, 24, 28, 28, 32, 32};
+	const int _J_P_h_s_R3a[33] = {0, 1, 5, 0, 3, 4, 8, 14, 6, 16, 0, 2, 3, 0, 1, 4, 5, 28, 28, 24, 1, 32, 36, 22, 28, 36, 16, 28, 36, 16, 36, 10, 28};
+	const double _n_P_h_s_R3a[33] = {0.770889828326934E+01, -0.260835009128688E+02, 0.267416218930389E+03, 0.172221089496844E+02, -0.293542332145970E+03, 0.614135601882478E+03, -0.610562757725674E+05, -0.651272251118218E+08, 0.735919313521937E+05, -0.116646505914191E+11, 0.355267086434461E+02, -0.596144543825955E+03, -0.475842430145708E+03, 0.696781965359503E+02, 0.335674250377312E+03, 0.250526809130882E+05, 0.146997380630766E+06, 0.538069315091534E+20, 0.143619827291346E+22, 0.364984866165994E+20, -0.254741561156775E+04, 0.240120197096563E+28, -0.393847464679496E+30, 0.147073407024852E+25, -0.426391250432059E+32, 0.194509340621077E+39, 0.666212132114896E+24, 0.706777016552858E+34, 0.175563621975576E+42, 0.108408607429124E+29, 0.730872705175151E+44, 0.159145847398870E+25, 0.377121605943324E+41};
+
+    //MPa
+    const double pStar = 99;
     //kJ/kg
     const double hStar = 2300;
     //kJ/(kg*K)
@@ -911,18 +945,15 @@ double _p_R3a_h_s(double h, double s)
     return sum * pStar;
 }
 
-//Iterator Constants for P(h,s) for subregion b
-
-static const int _I_P_h_s_R3b[35] = {-12, -12, -12, -12, -12, -10, -10, -10, -10, -8, -8, -6, -6, -6, -6, -5, -4, -4, -4, -3, -3, -3, -3, -2, -2, -1, 0, 2, 2, 5, 6, 8, 10, 14, 14};
-static const int _J_P_h_s_R3b[35] = {2, 10, 12, 14, 20, 2, 10, 14, 18, 2, 8, 2, 6, 7, 8, 10, 4, 5, 8, 1, 3, 5, 6, 0, 1, 0, 3, 0, 1, 0, 1, 1, 1, 3, 7};
-static const double _n_P_h_s_R3b[35] = {0.125244360717979E-12, -0.126599322553716E-01, 0.506878030140626E+01, 0.317847171154202E+02, -0.391041161399932E+06, -0.975733406392044E-10, -0.186312419488279E+02, 0.510973543414101E+03, 0.373847005822362E+06, 0.299804024666572E-07, 0.200544393820342E+02, -0.498030487662829E-05, -0.102301806360030E+02, 0.552819126990325E+02, -0.206211367510878E+03, -0.794012232324832E+04, 0.782248472028153E+01, -0.586544326902468E+02, 0.355073647696481E+04, -0.115303107290162E-03, -0.175092403171802E+01, 0.257981687748160E+03, -0.727048374179467E+03, 0.121644822609198E-03, 0.393137871762692E-01, 0.704181005909296E-02, -0.829108200698110E+02, -0.265178818131250, 0.137531682453991E+02, -0.522394090753046E+02, 0.240556298941048E+04, -0.227361631268928E+05, 0.890746343932567E+05, -0.239234565822486E+08, 0.568795808129714E+10};
-
 //P(h,s) for subregion b
-
 double _p_R3b_h_s(double h, double s)
 {
-    //kPa
-    const double pStar = 16.6E+03;
+	const int _I_P_h_s_R3b[35] = {-12, -12, -12, -12, -12, -10, -10, -10, -10, -8, -8, -6, -6, -6, -6, -5, -4, -4, -4, -3, -3, -3, -3, -2, -2, -1, 0, 2, 2, 5, 6, 8, 10, 14, 14};
+	const int _J_P_h_s_R3b[35] = {2, 10, 12, 14, 20, 2, 10, 14, 18, 2, 8, 2, 6, 7, 8, 10, 4, 5, 8, 1, 3, 5, 6, 0, 1, 0, 3, 0, 1, 0, 1, 1, 1, 3, 7};
+	const double _n_P_h_s_R3b[35] = {0.125244360717979E-12, -0.126599322553716E-01, 0.506878030140626E+01, 0.317847171154202E+02, -0.391041161399932E+06, -0.975733406392044E-10, -0.186312419488279E+02, 0.510973543414101E+03, 0.373847005822362E+06, 0.299804024666572E-07, 0.200544393820342E+02, -0.498030487662829E-05, -0.102301806360030E+02, 0.552819126990325E+02, -0.206211367510878E+03, -0.794012232324832E+04, 0.782248472028153E+01, -0.586544326902468E+02, 0.355073647696481E+04, -0.115303107290162E-03, -0.175092403171802E+01, 0.257981687748160E+03, -0.727048374179467E+03, 0.121644822609198E-03, 0.393137871762692E-01, 0.704181005909296E-02, -0.829108200698110E+02, -0.265178818131250, 0.137531682453991E+02, -0.522394090753046E+02, 0.240556298941048E+04, -0.227361631268928E+05, 0.890746343932567E+05, -0.239234565822486E+08, 0.568795808129714E+10};
+
+    //MPa
+    const double pStar = 16.6;
     //kJ/kg
     const double hStar = 2800;
     //kJ/(kg*K)

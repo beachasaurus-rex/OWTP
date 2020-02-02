@@ -52,11 +52,11 @@ extern "C"
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature500rho650K)
 {
     //kg/m^3
-    double testRho = 500;
+    const double testRho = 500;
     //K
-    double testTemp = 650;
+    const double testTemp = 650;
 
-    double P = P_Rho_T_R3(testRho, testTemp) / 1000;
+    double P = P_Rho_T_R3(testRho, testTemp);
     double u = u_Rho_T_R3(testRho, testTemp);
     double s = s_Rho_T_R3(testRho, testTemp);
     double h = h_Rho_T_R3(testRho, testTemp);
@@ -71,6 +71,14 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature500rho650K)
     double cpErr = AbsRelativeErr(cp, 0.138935717E+02);
     double cvErr = AbsRelativeErr(cv, 3.191317871889);
     double wErr = AbsRelativeErr(w, 0.502005554E+03);
+
+    printf("test = %f\nexp = %f\n",P,0.255837018E+02);
+    printf("test = %f\nexp = %f\n",u,0.181226279E+04);
+    printf("test = %f\nexp = %f\n",s,0.405427273E+01);
+    printf("test = %f\nexp = %f\n",h,0.186343019E+04);
+    printf("test = %f\nexp = %f\n",cp,0.138935717E+02);
+    printf("test = %f\nexp = %f\n",cv,3.191317871889);
+    printf("test = %f\nexp = %f\n",w,0.502005554E+03);
 
     bool PPass = IsAcceptable(PErr);
     bool uPass = IsAcceptable(uErr);
@@ -91,11 +99,11 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature500rho650K)
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature200rho650K)
 {
     //kg/m^3
-    double testRho = 200;
+    const double testRho = 200;
     //K
-    double testTemp = 650;
+    const double testTemp = 650;
 
-    double P = P_Rho_T_R3(testRho, testTemp) / 1000;
+    double P = P_Rho_T_R3(testRho, testTemp);
     double u = u_Rho_T_R3(testRho, testTemp);
     double s = s_Rho_T_R3(testRho, testTemp);
     double h = h_Rho_T_R3(testRho, testTemp);
@@ -130,11 +138,11 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature200rho650K)
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature500rho750K)
 {
     //kg/m^3
-    double testRho = 500;
+    const double testRho = 500;
     //K
-    double testTemp = 750;
+    const double testTemp = 750;
 
-    double P = P_Rho_T_R3(testRho, testTemp) / 1000;
+    double P = P_Rho_T_R3(testRho, testTemp);
     double u = u_Rho_T_R3(testRho, testTemp);
     double s = s_Rho_T_R3(testRho, testTemp);
     double h = h_Rho_T_R3(testRho, testTemp);
@@ -170,11 +178,11 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfDensityTemperature500rho750K)
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500v650K)
 {
     //m^3/kg
-    double testV = 1.0/500.0;
+    const double testV = 1.0/500.0;
     //K
-    double testTemp = 650;
+    const double testTemp = 650;
 
-    double P = P_v_T_R3(testV, testTemp) / 1000;
+    double P = P_v_T_R3(testV, testTemp);
     double u = u_v_T_R3(testV, testTemp);
     double s = s_v_T_R3(testV, testTemp);
     double h = h_v_T_R3(testV, testTemp);
@@ -209,11 +217,11 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over200v650K)
 {
     //m^3/kg
-    double testV = 1.0/200.0;
+    const double testV = 1.0/200.0;
     //K
-    double testTemp = 650;
+    const double testTemp = 650;
 
-    double P = P_v_T_R3(testV, testTemp) / 1000;
+    double P = P_v_T_R3(testV, testTemp);
     double u = u_v_T_R3(testV, testTemp);
     double s = s_v_T_R3(testV, testTemp);
     double h = h_v_T_R3(testV, testTemp);
@@ -248,11 +256,11 @@ TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over200
 TEST_F(AccTestsRegion3, PropertiesAsFunctionsOfSpecificVolumeTemperature1over500v750K)
 {
     //m^3/kg
-    double testV = 1.0/500.0;
+    const double testV = 1.0/500.0;
     //K
-    double testTemp = 750;
+    const double testTemp = 750;
 
-    double P = P_v_T_R3(testV, testTemp) / 1000;
+    double P = P_v_T_R3(testV, testTemp);
     double u = u_v_T_R3(testV, testTemp);
     double s = s_v_T_R3(testV, testTemp);
     double h = h_v_T_R3(testV, testTemp);
@@ -292,7 +300,7 @@ TEST_F(AccTestsRegion3, Properties_P_T_0d255837018Ep02MPa_650K)
     //K
     const double temp = 650;
     //kPa
-    const double press = 0.255837018E+05;
+    const double press = 0.255837018E+02;
 
     double v = v_P_T_R3(press,temp);
     double u = u_P_T_R3(press,temp);
@@ -333,7 +341,7 @@ TEST_F(AccTestsRegion3, Properties_P_T_0d222930643Ep02MPa_650K)
     //K
     const double temp = 650;
     //kPa
-    const double press = 0.222930643E+05;
+    const double press = 0.222930643E+02;
 
     double v = v_P_T_R3(press,temp);
     double u = u_P_T_R3(press,temp);
@@ -374,7 +382,7 @@ TEST_F(AccTestsRegion3, Properties_P_T_0d783095639Ep02MPa_750K)
     //K
     double temp = 750;
     //kPa
-    double press = 0.783095639E+05;
+    double press = 0.783095639E+02;
 
     double v = v_P_T_R3(press,temp);
     double u = u_P_T_R3(press,temp);
@@ -609,9 +617,9 @@ TEST_F(AccTestsRegion3, props_h_s_0d225868845Ep04h_0d446971906Ep01s)
 
 TEST_F(AccTestsRegion3, v_Subregion_a_P_50MPa_T_630K)
 {
-    double pressure = 50 * 1000;
-    double temp = 630;
-    double vActual = 1.470853100E-03;
+    const double pressure = 50;
+    const double temp = 630;
+    const double vActual = 1.470853100E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -620,9 +628,9 @@ TEST_F(AccTestsRegion3, v_Subregion_a_P_50MPa_T_630K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_a_P_80MPa_T_670K)
 {
-    double pressure = 80 * 1000;
-    double temp = 670;
-    double vActual = 1.503831359E-03;
+    const double pressure = 80;
+    const double temp = 670;
+    const double vActual = 1.503831359E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -631,9 +639,9 @@ TEST_F(AccTestsRegion3, v_Subregion_a_P_80MPa_T_670K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_b_P_50MPa_T_710K)
 {
-    double pressure = 50 * 1000;
-    double temp = 710;
-    double vActual = 2.204728587E-03;
+    const double pressure = 50;
+    const double temp = 710;
+    const double vActual = 2.204728587E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -642,9 +650,9 @@ TEST_F(AccTestsRegion3, v_Subregion_b_P_50MPa_T_710K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_b_P_80MPa_T_750K)
 {
-    double pressure = 80 * 1000;
-    double temp = 750;
-    double vActual = 1.973692940E-03;
+    const double pressure = 80;
+    const double temp = 750;
+    const double vActual = 1.973692940E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -653,9 +661,9 @@ TEST_F(AccTestsRegion3, v_Subregion_b_P_80MPa_T_750K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_c_P_20MPa_T_630K)
 {
-    double pressure = 20 * 1000;
-    double temp = 630;
-    double vActual = 1.761696406E-03;
+    const double pressure = 20;
+    const double temp = 630;
+    const double vActual = 1.761696406E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -664,9 +672,9 @@ TEST_F(AccTestsRegion3, v_Subregion_c_P_20MPa_T_630K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_c_P_30MPa_T_650K)
 {
-    double pressure = 30 * 1000;
-    double temp = 650;
-    double vActual = 1.819560617E-03;
+    const double pressure = 30;
+    const double temp = 650;
+    const double vActual = 1.819560617E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -675,9 +683,9 @@ TEST_F(AccTestsRegion3, v_Subregion_c_P_30MPa_T_650K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_d_P_26MPa_T_656K)
 {
-    double pressure = 26 * 1000;
-    double temp = 656;
-    double vActual = 2.245587720E-03;
+    const double pressure = 26;
+    const double temp = 656;
+    const double vActual = 2.245587720E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -686,9 +694,9 @@ TEST_F(AccTestsRegion3, v_Subregion_d_P_26MPa_T_656K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_d_P_30MPa_T_670K)
 {
-    double pressure = 30 * 1000;
-    double temp = 670;
-    double vActual = 2.506897702E-03;
+    const double pressure = 30;
+    const double temp = 670;
+    const double vActual = 2.506897702E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -697,9 +705,9 @@ TEST_F(AccTestsRegion3, v_Subregion_d_P_30MPa_T_670K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_e_P_26MPa_T_661K)
 {
-    double pressure = 26 * 1000;
-    double temp = 661;
-    double vActual = 2.970225962E-03;
+    const double pressure = 26;
+    const double temp = 661;
+    const double vActual = 2.970225962E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -708,9 +716,9 @@ TEST_F(AccTestsRegion3, v_Subregion_e_P_26MPa_T_661K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_e_P_30MPa_T_675K)
 {
-    double pressure = 30 * 1000;
-    double temp = 675;
-    double vActual = 3.004627086E-03;
+    const double pressure = 30;
+    const double temp = 675;
+    const double vActual = 3.004627086E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -719,9 +727,9 @@ TEST_F(AccTestsRegion3, v_Subregion_e_P_30MPa_T_675K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_f_P_26MPa_T_671K)
 {
-    double pressure = 26 * 1000;
-    double temp = 671;
-    double vActual = 5.019029401E-03;
+    const double pressure = 26;
+    const double temp = 671;
+    const double vActual = 5.019029401E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -730,9 +738,9 @@ TEST_F(AccTestsRegion3, v_Subregion_f_P_26MPa_T_671K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_f_P_30MPa_T_690K)
 {
-    double pressure = 30 * 1000;
-    double temp = 690;
-    double vActual = 4.656470142E-03;
+    const double pressure = 30;
+    const double temp = 690;
+    const double vActual = 4.656470142E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -741,9 +749,9 @@ TEST_F(AccTestsRegion3, v_Subregion_f_P_30MPa_T_690K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_g_P_23d6MPa_T_649K)
 {
-    double pressure = 23.6 * 1000;
-    double temp = 649;
-    double vActual = 2.163198378E-03;
+    const double pressure = 23.6;
+    const double temp = 649;
+    const double vActual = 2.163198378E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -752,9 +760,9 @@ TEST_F(AccTestsRegion3, v_Subregion_g_P_23d6MPa_T_649K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_g_P_24MPa_T_650K)
 {
-    double pressure = 24 * 1000;
-    double temp = 650;
-    double vActual = 2.166044161E-03;
+    const double pressure = 24;
+    const double temp = 650;
+    const double vActual = 2.166044161E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -763,9 +771,9 @@ TEST_F(AccTestsRegion3, v_Subregion_g_P_24MPa_T_650K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_h_P_23d6MPa_T_652K)
 {
-    double pressure = 23.6 * 1000;
-    double temp = 652;
-    double vActual = 2.651081407E-03;
+    const double pressure = 23.6;
+    const double temp = 652;
+    const double vActual = 2.651081407E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -774,9 +782,9 @@ TEST_F(AccTestsRegion3, v_Subregion_h_P_23d6MPa_T_652K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_h_P_24MPa_T_654K)
 {
-    double pressure = 24 * 1000;
-    double temp = 654;
-    double vActual = 2.967802335E-03;
+    const double pressure = 24;
+    const double temp = 654;
+    const double vActual = 2.967802335E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -785,9 +793,9 @@ TEST_F(AccTestsRegion3, v_Subregion_h_P_24MPa_T_654K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_i_P_23d6MPa_T_653K)
 {
-    double pressure = 23.6 * 1000;
-    double temp = 653;
-    double vActual = 3.273916816E-03;
+    const double pressure = 23.6;
+    const double temp = 653;
+    const double vActual = 3.273916816E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -796,9 +804,9 @@ TEST_F(AccTestsRegion3, v_Subregion_i_P_23d6MPa_T_653K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_i_P_24MPa_T_655K)
 {
-    double pressure = 24 * 1000;
-    double temp = 655;
-    double vActual = 3.550329864E-03;
+    const double pressure = 24;
+    const double temp = 655;
+    const double vActual = 3.550329864E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -807,9 +815,9 @@ TEST_F(AccTestsRegion3, v_Subregion_i_P_24MPa_T_655K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_j_P_23d5MPa_T_655K)
 {
-    double pressure = 23.5 * 1000;
-    double temp = 655;
-    double vActual = 4.545001142E-03;
+    const double pressure = 23.5;
+    const double temp = 655;
+    const double vActual = 4.545001142E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -818,9 +826,9 @@ TEST_F(AccTestsRegion3, v_Subregion_j_P_23d5MPa_T_655K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_j_P_24MPa_T_660K)
 {
-    double pressure = 24 * 1000;
-    double temp = 660;
-    double vActual = 5.100267704E-03;
+    const double pressure = 24;
+    const double temp = 660;
+    const double vActual = 5.100267704E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -829,9 +837,9 @@ TEST_F(AccTestsRegion3, v_Subregion_j_P_24MPa_T_660K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_k_P_23MPa_T_660K)
 {
-    double pressure = 23 * 1000;
-    double temp = 660;
-    double vActual = 6.109525997E-03;
+    const double pressure = 23;
+    const double temp = 660;
+    const double vActual = 6.109525997E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -841,9 +849,9 @@ TEST_F(AccTestsRegion3, v_Subregion_k_P_23MPa_T_660K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_k_P_24MPa_T_670K)
 {
-    double pressure = 24 * 1000;
-    double temp = 670;
-    double vActual = 6.427325645E-03;
+    const double pressure = 24;
+    const double temp = 670;
+    const double vActual = 6.427325645E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -852,9 +860,9 @@ TEST_F(AccTestsRegion3, v_Subregion_k_P_24MPa_T_670K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_l_P_22d6MPa_T_646K)
 {
-    double pressure = 22.6 * 1000;
-    double temp = 646;
-    double vActual = 2.117860851E-03;
+    const double pressure = 22.6;
+    const double temp = 646;
+    const double vActual = 2.117860851E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -863,9 +871,9 @@ TEST_F(AccTestsRegion3, v_Subregion_l_P_22d6MPa_T_646K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_l_P_23MPa_T_646K)
 {
-    double pressure = 23 * 1000;
-    double temp = 646;
-    double vActual = 2.062374674E-03;
+    const double pressure = 23;
+    const double temp = 646;
+    const double vActual = 2.062374674E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -874,9 +882,9 @@ TEST_F(AccTestsRegion3, v_Subregion_l_P_23MPa_T_646K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_m_P_22d6MPa_T_648d6K)
 {
-    double pressure = 22.6 * 1000;
-    double temp = 648.6;
-    double vActual = 2.533063780E-03;
+    const double pressure = 22.6;
+    const double temp = 648.6;
+    const double vActual = 2.533063780E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -885,9 +893,9 @@ TEST_F(AccTestsRegion3, v_Subregion_m_P_22d6MPa_T_648d6K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_m_P_22d8MPa_T_649d3K)
 {
-    double pressure = 22.8 * 1000;
-    double temp = 649.3;
-    double vActual = 2.572971781E-03;
+    const double pressure = 22.8;
+    const double temp = 649.3;
+    const double vActual = 2.572971781E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -896,9 +904,9 @@ TEST_F(AccTestsRegion3, v_Subregion_m_P_22d8MPa_T_649d3K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_n_P_22d6MPa_T_649d0K)
 {
-    double pressure = 22.6 * 1000;
-    double temp = 649.0;
-    double vActual = 2.923432711E-03;
+    const double pressure = 22.6;
+    const double temp = 649.0;
+    const double vActual = 2.923432711E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -907,9 +915,9 @@ TEST_F(AccTestsRegion3, v_Subregion_n_P_22d6MPa_T_649d0K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_n_P_22d8MPa_T_649d7K)
 {
-    double pressure = 22.8 * 1000;
-    double temp = 649.7;
-    double vActual = 2.913311494E-03;
+    const double pressure = 22.8;
+    const double temp = 649.7;
+    const double vActual = 2.913311494E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -918,9 +926,9 @@ TEST_F(AccTestsRegion3, v_Subregion_n_P_22d8MPa_T_649d7K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_o_P_22d6MPa_T_649d1K)
 {
-    double pressure = 22.6 * 1000;
-    double temp = 649.1;
-    double vActual = 3.131208996E-03;
+    const double pressure = 22.6;
+    const double temp = 649.1;
+    const double vActual = 3.131208996E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -929,9 +937,9 @@ TEST_F(AccTestsRegion3, v_Subregion_o_P_22d6MPa_T_649d1K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_o_P_22d8MPa_T_649d9K)
 {
-    double pressure = 22.8 * 1000;
-    double temp = 649.9;
-    double vActual = 3.221160278E-03;
+    const double pressure = 22.8;
+    const double temp = 649.9;
+    const double vActual = 3.221160278E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -940,9 +948,9 @@ TEST_F(AccTestsRegion3, v_Subregion_o_P_22d8MPa_T_649d9K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_p_P_22d6MPa_T_649d4K)
 {
-    double pressure = 22.6 * 1000;
-    double temp = 649.4;
-    double vActual = 3.715596186E-03;
+    const double pressure = 22.6;
+    const double temp = 649.4;
+    const double vActual = 3.715596186E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -951,9 +959,9 @@ TEST_F(AccTestsRegion3, v_Subregion_p_P_22d6MPa_T_649d4K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_p_P_22d8MPa_T_650d2K)
 {
-    double pressure = 22.8 * 1000;
-    double temp = 650.2;
-    double vActual = 3.664754790E-03;
+    const double pressure = 22.8;
+    const double temp = 650.2;
+    const double vActual = 3.664754790E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -962,9 +970,9 @@ TEST_F(AccTestsRegion3, v_Subregion_p_P_22d8MPa_T_650d2K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_q_P_21d1MPa_T_640K)
 {
-    double pressure = 21.1 * 1000;
-    double temp = 640;
-    double vActual = 1.970999272E-03;
+    const double pressure = 21.1;
+    const double temp = 640;
+    const double vActual = 1.970999272E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -973,9 +981,9 @@ TEST_F(AccTestsRegion3, v_Subregion_q_P_21d1MPa_T_640K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_q_P_21d8MPa_T_643K)
 {
-    double pressure = 21.8 * 1000;
-    double temp = 643;
-    double vActual = 2.043919161E-03;
+    const double pressure = 21.8;
+    const double temp = 643;
+    const double vActual = 2.043919161E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -984,9 +992,9 @@ TEST_F(AccTestsRegion3, v_Subregion_q_P_21d8MPa_T_643K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_r_P_21d1MPa_T_644K)
 {
-    double pressure = 21.1 * 1000;
-    double temp = 644;
-    double vActual = 5.251009921E-03;
+    const double pressure = 21.1;
+    const double temp = 644;
+    const double vActual = 5.251009921E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -995,9 +1003,9 @@ TEST_F(AccTestsRegion3, v_Subregion_r_P_21d1MPa_T_644K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_r_P_21d8MPa_T_648K)
 {
-    double pressure = 21.8 * 1000;
-    double temp = 648;
-    double vActual = 5.256844741E-03;
+    const double pressure = 21.8;
+    const double temp = 648;
+    const double vActual = 5.256844741E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1006,9 +1014,9 @@ TEST_F(AccTestsRegion3, v_Subregion_r_P_21d8MPa_T_648K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_s_P_19d1MPa_T_635K)
 {
-    double pressure = 19.1 * 1000;
-    double temp = 635;
-    double vActual = 1.932829079E-03;
+    const double pressure = 19.1;
+    const double temp = 635;
+    const double vActual = 1.932829079E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1017,9 +1025,9 @@ TEST_F(AccTestsRegion3, v_Subregion_s_P_19d1MPa_T_635K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_s_P_20MPa_T_638K)
 {
-    double pressure = 20 * 1000;
-    double temp = 638;
-    double vActual = 1.985387227E-03;
+    const double pressure = 20;
+    const double temp = 638;
+    const double vActual = 1.985387227E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1028,9 +1036,9 @@ TEST_F(AccTestsRegion3, v_Subregion_s_P_20MPa_T_638K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_t_P_17MPa_T_626K)
 {
-    double pressure = 17 * 1000;
-    double temp = 626;
-    double vActual = 8.483262001E-03;
+    const double pressure = 17;
+    const double temp = 626;
+    const double vActual = 8.483262001E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1039,9 +1047,9 @@ TEST_F(AccTestsRegion3, v_Subregion_t_P_17MPa_T_626K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_t_P_20MPa_T_640K)
 {
-    double pressure = 20 * 1000;
-    double temp = 640;
-    double vActual = 6.227528101E-03;
+    const double pressure = 20;
+    const double temp = 640;
+    const double vActual = 6.227528101E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1050,9 +1058,9 @@ TEST_F(AccTestsRegion3, v_Subregion_t_P_20MPa_T_640K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_u_P_21d5MPa_T_644d6K)
 {
-    double pressure = 21.5 * 1000;
-    double temp = 644.6;
-    double vActual = 2.268366647E-03;
+    const double pressure = 21.5;
+    const double temp = 644.6;
+    const double vActual = 2.268366647E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1061,9 +1069,9 @@ TEST_F(AccTestsRegion3, v_Subregion_u_P_21d5MPa_T_644d6K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_u_P_22d0MPa_T_646d1K)
 {
-    double pressure = 22.0 * 1000;
-    double temp = 646.1;
-    double vActual = 2.296350553E-03;
+    const double pressure = 22.0;
+    const double temp = 646.1;
+    const double vActual = 2.296350553E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1072,9 +1080,9 @@ TEST_F(AccTestsRegion3, v_Subregion_u_P_22d0MPa_T_646d1K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_v_P_22d5MPa_T_648d6K)
 {
-    double pressure = 22.5 * 1000;
-    double temp = 648.6;
-    double vActual = 2.832373260E-03;
+    const double pressure = 22.5;
+    const double temp = 648.6;
+    const double vActual = 2.832373260E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1083,9 +1091,9 @@ TEST_F(AccTestsRegion3, v_Subregion_v_P_22d5MPa_T_648d6K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_v_P_22d3MPa_T_647d9K)
 {
-    double pressure = 22.3 * 1000;
-    double temp = 647.9;
-    double vActual = 2.811424405E-03;
+    const double pressure = 22.3;
+    const double temp = 647.9;
+    const double vActual = 2.811424405E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1094,9 +1102,9 @@ TEST_F(AccTestsRegion3, v_Subregion_v_P_22d3MPa_T_647d9K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_w_P_22d15MPa_T_647d5K)
 {
-    double pressure = 22.15 * 1000;
-    double temp = 647.5;
-    double vActual = 3.694032281E-03;
+    const double pressure = 22.15;
+    const double temp = 647.5;
+    const double vActual = 3.694032281E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1105,9 +1113,9 @@ TEST_F(AccTestsRegion3, v_Subregion_w_P_22d15MPa_T_647d5K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_w_P_22d3MPa_T_648d1K)
 {
-    double pressure = 22.3 * 1000;
-    double temp = 648.1;
-    double vActual = 3.622226305E-03;
+    const double pressure = 22.3;
+    const double temp = 648.1;
+    const double vActual = 3.622226305E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1116,9 +1124,9 @@ TEST_F(AccTestsRegion3, v_Subregion_w_P_22d3MPa_T_648d1K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_x_P_22d11MPa_T_648d0K)
 {
-    double pressure = 22.11 * 1000;
-    double temp = 648.0;
-    double vActual = 4.528072649E-03;
+    const double pressure = 22.11;
+    const double temp = 648.0;
+    const double vActual = 4.528072649E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1127,9 +1135,9 @@ TEST_F(AccTestsRegion3, v_Subregion_x_P_22d11MPa_T_648d0K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_x_P_22d3MPa_T_649d0K)
 {
-    double pressure = 22.3 * 1000;
-    double temp = 649.0;
-    double vActual = 4.556905799E-03;
+    const double pressure = 22.3;
+    const double temp = 649.0;
+    const double vActual = 4.556905799E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1138,9 +1146,9 @@ TEST_F(AccTestsRegion3, v_Subregion_x_P_22d3MPa_T_649d0K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_y_P_22d0MPa_T_646d84K)
 {
-    double pressure = 22.0 * 1000;
-    double temp = 646.84;
-    double vActual = 2.698354719E-03;
+    const double pressure = 22.0;
+    const double temp = 646.84;
+    const double vActual = 2.698354719E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1149,9 +1157,9 @@ TEST_F(AccTestsRegion3, v_Subregion_y_P_22d0MPa_T_646d84K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_y_P_22d064MPa_T_647d05K)
 {
-    double pressure = 22.064 * 1000;
-    double temp = 647.05;
-    double vActual = 2.717655648E-03;
+    const double pressure = 22.064;
+    const double temp = 647.05;
+    const double vActual = 2.717655648E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1160,9 +1168,9 @@ TEST_F(AccTestsRegion3, v_Subregion_y_P_22d064MPa_T_647d05K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_z_P_22d0MPa_T_646d89K)
 {
-    double pressure = 22.0 * 1000;
-    double temp = 646.89;
-    double vActual = 3.798732962E-03;
+    const double pressure = 22.0;
+    const double temp = 646.89;
+    const double vActual = 3.798732962E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1171,9 +1179,9 @@ TEST_F(AccTestsRegion3, v_Subregion_z_P_22d0MPa_T_646d89K)
 }
 TEST_F(AccTestsRegion3, v_Subregion_z_P_22d064MPa_T_647d15K)
 {
-    double pressure = 22.064 * 1000;
-    double temp = 647.15;
-    double vActual = 3.701940010E-03;
+    const double pressure = 22.064;
+    const double temp = 647.15;
+    const double vActual = 3.701940010E-03;
 
     double vTest = v_P_T_R3(pressure, temp);
     double vErr = AbsRelativeErr(vTest, vActual);
@@ -1194,9 +1202,9 @@ TEST_F(AccTestsRegion3, P_h_s_1700h_3d8s)
     const double h = 1700;
     //kJ/(kg*K)
     const double s = 3.8;
-    //kPa
-    const double pExp = 2.555703246E+04;
-    //kPa
+    //MPa
+    const double pExp = 2.555703246E+01;
+    //MPa
     double pTest = P_h_s_R3(h,s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -1209,9 +1217,9 @@ TEST_F(AccTestsRegion3, P_h_s_2000h_4d2s)
     const double h = 2000;
     //kJ/(kg*K)
     const double s = 4.2;
-    //kPa
-    const double pExp = 4.540873468E+04;
-    //kPa
+    //MPa
+    const double pExp = 4.540873468E+01;
+    //MPa
     double pTest = P_h_s_R3(h,s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -1224,9 +1232,9 @@ TEST_F(AccTestsRegion3, P_h_s_2100h_4d3s)
     const double h = 2100;
     //kJ/(kg*K)
     const double s = 4.3;
-    //kPa
-    const double pExp = 6.078123340E+04;
-    //kPa
+    //MPa
+    const double pExp = 6.078123340E+01;
+    //MPa
     double pTest = P_h_s_R3(h,s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -1239,9 +1247,9 @@ TEST_F(AccTestsRegion3, P_h_s_2600h_5d1s)
     const double h = 2600;
     //kJ/(kg*K)
     const double s = 5.1;
-    //kPa
-    const double pExp = 3.434999263E+04;
-    //kPa
+    //MPa
+    const double pExp = 3.434999263E+01;
+    //MPa
     double pTest = P_h_s_R3(h,s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -1254,9 +1262,9 @@ TEST_F(AccTestsRegion3, P_h_s_2400h_4d7s)
     const double h = 2400;
     //kJ/(kg*K)
     const double s = 4.7;
-    //kPa
-    const double pExp = 6.363924887E+04;
-    //kPa
+    //MPa
+    const double pExp = 6.363924887E+01;
+    //MPa
     double pTest = P_h_s_R3(h,s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -1269,9 +1277,9 @@ TEST_F(AccTestsRegion3, P_h_s_2700h_5d0s)
     const double h = 2700;
     //kJ/(kg*K)
     const double s = 5.0;
-    //kPa
-    const double pExp = 8.839043281E+04;
-    //kPa
+    //MPa
+    const double pExp = 8.839043281E+01;
+    //MPa
     double pTest = P_h_s_R3(h,s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
