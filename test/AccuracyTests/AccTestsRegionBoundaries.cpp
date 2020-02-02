@@ -36,9 +36,9 @@ extern "C"
 
 TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_TemperatureAcc)
 {
-    double press = 0.165291643E+02 * 1000;
+    const double press = 0.165291643E+02;
 
-    double T = T_R2_R3_b(press);
+    const double T = T_R2_R3_b(press);
 
     double TErr = AbsRelativeErr(T, 0.623150000E+03);
 
@@ -48,11 +48,11 @@ TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_TemperatureAcc)
 }
 TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_PressureAcc)
 {
-    double T = 0.623150000E+03;
+    const double T = 0.623150000E+03;
 
     double press = P_R2_R3_b(T);
 
-    double PErr = AbsRelativeErr(press, 0.165291643E+02 * 1000);
+    double PErr = AbsRelativeErr(press, 0.165291643E+02);
 
     bool PPass = IsAcceptable(PErr);
 
@@ -68,9 +68,9 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_300k)
 {
     //K
     const double temp = 300;
-    //kPa
-    const double pExp = 0.353658941E-02 * 1000;
-    //kPa
+    //MPa
+    const double pExp = 0.353658941E-02;
+    //MPa
     double pActual = pSat_R3_R4_b(temp);
 
     double PErr = AbsRelativeErr(pActual, pExp);
@@ -81,9 +81,9 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_500k)
 {
     //K
     const double temp = 500;
-    //kPa
-    const double pExp = 0.263889776E+01 * 1000;
-    //kPa
+    //MPa
+    const double pExp = 0.263889776E+01;
+    //MPa
     double pActual = pSat_R3_R4_b(temp);
 
     double PErr = AbsRelativeErr(pActual, pExp);
@@ -94,9 +94,9 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_600k)
 {
     //K
     const double temp = 600;
-    //kPa
-    const double pExp = 0.123443146E+02 * 1000;
-    //kPa
+    //MPa
+    const double pExp = 0.123443146E+02;
+    //MPa
     double pActual = pSat_R3_R4_b(temp);
 
     double PErr = AbsRelativeErr(pActual, pExp);
@@ -111,8 +111,8 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_600k)
 
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_0d1MPa)
 {
-    //kPa
-    const double press = 0.1 * 1000;
+    //MPa
+    const double press = 0.1;
     //K
     const double tExp = 0.372755919E+03;
     //K
@@ -124,8 +124,8 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_0d
 }
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_1MPa)
 {
-    //kPa
-    const double press = 1000;
+    //MPa
+    const double press = 1;
     //K
     const double tExp = 0.453035632E+03;
     //K
@@ -137,8 +137,8 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_1M
 }
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_10MPa)
 {
-    //kPa
-    const double press = 10 * 1000;
+    //MPa
+    const double press = 10;
     //K
     const double tExp = 0.584149488E+03;
     //K
@@ -160,10 +160,10 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_10
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_1700h)
 {
     //kJ/kg
-    double h = 1700;
-    //kPa
-    double pExp = 1.724175718E+04;
-    //kPa
+    const double h = 1700;
+    //MPa
+    const double pExp = 1.724175718E+01;
+    //MPa
     double pTest = pSat_h_R3_R4(h);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -173,10 +173,10 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_1
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_2000h)
 {
     //kJ/kg
-    double h = 2000;
-    //kPa
-    double pExp = 2.193442957E+04;
-    //kPa
+    const double h = 2000;
+    //MPa
+    const double pExp = 2.193442957E+01;
+    //MPa
     double pTest = pSat_h_R3_R4(h);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -186,10 +186,10 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_2
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_2400h)
 {
     //kJ/kg
-    double h = 2400;
-    //kPa
-    double pExp = 2.018090839E+04;
-    //kPa
+    const double h = 2400;
+    //MPa
+    const double pExp = 2.018090839E+01;
+    //MPa
     double pTest = pSat_h_R3_R4(h);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -209,10 +209,10 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_2
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_3d8s)
 {
     //kJ/(kg*K)
-    double s = 3.8;
-    //kPa
-    double pExp = 1.687755057E+04;
-    //kPa
+    const double s = 3.8;
+    //MPa
+    const double pExp = 1.687755057E+01;
+    //MPa
     double pTest = pSat_s_R3_R4(s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -222,10 +222,10 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_3d
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_4d2s)
 {
     //kJ/(kg*K)
-    double s = 4.2;
-    //kPa
-    double pExp = 2.164451789E+04;
-    //kPa
+    const double s = 4.2;
+    //MPa
+    const double pExp = 2.164451789E+01;
+    //MPa
     double pTest = pSat_s_R3_R4(s);
 
     double pErr = AbsRelativeErr(pTest, pExp);
@@ -235,10 +235,10 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_4d
 TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_5d2s)
 {
     //kJ/(kg*K)
-    double s = 5.2;
-    //kPa
-    double pExp = 1.668968482E+04;
-    //kPa
+    const double s = 5.2;
+    //MPa
+    const double pExp = 1.668968482E+01;
+    //MPa
     double pTest = pSat_s_R3_R4(s);
 
     double pErr = AbsRelativeErr(pTest, pExp);

@@ -60,9 +60,9 @@ extern "C"
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfTemperaturePressure300K0d0035MPa)
 {
 	//K
-	double testTemp = 300;
-	//kPa
-	double testPressure = 0.0035 * 1000;
+	const double testTemp = 300;
+	//MPa
+	const double testPressure = 0.0035;
 
 	double v = v_T_P_R2(testTemp, testPressure);
 	double u = u_T_P_R2(testTemp, testPressure);
@@ -99,9 +99,9 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfTemperaturePressure300K0d0035MPa)
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfTemperaturePressure700K0d0035MPa)
 {
 	//K
-	double testTemp = 700;
-	//kPa
-	double testPressure = 0.0035 * 1000;
+	const double testTemp = 700;
+	//MPa
+	const double testPressure = 0.0035;
 
 	double v = v_T_P_R2(testTemp, testPressure);
 	double u = u_T_P_R2(testTemp, testPressure);
@@ -138,9 +138,9 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfTemperaturePressure700K0d0035MPa)
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfTemperaturePressure700K30MPa)
 {
 	//K
-	double testTemp = 700;
-	//kPa
-	double testPressure = 30 * 1000;
+	const double testTemp = 700;
+	//MPa
+	const double testPressure = 30;
 
 	double v = v_T_P_R2(testTemp, testPressure);
 	double u = u_T_P_R2(testTemp, testPressure);
@@ -177,10 +177,10 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfTemperaturePressure700K30MPa)
 
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEnthalpyHAt300K0d0035MPa)
 {
-	//kPa
-	double testPress = 0.0035 * 1000;
+	//MPa
+	const double testPress = 0.0035;
 	//kJ / kg
-	double testEnthalpy = 0.254991145E+04;
+	const double testEnthalpy = 0.254991145E+04;
 
 	double v = v_P_h_R2(testPress, testEnthalpy);
 	double u = u_P_h_R2(testPress, testEnthalpy);
@@ -216,10 +216,10 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEnthalpyHAt300K0d0035MPa)
 }
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEnthalpyHAt700K0d0035MPa)
 {
-	//kPa
-	double testPress = 0.0035 * 1000;
+	//MPa
+	const double testPress = 0.0035;
 	//kJ / kg
-	double testEnthalpy = 0.333568375E+04;
+	const double testEnthalpy = 0.333568375E+04;
 
 	double v = v_P_h_R2(testPress, testEnthalpy);
 	double u = u_P_h_R2(testPress, testEnthalpy);
@@ -255,10 +255,10 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEnthalpyHAt700K0d0035MPa)
 }
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEnthalpyHAt700K30MPa)
 {
-	//kPa
-	double testPress = 30 * 1000;
+	//MPa
+	const double testPress = 30;
 	//kJ / kg
-	double testEnthalpy = 0.263149474E+04;
+	const double testEnthalpy = 0.263149474E+04;
 
 	double v = v_P_h_R2(testPress, testEnthalpy);
 	double u = u_P_h_R2(testPress, testEnthalpy);
@@ -295,10 +295,10 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEnthalpyHAt700K30MPa)
 
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEntropySAt300K0d0035MPa)
 {
-	//kPa
-	double testPress = 0.0035 * 1000;
+	//MPa
+	const double testPress = 0.0035;
 	//kJ / (kg * K)
-	double testEntropy = 0.852238967E+01;
+	const double testEntropy = 0.852238967E+01;
 
 	double v = v_P_s_R2(testPress, testEntropy);
 	double u = u_P_s_R2(testPress, testEntropy);
@@ -334,10 +334,10 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEntropySAt300K0d0035MPa)
 }
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEntropySAt700K0d0035MPa)
 {
-	//kPa
-	double testPress = 0.0035 * 1000;
+	//MPa
+	const double testPress = 0.0035;
 	//kJ / (kg * K)
-	double testEntropy = 0.101749996E+02;
+	const double testEntropy = 0.101749996E+02;
 
 	double v = v_P_s_R2(testPress, testEntropy);
 	double u = u_P_s_R2(testPress, testEntropy);
@@ -373,10 +373,10 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEntropySAt700K0d0035MPa)
 }
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEntropySAt700K30MPa)
 {
-	//kPa
-	double testPress = 30 * 1000;
+	//MPa
+	const double testPress = 30;
 	//kJ / (kg * K)
-	double testEntropy = 0.517540298E+01;
+	const double testEntropy = 0.517540298E+01;
 
 	double v = v_P_s_R2(testPress, testEntropy);
 	double u = u_P_s_R2(testPress, testEntropy);
@@ -414,13 +414,13 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfPressureEntropySAt700K30MPa)
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfEnthalpyEntropyHSAt300K0d0035MPa)
 {
 	//kJ / kg
-	double testEnthalpy = 0.254991145E+04;
+	const double testEnthalpy = 0.254991145E+04;
 	//kJ / (kg * K)
-	double testEntropy = 0.852238967E+01;
+	const double testEntropy = 0.852238967E+01;
 
 	double v = v_h_s_R2(testEnthalpy, testEntropy);
 	double u = u_h_s_R2(testEnthalpy, testEntropy);
-	double P = P_h_s_R2(testEnthalpy, testEntropy) / 1000;
+	double P = P_h_s_R2(testEnthalpy, testEntropy);
 	double T = T_h_s_R2(testEnthalpy, testEntropy);
 	double cp = cp_h_s_R2(testEnthalpy, testEntropy);
 	double cv = cv_h_s_R2(testEnthalpy, testEntropy);
@@ -453,13 +453,13 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfEnthalpyEntropyHSAt300K0d0035MPa)
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfEnthalpyEntropyHSAt700K0d0035MPa)
 {
 	//kJ / kg
-	double testEnthalpy = 0.333568375E+04;
+	const double testEnthalpy = 0.333568375E+04;
 	//kJ / (kg * K)
-	double testEntropy = 0.101749996E+02;
+	const double testEntropy = 0.101749996E+02;
 
 	double v = v_h_s_R2(testEnthalpy, testEntropy);
 	double u = u_h_s_R2(testEnthalpy, testEntropy);
-	double P = P_h_s_R2(testEnthalpy, testEntropy) / 1000;
+	double P = P_h_s_R2(testEnthalpy, testEntropy);
 	double T = T_h_s_R2(testEnthalpy, testEntropy);
 	double cp = cp_h_s_R2(testEnthalpy, testEntropy);
 	double cv = cv_h_s_R2(testEnthalpy, testEntropy);
@@ -492,13 +492,13 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfEnthalpyEntropyHSAt700K0d0035MPa)
 TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfEnthalpyEntropyHSAt700K30MPa)
 {
 	//kJ / kg
-	double testEnthalpy = 0.263149474E+04;
+	const double testEnthalpy = 0.263149474E+04;
 	//kJ / (kg * K)
-	double testEntropy = 0.517540298E+01;
+	const double testEntropy = 0.517540298E+01;
 
 	double v = v_h_s_R2(testEnthalpy, testEntropy);
 	double u = u_h_s_R2(testEnthalpy, testEntropy);
-	double P = P_h_s_R2(testEnthalpy, testEntropy) / 1000;
+	double P = P_h_s_R2(testEnthalpy, testEntropy);
 	double T = T_h_s_R2(testEnthalpy, testEntropy);
 	double cp = cp_h_s_R2(testEnthalpy, testEntropy);
 	double cv = cv_h_s_R2(testEnthalpy, testEntropy);
@@ -536,137 +536,110 @@ TEST_F(AccTestsRegion2, PropertiesAsFunctionsOfEnthalpyEntropyHSAt700K30MPa)
 
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy0d001MPa3000h)
 {
-	//kPa
-	double testPressure = 0.001 * 1000;
+	//MPa
+	const double testPressure = 0.001;
 	//kJ / kg
-	double testEnthalpy = 3000;
+	const double testEnthalpy = 3000;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.534433241E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy3MPa3000h)
 {
-	//kPa
-	double testPressure = 3 * 1000;
+	//MPa
+	const double testPressure = 3;
 	//kJ / kg
-	double testEnthalpy = 3000;
+	const double testEnthalpy = 3000;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.575373370E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy3MPa4000h)
 {
-	//kPa
-	double testPressure = 3 * 1000;
+	//MPa
+	const double testPressure = 3;
 	//kJ / kg
-	double testEnthalpy = 4000;
+	const double testEnthalpy = 4000;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.101077577E+04);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy5MPa3500h)
 {
-	//kPa
-	double testPressure = 5 * 1000;
+	//MPa
+	const double testPressure = 5;
 	//kJ / kg
-	double testEnthalpy = 3500;
+	const double testEnthalpy = 3500;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.801299102E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy5MPa4000h)
 {
-	//kPa
-	double testPressure = 5 * 1000;
+	//MPa
+	const double testPressure = 5;
 	//kJ / kg
-	double testEnthalpy = 4000;
+	const double testEnthalpy = 4000;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.101531583E+04);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy25MPa3500h)
 {
-	//kPa
-	double testPressure = 25 * 1000;
+	//MPa
+	const double testPressure = 25;
 	//kJ / kg
-	double testEnthalpy = 3500;
+	const double testEnthalpy = 3500;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.875279054E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy40MPa2700h)
 {
-	//kPa
-	double testPressure = 40 * 1000;
+	//MPa
+	const double testPressure = 40;
 	//kJ / kg
-	double testEnthalpy = 2700;
+	const double testEnthalpy = 2700;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.743056411E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy60MPa2700h)
 {
-	//kPa
-	double testPressure = 60 * 1000;
+	//MPa
+	const double testPressure = 60;
 	//kJ / kg
-	double testEnthalpy = 2700;
+	const double testEnthalpy = 2700;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.791137067E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy60MPa3200h)
 {
-	//kPa
-	double testPressure = 60 * 1000;
+	//MPa
+	const double testPressure = 60;
 	//kJ / kg
-	double testEnthalpy = 3200;
+	const double testEnthalpy = 3200;
 
 	double T = T_P_h_R2(testPressure, testEnthalpy);
-
 	double TErr = AbsRelativeErr(T, 0.882756860E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 
@@ -677,137 +650,110 @@ TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEnthalpy60MPa3200h)
 
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy0d1MPa75s)
 {
-	//kPa
-	double testPressure = 0.1 * 1000;
+	//MPa
+	const double testPressure = 0.1;
 	//kJ / (kg * K)
-	double testEntropy = 7.5;
+	const double testEntropy = 7.5;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.399517097E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy0d1MPa8s)
 {
-	//kPa
-	double testPressure = 0.1 * 1000;
+	//MPa
+	const double testPressure = 0.1;
 	//kJ / (kg * K)
-	double testEntropy = 8;
+	const double testEntropy = 8;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.514127081E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy2d5MPa8s)
 {
-	//kPa
-	double testPressure = 2.5 * 1000;
+	//MPa
+	const double testPressure = 2.5;
 	//kJ / (kg * K)
-	double testEntropy = 8;
+	const double testEntropy = 8;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.103984917E+04);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy8MPa6s)
 {
-	//kPa
-	double testPressure = 8 * 1000;
+	//MPa
+	const double testPressure = 8;
 	//kJ / (kg * K)
-	double testEntropy = 6;
+	const double testEntropy = 6;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.600484040E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy8MPa7d5s)
 {
-	//kPa
-	double testPressure = 8 * 1000;
+	//MPa
+	const double testPressure = 8;
 	//kJ / (kg * K)
-	double testEntropy = 7.5;
+	const double testEntropy = 7.5;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.106495556E+04);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy90MPa6s)
 {
-	//kPa
-	double testPressure = 90 * 1000;
+	//MPa
+	const double testPressure = 90;
 	//kJ / (kg * K)
-	double testEntropy = 6;
+	const double testEntropy = 6;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.103801126E+04);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy20MPa5d75s)
 {
-	//kPa
-	double testPressure = 20 * 1000;
+	//MPa
+	const double testPressure = 20;
 	//kJ / (kg * K)
-	double testEntropy = 5.75;
+	const double testEntropy = 5.75;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.697992849E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy80MPa5d25s)
 {
-	//kPa
-	double testPressure = 80 * 1000;
+	//MPa
+	const double testPressure = 80;
 	//kJ / (kg * K)
-	double testEntropy = 5.25;
+	const double testEntropy = 5.25;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.854011484E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy80MPa5d75s)
 {
-	//kPa
-	double testPressure = 80 * 1000;
+	//MPa
+	const double testPressure = 80;
 	//kJ / (kg * K)
-	double testEntropy = 5.75;
+	const double testEntropy = 5.75;
 
 	double T = T_P_s_R2(testPressure, testEntropy);
-
 	double TErr = AbsRelativeErr(T, 0.949017998E+03);
-
 	bool TPass = IsAcceptable(TErr);
-
 	ASSERT_TRUE(TPass);
 }
 
@@ -821,144 +767,108 @@ TEST_F(AccTestsRegion2, TemperatureAsFunctionOfPressureEntropy80MPa5d75s)
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy2800h6d5s)
 {
 	//kJ / kg
-	double testEnthalpy = 2800;
+	const double testEnthalpy = 2800;
 	//kJ / (kg * K)
-	double testEntropy = 6.5;
+	const double testEntropy = 6.5;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 1.371012767);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy2800h9d5s)
 {
 	//kJ / kg
-	double testEnthalpy = 2800;
+	const double testEnthalpy = 2800;
 	//kJ / (kg * K)
-	double testEntropy = 9.5;
+	const double testEntropy = 9.5;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 1.879743844E-03);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy4100h9d5s)
 {
 	//kJ / kg
-	double testEnthalpy = 4100;
+	const double testEnthalpy = 4100;
 	//kJ / (kg * K)
-	double testEntropy = 9.5;
+	const double testEntropy = 9.5;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 1.024788997E-01);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy2800h6s)
 {
 	//kJ / kg
-	double testEnthalpy = 2800;
+	const double testEnthalpy = 2800;
 	//kJ / (kg * K)
-	double testEntropy = 6;
+	const double testEntropy = 6;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 4.793911442);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy3600h6s)
 {
 	//kJ / kg
-	double testEnthalpy = 3600;
+	const double testEnthalpy = 3600;
 	//kJ / (kg * K)
-	double testEntropy = 6;
+	const double testEntropy = 6;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 8.395519209E+01);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy3600h7s)
 {
 	//kJ / kg
-	double testEnthalpy = 3600;
+	const double testEnthalpy = 3600;
 	//kJ / (kg * K)
-	double testEntropy = 7;
+	const double testEntropy = 7;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 7.527161441);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy2800h5d1s)
 {
 	//kJ / kg
-	double testEnthalpy = 2800;
+	const double testEnthalpy = 2800;
 	//kJ / (kg * K)
-	double testEntropy = 5.1;
+	const double testEntropy = 5.1;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 9.439202060E+01);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropyd2800h5d8s)
 {
 	//kJ / kg
-	double testEnthalpy = 2800;
+	const double testEnthalpy = 2800;
 	//kJ / (kg * K)
-	double testEntropy = 5.8;
+	const double testEntropy = 5.8;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 8.414574124);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }
 TEST_F(AccTestsRegion2, PressureAsFunctionOfEnthalpyEntropy3400h5d8s)
 {
 	//kJ / kg
-	double testEnthalpy = 3400;
+	const double testEnthalpy = 3400;
 	//kJ / (kg * K)
-	double testEntropy = 5.8;
+	const double testEntropy = 5.8;
 
 	double P = P_h_s_R2(testEnthalpy, testEntropy);
-	P = P / 1000;
-
 	double PErr = AbsRelativeErr(P, 8.376903879E+01);
-
 	bool PPass = IsAcceptable(PErr);
-
 	ASSERT_TRUE(PPass);
 }

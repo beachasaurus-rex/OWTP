@@ -3,14 +3,13 @@
 	#include <math.h>
 #endif
 
-//Iteration Constants for Boundary Equations for Boundary between R3 & R4
-static const double _nArr[10] = {1167.0521452767, -724213.16703206, -17.073846940092, 12020.82470247, -3232555.0322333, 14.91510861353, -4823.2657361591, 405113.40542057, -0.23855557567849, 650.17534844798};
-
-//kPa
+//MPa
 double _pSat_R3_R4_b(double temp)
 {
-    //kPa
-    const double pStar = 1000;
+	const double _nArr[10] = {1167.0521452767, -724213.16703206, -17.073846940092, 12020.82470247, -3232555.0322333, 14.91510861353, -4823.2657361591, 405113.40542057, -0.23855557567849, 650.17534844798};
+
+    //MPa
+    const double pStar = 1;
     //K
     const double tStar = 1;
 
@@ -30,8 +29,10 @@ double _pSat_R3_R4_b(double temp)
 //K
 double _tSat_R3_R4_b(double press)
 {
-    //kPa
-    const double pStar = 1000;
+	const double _nArr[10] = {1167.0521452767, -724213.16703206, -17.073846940092, 12020.82470247, -3232555.0322333, 14.91510861353, -4823.2657361591, 405113.40542057, -0.23855557567849, 650.17534844798};
+
+    //MPa
+    const double pStar = 1;
     //K
     const double tStar = 1;
 
@@ -51,23 +52,20 @@ double _tSat_R3_R4_b(double press)
     return h * tStar;
 }
 
-//Iteration Constants for pSat(h)
-
-static const int _I_PSat_h_R3_R4[14] = {0, 1, 1, 1, 1, 5, 7, 8, 14, 20, 22, 24, 28, 36};
-static const int _J_PSat_h_R3_R4[14] = {0, 1, 3, 4, 36, 3, 0, 24, 16, 16, 3, 18, 8, 24};
-static const double _n_PSat_h_R3_R4[14] = {0.600073641753024, -9.36203654849857, 24.6590798594147, -107.014222858224, -91582131580576.8, -8623.32011700662, -23.5837344740032, 2.52304969384128E+17, -3.89718771997719E+18, -3.33775713645296E+22, 35649946963.6328, -1.48547544720641E+26, 3.30611514838798E+18, 8.13641294467829E+37};
-
 //SaturatedPressure(Enthalpy)
-
 double _pSat_h_R3_R4(double enth)
 {
-    //kPa
-    const double pStar = 22E+03;
+	const int _I_PSat_h_R3_R4[14] = {0, 1, 1, 1, 1, 5, 7, 8, 14, 20, 22, 24, 28, 36};
+	const int _J_PSat_h_R3_R4[14] = {0, 1, 3, 4, 36, 3, 0, 24, 16, 16, 3, 18, 8, 24};
+	const double _n_PSat_h_R3_R4[14] = {0.600073641753024, -9.36203654849857, 24.6590798594147, -107.014222858224, -91582131580576.8, -8623.32011700662, -23.5837344740032, 2.52304969384128E+17, -3.89718771997719E+18, -3.33775713645296E+22, 35649946963.6328, -1.48547544720641E+26, 3.30611514838798E+18, 8.13641294467829E+37};
+
+    //MPa
+    const double pStar = 22;
     //kJ/kg
     const double hStar = 2600;
 
     double eta = enth / hStar;
-    int N = ITERCONST(_I_PSat_h_R3_R4);
+    const int N = 14;
     double sum = 0;
     for (int i = 0; i < N; i++)
     {
@@ -90,13 +88,17 @@ static const double _n_PSat_s_R3_R4[10] = {0.639767553612785, -12.9727445396014,
 
 double _pSat_s_R3_R4(double entr)
 {
-    //kPa
-    const double pStar = 22E+03;
+	const int _I_PSat_s_R3_R4[10] = {0, 1, 1, 4, 12, 12, 16, 24, 28, 32};
+	const int _J_PSat_s_R3_R4[10] = {0, 1, 32, 7, 4, 14, 36, 10, 0, 18};
+	const double _n_PSat_s_R3_R4[10] = {0.639767553612785, -12.9727445396014, -2.24595125848403E+15, 1774667.41801846, 7170793495.71538, -3.78829107169011E+17, -9.55586736431328E+34, 1.87269814676188E+23, 119254746466.473, 1.10649277244882E+36};
+
+    //MPa
+    const double pStar = 22;
     //kJ/(kg*K)
     const double sStar = 5.2;
 
     double sigma = entr / sStar;
-    int N = ITERCONST(_I_PSat_s_R3_R4);
+    const int N = 10;
     double sum = 0;
     for (int i = 0; i < N; i++)
     {
