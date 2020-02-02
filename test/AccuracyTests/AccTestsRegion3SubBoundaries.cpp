@@ -75,150 +75,124 @@ extern "C"
 //for Region 3 of the IAPWS Industrial Formulation 1997 for the Thermodynamic
 //Properties of Water and Steam" in Tables 3 & 11 on pages 11 & 19.
 
-//Subregion boundary v(P,T) - temperature
-
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_a_b)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_a_b_40MPa)
 {
     const double pressure = 40;
     const double Tactual = 6.930341408E+02;
+
     double Ttest = T3ab_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_c_d)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_c_d_25MPa)
 {
     const double pressure = 25;
     const double Tactual = 6.493659208E+02;
+
     double Ttest = T3cd_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_e_f)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_e_f_40MPa)
 {
     const double pressure = 40;
     const double Tactual = 7.139593992E+02;
+
     double Ttest = T3ef_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_g_h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_g_h_23MPa)
 {
     const double pressure = 23;
     const double Tactual = 6.498873759E+02;
+
     double Ttest = T3gh_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_i_j)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_i_j_23MPa)
 {
     const double pressure = 23;
     const double Tactual = 6.515778091E+02;
+
     double Ttest = T3ij_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_j_k)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_j_k_23MPa)
 {
     const double pressure = 23;
     const double Tactual = 6.558338344E+02;
+
     double Ttest = T3jk_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_m_n)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_m_n_22d8MPa)
 {
     const double pressure = 22.8;
     const double Tactual = 6.496054133E+02;
+
     double Ttest = T3mn_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_o_p)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_o_p_22d8MPa)
 {
     const double pressure = 22.8;
     const double Tactual = 6.500106943E+02;
+
     double Ttest = T3op_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_q_u)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_q_u_22MPa)
 {
     const double pressure = 22;
     const double Tactual = 6.456355027E+02;
+
     double Ttest = T3qu_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_r_x)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_r_x_22MPa)
 {
     const double pressure = 22;
     const double Tactual = 6.482622754E+02;
+
     double Ttest = T3rx_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_u_v)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_u_v_22d3MPa)
 {
     const double pressure = 22.3;
     const double Tactual = 6.477996121E+02;
+
     double Ttest = T3uv_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_w_x)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_Subregions_w_x_22d3MPa)
 {
     const double pressure = 22.3;
     const double Tactual = 6.482049480E+02;
+
     double Ttest = T3wx_v_T_P(pressure);
-
     double TErr = AbsRelativeErr(Ttest, Tactual);
-
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
 
@@ -231,7 +205,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_Temperature_Subregions_w_x)
 
 //Subregion boundary v(P,T) - specific volume
 
-TEST_F(AccTestsRegion3SubBoundaries, vPT_va_P_50MPa_T_630K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_a_50MPa_T_630K)
 {
     const double pressure = 50;
     const double temp = 630;
@@ -242,7 +216,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_va_P_50MPa_T_630K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_va_P_80MPa_T_670K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_a_80MPa_T_670K)
 {
     const double pressure = 80;
     const double temp = 670;
@@ -253,7 +227,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_va_P_80MPa_T_670K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vb_P_50MPa_T_710K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_b_50MPa_T_710K)
 {
     const double pressure = 50;
     const double temp = 710;
@@ -264,7 +238,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vb_P_50MPa_T_710K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vb_P_80MPa_T_750K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_b_80MPa_T_750K)
 {
     const double pressure = 80;
     const double temp = 750;
@@ -275,7 +249,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vb_P_80MPa_T_750K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vc_P_20MPa_T_630K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_c_20MPa_T_630K)
 {
     const double pressure = 20;
     const double temp = 630;
@@ -286,7 +260,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vc_P_20MPa_T_630K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vc_P_30MPa_T_650K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_c_30MPa_T_650K)
 {
     const double pressure = 30;
     const double temp = 650;
@@ -297,7 +271,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vc_P_30MPa_T_650K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vd_P_26MPa_T_656K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_d_26MPa_T_656K)
 {
     const double pressure = 26;
     const double temp = 656;
@@ -308,7 +282,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vd_P_26MPa_T_656K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vd_P_30MPa_T_670K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_d_30MPa_T_670K)
 {
     const double pressure = 30;
     const double temp = 670;
@@ -319,7 +293,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vd_P_30MPa_T_670K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_ve_P_26MPa_T_661K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_e_26MPa_T_661K)
 {
     const double pressure = 26;
     const double temp = 661;
@@ -330,7 +304,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_ve_P_26MPa_T_661K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_ve_P_30MPa_T_675K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_e_30MPa_T_675K)
 {
     const double pressure = 30;
     const double temp = 675;
@@ -341,7 +315,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_ve_P_30MPa_T_675K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vf_P_26MPa_T_671K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_f_26MPa_T_671K)
 {
     const double pressure = 26;
     const double temp = 671;
@@ -352,7 +326,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vf_P_26MPa_T_671K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vf_P_30MPa_T_690K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_f_30MPa_T_690K)
 {
     const double pressure = 30;
     const double temp = 690;
@@ -363,7 +337,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vf_P_30MPa_T_690K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vg_P_23d6MPa_T_649K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_g_23d6MPa_T_649K)
 {
     const double pressure = 23.6;
     const double temp = 649;
@@ -374,7 +348,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vg_P_23d6MPa_T_649K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vg_P_24MPa_T_650K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_g_24MPa_T_650K)
 {
     const double pressure = 24;
     const double temp = 650;
@@ -385,7 +359,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vg_P_24MPa_T_650K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vh_P_23d6MPa_T_652K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_h_23d6MPa_T_652K)
 {
     const double pressure = 23.6;
     const double temp = 652;
@@ -396,7 +370,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vh_P_23d6MPa_T_652K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vh_P_24MPa_T_654K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_h_24MPa_T_654K)
 {
     const double pressure = 24;
     const double temp = 654;
@@ -407,7 +381,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vh_P_24MPa_T_654K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vi_P_23d6MPa_T_653K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_i_23d6MPa_T_653K)
 {
     const double pressure = 23.6;
     const double temp = 653;
@@ -418,7 +392,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vi_P_23d6MPa_T_653K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vi_P_24MPa_T_655K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_i_24MPa_T_655K)
 {
     const double pressure = 24;
     const double temp = 655;
@@ -429,7 +403,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vi_P_24MPa_T_655K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vj_P_23d5MPa_T_655K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_j_23d5MPa_T_655K)
 {
     const double pressure = 23.5;
     const double temp = 655;
@@ -440,7 +414,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vj_P_23d5MPa_T_655K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vj_P_24MPa_T_660K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_j_24MPa_T_660K)
 {
     const double pressure = 24;
     const double temp = 660;
@@ -451,7 +425,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vj_P_24MPa_T_660K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vk_P_23MPa_T_660K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_k_23MPa_T_660K)
 {
     const double pressure = 23;
     const double temp = 660;
@@ -462,7 +436,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vk_P_23MPa_T_660K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vk_P_24MPa_T_670K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_k_24MPa_T_670K)
 {
     const double pressure = 24;
     const double temp = 670;
@@ -473,7 +447,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vk_P_24MPa_T_670K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vl_P_22d6MPa_T_646K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_l_22d6MPa_T_646K)
 {
     const double pressure = 22.6;
     const double temp = 646;
@@ -484,7 +458,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vl_P_22d6MPa_T_646K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vl_P_23MPa_T_646K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_l_23MPa_T_646K)
 {
     const double pressure = 23;
     const double temp = 646;
@@ -495,7 +469,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vl_P_23MPa_T_646K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vm_P_22d6MPa_T_648d6K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_m_22d6MPa_T_648d6K)
 {
     const double pressure = 22.6;
     const double temp = 648.6;
@@ -506,7 +480,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vm_P_22d6MPa_T_648d6K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vm_P_22d8MPa_T_649d3K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_m_22d8MPa_T_649d3K)
 {
     const double pressure = 22.8;
     const double temp = 649.3;
@@ -517,7 +491,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vm_P_22d8MPa_T_649d3K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vn_P_22d6MPa_T_649d0K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_n_22d6MPa_T_649d0K)
 {
     const double pressure = 22.6;
     const double temp = 649.0;
@@ -528,7 +502,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vn_P_22d6MPa_T_649d0K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vn_P_22d8MPa_T_649d7K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_n_22d8MPa_T_649d7K)
 {
     const double pressure = 22.8;
     const double temp = 649.7;
@@ -539,7 +513,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vn_P_22d8MPa_T_649d7K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vo_P_22d6MPa_T_649d1K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_o_22d6MPa_T_649d1K)
 {
     const double pressure = 22.6;
     const double temp = 649.1;
@@ -550,7 +524,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vo_P_22d6MPa_T_649d1K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vo_P_22d8MPa_T_649d9K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_o_22d8MPa_T_649d9K)
 {
     const double pressure = 22.8;
     const double temp = 649.9;
@@ -561,7 +535,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vo_P_22d8MPa_T_649d9K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vp_P_22d6MPa_T_649d4K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_p_22d6MPa_T_649d4K)
 {
     const double pressure = 22.6;
     const double temp = 649.4;
@@ -572,7 +546,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vp_P_22d6MPa_T_649d4K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vp_P_22d8MPa_T_650d2K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_p_22d8MPa_T_650d2K)
 {
     const double pressure = 22.8;
     const double temp = 650.2;
@@ -583,7 +557,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vp_P_22d8MPa_T_650d2K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vq_P_21d1MPa_T_640K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_q_21d1MPa_T_640K)
 {
     const double pressure = 21.1;
     const double temp = 640;
@@ -594,7 +568,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vq_P_21d1MPa_T_640K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vq_P_21d8MPa_T_643K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_q_21d8MPa_T_643K)
 {
     const double pressure = 21.8;
     const double temp = 643;
@@ -605,7 +579,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vq_P_21d8MPa_T_643K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vr_P_21d1MPa_T_644K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_r_21d1MPa_T_644K)
 {
     const double pressure = 21.1;
     const double temp = 644;
@@ -616,7 +590,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vr_P_21d1MPa_T_644K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vr_P_21d8MPa_T_648K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_r_21d8MPa_T_648K)
 {
     const double pressure = 21.8;
     const double temp = 648;
@@ -627,7 +601,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vr_P_21d8MPa_T_648K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vs_P_19d1MPa_T_635K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_s_19d1MPa_T_635K)
 {
     const double pressure = 19.1;
     const double temp = 635;
@@ -638,7 +612,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vs_P_19d1MPa_T_635K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vs_P_20MPa_T_638K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_s_20MPa_T_638K)
 {
     const double pressure = 20;
     const double temp = 638;
@@ -649,7 +623,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vs_P_20MPa_T_638K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vt_P_17MPa_T_626K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_t_17MPa_T_626K)
 {
     const double pressure = 17;
     const double temp = 626;
@@ -660,7 +634,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vt_P_17MPa_T_626K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vt_P_20MPa_T_640K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_t_20MPa_T_640K)
 {
     const double pressure = 20;
     const double temp = 640;
@@ -671,7 +645,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vt_P_20MPa_T_640K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vu_P_21d5MPa_T_644d6K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_u_21d5MPa_T_644d6K)
 {
     const double pressure = 21.5;
     const double temp = 644.6;
@@ -682,7 +656,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vu_P_21d5MPa_T_644d6K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vu_P_22d0MPa_T_646d1K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_u_22d0MPa_T_646d1K)
 {
     const double pressure = 22.0;
     const double temp = 646.1;
@@ -693,7 +667,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vu_P_22d0MPa_T_646d1K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vv_P_22d5MPa_T_648d6K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_v_22d5MPa_T_648d6K)
 {
     const double pressure = 22.5;
     const double temp = 648.6;
@@ -704,7 +678,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vv_P_22d5MPa_T_648d6K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vv_P_22d3MPa_T_647d9K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_v_22d3MPa_T_647d9K)
 {
     const double pressure = 22.3;
     const double temp = 647.9;
@@ -715,7 +689,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vv_P_22d3MPa_T_647d9K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vw_P_22d15MPa_T_647d5K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_w_22d15MPa_T_647d5K)
 {
     const double pressure = 22.15;
     const double temp = 647.5;
@@ -726,7 +700,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vw_P_22d15MPa_T_647d5K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vw_P_22d3MPa_T_648d1K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_w_22d3MPa_T_648d1K)
 {
     const double pressure = 22.3;
     const double temp = 648.1;
@@ -737,7 +711,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vw_P_22d3MPa_T_648d1K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vx_P_22d11MPa_T_648d0K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_x_22d11MPa_T_648d0K)
 {
     const double pressure = 22.11;
     const double temp = 648.0;
@@ -748,7 +722,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vx_P_22d11MPa_T_648d0K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vx_P_22d3MPa_T_649d0K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_x_22d3MPa_T_649d0K)
 {
     const double pressure = 22.3;
     const double temp = 649.0;
@@ -759,7 +733,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vx_P_22d3MPa_T_649d0K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vy_P_22d0MPa_T_646d84K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_y_22d0MPa_T_646d84K)
 {
     const double pressure = 22.0;
     const double temp = 646.84;
@@ -770,7 +744,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vy_P_22d0MPa_T_646d84K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vy_P_22d064MPa_T_647d05K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_y_22d064MPa_T_647d05K)
 {
     const double pressure = 22.064;
     const double temp = 647.05;
@@ -781,7 +755,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vy_P_22d064MPa_T_647d05K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vz_P_22d0MPa_T_646d89K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_z_22d0MPa_T_646d89K)
 {
     const double pressure = 22.0;
     const double temp = 646.89;
@@ -792,7 +766,7 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vz_P_22d0MPa_T_646d89K)
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPT_vz_P_22d064MPa_T_647d15K)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_T_Subregion_z_22d064MPa_T_647d15K)
 {
     const double pressure = 22.064;
     const double temp = 647.15;
@@ -811,184 +785,134 @@ TEST_F(AccTestsRegion3SubBoundaries, vPT_vz_P_22d064MPa_T_647d15K)
 //the Thermodynamic Properties of Water and Steam" in Table 5 on
 //page 8.
 
-//Subregion boundary T(P,h)
-
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_a_20MPa_1700h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_Subregion_a_20MPa_1700h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 1700;
-    //K
     const double tExp = 6.293083892E+02;
-    //K
-    double Ttest = T_R3a_P_h(press,h);
 
+    double Ttest = T_R3a_P_h(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_a_50MPa_2000h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_Subregion_a_50MPa_2000h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2000;
-    //K
     const double tExp = 6.905718338E+02;
-    //K
-    double Ttest = T_R3a_P_h(press,h);
 
+    double Ttest = T_R3a_P_h(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_a_100MPa_2100h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_Subregion_a_100MPa_2100h)
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2100;
-    //K
     const double tExp = 7.336163014E+02;
-    //K
+
     double Ttest = T_R3a_P_h(press,h);
-
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_b_20MPa_2500h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_Subregion_b_20MPa_2500h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 2500;
-    //K
     const double tExp = 6.418418053E+02;
-    //K
-    double Ttest = T_R3b_P_h(press,h);
 
+    double Ttest = T_R3b_P_h(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_b_50MPa_2400h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_Subregion_b_50MPa_2400h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2400;
-    //K
     const double tExp = 7.351848618E+02;
-    //K
-    double Ttest = T_R3b_P_h(press,h);
 
+    double Ttest = T_R3b_P_h(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_Subregion_b_100MPa_2700h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_Subregion_b_100MPa_2700h)
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2700;
-    //K
     const double tExp = 8.420460876E+02;
-    //K
-    double Ttest = T_R3b_P_h(press,h);
 
+    double Ttest = T_R3b_P_h(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_20MPa_1700h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_20MPa_1700h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 1700;
-    //K
     const double tExp = 6.293083892E+02;
-    //K
-    double Ttest = T_P_h_R3(press,h);
 
+    double Ttest = T_P_h_R3(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_50MPa_2000h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_50MPa_2000h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2000;
-    //K
     const double tExp = 6.905718338E+02;
-    //K
-    double Ttest = T_P_h_R3(press,h);
 
+    double Ttest = T_P_h_R3(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_100MPa_2100h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_100MPa_2100h)
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2100;
-    //K
     const double tExp = 7.336163014E+02;
-    //K
-    double Ttest = T_P_h_R3(press,h);
 
+    double Ttest = T_P_h_R3(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_20MPa_2500h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_20MPa_2500h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 2500;
-    //K
     const double tExp = 6.418418053E+02;
-    //K
-    double Ttest = T_P_h_R3(press,h);
 
+    double Ttest = T_P_h_R3(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_50MPa_2400h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_50MPa_2400h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2400;
-    //K
     const double tExp = 7.351848618E+02;
-    //K
-    double Ttest = T_P_h_R3(press,h);
 
+    double Ttest = T_P_h_R3(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_100MPa_2700h)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_h_100MPa_2700h)
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2700;
-    //K
     const double tExp = 8.420460876E+02;
-    //K
-    double Ttest = T_P_h_R3(press,h);
 
+    double Ttest = T_P_h_R3(press,h);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1001,184 +925,135 @@ TEST_F(AccTestsRegion3SubBoundaries, vPh_Temperature_100MPa_2700h)
 //the Thermodynamic Properties of Water and Steam" in Table 8 on
 //page 10.
 
-//Subregion boundary v(P,h)
-
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_a_20MPa_1700h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_Subregion_a_20MPa_1700h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 1700;
-    //m^3/kg
     const double vExp = 1.749903962E-03;
-    //K
-    double vtest = v_R3a_P_h(press,h);
 
+    double vtest = v_R3a_P_h(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_a_50MPa_2000h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_Subregion_a_50MPa_2000h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2000;
-    //m^3/kg
     const double vExp = 1.908139035E-03;
-    //K
-    double vtest = v_R3a_P_h(press,h);
 
+    double vtest = v_R3a_P_h(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_a_100MPa_2100h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_Subregion_a_100MPa_2100h)
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2100;
-    //m^3/kg
     const double vExp = 1.676229776E-03;
-    //K
+
     double vtest = v_R3a_P_h(press,h);
-
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_b_20MPa_2500h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_Subregion_b_20MPa_2500h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 2500;
-    //m^3/kg
     const double vExp = 6.670547043E-03;
-    //K
-    double vtest = v_R3b_P_h(press,h);
 
+    double vtest = v_R3b_P_h(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_b_50MPa_2400h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_Subregion_b_50MPa_2400h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2400;
-    //m^3/kg
     const double vExp = 2.801244590E-03;
-    //K
-    double vtest = v_R3b_P_h(press,h);
 
+    double vtest = v_R3b_P_h(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_Subregion_b_100MPa_2700h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_Subregion_b_100MPa_2700h)
+
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2700;
-    //m^3/kg
     const double vExp = 2.404234998E-03;
-    //K
-    double vtest = v_R3b_P_h(press,h);
 
+    double vtest = v_R3b_P_h(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_20MPa_1700h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_20MPa_1700h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 1700;
-    //m^3/kg
     const double vExp = 1.749903962E-03;
-    //K
-    double vtest = v_P_h_R3(press,h);
 
+    double vtest = v_P_h_R3(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_50MPa_2000h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_50MPa_2000h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2000;
-    //m^3/kg
     const double vExp = 1.908139035E-03;
-    //K
-    double vtest = v_P_h_R3(press,h);
 
+    double vtest = v_P_h_R3(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_100MPa_2100h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_100MPa_2100h)
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2100;
-    //m^3/kg
     const double vExp = 1.676229776E-03;
-    //K
-    double vtest = v_P_h_R3(press,h);
 
+    double vtest = v_P_h_R3(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_20MPa_2500h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_20MPa_2500h)
 {
-    //MPa
     const double press = 20;
-    //kJ/kg
     const double h = 2500;
-    //m^3/kg
     const double vExp = 6.670547043E-03;
-    //K
-    double vtest = v_P_h_R3(press,h);
 
+    double vtest = v_P_h_R3(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_50MPa_2400h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_50MPa_2400h)
 {
-    //MPa
     const double press = 50;
-    //kJ/kg
     const double h = 2400;
-    //m^3/kg
     const double vExp = 2.801244590E-03;
-    //K
-    double vtest = v_P_h_R3(press,h);
 
+    double vtest = v_P_h_R3(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPh_v_100MPa_2700h)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_h_100MPa_2700h)
 {
-    //MPa
     const double press = 100;
-    //kJ/kg
     const double h = 2700;
-    //m^3/kg
     const double vExp = 2.404234998E-03;
-    //K
-    double vtest = v_P_h_R3(press,h);
 
+    double vtest = v_P_h_R3(press,h);
     double vErr = AbsRelativeErr(vtest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
@@ -1191,17 +1066,12 @@ TEST_F(AccTestsRegion3SubBoundaries, vPh_v_100MPa_2700h)
 //the Thermodynamic Properties of Water and Steam" on page 7 in the sentence
 //directly before section 3.3.
 
-//Subregion boundary h(P)
-
-TEST_F(AccTestsRegion3SubBoundaries, vPh_h_SubregionBoundary_ab_25MPa)
+TEST_F(AccTestsRegion3SubBoundaries, h_P_SubregionBoundary_ab_25MPa)
 {
-    //MPa
     const double press = 25;
-    //kJ/kg
     const double hExp = 2.095936454E+03;
-    //K
-    double hTest = h_R3ab_P(press);
 
+    double hTest = h_R3ab_P(press);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
@@ -1213,185 +1083,135 @@ TEST_F(AccTestsRegion3SubBoundaries, vPh_h_SubregionBoundary_ab_25MPa)
 //for Region 3 of the IAPWS Industrial Formulation 1997 for
 //the Thermodynamic Properties of Water and Steam" in table 12 on page 13.
 
-//Subregion boundary T(P,s)
-
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_Subregion_a_20MPa_3d8s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_a_20MPa_3d8s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 3.8;
-    //K
     const double tExp = 6.282959869E+02;
-    //K
-    double Ttest = T_R3a_P_s(press,s);
 
+    double Ttest = T_R3a_P_s(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_Subregion_a_50MPa_3d6s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_a_50MPa_3d6s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 3.6;
-    //K
     const double tExp = 6.297158726E+02;
-    //K
-    double Ttest = T_R3a_P_s(press,s);
 
+    double Ttest = T_R3a_P_s(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_Subregion_a_100MPa_4d0s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_a_100MPa_4d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 4.0;
-    //K
     const double tExp = 7.056880237E+02;
-    //K
+
     double Ttest = T_R3a_P_s(press,s);
-
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_Subregion_b_20MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_b_20MPa_5d0s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //K
     const double tExp = 6.401176443E+02;
-    //K
-    double Ttest = T_R3b_P_s(press,s);
 
+    double Ttest = T_R3b_P_s(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_Subregion_b_50MPa_4d5s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_b_50MPa_4d5s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 4.5;
-    //K
     const double tExp = 7.163687517E+02;
-    //K
-    double Ttest = T_R3b_P_s(press,s);
 
+    double Ttest = T_R3b_P_s(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_Subregion_b_100MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_b_100MPa_5d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //K
     const double tExp = 8.474332825E+02;
-    //K
-    double Ttest = T_R3b_P_s(press,s);
 
+    double Ttest = T_R3b_P_s(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
 
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_20MPa_3d8s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_20MPa_3d8s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 3.8;
-    //K
     const double tExp = 6.282959869E+02;
-    //K
-    double Ttest = T_P_s_R3(press,s);
 
+    double Ttest = T_P_s_R3(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_50MPa_3d6s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_50MPa_3d6s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 3.6;
-    //K
     const double tExp = 6.297158726E+02;
-    //K
-    double Ttest = T_P_s_R3(press,s);
 
+    double Ttest = T_P_s_R3(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_100MPa_4d0s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_100MPa_4d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 4.0;
-    //K
     const double tExp = 7.056880237E+02;
-    //K
-    double Ttest = T_P_s_R3(press,s);
 
+    double Ttest = T_P_s_R3(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_20MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_20MPa_5d0s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //K
     const double tExp = 6.401176443E+02;
-    //K
-    double Ttest = T_P_s_R3(press,s);
 
+    double Ttest = T_P_s_R3(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_50MPa_4d5s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_50MPa_4d5s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 4.5;
-    //K
     const double tExp = 7.163687517E+02;
-    //K
-    double Ttest = T_P_s_R3(press,s);
 
+    double Ttest = T_P_s_R3(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_100MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, T_P_s_100MPa_5d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //K
     const double tExp = 8.474332825E+02;
-    //K
-    double Ttest = T_P_s_R3(press,s);
 
+    double Ttest = T_P_s_R3(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1403,184 +1223,135 @@ TEST_F(AccTestsRegion3SubBoundaries, vPs_Temperature_100MPa_5d0s)
 //for Region 3 of the IAPWS Industrial Formulation 1997 for
 //the Thermodynamic Properties of Water and Steam" in table 15 on page 15.
 
-//Subregion boundary v(P,s)
-
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_Subregion_a_20MPa_3d8s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_a_20MPa_3d8s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 3.8;
-    //m^3/kg
     const double vExp = 1.733791463E-03;
-    //m^3/kg
-    double vTest = v_R3a_P_s(press,s);
 
+    double vTest = v_R3a_P_s(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_Subregion_a_50MPa_3d6s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_a_50MPa_3d6s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 3.6;
-    //m^3/kg
     const double vExp = 1.469680170E-03;
-    //m^3/kg
-    double vTest = v_R3a_P_s(press,s);
 
+    double vTest = v_R3a_P_s(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_Subregion_a_100MPa_4d0s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_a_100MPa_4d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 4.0;
-    //m^3/kg
     const double vExp = 1.555893131E-03;
-    //m^3/kg
+
     double vTest = v_R3a_P_s(press,s);
-
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_Subregion_b_20MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_b_20MPa_5d0s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //m^3/kg
     const double vExp = 6.262101987E-03;
-    //m^3/kg
-    double vTest = v_R3b_P_s(press,s);
 
+    double vTest = v_R3b_P_s(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_Subregion_b_50MPa_4d5s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_b_50MPa_4d5s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 4.5;
-    //m^3/kg
     const double vExp = 2.332634294E-03;
-    //m^3/kg
-    double vTest = v_R3b_P_s(press,s);
 
+    double vTest = v_R3b_P_s(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_Subregion_b_100MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_b_100MPa_5d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //m^3/kg
     const double vExp = 2.449610757E-03;
-    //m^3/kg
-    double vTest = v_R3b_P_s(press,s);
 
+    double vTest = v_R3b_P_s(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_20MPa_3d8s)
+
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_20MPa_3d8s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 3.8;
-    //m^3/kg
     const double vExp = 1.733791463E-03;
-    //m^3/kg
-    double vTest = v_P_s_R3(press,s);
 
+    double vTest = v_P_s_R3(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_50MPa_3d6s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_50MPa_3d6s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 3.6;
-    //m^3/kg
     const double vExp = 1.469680170E-03;
-    //m^3/kg
-    double vTest = v_P_s_R3(press,s);
 
+    double vTest = v_P_s_R3(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_100MPa_4d0s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_100MPa_4d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 4.0;
-    //m^3/kg
     const double vExp = 1.555893131E-03;
-    //m^3/kg
-    double vTest = v_P_s_R3(press,s);
 
+    double vTest = v_P_s_R3(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_20MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_20MPa_5d0s)
 {
-    //MPa
     const double press = 20;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //m^3/kg
     const double vExp = 6.262101987E-03;
-    //m^3/kg
-    double vTest = v_P_s_R3(press,s);
 
+    double vTest = v_P_s_R3(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_50MPa_4d5s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_50MPa_4d5s)
 {
-    //MPa
     const double press = 50;
-    //kJ/(kg*K)
     const double s = 4.5;
-    //m^3/kg
     const double vExp = 2.332634294E-03;
-    //m^3/kg
-    double vTest = v_P_s_R3(press,s);
 
+    double vTest = v_P_s_R3(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion3SubBoundaries, vPs_v_100MPa_5d0s)
+TEST_F(AccTestsRegion3SubBoundaries, v_P_s_100MPa_5d0s)
 {
-    //MPa
     const double press = 100;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //m^3/kg
     const double vExp = 2.449610757E-03;
-    //m^3/kg
-    double vTest = v_P_s_R3(press,s);
 
+    double vTest = v_P_s_R3(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
@@ -1593,94 +1364,68 @@ TEST_F(AccTestsRegion3SubBoundaries, vPs_v_100MPa_5d0s)
 //IAPWS Industrial Formulation 1997 for the Thermodynamic Properties of
 //Water and Steam" in table 5 on page 10.
 
-//Subregion Boundary P(h,s)
-
 TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_a_1700h_3d8s)
 {
-    //kJ/kg
     const double h = 1700;
-    //kJ/(kg*K)
     const double s = 3.8;
-    //MPa
     const double pExp = 2.555703246E+01;
-    //MPa
-    double pTest = p_R3a_h_s(h,s);
 
+    double pTest = p_R3a_h_s(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
 TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_a_2000h_4d2s)
 {
-    //kJ/kg
     const double h = 2000;
-    //kJ/(kg*K)
     const double s = 4.2;
-    //MPa
     const double pExp = 4.540873468E+01;
-    //MPa
-    double pTest = p_R3a_h_s(h,s);
 
+    double pTest = p_R3a_h_s(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
 TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_a_2100h_4d3s)
 {
-    //kJ/kg
     const double h = 2100;
-    //kJ/(kg*K)
     const double s = 4.3;
-    //MPa
     const double pExp = 6.078123340E+01;
-    //MPa
-    double pTest = p_R3a_h_s(h,s);
 
+    double pTest = p_R3a_h_s(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
 TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_b_2600h_5d1s)
 {
-    //kJ/kg
     const double h = 2600;
-    //kJ/(kg*K)
     const double s = 5.1;
-    //MPa
     const double pExp = 3.434999263E+01;
-    //MPa
-    double pTest = p_R3b_h_s(h,s);
 
+    double pTest = p_R3b_h_s(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
 TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_b_2400h_4d7s)
 {
-    //kJ/kg
     const double h = 2400;
-    //kJ/(kg*K)
     const double s = 4.7;
-    //MPa
     const double pExp = 6.363924887E+01;
-    //MPa
-    double pTest = p_R3b_h_s(h,s);
 
+    double pTest = p_R3b_h_s(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
 TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_b_2700h_5d0s)
 {
-    //kJ/kg
     const double h = 2700;
-    //kJ/(kg*K)
     const double s = 5.0;
-    //MPa
     const double pExp = 8.839043281E+01;
-    //MPa
-    double pTest = p_R3b_h_s(h,s);
 
+    double pTest = p_R3b_h_s(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
