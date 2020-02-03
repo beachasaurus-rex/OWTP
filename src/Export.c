@@ -32,10 +32,6 @@
 	{
 		return _TB23_s(enth, entr);
 	}
-	DLL_EXPORT double Tsat_metaphase(double enth, double entr)
-	{
-		return _Tsat_metaphase(enth,entr);
-	}
 
 	//Boundary - Region 2 & 3:
 
@@ -687,5 +683,17 @@
 	DLL_EXPORT double Tsat_P_R4(double P)
 	{
 		return _Tsat_P_R4(P);
+	}
+	DLL_EXPORT double Tsat_h_s_R4(double enth, double entr)
+	{
+		return _Tsat_h_s_R4(enth,entr);
+	}
+	DLL_EXPORT double Psat_h_s_R4(double h, double s)
+	{
+		return _Psat_h_s_R4(h,s);
+	}
+	DLL_EXPORT double x_h_s_R4(double h, double s)
+	{
+		return _x_h_s_R4(h,s);
 	}
 #endif
