@@ -25,7 +25,7 @@ extern "C"
 
     DLL_IMPORT double TB23_s(double,double);
 
-    DLL_IMPORT double Tsat_metaphase(double,double);
+    DLL_IMPORT double Tsat_h_s_R4(double,double);
 }
 
 //The testing data points for the following tests were
@@ -411,47 +411,6 @@ TEST_F(AccTestsRegionBoundaries, TB23_h_s_RMeta_2800h_5d2s)
     const double TExp = 8.176202120E+02;
 
     double TTest = TB23_s(h,s);
-    double TErr = AbsRelativeErr(TTest, TExp);
-    bool TPass = IsAcceptable(TErr);
-    ASSERT_TRUE(TPass);
-}
-
-//The testing data points for the following tests were
-//suggested by the IAPWS in "Revised supplementary Release on Backward
-//Equations p(h,s) for Region 3, Equations as a function of h and s for Region
-//Boundaries, and an Equation Tsat(h,s) for Region 4 of the IAPWS Industrial
-//Formulation 1997 for the Thermodynamic Properties of Water and Steam"
-//in table 29 on page 31.
-
-TEST_F(AccTestsRegionBoundaries, Tsat_h_s_RMeta_1800h_5d3s)
-{
-    const double h = 1800;
-    const double s = 5.3;
-    const double TExp = 3.468475498E+02;
-
-    double TTest = Tsat_metaphase(h,s);
-    double TErr = AbsRelativeErr(TTest, TExp);
-    bool TPass = IsAcceptable(TErr);
-    ASSERT_TRUE(TPass);
-}
-TEST_F(AccTestsRegionBoundaries, Tsat_h_s_RMeta_2400h_6d0s)
-{
-    const double h = 2400;
-    const double s = 6.0;
-    const double TExp = 4.251373305E+02;
-
-    double TTest = Tsat_metaphase(h,s);
-    double TErr = AbsRelativeErr(TTest, TExp);
-    bool TPass = IsAcceptable(TErr);
-    ASSERT_TRUE(TPass);
-}
-TEST_F(AccTestsRegionBoundaries, Tsat_h_s_RMeta_2500h_5d5s)
-{
-    const double h = 2500;
-    const double s = 5.5;
-    const double TExp = 5.225579013E+02;
-
-    double TTest = Tsat_metaphase(h,s);
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);

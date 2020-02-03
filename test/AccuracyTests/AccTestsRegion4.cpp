@@ -10,6 +10,12 @@ extern "C"
     DLL_IMPORT double Psat_T_R4(double);
 
     DLL_IMPORT double Tsat_P_R4(double);
+
+    DLL_IMPORT double Tsat_h_s_R4(double,double);
+
+    DLL_IMPORT double Psat_h_s_R4(double,double);
+
+    DLL_IMPORT double x_h_s_R4(double,double);
 }
 
 //The testing data points for the following tests were
@@ -82,4 +88,111 @@ TEST_F(AccTestsRegion4, Tsat_P_10MPa)
     double tErr = AbsRelativeErr(tTest, tExp);
     bool tPass = IsAcceptable(tErr);
     ASSERT_TRUE(tPass);
+}
+
+//The testing data points for the following tests were
+//suggested by the IAPWS in "Revised supplementary Release on Backward
+//Equations p(h,s) for Region 3, Equations as a function of h and s for Region
+//Boundaries, and an Equation Tsat(h,s) for Region 4 of the IAPWS Industrial
+//Formulation 1997 for the Thermodynamic Properties of Water and Steam"
+//in table 29 on page 31.
+
+TEST_F(AccTestsRegion4, Tsat_h_s_1800h_5d3s)
+{
+    const double h = 1800;
+    const double s = 5.3;
+    const double TExp = 3.468475498E+02;
+
+    double TTest = Tsat_h_s_R4(h,s);
+    double TErr = AbsRelativeErr(TTest, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion4, Tsat_h_s_2400h_6d0s)
+{
+    const double h = 2400;
+    const double s = 6.0;
+    const double TExp = 4.251373305E+02;
+
+    double TTest = Tsat_h_s_R4(h,s);
+    double TErr = AbsRelativeErr(TTest, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion4, Tsat_h_s_2500h_5d5s)
+{
+    const double h = 2500;
+    const double s = 5.5;
+    const double TExp = 5.225579013E+02;
+
+    double TTest = Tsat_h_s_R4(h,s);
+    double TErr = AbsRelativeErr(TTest, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion4, Psat_h_s_1800h_5d3s)
+{
+    const double h = 1800;
+    const double s = 5.3;
+    const double pExp = 0.0365398932;
+
+    double pTest = Psat_h_s_R4(h,s);
+    double pErr = AbsRelativeErr(pTest, pExp);
+    bool pPass = IsAcceptable(pErr);
+    ASSERT_TRUE(pPass);
+}
+TEST_F(AccTestsRegion4, Psat_h_s_2400h_6d0s)
+{
+    const double h = 2400;
+    const double s = 6.0;
+    const double pExp = 0.502008352;
+
+    double pTest = Psat_h_s_R4(h,s);
+    double pErr = AbsRelativeErr(pTest, pExp);
+    bool pPass = IsAcceptable(pErr);
+    ASSERT_TRUE(pPass);
+}
+TEST_F(AccTestsRegion4, Psat_h_s_2500h_5d5s)
+{
+    const double h = 2500;
+    const double s = 5.5;
+    const double pExp = 3.93633491;
+
+    double pTest = Psat_h_s_R4(h,s);
+    double pErr = AbsRelativeErr(pTest, pExp);
+    bool pPass = IsAcceptable(pErr);
+    ASSERT_TRUE(pPass);
+}
+TEST_F(AccTestsRegion4, x_h_s_1800h_5d3s)
+{
+    const double h = 1800;
+    const double s = 5.3;
+    const double xExp = 0.641808120;
+
+    double xTest = x_h_s_R4(h,s);
+    double xErr = AbsRelativeErr(xTest, xExp);
+    bool xPass = IsAcceptable(xErr);
+    ASSERT_TRUE(xPass);
+}
+TEST_F(AccTestsRegion4, x_h_s_2400h_6d0s)
+{
+    const double h = 2400;
+    const double s = 6.0;
+    const double xExp = 0.834735532;
+
+    double xTest = x_h_s_R4(h,s);
+    double xErr = AbsRelativeErr(xTest, xExp);
+    bool xPass = IsAcceptable(xErr);
+    ASSERT_TRUE(xPass);
+}
+TEST_F(AccTestsRegion4, x_h_s_2500h_5d5s)
+{
+    const double h = 2500;
+    const double s = 5.5;
+    const double xExp = 0.824721845;
+
+    double xTest = x_h_s_R4(h,s);
+    double xErr = AbsRelativeErr(xTest, xExp);
+    bool xPass = IsAcceptable(xErr);
+    ASSERT_TRUE(xPass);
 }
