@@ -34,28 +34,24 @@ extern "C"
 //Properties of Water and Steam" on page 6, immediately before
 //the section regarding the equations for Region 1.
 
-TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_TemperatureAcc)
+TEST_F(AccTestsRegionBoundaries, T_P_R2_R3)
 {
     const double press = 0.165291643E+02;
+    const double tExp = 0.623150000E+03;
 
-    const double T = T_R2_R3_b(press);
-
-    double TErr = AbsRelativeErr(T, 0.623150000E+03);
-
+    double T = T_R2_R3_b(press);
+    double TErr = AbsRelativeErr(T, tExp);
     bool TPass = IsAcceptable(TErr);
-
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_PressureAcc)
+TEST_F(AccTestsRegionBoundaries, P_T_R2_R3)
 {
     const double T = 0.623150000E+03;
+    const double pExp = 0.165291643E+02;
 
     double press = P_R2_R3_b(T);
-
-    double PErr = AbsRelativeErr(press, 0.165291643E+02);
-
+    double PErr = AbsRelativeErr(press, pExp);
     bool PPass = IsAcceptable(PErr);
-
     ASSERT_TRUE(PPass);
 }
 
@@ -64,41 +60,32 @@ TEST_F(AccTestsRegionBoundaries, Region2AndRegion3_PressureAcc)
 //Inductrial Formulation 1997 for the Thermodynamic
 //Properties of Water and Steam" in Table 35 on page 34.
 
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_300k)
+TEST_F(AccTestsRegionBoundaries, Psat_T_R3_R4_300k)
 {
-    //K
     const double temp = 300;
-    //MPa
     const double pExp = 0.353658941E-02;
-    //MPa
-    double pActual = pSat_R3_R4_b(temp);
 
+    double pActual = pSat_R3_R4_b(temp);
     double PErr = AbsRelativeErr(pActual, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_500k)
+TEST_F(AccTestsRegionBoundaries, Psat_T_R3_R4_500k)
 {
-    //K
     const double temp = 500;
-    //MPa
     const double pExp = 0.263889776E+01;
-    //MPa
-    double pActual = pSat_R3_R4_b(temp);
 
+    double pActual = pSat_R3_R4_b(temp);
     double PErr = AbsRelativeErr(pActual, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_600k)
+TEST_F(AccTestsRegionBoundaries, Psat_T_R3_R4_600k)
 {
-    //K
     const double temp = 600;
-    //MPa
     const double pExp = 0.123443146E+02;
-    //MPa
-    double pActual = pSat_R3_R4_b(temp);
 
+    double pActual = pSat_R3_R4_b(temp);
     double PErr = AbsRelativeErr(pActual, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
@@ -109,41 +96,32 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressureAcc_T_600k)
 //Inductrial Formulation 1997 for the Thermodynamic
 //Properties of Water and Steam" in Table 36 on page 36.
 
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_0d1MPa)
+TEST_F(AccTestsRegionBoundaries, Tsat_P_R3_R4_0d1MPa)
 {
-    //MPa
     const double press = 0.1;
-    //K
     const double tExp = 0.372755919E+03;
-    //K
-    double tActual = tSat_R3_R4_b(press);
 
+    double tActual = tSat_R3_R4_b(press);
     double TErr = AbsRelativeErr(tActual, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_1MPa)
+TEST_F(AccTestsRegionBoundaries, Tsat_P_R3_R4_1MPa)
 {
-    //MPa
     const double press = 1;
-    //K
     const double tExp = 0.453035632E+03;
-    //K
-    double tActual = tSat_R3_R4_b(press);
 
+    double tActual = tSat_R3_R4_b(press);
     double TErr = AbsRelativeErr(tActual, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_10MPa)
+TEST_F(AccTestsRegionBoundaries, Tsat_P_R3_R4_10MPa)
 {
-    //MPa
     const double press = 10;
-    //K
     const double tExp = 0.584149488E+03;
-    //K
-    double tActual = tSat_R3_R4_b(press);
 
+    double tActual = tSat_R3_R4_b(press);
     double TErr = AbsRelativeErr(tActual, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -155,48 +133,36 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationTemperatureAcc_P_10
 //for Region 3 of the IAPWS Industrial Formulation 1997 for
 //the Thermodynamic Properties of Water and Steam" in table 18 on page 18.
 
-//Subregion boundary P(h)
-
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_1700h)
+TEST_F(AccTestsRegionBoundaries, Psat_h_R3_R4_1700h)
 {
-    //kJ/kg
     const double h = 1700;
-    //MPa
     const double pExp = 1.724175718E+01;
-    //MPa
-    double pTest = pSat_h_R3_R4(h);
 
+    double pTest = pSat_h_R3_R4(h);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_2000h)
+TEST_F(AccTestsRegionBoundaries, Psat_h_R3_R4_2000h)
 {
-    //kJ/kg
     const double h = 2000;
-    //MPa
     const double pExp = 2.193442957E+01;
-    //MPa
-    double pTest = pSat_h_R3_R4(h);
 
+    double pTest = pSat_h_R3_R4(h);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_2400h)
+TEST_F(AccTestsRegionBoundaries, Psat_h_R3_R4_2400h)
 {
-    //kJ/kg
     const double h = 2400;
-    //MPa
     const double pExp = 2.018090839E+01;
-    //MPa
-    double pTest = pSat_h_R3_R4(h);
 
+    double pTest = pSat_h_R3_R4(h);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
-
 
 //The test data points for the following tests were
 //suggested by the IAPWS in "Revised Supplementary Release on
@@ -204,43 +170,32 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Enthalpy_2
 //for Region 3 of the IAPWS Industrial Formulation 1997 for
 //the Thermodynamic Properties of Water and Steam" in table 20 on page 19.
 
-//Subregion boundary P(s)
-
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_3d8s)
+TEST_F(AccTestsRegionBoundaries, Psat_s_R3_R4_3d8s)
 {
-    //kJ/(kg*K)
     const double s = 3.8;
-    //MPa
     const double pExp = 1.687755057E+01;
-    //MPa
-    double pTest = pSat_s_R3_R4(s);
 
+    double pTest = pSat_s_R3_R4(s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_4d2s)
+TEST_F(AccTestsRegionBoundaries, Psat_s_R3_R4_4d2s)
 {
-    //kJ/(kg*K)
     const double s = 4.2;
-    //MPa
     const double pExp = 2.164451789E+01;
-    //MPa
-    double pTest = pSat_s_R3_R4(s);
 
+    double pTest = pSat_s_R3_R4(s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
 }
-TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_5d2s)
+TEST_F(AccTestsRegionBoundaries, Psat_s_R3_R4_5d2s)
 {
-    //kJ/(kg*K)
     const double s = 5.2;
-    //MPa
     const double pExp = 1.668968482E+01;
-    //MPa
-    double pTest = pSat_s_R3_R4(s);
 
+    double pTest = pSat_s_R3_R4(s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -253,80 +208,62 @@ TEST_F(AccTestsRegionBoundaries, Region3AndRegion4_SaturationPressure_Entropy_5d
 //Formulation 1997 for the Thermodynamic Properties of Water and Steam"
 //in table 11 on page 17.
 
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h1_prime_1d0s)
+TEST_F(AccTestsRegionBoundaries, h1_prime_s_RMeta_1d0s)
 {
-    //kJ/(kg*K)
     const double s = 1.0;
-    //kJ/kg
     const double hExp = 3.085509647E+02;
-    //kJ/kg
-    double hTest = h1_prime(s);
 
+    double hTest = h1_prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h1_prime_2d0s)
+TEST_F(AccTestsRegionBoundaries, h1_prime_s_RMeta_2d0s)
 {
-    //kJ/(kg*K)
     const double s = 2.0;
-    //kJ/kg
     const double hExp = 7.006304472E+02;
-    //kJ/kg
-    double hTest = h1_prime(s);
 
+    double hTest = h1_prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h1_prime_3d0s)
+TEST_F(AccTestsRegionBoundaries, h1_prime_s_RMeta_3d0s)
 {
-    //kJ/(kg*K)
     const double s = 3.0;
-    //kJ/kg
     const double hExp = 1.198359754E+03;
-    //kJ/kg
+
     double hTest = h1_prime(s);
-
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_3d8s)
+TEST_F(AccTestsRegionBoundaries, h3a_prime_s_RMeta_3d8s)
 {
-    //kJ/(kg*K)
     const double s = 3.8;
-    //kJ/kg
     const double hExp = 1.685025565E+03;
-    //kJ/kg
-    double hTest = h3a_prime(s);
 
+    double hTest = h3a_prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_4d0s)
+TEST_F(AccTestsRegionBoundaries, h3a_prime_s_RMeta_4d0s)
 {
-    //kJ/(kg*K)
     const double s = 4.0;
-    //kJ/kg
     const double hExp = 1.816891476E+03;
-    //kJ/kg
-    double hTest = h3a_prime(s);
 
+    double hTest = h3a_prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_4d2s)
+TEST_F(AccTestsRegionBoundaries, h3a_prime_s_RMeta_4d2s)
 {
-    //kJ/(kg*K)
     const double s = 4.2;
-    //kJ/kg
     const double hExp = 1.949352563E+03;
-    //kJ/kg
-    double hTest = h3a_prime(s);
 
+    double hTest = h3a_prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
@@ -339,80 +276,62 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_h3a_prime_4d2s)
 //Formulation 1997 for the Thermodynamic Properties of Water and Steam"
 //in table 18 on page 21.
 
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2ab_s_2prime_7d0s)
+TEST_F(AccTestsRegionBoundaries, h2ab_2prime_s_RMeta_7d0s)
 {
-    //kJ/(kg*K)
     const double s = 7.0;
-    //kJ/kg
     const double hExp = 2.723729985E+03;
-    //kJ/kg
-    double hTest = h2ab_s_2prime(s);
 
+    double hTest = h2ab_s_2prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2ab_s_2prime_8d0s)
+TEST_F(AccTestsRegionBoundaries, h2ab_2prime_s_RMeta_8d0s)
 {
-    //kJ/(kg*K)
     const double s = 8.0;
-    //kJ/kg
     const double hExp = 2.599047210E+03;
-    //kJ/kg
-    double hTest = h2ab_s_2prime(s);
 
+    double hTest = h2ab_s_2prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2ab_s_2prime_9d0s)
+TEST_F(AccTestsRegionBoundaries, h2ab_2prime_s_RMeta_9d0s)
 {
-    //kJ/(kg*K)
     const double s = 9.0;
-    //kJ/kg
     const double hExp = 2.511861477E+03;
-    //kJ/kg
+
     double hTest = h2ab_s_2prime(s);
-
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2c3b_s_2prime_5d5s)
+TEST_F(AccTestsRegionBoundaries, h2c3b_2prime_s_RMeta_5d5s)
 {
-    //kJ/(kg*K)
     const double s = 5.5;
-    //kJ/kg
     const double hExp = 2.687693850E+03;
-    //kJ/kg
-    double hTest = h2c3b_s_2prime(s);
 
+    double hTest = h2c3b_s_2prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2c3b_s_2prime_5d0s)
+TEST_F(AccTestsRegionBoundaries, h2c3b_2prime_s_RMeta_5d0s)
 {
-    //kJ/(kg*K)
     const double s = 5.0;
-    //kJ/kg
     const double hExp = 2.451623609E+03;
-    //kJ/kg
-    double hTest = h2c3b_s_2prime(s);
 
+    double hTest = h2c3b_s_2prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2c3b_s_2prime_4d5s)
+TEST_F(AccTestsRegionBoundaries, h2c3b_2prime_s_RMeta_4d5s)
 {
-    //kJ/(kg*K)
     const double s = 4.5;
-    //kJ/kg
     const double hExp = 2.144360448E+03;
-    //kJ/kg
-    double hTest = h2c3b_s_2prime(s);
 
+    double hTest = h2c3b_s_2prime(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
@@ -425,41 +344,32 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_h2c3b_s_2prime_4d5s)
 //Formulation 1997 for the Thermodynamic Properties of Water and Steam"
 //in table 24 on page 24.
 
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_hB13_s_3d7s)
+TEST_F(AccTestsRegionBoundaries, hB13_s_RMeta_3d7s)
 {
-    //kJ/(kg*K)
     const double s = 3.7;
-    //kJ/kg
     const double hExp = 1.632525047E+03;
-    //kJ/kg
-    double hTest = hB13_s(s);
 
+    double hTest = hB13_s(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_hB13_s_3d6s)
+TEST_F(AccTestsRegionBoundaries, hB13_s_RMeta_3d6s)
 {
-    //kJ/(kg*K)
     const double s = 3.6;
-    //kJ/kg
     const double hExp = 1.593027214E+03;
-    //kJ/kg
-    double hTest = hB13_s(s);
 
+    double hTest = hB13_s(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_hB13_s_3d5s)
+TEST_F(AccTestsRegionBoundaries, hB13_s_RMeta_3d5s)
 {
-    //kJ/(kg*K)
     const double s = 3.5;
-    //kJ/kg
     const double hExp = 1.566104611E+03;
-    //kJ/kg
-    double hTest = hB13_s(s);
 
+    double hTest = hB13_s(s);
     double hErr = AbsRelativeErr(hTest, hExp);
     bool hPass = IsAcceptable(hErr);
     ASSERT_TRUE(hPass);
@@ -472,47 +382,35 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_hB13_s_3d5s)
 //Formulation 1997 for the Thermodynamic Properties of Water and Steam"
 //in table 26 on page 26.
 
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_h_s_2600h_5d1s)
+TEST_F(AccTestsRegionBoundaries, TB23_h_s_RMeta_2600h_5d1s)
 {
-    //kJ/kg
     const double h = 2600;
-    //kJ/(kg*K)
     const double s = 5.1;
-    //kJ/kg
     const double TExp = 7.135259364E+02;
-    //kJ/kg
-    double TTest = TB23_s(h,s);
 
+    double TTest = TB23_s(h,s);
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_h_s_2700h_5d15s)
+TEST_F(AccTestsRegionBoundaries, TB23_h_s_RMeta_2700h_5d15s)
 {
-    //kJ/kg
     const double h = 2700;
-    //kJ/(kg*K)
     const double s = 5.15;
-    //kJ/kg
     const double TExp = 7.685345532E+02;
-    //kJ/kg
-    double TTest = TB23_s(h,s);
 
+    double TTest = TB23_s(h,s);
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_h_s_2800h_5d2s)
+TEST_F(AccTestsRegionBoundaries, TB23_h_s_RMeta_2800h_5d2s)
 {
-    //kJ/kg
     const double h = 2800;
-    //kJ/(kg*K)
     const double s = 5.2;
-    //kJ/kg
     const double TExp = 8.176202120E+02;
-    //kJ/kg
-    double TTest = TB23_s(h,s);
 
+    double TTest = TB23_s(h,s);
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -525,47 +423,35 @@ TEST_F(AccTestsRegionBoundaries, MetastableRegion_TB23_h_s_2800h_5d2s)
 //Formulation 1997 for the Thermodynamic Properties of Water and Steam"
 //in table 29 on page 31.
 
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TsatMetaphase_h_s_1800h_5d3s)
+TEST_F(AccTestsRegionBoundaries, Tsat_h_s_RMeta_1800h_5d3s)
 {
-    //kJ/kg
     const double h = 1800;
-    //kJ/(kg*K)
     const double s = 5.3;
-    //kJ/kg
     const double TExp = 3.468475498E+02;
-    //kJ/kg
-    double TTest = Tsat_metaphase(h,s);
 
+    double TTest = Tsat_metaphase(h,s);
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TsatMetaphase_h_s_2400h_6d0s)
+TEST_F(AccTestsRegionBoundaries, Tsat_h_s_RMeta_2400h_6d0s)
 {
-    //kJ/kg
     const double h = 2400;
-    //kJ/(kg*K)
     const double s = 6.0;
-    //kJ/kg
     const double TExp = 4.251373305E+02;
-    //kJ/kg
-    double TTest = Tsat_metaphase(h,s);
 
+    double TTest = Tsat_metaphase(h,s);
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, MetastableRegion_TsatMetaphase_h_s_2500h_5d5s)
+TEST_F(AccTestsRegionBoundaries, Tsat_h_s_RMeta_2500h_5d5s)
 {
-    //kJ/kg
     const double h = 2500;
-    //kJ/(kg*K)
     const double s = 5.5;
-    //kJ/kg
     const double TExp = 5.225579013E+02;
-    //kJ/kg
-    double TTest = Tsat_metaphase(h,s);
 
+    double TTest = Tsat_metaphase(h,s);
     double TErr = AbsRelativeErr(TTest, TExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);

@@ -27,6 +27,6 @@ class AccTestBase : public ::testing::Test
 
         bool IsAcceptable(double input)
         {
-            return input < 0.01;
+            return input < 0.004;
         }
 };
