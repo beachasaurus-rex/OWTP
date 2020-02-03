@@ -677,4 +677,15 @@
 	{
 		return _w_h_s_R3(h,s);
 	}
+
+	//Region 4:
+
+	DLL_EXPORT double Psat_T_R4(double T)
+	{
+		return _Psat_T_R4(T);
+	}
+	DLL_EXPORT double Tsat_P_R4(double P)
+	{
+		return _Tsat_P_R4(P);
+	}
 #endif

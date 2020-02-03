@@ -18,6 +18,7 @@ set(STEST
     AccuracyTests/AccTestsRegion1.cpp
     AccuracyTests/AccTestsRegion2.cpp
     AccuracyTests/AccTestsRegion3.cpp
+    AccuracyTests/AccTestsRegion4.cpp
     AccuracyTests/AccTestsRegion3SubBoundaries.cpp
     AccuracyTests/AccTestBase.h)
 
