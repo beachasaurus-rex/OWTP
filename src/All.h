@@ -23,6 +23,11 @@
     #include "Regions/Region4.h"
 #endif
 
+#ifndef REGION5_H
+    #define REGION5_H
+    #include "Regions/Region5.h"
+#endif
+
 #ifndef R2_R3_BOUNDS_H
     #define R2_R3_BOUNDS_H
     #include "Regions/Boundaries/RegionBoundaries/R2andR3.h"

@@ -6,6 +6,7 @@ set(SRCS Export.c
 	Regions/Region2.h
 	Regions/Region3.h
 	Regions/Region4.h
+	Regions/Region5.h
 	Regions/Boundaries/RegionBoundaries/MetastableRegion.h
 	Regions/Boundaries/RegionBoundaries/R2andR3.h
 	Regions/Boundaries/RegionBoundaries/R3andR4.h
