@@ -696,4 +696,35 @@
 	{
 		return _x_h_s_R4(h,s);
 	}
+
+	//Region 5:
+
+	DLL_EXPORT double v_P_T_R4(double P, double T)
+	{
+		return _v_P_T_R4(P,T);
+	}
+	DLL_EXPORT double u_P_T_R4(double P, double T)
+	{
+		return _u_P_T_R4(P,T);
+	}
+	DLL_EXPORT double s_P_T_R4(double P, double T)
+	{
+		return _s_P_T_R4(P,T);
+	}
+	DLL_EXPORT double h_P_T_R4(double P, double T)
+	{
+		return _h_P_T_R4(P,T);
+	}
+	DLL_EXPORT double cp_P_T_R4(double P, double T)
+	{
+		return _cp_P_T_R4(P,T);
+	}
+	DLL_EXPORT double cv_P_T_R4(double P, double T)
+	{
+		return _cv_P_T_R4(P,T);
+	}
+	DLL_EXPORT double w_P_T_R4(double P, double T)
+	{
+		return _w_P_T_R4(P,T);
+	}
 #endif
