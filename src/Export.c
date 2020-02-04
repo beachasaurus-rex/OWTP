@@ -1,6 +1,6 @@
-#ifndef ALL_H
-	#define ALL_H
-	#include "All.h"
+#ifndef OWTP_H
+	#define OWTP_H
+	#include "OWTP.h"
 #endif
 
 #define DLL_EXPORT __declspec(dllexport)
@@ -699,32 +699,39 @@
 
 	//Region 5:
 
-	DLL_EXPORT double v_P_T_R4(double P, double T)
+	DLL_EXPORT double v_P_T_R5(double P, double T)
 	{
-		return _v_P_T_R4(P,T);
+		return _v_P_T_R5(P,T);
 	}
-	DLL_EXPORT double u_P_T_R4(double P, double T)
+	DLL_EXPORT double u_P_T_R5(double P, double T)
 	{
-		return _u_P_T_R4(P,T);
+		return _u_P_T_R5(P,T);
 	}
-	DLL_EXPORT double s_P_T_R4(double P, double T)
+	DLL_EXPORT double s_P_T_R5(double P, double T)
 	{
-		return _s_P_T_R4(P,T);
+		return _s_P_T_R5(P,T);
 	}
-	DLL_EXPORT double h_P_T_R4(double P, double T)
+	DLL_EXPORT double h_P_T_R5(double P, double T)
 	{
-		return _h_P_T_R4(P,T);
+		return _h_P_T_R5(P,T);
 	}
-	DLL_EXPORT double cp_P_T_R4(double P, double T)
+	DLL_EXPORT double cp_P_T_R5(double P, double T)
 	{
-		return _cp_P_T_R4(P,T);
+		return _cp_P_T_R5(P,T);
 	}
-	DLL_EXPORT double cv_P_T_R4(double P, double T)
+	DLL_EXPORT double cv_P_T_R5(double P, double T)
 	{
-		return _cv_P_T_R4(P,T);
+		return _cv_P_T_R5(P,T);
 	}
-	DLL_EXPORT double w_P_T_R4(double P, double T)
+	DLL_EXPORT double w_P_T_R5(double P, double T)
 	{
-		return _w_P_T_R4(P,T);
+		return _w_P_T_R5(P,T);
 	}
 #endif
+
+//Region 1
+
+DLL_EXPORT double v_P_T(double P, double T)
+{
+	return _v_P_T(P,T);
+}
