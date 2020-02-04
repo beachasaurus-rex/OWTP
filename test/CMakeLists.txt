@@ -15,6 +15,7 @@ FetchContent_MakeAvailable(googletest)
 #collect all test files
 set(STEST
     AccuracyTests/OWTPAccTests_vPT.cpp
+    AccuracyTests/OWTPAccTests_uPT.cpp
     AccuracyTests/AccTestsRegionBoundaries.cpp
     AccuracyTests/AccTestsRegion1.cpp
     AccuracyTests/AccTestsRegion2.cpp

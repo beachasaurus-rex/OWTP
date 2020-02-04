@@ -729,9 +729,11 @@
 	}
 #endif
 
-//Region 1
-
 DLL_EXPORT double v_P_T(double P, double T)
 {
 	return _v_P_T(P,T);
+}
+DLL_EXPORT double u_P_T(double P, double T)
+{
+	return _u_P_T(P,T);
 }
