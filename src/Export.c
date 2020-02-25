@@ -745,3 +745,15 @@ DLL_EXPORT double h_P_T(double P, double T)
 {
 	return _h_P_T(P,T);
 }
+DLL_EXPORT double cp_P_T(double P, double T)
+{
+	return _cp_P_T(P,T);
+}
+DLL_EXPORT double cv_P_T(double P, double T)
+{
+	return _cv_P_T(P,T);
+}
+DLL_EXPORT double w_P_T(double P, double T)
+{
+	return _w_P_T(P,T);
+}

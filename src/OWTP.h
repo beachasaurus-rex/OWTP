@@ -299,3 +299,225 @@ double _h_P_T(double P, double T)
         return _h_P_T_R5(P,T);
     }
 }
+//cp(P,T)
+double _cp_P_T(double P, double T)
+{
+    double pSat_r1 = _Psat_T_R4(T);
+    double p_r2r3 = _P_R2_R3_b(T);
+    double T_r2r3 = _T_R2_R3_b(P);
+
+    //region 1
+    if
+    (
+        T >= 273.15
+        && T <= 623.15
+        && P >= pSat_r1
+        && P <= 100
+    )
+    {
+        return cp_R1_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T >= 273.15
+        && T <= 623.15
+        && P > 0
+        && P <= pSat_r1
+    )
+    {
+        return cp_R2_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T > 623.15
+        && T <= 863.15
+        && P > 0
+        && P <= p_r2r3
+    )
+    {
+        return cp_R2_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T > 863.15
+        && T <= 1073.15
+        && P > 0
+        && P <= 100
+    )
+    {
+        return cp_R2_T_P(T,P);
+    }
+    //region 3
+    else if
+    (
+        T >= 623.15
+        && T <= T_r2r3
+        && P >= p_r2r3
+        && P <= 100
+    )
+    {
+        return _cp_P_T_R3(P,T);
+    }
+    //region 5
+    else if
+    (
+        T >= 1073.15
+        && T <= 2273.15
+        && P > 0
+        && P <= 50
+    )
+    {
+        return _cp_P_T_R5(P,T);
+    }
+}
+//cv(P,T)
+double _cv_P_T(double P, double T)
+{
+    double pSat_r1 = _Psat_T_R4(T);
+    double p_r2r3 = _P_R2_R3_b(T);
+    double T_r2r3 = _T_R2_R3_b(P);
+
+    //region 1
+    if
+    (
+        T >= 273.15
+        && T <= 623.15
+        && P >= pSat_r1
+        && P <= 100
+    )
+    {
+        return cv_R1_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T >= 273.15
+        && T <= 623.15
+        && P > 0
+        && P <= pSat_r1
+    )
+    {
+        return cv_R2_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T > 623.15
+        && T <= 863.15
+        && P > 0
+        && P <= p_r2r3
+    )
+    {
+        return cv_R2_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T > 863.15
+        && T <= 1073.15
+        && P > 0
+        && P <= 100
+    )
+    {
+        return cv_R2_T_P(T,P);
+    }
+    //region 3
+    else if
+    (
+        T >= 623.15
+        && T <= T_r2r3
+        && P >= p_r2r3
+        && P <= 100
+    )
+    {
+        return _cv_P_T_R3(P,T);
+    }
+    //region 5
+    else if
+    (
+        T >= 1073.15
+        && T <= 2273.15
+        && P > 0
+        && P <= 50
+    )
+    {
+        return _cv_P_T_R5(P,T);
+    }
+}
+//w(P,T)
+double _w_P_T(double P, double T)
+{
+    double pSat_r1 = _Psat_T_R4(T);
+    double p_r2r3 = _P_R2_R3_b(T);
+    double T_r2r3 = _T_R2_R3_b(P);
+
+    //region 1
+    if
+    (
+        T >= 273.15
+        && T <= 623.15
+        && P >= pSat_r1
+        && P <= 100
+    )
+    {
+        return w_R1_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T >= 273.15
+        && T <= 623.15
+        && P > 0
+        && P <= pSat_r1
+    )
+    {
+        return w_R2_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T > 623.15
+        && T <= 863.15
+        && P > 0
+        && P <= p_r2r3
+    )
+    {
+        return w_R2_T_P(T,P);
+    }
+    //region 2
+    else if
+    (
+        T > 863.15
+        && T <= 1073.15
+        && P > 0
+        && P <= 100
+    )
+    {
+        return w_R2_T_P(T,P);
+    }
+    //region 3
+    else if
+    (
+        T >= 623.15
+        && T <= T_r2r3
+        && P >= p_r2r3
+        && P <= 100
+    )
+    {
+        return _w_P_T_R3(P,T);
+    }
+    //region 5
+    else if
+    (
+        T >= 1073.15
+        && T <= 2273.15
+        && P > 0
+        && P <= 50
+    )
+    {
+        return _w_P_T_R5(P,T);
+    }
+}
