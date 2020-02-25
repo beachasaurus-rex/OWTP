@@ -741,3 +741,7 @@ DLL_EXPORT double s_P_T(double P, double T)
 {
 	return _s_P_T(P,T);
 }
+DLL_EXPORT double h_P_T(double P, double T)
+{
+	return _h_P_T(P,T);
+}

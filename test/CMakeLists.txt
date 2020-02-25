@@ -17,6 +17,7 @@ set(STEST
     AccuracyTests/OWTPAccTests_vPT.cpp
     AccuracyTests/OWTPAccTests_uPT.cpp
     AccuracyTests/OWTPAccTests_sPT.cpp
+    AccuracyTests/OWTPAccTests_hPT.cpp
     AccuracyTests/AccTestsRegionBoundaries.cpp
     AccuracyTests/AccTestsRegion1.cpp
     AccuracyTests/AccTestsRegion2.cpp
