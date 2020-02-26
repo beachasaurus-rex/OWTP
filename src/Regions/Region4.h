@@ -109,39 +109,6 @@ double _u_P_x_R4(double P, double x)
     return uf + x * (ug - uf);
 }
 
-//v(T,x)
-double _v_T_x_R4(double T, double x)
-{
-    double pSat = _Psat_T_R4(T);
-    double vf = v_R1_T_P(T,pSat);
-	double vg = v_R2_T_P(T,pSat);
-    return vf + x * (vg - vf);
-}
-//h(T,x)
-double _h_T_x_R4(double T, double x)
-{
-    double pSat = _Psat_T_R4(T);
-    double hf = h_R1_T_P(T,pSat);
-	double hg = h_R2_T_P(T,pSat);
-    return hf + x * (hg - hf);
-}
-//s(T,x)
-double _s_T_x_R4(double T, double x)
-{
-    double pSat = _Psat_T_R4(T);
-    double sf = s_R1_T_P(T,pSat);
-	double sg = s_R2_T_P(T,pSat);
-    return sf + x * (sg - sf);
-}
-//u(T,x)
-double _u_T_x_R4(double T, double x)
-{
-    double pSat = _Psat_T_R4(T);
-    double uf = u_R1_T_P(T,pSat);
-	double ug = u_R2_T_P(T,pSat);
-    return uf + x * (ug - uf);
-}
-
 //Tsat(h,s)
 double _Tsat_h_s_R4(double enth, double entr)
 {
