@@ -16,6 +16,12 @@ extern "C"
     DLL_IMPORT double Psat_h_s_R4(double,double);
 
     DLL_IMPORT double x_h_s_R4(double,double);
+
+    DLL_IMPORT double x_h_s_R4(double,double);
+    DLL_IMPORT double v_P_x_R4(double,double);
+    DLL_IMPORT double h_P_x_R4(double,double);
+    DLL_IMPORT double s_P_x_R4(double,double);
+    DLL_IMPORT double u_P_x_R4(double,double);
 }
 
 //The testing data points for the following tests were
@@ -195,4 +201,137 @@ TEST_F(AccTestsRegion4, x_h_s_2500h_5d5s)
     double xErr = AbsRelativeErr(xTest, xExp);
     bool xPass = IsAcceptable(xErr);
     ASSERT_TRUE(xPass);
+}
+
+TEST_F(AccTestsRegion4, v_P_x_0d0365398932MPa_0d641808120x)
+{
+    const double P = 0.0365398932;
+    const double x = 0.641808120;
+    const double vExp = 2.78985639;
+
+    double vTest = v_P_x_R4(P,x);
+    double vErr = AbsRelativeErr(vTest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion4, h_P_x_0d0365398932MPa_0d641808120x)
+{
+    const double P = 0.0365398932;
+    const double x = 0.641808120;
+    const double hExp = 1800.0;
+
+    double hTest = h_P_x_R4(P,x);
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegion4, s_P_x_0d0365398932MPa_0d641808120x)
+{
+    const double P = 0.0365398932;
+    const double x = 0.641808120;
+    const double sExp = 5.29999877;
+
+    double sTest = s_P_x_R4(P,x);
+    double sErr = AbsRelativeErr(sTest, sExp);
+    bool sPass = IsAcceptable(sErr);
+    ASSERT_TRUE(sPass);
+}
+TEST_F(AccTestsRegion4, u_P_x_0d0365398932MPa_0d641808120x)
+{
+    const double P = 0.0365398932;
+    const double x = 0.641808120;
+    const double uExp = 1698.05895;
+
+    double uTest = u_P_x_R4(P,x);
+    double uErr = AbsRelativeErr(uTest, uExp);
+    bool uPass = IsAcceptable(uErr);
+    ASSERT_TRUE(uPass);
+}
+TEST_F(AccTestsRegion4, v_P_x_0d502008352MPa_0d834735532x)
+{
+    const double P = 0.502008352;
+    const double x = 0.834735532;
+    const double vExp = 0.311863568;
+
+    double vTest = v_P_x_R4(P,x);
+    double vErr = AbsRelativeErr(vTest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion4, h_P_x_0d502008352MPa_0d834735532x)
+{
+    const double P = 0.502008352;
+    const double x = 0.834735532;
+    const double hExp = 2400.0;
+
+    double hTest = h_P_x_R4(P,x);
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegion4, s_P_x_0d502008352MPa_0d834735532x)
+{
+    const double P = 0.502008352;
+    const double x = 0.834735532;
+    const double sExp = 6.0;
+
+    double sTest = s_P_x_R4(P,x);
+    double sErr = AbsRelativeErr(sTest, sExp);
+    bool sPass = IsAcceptable(sErr);
+    ASSERT_TRUE(sPass);
+}
+TEST_F(AccTestsRegion4, u_P_x_0d502008352MPa_0d834735532x)
+{
+    const double P = 0.502008352;
+    const double x = 0.834735532;
+    const double uExp = 2243.44188;
+
+    double uTest = u_P_x_R4(P,x);
+    double uErr = AbsRelativeErr(uTest, uExp);
+    bool uPass = IsAcceptable(uErr);
+    ASSERT_TRUE(uPass);
+}
+TEST_F(AccTestsRegion4, v_P_x_3d93633491MPa_0d824721845x)
+{
+    const double P = 3.93633491;
+    const double x = 0.824721845;
+    const double vExp = 0.0419539661;
+
+    double vTest = v_P_x_R4(P,x);
+    double vErr = AbsRelativeErr(vTest, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion4, h_P_x_3d93633491MPa_0d824721845x)
+{
+    const double P = 3.93633491;
+    const double x = 0.824721845;
+    const double hExp = 2500.0;
+
+    double hTest = h_P_x_R4(P,x);
+    double hErr = AbsRelativeErr(hTest, hExp);
+    bool hPass = IsAcceptable(hErr);
+    ASSERT_TRUE(hPass);
+}
+TEST_F(AccTestsRegion4, s_P_x_3d93633491MPa_0d824721845x)
+{
+    const double P = 3.93633491;
+    const double x = 0.824721845;
+    const double sExp = 5.5;
+
+    double sTest = s_P_x_R4(P,x);
+    double sErr = AbsRelativeErr(sTest, sExp);
+    bool sPass = IsAcceptable(sErr);
+    ASSERT_TRUE(sPass);
+}
+TEST_F(AccTestsRegion4, u_P_x_3d93633491MPa_0d824721845x)
+{
+    const double P = 3.93633491;
+    const double x = 0.824721845;
+    const double uExp = 2334.85514;
+
+    double uTest = u_P_x_R4(P,x);
+    double uErr = AbsRelativeErr(uTest, uExp);
+    bool uPass = IsAcceptable(uErr);
+    ASSERT_TRUE(uPass);
 }

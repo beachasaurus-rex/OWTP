@@ -59,6 +59,56 @@ double _Tsat_P_R4(double P)
     return tStar * ((n[9] + d - h) / 2.0);
 }
 
+//x(P,h)
+double _x_P_h_R4(double P, double h)
+{
+    double tSat = _Tsat_P_R4(P);
+    double hf = h_R1_T_P(tSat,P);
+	double hg = h_R2_T_P(tSat,P);
+    return (h - hf) / (hg - hf);
+}
+//x(T,h)
+double _x_T_h_R4(double T, double h)
+{
+    double pSat = _Psat_T_R4(T);
+    double hf = h_R1_T_P(T,pSat);
+	double hg = h_R2_T_P(T,pSat);
+    return (h - hf) / (hg - hf);
+}
+
+//v(P,x)
+double _v_P_x_R4(double P, double x)
+{
+    double tSat = _Tsat_P_R4(P);
+    double vf = v_R1_T_P(tSat,P);
+	double vg = v_R2_T_P(tSat,P);
+    return vf + x * (vg - vf);
+}
+//h(P,x)
+double _h_P_x_R4(double P, double x)
+{
+    double tSat = _Tsat_P_R4(P);
+    double hf = h_R1_T_P(tSat,P);
+	double hg = h_R2_T_P(tSat,P);
+    return hf + x * (hg - hf);
+}
+//s(P,x)
+double _s_P_x_R4(double P, double x)
+{
+    double tSat = _Tsat_P_R4(P);
+    double sf = s_R1_T_P(tSat,P);
+	double sg = s_R2_T_P(tSat,P);
+    return sf + x * (sg - sf);
+}
+//u(P,x)
+double _u_P_x_R4(double P, double x)
+{
+    double tSat = _Tsat_P_R4(P);
+    double uf = u_R1_T_P(tSat,P);
+	double ug = u_R2_T_P(tSat,P);
+    return uf + x * (ug - uf);
+}
+
 //Tsat(h,s)
 double _Tsat_h_s_R4(double enth, double entr)
 {
