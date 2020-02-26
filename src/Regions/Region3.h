@@ -916,6 +916,89 @@ double _w_P_T_R3(double press, double temp)
 	return _w_Rho_T_R3(1/v, temp);
 }
 
+//Properties as functions of pressure and enthalpy for region 3
+
+//Temperature as a function of pressure and enthalpy for region 3
+double _T_P_h_R3(double press, double enth)
+{
+	//kJ/kg
+	double hPred = _h_R3ab_P(press);
+
+	//subregion a
+	if
+	(
+		enth < hPred
+	)
+	{
+		return _T_R3a_P_h(press,enth);
+	}
+	//subregion b
+	else
+	{
+		return _T_R3b_P_h(press,enth);
+	}
+}
+//specific volume as a function of pressure and enthalpy for region 3
+double _v_P_h_R3(double press, double enth)
+{
+	//kJ/kg
+	double hPred = _h_R3ab_P(press);
+
+	//subregion a
+	if
+	(
+		enth < hPred
+	)
+	{
+		return _v_R3a_P_h(press,enth);
+	}
+	//subregion b
+	else
+	{
+		return _v_R3b_P_h(press,enth);
+	}
+}
+//specific internal energy as a function of pressure and enthalpy for region 3
+double _u_P_h_R3(double press, double enth)
+{
+    double v = _v_P_h_R3(press, enth);
+    double T = _T_P_h_R3(press, enth);
+
+    return _u_v_T_R3(v,T);
+}
+//specific entropy as a function of pressure and enthalpy for region 3
+double _s_P_h_R3(double press, double enth)
+{
+    double v = _v_P_h_R3(press, enth);
+    double T = _T_P_h_R3(press, enth);
+
+    return _s_v_T_R3(v,T);
+}
+//specific isochoric heat capacity as a function of pressure and enthalpy for region 3
+double _cv_P_h_R3(double press, double enth)
+{
+    double v = _v_P_h_R3(press, enth);
+    double T = _T_P_h_R3(press, enth);
+
+    return _cv_v_T_R3(v,T);
+}
+//specific isobaric heat capacity as a function of pressure and enthalpy for region 3
+double _cp_P_h_R3(double press, double enth)
+{
+    double v = _v_P_h_R3(press, enth);
+    double T = _T_P_h_R3(press, enth);
+
+    return _cp_v_T_R3(v,T);
+}
+//speed of sound as a function of pressure and enthalpy for region 3
+double _w_P_h_R3(double press, double enth)
+{
+    double v = _v_P_h_R3(press, enth);
+    double T = _T_P_h_R3(press, enth);
+
+    return _w_v_T_R3(v,T);
+}
+
 //P(h,s) for subregion a
 double _p_R3a_h_s(double h, double s)
 {

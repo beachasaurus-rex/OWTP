@@ -478,10 +478,6 @@
 	{
 		return _T_R3b_P_h(press,enth);
 	}
-	DLL_EXPORT double T_P_h_R3(double press, double enth)
-	{
-		return _T_P_h_R3(press,enth);
-	}
 
 	//subregion boundary equations v(P,h)
 
@@ -492,10 +488,6 @@
 	DLL_EXPORT double v_R3b_P_h(double press, double enth)
 	{
 		return _v_R3b_P_h(press,enth);
-	}
-	DLL_EXPORT double v_P_h_R3(double press, double enth)
-	{
-		return _v_P_h_R3(press,enth);
 	}
 
 	//subregion boundary equation h(P)
@@ -635,6 +627,37 @@
 		return _w_P_T_R3(press,temp);
 	}
 
+    //properties as functions of pressure and enthalpy
+
+    DLL_EXPORT double v_P_h_R3(double press, double enth)
+	{
+		return _v_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double T_P_h_R3(double press, double enth)
+	{
+		return _T_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double u_P_h_R3(double press, double enth)
+	{
+		return _u_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double s_P_h_R3(double press, double enth)
+    {
+        return _s_P_h_R3(press,enth);
+    }
+    DLL_EXPORT double cv_P_h_R3(double press, double enth)
+	{
+		return _cv_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double cp_P_h_R3(double press, double enth)
+	{
+		return _cp_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double w_P_h_R3(double press, double enth)
+	{
+		return _w_P_h_R3(press,enth);
+	}
+
 	//properties as functions of enthalpy and entropy
 
 	DLL_EXPORT double p_R3a_h_s(double enth, double entr)
@@ -756,4 +779,9 @@ DLL_EXPORT double cv_P_T(double P, double T)
 DLL_EXPORT double w_P_T(double P, double T)
 {
 	return _w_P_T(P,T);
+}
+
+DLL_EXPORT double T_P_h(double P, double h)
+{
+    return _T_P_h(P,h);
 }

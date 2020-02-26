@@ -34,6 +34,15 @@ extern "C"
     DLL_IMPORT double cp_P_T_R3(double, double);
     DLL_IMPORT double w_P_T_R3(double, double);
 
+    //properties as functions of pressure and enthalpy
+    DLL_IMPORT double v_P_h_R3(double,double);
+    DLL_IMPORT double T_P_h_R3(double,double);
+    DLL_IMPORT double u_P_h_R3(double,double);
+    DLL_IMPORT double s_P_h_R3(double,double);
+    DLL_IMPORT double cv_P_h_R3(double,double);
+    DLL_IMPORT double cp_P_h_R3(double,double);
+    DLL_IMPORT double w_P_h_R3(double,double);
+
     //properties as functions of enthalpy and entropy
     DLL_IMPORT double P_h_s_R3(double,double);
     DLL_IMPORT double T_h_s_R3(double,double);
@@ -740,6 +749,238 @@ TEST_F(AccTestsRegion3, w_P_T_0d783095639Ep02MPa_750K)
     const double wExp = 0.760696041E+03;
 
     double w = w_P_T_R3(press,temp);
+    double wErr = AbsRelativeErr(w, wExp);
+    bool wPass = IsAcceptable(wErr);
+    ASSERT_TRUE(wPass);
+}
+
+TEST_F(AccTestsRegion3, v_P_h_0d255837018Ep02MPa_1863d43258h)
+{
+    const double press = 0.255837018E+02;
+    const double enth = 1863.43258;
+    const double vExp = 1.0/500.0;
+
+    double v = v_P_h_R3(press,enth);
+    double vErr = AbsRelativeErr(v, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3, u_P_h_0d255837018Ep02MPa_1863d43258h)
+{
+    const double press = 0.255837018E+02;
+    const double enth = 1863.43258;
+    const double uExp = 0.181226279E+04;
+
+    double u = u_P_h_R3(press,enth);
+    double uErr = AbsRelativeErr(u, uExp);
+    bool uPass = IsAcceptable(uErr);
+    ASSERT_TRUE(uPass);
+}
+TEST_F(AccTestsRegion3, s_P_h_0d255837018Ep02MPa_1863d43258h)
+{
+    const double press = 0.255837018E+02;
+    const double enth = 1863.43258;
+    const double sExp = 0.405427273E+01;
+
+    double s = s_P_h_R3(press,enth);
+    double sErr = AbsRelativeErr(s, sExp);
+    bool sPass = IsAcceptable(sErr);
+    ASSERT_TRUE(sPass);
+}
+TEST_F(AccTestsRegion3, T_P_h_0d255837018Ep02MPa_1863d43258h)
+{
+    const double press = 0.255837018E+02;
+    const double enth = 1863.43258;
+    const double TExp = 650;
+
+    double T = T_P_h_R3(press,enth);
+    double TErr = AbsRelativeErr(T, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3, cp_P_h_0d255837018Ep02MPa_1863d43258h)
+{
+    const double press = 0.255837018E+02;
+    const double enth = 1863.43258;
+    const double cpExp = 0.138935717E+02;
+
+    double cp = cp_P_h_R3(press,enth);
+    double cpErr = AbsRelativeErr(cp, cpExp);
+    bool cpPass = IsAcceptable(cpErr);
+    ASSERT_TRUE(cpPass);
+}
+TEST_F(AccTestsRegion3, cv_P_h_0d255837018Ep02MPa_1863d43258h)
+{
+    const double press = 0.255837018E+02;
+    const double enth = 1863.43258;
+    const double cvExp = 3.191317871889;
+
+    double cv = cv_P_h_R3(press,enth);
+    double cvErr = AbsRelativeErr(cv, cvExp);
+    bool cvPass = IsAcceptable(cvErr);
+    ASSERT_TRUE(cvPass);
+}
+TEST_F(AccTestsRegion3, w_P_h_0d255837018Ep02MPa_1863d43258h)
+{
+    const double press = 0.255837018E+02;
+    const double enth = 1863.43258;
+    const double wExp = 0.502005554E+03;
+
+    double w = w_P_h_R3(press,enth);
+    double wErr = AbsRelativeErr(w, wExp);
+    bool wPass = IsAcceptable(wErr);
+    ASSERT_TRUE(wPass);
+}
+TEST_F(AccTestsRegion3, v_P_h_0d222930643Ep02MPa_2375d12394h)
+{
+    const double press = 0.222930643E+02;
+    const double enth = 2375.12394;
+    const double vExp = 1.0/200.0;
+
+    double v = v_P_h_R3(press,enth);
+    double vErr = AbsRelativeErr(v, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3, u_P_h_0d222930643Ep02MPa_2375d12394h)
+{
+    const double press = 0.222930643E+02;
+    const double enth = 2375.12394;
+    const double uExp = 0.226365868E+04;
+
+    double u = u_P_h_R3(press,enth);
+    double uErr = AbsRelativeErr(u, uExp);
+    bool uPass = IsAcceptable(uErr);
+    ASSERT_TRUE(uPass);
+}
+TEST_F(AccTestsRegion3, s_P_h_0d222930643Ep02MPa_2375d12394h)
+{
+    const double press = 0.222930643E+02;
+    const double enth = 2375.12394;
+    const double sExp = 0.485438792E+01;
+
+    double s = s_P_h_R3(press,enth);
+    double sErr = AbsRelativeErr(s, sExp);
+    bool sPass = IsAcceptable(sErr);
+    ASSERT_TRUE(sPass);
+}
+TEST_F(AccTestsRegion3, T_P_h_0d222930643Ep02MPa_2375d12394h)
+{
+    const double press = 0.222930643E+02;
+    const double enth = 2375.12394;
+    const double TExp = 650;
+
+    double T = T_P_h_R3(press,enth);
+    double TErr = AbsRelativeErr(T, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3, cp_P_h_0d222930643Ep02MPa_2375d12394h)
+{
+    const double press = 0.222930643E+02;
+    const double enth = 2375.12394;
+    const double cpExp = 0.446579342E+02;
+
+    double cp = cp_P_h_R3(press,enth);
+    double cpErr = AbsRelativeErr(cp, cpExp);
+    bool cpPass = IsAcceptable(cpErr);
+    ASSERT_TRUE(cpPass);
+}
+TEST_F(AccTestsRegion3, cv_P_h_0d222930643Ep02MPa_2375d12394h)
+{
+    const double press = 0.222930643E+02;
+    const double enth = 2375.12394;
+    const double cvExp = 4.04118075955;
+
+    double cv = cv_P_h_R3(press,enth);
+    double cvErr = AbsRelativeErr(cv, cvExp);
+    bool cvPass = IsAcceptable(cvErr);
+    ASSERT_TRUE(cvPass);
+}
+TEST_F(AccTestsRegion3, w_P_h_0d222930643Ep02MPa_2375d12394h)
+{
+    const double press = 0.222930643E+02;
+    const double enth = 2375.12394;
+    const double wExp = 0.383444594E+03;
+
+    double w = w_P_h_R3(press,enth);
+    double wErr = AbsRelativeErr(w, wExp);
+    bool wPass = IsAcceptable(wErr);
+    ASSERT_TRUE(wPass);
+}
+TEST_F(AccTestsRegion3, v_P_h_0d783095639Ep02MPa_2258d68926h)
+{
+    const double press = 0.783095639E+02;
+    const double enth = 2258.68926;
+    const double vExp = 1.0/500.0;
+
+    double v = v_P_h_R3(press,enth);
+    double vErr = AbsRelativeErr(v, vExp);
+    bool vPass = IsAcceptable(vErr);
+    ASSERT_TRUE(vPass);
+}
+TEST_F(AccTestsRegion3, u_P_h_0d783095639Ep02MPa_2258d68926h)
+{
+    const double press = 0.783095639E+02;
+    const double enth = 2258.68926;
+    const double uExp = 0.210206932E+04;
+
+    double u = u_P_h_R3(press,enth);
+    double uErr = AbsRelativeErr(u, uExp);
+    bool uPass = IsAcceptable(uErr);
+    ASSERT_TRUE(uPass);
+}
+TEST_F(AccTestsRegion3, s_P_h_0d783095639Ep02MPa_2258d68926h)
+{
+    const double press = 0.783095639E+02;
+    const double enth = 2258.68926;
+    const double sExp = 0.446971906E+01;
+
+    double s = s_P_h_R3(press,enth);
+    double sErr = AbsRelativeErr(s, sExp);
+    bool sPass = IsAcceptable(sErr);
+    ASSERT_TRUE(sPass);
+}
+TEST_F(AccTestsRegion3, T_P_h_0d783095639Ep02MPa_2258d68926h)
+{
+    const double press = 0.783095639E+02;
+    const double enth = 2258.68926;
+    const double TExp = 750;
+
+    double T = T_P_h_R3(press,enth);
+    double TErr = AbsRelativeErr(T, TExp);
+    bool TPass = IsAcceptable(TErr);
+    ASSERT_TRUE(TPass);
+}
+TEST_F(AccTestsRegion3, cp_P_h_0d783095639Ep02MPa_2258d68926h)
+{
+    const double press = 0.783095639E+02;
+    const double enth = 2258.68926;
+    const double cpExp = 0.634165359E+01;
+
+    double cp = cp_P_h_R3(press,enth);
+    double cpErr = AbsRelativeErr(cp, cpExp);
+    bool cpPass = IsAcceptable(cpErr);
+    ASSERT_TRUE(cpPass);
+}
+TEST_F(AccTestsRegion3, cv_P_h_0d783095639Ep02MPa_2258d68926h)
+{
+    const double press = 0.783095639E+02;
+    const double enth = 2258.68926;
+    const double cvExp = 2.71701677121;
+
+    double cv = cv_P_h_R3(press,enth);
+    double cvErr = AbsRelativeErr(cv, cvExp);
+    bool cvPass = IsAcceptable(cvErr);
+    ASSERT_TRUE(cvPass);
+}
+TEST_F(AccTestsRegion3, w_P_h_0d783095639Ep02MPa_2258d68926h)
+{
+    const double press = 0.783095639E+02;
+    const double enth = 2258.68926;
+    const double wExp = 0.760696041E+03;
+
+    double w = w_P_h_R3(press,enth);
     double wErr = AbsRelativeErr(w, wExp);
     bool wPass = IsAcceptable(wErr);
     ASSERT_TRUE(wPass);
