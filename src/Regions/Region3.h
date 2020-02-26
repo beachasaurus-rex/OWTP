@@ -999,6 +999,81 @@ double _w_P_h_R3(double press, double enth)
     return _w_v_T_R3(v,T);
 }
 
+//Properties as functions of pressure and entropy for region 3
+
+//temperature as a function of pressure and entropy for region 3
+double _T_P_s_R3(double press, double entr)
+{
+    //kJ/(kg*K)
+    const double sCrit = 4.41202148223476;
+
+    if (entr < sCrit)
+    {
+        return _T_R3a_P_s(press, entr);
+    }
+    else
+    {
+        return _T_R3b_P_s(press, entr);
+    }
+}
+//specific volume as a function of pressure and entropy for region 3
+double _v_P_s_R3(double press, double entr)
+{
+    //kJ/(kg*K)
+    const double sCrit = 4.41202148223476;
+
+    if (entr < sCrit)
+    {
+        return _v_R3a_P_s(press, entr);
+    }
+    else
+    {
+        return _v_R3b_P_s(press, entr);
+    }
+}
+//specific internal energy as a function of pressure and entropy for region 3
+double _u_P_s_R3(double press, double entr)
+{
+    double v = _v_P_s_R3(press, entr);
+    double T = _T_P_s_R3(press, entr);
+
+    return _u_v_T_R3(v,T);
+}
+//specific entropy as a function of pressure and entropy for region 3
+double _h_P_s_R3(double press, double entr)
+{
+    double v = _v_P_s_R3(press, entr);
+    double T = _T_P_s_R3(press, entr);
+
+    return _h_v_T_R3(v,T);
+}
+//specific isochoric heat capacity as a function of pressure and entropy for region 3
+double _cv_P_s_R3(double press, double entr)
+{
+    double v = _v_P_s_R3(press, entr);
+    double T = _T_P_s_R3(press, entr);
+
+    return _cv_v_T_R3(v,T);
+}
+//specific isobaric heat capacity as a function of pressure and entropy for region 3
+double _cp_P_s_R3(double press, double entr)
+{
+    double v = _v_P_s_R3(press, entr);
+    double T = _T_P_s_R3(press, entr);
+
+    return _cp_v_T_R3(v,T);
+}
+//speed of sound as a function of pressure and entropy for region 3
+double _w_P_s_R3(double press, double entr)
+{
+    double v = _v_P_s_R3(press, entr);
+    double T = _T_P_s_R3(press, entr);
+
+    return _w_v_T_R3(v,T);
+}
+
+//Properties as functions of enthalpy and entropy for region 3
+
 //P(h,s) for subregion a
 double _p_R3a_h_s(double h, double s)
 {
@@ -1027,7 +1102,6 @@ double _p_R3a_h_s(double h, double s)
 
     return sum * pStar;
 }
-
 //P(h,s) for subregion b
 double _p_R3b_h_s(double h, double s)
 {
@@ -1056,8 +1130,6 @@ double _p_R3b_h_s(double h, double s)
 
     return pow(sum, -1) * pStar;
 }
-
-//Properties as functions of enthalpy and entropy for region 3
 
 //P(h,s) for region 3
 double _P_h_s_R3(double enth, double entr)
