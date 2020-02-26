@@ -585,7 +585,7 @@ double _T_P_h(double P, double h)
             && P >= pB23
         )
         {
-            return _T_P_h_R3(P,h);
+            return tStar;
         }
     }
 
@@ -738,7 +738,8 @@ double _v_P_h(double P, double h)
         && h <= hSat_R2
     )
     {
-        return v_R1_P_h(P,h);
+        double x = _x_P_h_R4(P,h);
+        return _v_P_x_R4(P,x);
     }
     // TODO: research props(P,h) for R5 later
     // //region 5
@@ -784,7 +785,7 @@ double _s_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return tStar;
+                return s_R1_P_h(P,h);
             }
         }
     }
@@ -834,7 +835,7 @@ double _s_P_h(double P, double h)
                 )
             )
             {
-                return tStar;
+                return s_R2_P_h(P,h);
             }
         }
     }
@@ -859,7 +860,7 @@ double _s_P_h(double P, double h)
             && P >= pB23
         )
         {
-            return _T_P_h_R3(P,h);
+            return _s_P_h_R3(P,h);
         }
     }
 
@@ -875,7 +876,8 @@ double _s_P_h(double P, double h)
         && h <= hSat_R2
     )
     {
-        return tSat_R4;
+        double x = _x_P_h_R4(P,h);
+        return _s_P_x_R4(P,x);
     }
     // TODO: research props(P,h) for R5 later
     // //region 5
@@ -921,7 +923,7 @@ double _u_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return tStar;
+                return u_R1_P_h(P,h);
             }
         }
     }
@@ -971,7 +973,7 @@ double _u_P_h(double P, double h)
                 )
             )
             {
-                return tStar;
+                return u_R2_P_h(P,h);
             }
         }
     }
@@ -996,7 +998,7 @@ double _u_P_h(double P, double h)
             && P >= pB23
         )
         {
-            return _T_P_h_R3(P,h);
+            return _u_P_h_R3(P,h);
         }
     }
 
@@ -1012,7 +1014,8 @@ double _u_P_h(double P, double h)
         && h <= hSat_R2
     )
     {
-        return tSat_R4;
+        double x = _x_P_h_R4(P,h);
+        return _u_P_x_R4(P,x);
     }
     // TODO: research props(P,h) for R5 later
     // //region 5
@@ -1058,7 +1061,7 @@ double _cp_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return tStar;
+                return cp_R1_P_h(P,h);
             }
         }
     }
@@ -1108,7 +1111,7 @@ double _cp_P_h(double P, double h)
                 )
             )
             {
-                return tStar;
+                return cp_R2_P_h(P,h);
             }
         }
     }
@@ -1133,24 +1136,26 @@ double _cp_P_h(double P, double h)
             && P >= pB23
         )
         {
-            return _T_P_h_R3(P,h);
+            return _cp_P_h_R3(P,h);
         }
     }
 
-    double tSat_R4 = _Tsat_P_R4(P);
-    double hSat_R1 = h_R1_T_P(tSat_R4, P);
-    double hSat_R2 = h_R2_T_P(tSat_R4, P);
-    //region 4
-    if
-    (
-        P > 0
-        && P <= pSat_R3
-        && h >= hSat_R1
-        && h <= hSat_R2
-    )
-    {
-        return tSat_R4;
-    }
+    // //undefined for this region
+    // //TODO: determine which error should propogate
+    // double tSat_R4 = _Tsat_P_R4(P);
+    // double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    // double hSat_R2 = h_R2_T_P(tSat_R4, P);
+    // //region 4
+    // if
+    // (
+    //     P > 0
+    //     && P <= pSat_R3
+    //     && h >= hSat_R1
+    //     && h <= hSat_R2
+    // )
+    // {
+    //     return tSat_R4;
+    // }
     // TODO: research props(P,h) for R5 later
     // //region 5
     // else if
@@ -1195,7 +1200,7 @@ double _cv_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return tStar;
+                return cv_R1_P_h(P,h);
             }
         }
     }
@@ -1245,7 +1250,7 @@ double _cv_P_h(double P, double h)
                 )
             )
             {
-                return tStar;
+                return cv_R2_P_h(P,h);
             }
         }
     }
@@ -1270,24 +1275,26 @@ double _cv_P_h(double P, double h)
             && P >= pB23
         )
         {
-            return _T_P_h_R3(P,h);
+            return _cv_P_h_R3(P,h);
         }
     }
 
-    double tSat_R4 = _Tsat_P_R4(P);
-    double hSat_R1 = h_R1_T_P(tSat_R4, P);
-    double hSat_R2 = h_R2_T_P(tSat_R4, P);
-    //region 4
-    if
-    (
-        P > 0
-        && P <= pSat_R3
-        && h >= hSat_R1
-        && h <= hSat_R2
-    )
-    {
-        return tSat_R4;
-    }
+    // //undefined for this region
+    // //TODO: determine which error should propogate
+    // double tSat_R4 = _Tsat_P_R4(P);
+    // double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    // double hSat_R2 = h_R2_T_P(tSat_R4, P);
+    // //region 4
+    // if
+    // (
+    //     P > 0
+    //     && P <= pSat_R3
+    //     && h >= hSat_R1
+    //     && h <= hSat_R2
+    // )
+    // {
+    //     return tSat_R4;
+    // }
     // TODO: research props(P,h) for R5 later
     // //region 5
     // else if
@@ -1332,7 +1339,7 @@ double _w_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return tStar;
+                return w_R1_P_h(P,h);
             }
         }
     }
@@ -1382,7 +1389,7 @@ double _w_P_h(double P, double h)
                 )
             )
             {
-                return tStar;
+                return w_R2_P_h(P,h);
             }
         }
     }
@@ -1407,24 +1414,26 @@ double _w_P_h(double P, double h)
             && P >= pB23
         )
         {
-            return _T_P_h_R3(P,h);
+            return _w_P_h_R3(P,h);
         }
     }
 
-    double tSat_R4 = _Tsat_P_R4(P);
-    double hSat_R1 = h_R1_T_P(tSat_R4, P);
-    double hSat_R2 = h_R2_T_P(tSat_R4, P);
-    //region 4
-    if
-    (
-        P > 0
-        && P <= pSat_R3
-        && h >= hSat_R1
-        && h <= hSat_R2
-    )
-    {
-        return tSat_R4;
-    }
+    // //undefined for this region
+    // //TODO: determine which error should propogate
+    // double tSat_R4 = _Tsat_P_R4(P);
+    // double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    // double hSat_R2 = h_R2_T_P(tSat_R4, P);
+    // //region 4
+    // if
+    // (
+    //     P > 0
+    //     && P <= pSat_R3
+    //     && h >= hSat_R1
+    //     && h <= hSat_R2
+    // )
+    // {
+    //     return tSat_R4;
+    // }
     // TODO: research props(P,h) for R5 later
     // //region 5
     // else if
