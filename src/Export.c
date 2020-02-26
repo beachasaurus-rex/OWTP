@@ -742,6 +742,7 @@
 	{
 		return _x_h_s_R4(h,s);
 	}
+
     DLL_EXPORT double v_P_x_R4(double P, double x)
     {
         return _v_P_x_R4(P,x);
@@ -759,6 +760,22 @@
         return _u_P_x_R4(P,x);
     }
 
+    DLL_EXPORT double v_T_x_R4(double T, double x)
+    {
+        return _v_T_x_R4(T,x);
+    }
+    DLL_EXPORT double h_T_x_R4(double T, double x)
+    {
+        return _h_T_x_R4(T,x);
+    }
+    DLL_EXPORT double s_T_x_R4(double T, double x)
+    {
+        return _s_T_x_R4(T,x);
+    }
+    DLL_EXPORT double u_T_x_R4(double T, double x)
+    {
+        return _u_T_x_R4(T,x);
+    }
 
 	//Region 5:
 
