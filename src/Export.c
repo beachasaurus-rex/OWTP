@@ -866,3 +866,32 @@ DLL_EXPORT double w_P_h(double P, double h)
 {
     return _w_P_h(P,h);
 }
+
+DLL_EXPORT double T_P_s(double P, double s)
+{
+    return _T_P_s(P,s);
+}
+DLL_EXPORT double v_P_s(double P, double s)
+{
+    return _v_P_s(P,s);
+}
+DLL_EXPORT double h_P_s(double P, double s)
+{
+    return _h_P_s(P,s);
+}
+DLL_EXPORT double u_P_s(double P, double s)
+{
+    return _u_P_s(P,s);
+}
+DLL_EXPORT double cp_P_s(double P, double s)
+{
+    return _cp_P_s(P,s);
+}
+DLL_EXPORT double cv_P_s(double P, double s)
+{
+    return _cv_P_s(P,s);
+}
+DLL_EXPORT double w_P_s(double P, double s)
+{
+    return _w_P_s(P,s);
+}

@@ -76,6 +76,23 @@ double _x_T_h_R4(double T, double h)
     return (h - hf) / (hg - hf);
 }
 
+//x(P,s)
+double _x_P_s_R4(double P, double s)
+{
+    double tSat = _Tsat_P_R4(P);
+    double sf = s_R1_T_P(tSat,P);
+	double sg = s_R2_T_P(tSat,P);
+    return (s - sf) / (sg - sf);
+}
+//x(T,s)
+double _x_T_s_R4(double T, double s)
+{
+    double pSat = _Psat_T_R4(T);
+    double sf = s_R1_T_P(T,pSat);
+	double sg = s_R2_T_P(T,pSat);
+    return (s - sf) / (sg - sf);
+}
+
 //v(P,x)
 double _v_P_x_R4(double P, double x)
 {

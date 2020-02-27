@@ -428,7 +428,6 @@ TEST_F(AccTestsRegion4, u_T_x_4d251373305Ep02K_0d834735532x)
     bool uPass = IsAcceptable(uErr);
     ASSERT_TRUE(uPass);
 }
-
 TEST_F(AccTestsRegion4, v_T_x_5d225579013Ep02K_0d824721845x)
 {
     const double T = 5.225579013E+02;

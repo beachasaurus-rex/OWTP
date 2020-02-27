@@ -595,10 +595,17 @@ double _T_P_h(double P, double h)
     //region 4
     if
     (
-        P > 0
-        && P <= pSat_R3
-        && h >= hSat_R1
-        && h <= hSat_R2
+        (
+            P > 0
+            && P < 16.529
+            && h >= hSat_R1
+            && h <= hSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
     )
     {
         return tSat_R4;
@@ -732,10 +739,17 @@ double _v_P_h(double P, double h)
     //region 4
     if
     (
-        P > 0
-        && P <= pSat_R3
-        && h >= hSat_R1
-        && h <= hSat_R2
+        (
+            P > 0
+            && P < 16.529
+            && h >= hSat_R1
+            && h <= hSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
     )
     {
         double x = _x_P_h_R4(P,h);
@@ -870,10 +884,17 @@ double _s_P_h(double P, double h)
     //region 4
     if
     (
-        P > 0
-        && P <= pSat_R3
-        && h >= hSat_R1
-        && h <= hSat_R2
+        (
+            P > 0
+            && P < 16.529
+            && h >= hSat_R1
+            && h <= hSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
     )
     {
         double x = _x_P_h_R4(P,h);
@@ -1008,10 +1029,17 @@ double _u_P_h(double P, double h)
     //region 4
     if
     (
-        P > 0
-        && P <= pSat_R3
-        && h >= hSat_R1
-        && h <= hSat_R2
+        (
+            P > 0
+            && P < 16.529
+            && h >= hSat_R1
+            && h <= hSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
     )
     {
         double x = _x_P_h_R4(P,h);
@@ -1430,6 +1458,1017 @@ double _w_P_h(double P, double h)
     //     && P <= pSat_R3
     //     && h >= hSat_R1
     //     && h <= hSat_R2
+    // )
+    // {
+    //     return tSat_R4;
+    // }
+    // TODO: research props(P,h) for R5 later
+    // //region 5
+    // else if
+    // (
+    //     h > 0
+    //     && h <= h_r5_max
+    //     && P > 0
+    //     && P <= 50
+    // )
+    // {
+    //
+    //     return _T_P_h_R5(P,h);
+    // }
+}
+
+//T(P,s)
+double _T_P_s(double P, double s)
+{
+    //region 1
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R1_T_P(tSat, P);
+
+        if
+        (
+            s > 0
+            && s <= s_sat
+        )
+        {
+            double tStar = T_R1_P_s(P,s);
+            double pSat = _Psat_T_R4(tStar);
+
+            if
+            (
+                tStar >= 273.15
+                && tStar <= 623.15
+                && P >= pSat
+            )
+            {
+                return tStar;
+            }
+        }
+    }
+
+    //region 2
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R2_T_P(tSat, P);
+        double s_max = s_R2_T_P(1073.15, P);
+
+        if
+        (
+            s >= s_sat
+            && s <= s_max
+        )
+        {
+            double tStar = T_R2_P_s(P,s);
+            double pB23 = _P_R2_R3_b(tStar);
+            double Psat = _Psat_T_R4(tStar);
+            double sB23 = s_R2_T_P(tStar, pB23);
+
+            if
+            (
+                (
+                    tStar >= 273.15
+                    && tStar <= 623.15
+                    && P > 0
+                    && P <= Psat
+                )
+                ||
+                (
+                    tStar > 623.15
+                    && tStar <= 863.15
+                    && P > 0
+                    && P <= pB23
+                    && s >= sB23
+                )
+                ||
+                (
+                    tStar > 863.15
+                    && tStar <= 1073.15
+                )
+            )
+            {
+                return tStar;
+            }
+        }
+    }
+
+    double pSat_R3 = _pSat_s_R3_R4(s);
+    //region 3
+    if
+    (
+        s > 0
+        && P >= pSat_R3
+        && P <= 100
+    )
+    {
+        double tStar = _T_P_s_R3(P,s);
+        double TB23 = _T_R2_R3_b(P);
+        double pB23 = _P_R2_R3_b(tStar);
+
+        if
+        (
+            tStar >= 623.15
+            && tStar <= TB23
+            && P >= pB23
+        )
+        {
+            return tStar;
+        }
+    }
+
+    double tSat_R4 = _Tsat_P_R4(P);
+    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R2 = s_R2_T_P(tSat_R4, P);
+    //region 4
+    if
+    (
+        (
+            P > 0
+            && P < 16.529
+            && s >= sSat_R1
+            && s <= sSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
+    )
+    {
+        return tSat_R4;
+    }
+    // TODO: research props(P,h) for R5 later
+    // //region 5
+    // else if
+    // (
+    //     h > 0
+    //     && h <= h_r5_max
+    //     && P > 0
+    //     && P <= 50
+    // )
+    // {
+    //
+    //     return _T_P_h_R5(P,h);
+    // }
+}
+//v(P,s)
+double _v_P_s(double P, double s)
+{
+    //region 1
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R1_T_P(tSat, P);
+
+        if
+        (
+            s > 0
+            && s <= s_sat
+        )
+        {
+            double tStar = T_R1_P_s(P,s);
+            double pSat = _Psat_T_R4(tStar);
+
+            if
+            (
+                tStar >= 273.15
+                && tStar <= 623.15
+                && P >= pSat
+            )
+            {
+                return v_R1_P_s(P,s);
+            }
+        }
+    }
+
+    //region 2
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R2_T_P(tSat, P);
+        double s_max = s_R2_T_P(1073.15, P);
+
+        if
+        (
+            s >= s_sat
+            && s <= s_max
+        )
+        {
+            double tStar = T_R2_P_s(P,s);
+            double pB23 = _P_R2_R3_b(tStar);
+            double Psat = _Psat_T_R4(tStar);
+            double sB23 = s_R2_T_P(tStar, pB23);
+
+            if
+            (
+                (
+                    tStar >= 273.15
+                    && tStar <= 623.15
+                    && P > 0
+                    && P <= Psat
+                )
+                ||
+                (
+                    tStar > 623.15
+                    && tStar <= 863.15
+                    && P > 0
+                    && P <= pB23
+                    && s >= sB23
+                )
+                ||
+                (
+                    tStar > 863.15
+                    && tStar <= 1073.15
+                )
+            )
+            {
+                return v_R2_P_s(P,s);
+            }
+        }
+    }
+
+    double pSat_R3 = _pSat_s_R3_R4(s);
+    //region 3
+    if
+    (
+        s > 0
+        && P >= pSat_R3
+        && P <= 100
+    )
+    {
+        double tStar = _T_P_s_R3(P,s);
+        double TB23 = _T_R2_R3_b(P);
+        double pB23 = _P_R2_R3_b(tStar);
+
+        if
+        (
+            tStar >= 623.15
+            && tStar <= TB23
+            && P >= pB23
+        )
+        {
+            return _v_P_s_R3(P,s);
+        }
+    }
+
+    double tSat_R4 = _Tsat_P_R4(P);
+    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R2 = s_R2_T_P(tSat_R4, P);
+    //region 4
+    if
+    (
+        (
+            P > 0
+            && P < 16.529
+            && s >= sSat_R1
+            && s <= sSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
+    )
+    {
+        double x = _x_P_s_R4(P,s);
+        return _v_P_x_R4(P,x);
+    }
+    // TODO: research props(P,h) for R5 later
+    // //region 5
+    // else if
+    // (
+    //     h > 0
+    //     && h <= h_r5_max
+    //     && P > 0
+    //     && P <= 50
+    // )
+    // {
+    //
+    //     return _T_P_h_R5(P,h);
+    // }
+}
+//h(P,s)
+double _h_P_s(double P, double s)
+{
+    //region 1
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R1_T_P(tSat, P);
+
+        if
+        (
+            s > 0
+            && s <= s_sat
+        )
+        {
+            double tStar = T_R1_P_s(P,s);
+            double pSat = _Psat_T_R4(tStar);
+
+            if
+            (
+                tStar >= 273.15
+                && tStar <= 623.15
+                && P >= pSat
+            )
+            {
+                return h_R1_P_s(P,s);
+            }
+        }
+    }
+
+    //region 2
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R2_T_P(tSat, P);
+        double s_max = s_R2_T_P(1073.15, P);
+
+        if
+        (
+            s >= s_sat
+            && s <= s_max
+        )
+        {
+            double tStar = T_R2_P_s(P,s);
+            double pB23 = _P_R2_R3_b(tStar);
+            double Psat = _Psat_T_R4(tStar);
+            double sB23 = s_R2_T_P(tStar, pB23);
+
+            if
+            (
+                (
+                    tStar >= 273.15
+                    && tStar <= 623.15
+                    && P > 0
+                    && P <= Psat
+                )
+                ||
+                (
+                    tStar > 623.15
+                    && tStar <= 863.15
+                    && P > 0
+                    && P <= pB23
+                    && s >= sB23
+                )
+                ||
+                (
+                    tStar > 863.15
+                    && tStar <= 1073.15
+                )
+            )
+            {
+                return h_R2_P_s(P,s);
+            }
+        }
+    }
+
+    double pSat_R3 = _pSat_s_R3_R4(s);
+    //region 3
+    if
+    (
+        s > 0
+        && P >= pSat_R3
+        && P <= 100
+    )
+    {
+        double tStar = _T_P_s_R3(P,s);
+        double TB23 = _T_R2_R3_b(P);
+        double pB23 = _P_R2_R3_b(tStar);
+
+        if
+        (
+            tStar >= 623.15
+            && tStar <= TB23
+            && P >= pB23
+        )
+        {
+            return _h_P_s_R3(P,s);
+        }
+    }
+
+    double tSat_R4 = _Tsat_P_R4(P);
+    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R2 = s_R2_T_P(tSat_R4, P);
+    //region 4
+    if
+    (
+        (
+            P > 0
+            && P < 16.529
+            && s >= sSat_R1
+            && s <= sSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
+    )
+    {
+        double x = _x_P_s_R4(P,s);
+        return _h_P_x_R4(P,x);
+    }
+    // TODO: research props(P,h) for R5 later
+    // //region 5
+    // else if
+    // (
+    //     h > 0
+    //     && h <= h_r5_max
+    //     && P > 0
+    //     && P <= 50
+    // )
+    // {
+    //
+    //     return _T_P_h_R5(P,h);
+    // }
+}
+//u(P,s)
+double _u_P_s(double P, double s)
+{
+    //region 1
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R1_T_P(tSat, P);
+
+        if
+        (
+            s > 0
+            && s <= s_sat
+        )
+        {
+            double tStar = T_R1_P_s(P,s);
+            double pSat = _Psat_T_R4(tStar);
+
+            if
+            (
+                tStar >= 273.15
+                && tStar <= 623.15
+                && P >= pSat
+            )
+            {
+                return u_R1_P_s(P,s);
+            }
+        }
+    }
+
+    //region 2
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R2_T_P(tSat, P);
+        double s_max = s_R2_T_P(1073.15, P);
+
+        if
+        (
+            s >= s_sat
+            && s <= s_max
+        )
+        {
+            double tStar = T_R2_P_s(P,s);
+            double pB23 = _P_R2_R3_b(tStar);
+            double Psat = _Psat_T_R4(tStar);
+            double sB23 = s_R2_T_P(tStar, pB23);
+
+            if
+            (
+                (
+                    tStar >= 273.15
+                    && tStar <= 623.15
+                    && P > 0
+                    && P <= Psat
+                )
+                ||
+                (
+                    tStar > 623.15
+                    && tStar <= 863.15
+                    && P > 0
+                    && P <= pB23
+                    && s >= sB23
+                )
+                ||
+                (
+                    tStar > 863.15
+                    && tStar <= 1073.15
+                )
+            )
+            {
+                return u_R2_P_s(P,s);
+            }
+        }
+    }
+
+    double pSat_R3 = _pSat_s_R3_R4(s);
+    //region 3
+    if
+    (
+        s > 0
+        && P >= pSat_R3
+        && P <= 100
+    )
+    {
+        double tStar = _T_P_s_R3(P,s);
+        double TB23 = _T_R2_R3_b(P);
+        double pB23 = _P_R2_R3_b(tStar);
+
+        if
+        (
+            tStar >= 623.15
+            && tStar <= TB23
+            && P >= pB23
+        )
+        {
+            return _u_P_s_R3(P,s);
+        }
+    }
+
+    double tSat_R4 = _Tsat_P_R4(P);
+    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R2 = s_R2_T_P(tSat_R4, P);
+    //region 4
+    if
+    (
+        (
+            P > 0
+            && P < 16.529
+            && s >= sSat_R1
+            && s <= sSat_R2
+        )
+        ||
+        (
+            P >= 16.529
+            && P <= pSat_R3
+        )
+    )
+    {
+        double x = _x_P_s_R4(P,s);
+        return _u_P_x_R4(P,x);
+    }
+    // TODO: research props(P,h) for R5 later
+    // //region 5
+    // else if
+    // (
+    //     h > 0
+    //     && h <= h_r5_max
+    //     && P > 0
+    //     && P <= 50
+    // )
+    // {
+    //
+    //     return _T_P_h_R5(P,h);
+    // }
+}
+//cp(P,s)
+double _cp_P_s(double P, double s)
+{
+    //region 1
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R1_T_P(tSat, P);
+
+        if
+        (
+            s > 0
+            && s <= s_sat
+        )
+        {
+            double tStar = T_R1_P_s(P,s);
+            double pSat = _Psat_T_R4(tStar);
+
+            if
+            (
+                tStar >= 273.15
+                && tStar <= 623.15
+                && P >= pSat
+            )
+            {
+                return cp_R1_P_s(P,s);
+            }
+        }
+    }
+
+    //region 2
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R2_T_P(tSat, P);
+        double s_max = s_R2_T_P(1073.15, P);
+
+        if
+        (
+            s >= s_sat
+            && s <= s_max
+        )
+        {
+            double tStar = T_R2_P_s(P,s);
+            double pB23 = _P_R2_R3_b(tStar);
+            double Psat = _Psat_T_R4(tStar);
+            double sB23 = s_R2_T_P(tStar, pB23);
+
+            if
+            (
+                (
+                    tStar >= 273.15
+                    && tStar <= 623.15
+                    && P > 0
+                    && P <= Psat
+                )
+                ||
+                (
+                    tStar > 623.15
+                    && tStar <= 863.15
+                    && P > 0
+                    && P <= pB23
+                    && s >= sB23
+                )
+                ||
+                (
+                    tStar > 863.15
+                    && tStar <= 1073.15
+                )
+            )
+            {
+                return cp_R2_P_s(P,s);
+            }
+        }
+    }
+
+    double pSat_R3 = _pSat_s_R3_R4(s);
+    //region 3
+    if
+    (
+        s > 0
+        && P >= pSat_R3
+        && P <= 100
+    )
+    {
+        double tStar = _T_P_s_R3(P,s);
+        double TB23 = _T_R2_R3_b(P);
+        double pB23 = _P_R2_R3_b(tStar);
+
+        if
+        (
+            tStar >= 623.15
+            && tStar <= TB23
+            && P >= pB23
+        )
+        {
+            return _cp_P_s_R3(P,s);
+        }
+    }
+
+    // //undefined for this region
+    // //TODO: determine which error should propogate
+    // double tSat_R4 = _Tsat_P_R4(P);
+    // double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    // double sSat_R2 = s_R2_T_P(tSat_R4, P);
+    // //region 4
+    // if
+    // (
+    //     (
+    //         P > 0
+    //         && P < 16.529
+    //         && s >= sSat_R1
+    //         && s <= sSat_R2
+    //     )
+    //     ||
+    //     (
+    //         P >= 16.529
+    //         && P <= pSat_R3
+    //     )
+    // )
+    // {
+    //     return tSat_R4;
+    // }
+    // TODO: research props(P,h) for R5 later
+    // //region 5
+    // else if
+    // (
+    //     h > 0
+    //     && h <= h_r5_max
+    //     && P > 0
+    //     && P <= 50
+    // )
+    // {
+    //
+    //     return _T_P_h_R5(P,h);
+    // }
+}
+//cv(P,s)
+double _cv_P_s(double P, double s)
+{
+    //region 1
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R1_T_P(tSat, P);
+
+        if
+        (
+            s > 0
+            && s <= s_sat
+        )
+        {
+            double tStar = T_R1_P_s(P,s);
+            double pSat = _Psat_T_R4(tStar);
+
+            if
+            (
+                tStar >= 273.15
+                && tStar <= 623.15
+                && P >= pSat
+            )
+            {
+                return cv_R1_P_s(P,s);
+            }
+        }
+    }
+
+    //region 2
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R2_T_P(tSat, P);
+        double s_max = s_R2_T_P(1073.15, P);
+
+        if
+        (
+            s >= s_sat
+            && s <= s_max
+        )
+        {
+            double tStar = T_R2_P_s(P,s);
+            double pB23 = _P_R2_R3_b(tStar);
+            double Psat = _Psat_T_R4(tStar);
+            double sB23 = s_R2_T_P(tStar, pB23);
+
+            if
+            (
+                (
+                    tStar >= 273.15
+                    && tStar <= 623.15
+                    && P > 0
+                    && P <= Psat
+                )
+                ||
+                (
+                    tStar > 623.15
+                    && tStar <= 863.15
+                    && P > 0
+                    && P <= pB23
+                    && s >= sB23
+                )
+                ||
+                (
+                    tStar > 863.15
+                    && tStar <= 1073.15
+                )
+            )
+            {
+                return cv_R2_P_s(P,s);
+            }
+        }
+    }
+
+    double pSat_R3 = _pSat_s_R3_R4(s);
+    //region 3
+    if
+    (
+        s > 0
+        && P >= pSat_R3
+        && P <= 100
+    )
+    {
+        double tStar = _T_P_s_R3(P,s);
+        double TB23 = _T_R2_R3_b(P);
+        double pB23 = _P_R2_R3_b(tStar);
+
+        if
+        (
+            tStar >= 623.15
+            && tStar <= TB23
+            && P >= pB23
+        )
+        {
+            return _cv_P_s_R3(P,s);
+        }
+    }
+
+    // //undefined for this region
+    // //TODO: determine which error should propogate
+    // double tSat_R4 = _Tsat_P_R4(P);
+    // double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    // double sSat_R2 = s_R2_T_P(tSat_R4, P);
+    // //region 4
+    // if
+    // (
+    //     (
+    //         P > 0
+    //         && P < 16.529
+    //         && s >= sSat_R1
+    //         && s <= sSat_R2
+    //     )
+    //     ||
+    //     (
+    //         P >= 16.529
+    //         && P <= pSat_R3
+    //     )
+    // )
+    // {
+    //     return tSat_R4;
+    // }
+    // TODO: research props(P,h) for R5 later
+    // //region 5
+    // else if
+    // (
+    //     h > 0
+    //     && h <= h_r5_max
+    //     && P > 0
+    //     && P <= 50
+    // )
+    // {
+    //
+    //     return _T_P_h_R5(P,h);
+    // }
+}
+//w(P,s)
+double _w_P_s(double P, double s)
+{
+    //region 1
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R1_T_P(tSat, P);
+
+        if
+        (
+            s > 0
+            && s <= s_sat
+        )
+        {
+            double tStar = T_R1_P_s(P,s);
+            double pSat = _Psat_T_R4(tStar);
+
+            if
+            (
+                tStar >= 273.15
+                && tStar <= 623.15
+                && P >= pSat
+            )
+            {
+                return w_R1_P_s(P,s);
+            }
+        }
+    }
+
+    //region 2
+    if
+    (
+        P > 0
+        && P <= 100
+    )
+    {
+        double tSat = _Tsat_P_R4(P);
+        double s_sat = s_R2_T_P(tSat, P);
+        double s_max = s_R2_T_P(1073.15, P);
+
+        if
+        (
+            s >= s_sat
+            && s <= s_max
+        )
+        {
+            double tStar = T_R2_P_s(P,s);
+            double pB23 = _P_R2_R3_b(tStar);
+            double Psat = _Psat_T_R4(tStar);
+            double sB23 = s_R2_T_P(tStar, pB23);
+
+            if
+            (
+                (
+                    tStar >= 273.15
+                    && tStar <= 623.15
+                    && P > 0
+                    && P <= Psat
+                )
+                ||
+                (
+                    tStar > 623.15
+                    && tStar <= 863.15
+                    && P > 0
+                    && P <= pB23
+                    && s >= sB23
+                )
+                ||
+                (
+                    tStar > 863.15
+                    && tStar <= 1073.15
+                )
+            )
+            {
+                return w_R2_P_s(P,s);
+            }
+        }
+    }
+
+    double pSat_R3 = _pSat_s_R3_R4(s);
+    //region 3
+    if
+    (
+        s > 0
+        && P >= pSat_R3
+        && P <= 100
+    )
+    {
+        double tStar = _T_P_s_R3(P,s);
+        double TB23 = _T_R2_R3_b(P);
+        double pB23 = _P_R2_R3_b(tStar);
+
+        if
+        (
+            tStar >= 623.15
+            && tStar <= TB23
+            && P >= pB23
+        )
+        {
+            return _w_P_s_R3(P,s);
+        }
+    }
+
+    // //undefined for this region
+    // //TODO: determine which error should propogate
+    // double tSat_R4 = _Tsat_P_R4(P);
+    // double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    // double sSat_R2 = s_R2_T_P(tSat_R4, P);
+    // //region 4
+    // if
+    // (
+    //     (
+    //         P > 0
+    //         && P < 16.529
+    //         && s >= sSat_R1
+    //         && s <= sSat_R2
+    //     )
+    //     ||
+    //     (
+    //         P >= 16.529
+    //         && P <= pSat_R3
+    //     )
     // )
     // {
     //     return tSat_R4;

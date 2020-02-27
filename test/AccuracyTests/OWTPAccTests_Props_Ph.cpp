@@ -786,7 +786,6 @@ TEST_F(OWTPAccTests_Props_Ph, u_P_h_0d0365398932MPa_1800h)
     bool uPass = IsAcceptable(uErr);
     ASSERT_TRUE(uPass);
 }
-
 TEST_F(OWTPAccTests_Props_Ph, T_P_h_0d502008352MPa_2400h)
 {
     const double P = 0.502008352;
@@ -831,7 +830,6 @@ TEST_F(OWTPAccTests_Props_Ph, u_P_h_0d502008352MPa_2400h)
     bool uPass = IsAcceptable(uErr);
     ASSERT_TRUE(uPass);
 }
-
 TEST_F(OWTPAccTests_Props_Ph, T_P_h_3d93633491MPa_2500h)
 {
     const double P = 3.93633491;
