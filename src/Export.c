@@ -126,31 +126,31 @@
 
 	DLL_EXPORT double v_P_s_R1(double press, double entropy)
 	{
-		return v_R1_P_s(press, entropy);
+		return _v_P_s_R1(press, entropy);
 	}
 	DLL_EXPORT double u_P_s_R1(double press, double entropy)
 	{
-		return u_R1_P_s(press, entropy);
+		return _u_P_s_R1(press, entropy);
 	}
 	DLL_EXPORT double h_P_s_R1(double press, double entropy)
 	{
-		return h_R1_P_s(press, entropy);
+		return _h_P_s_R1(press, entropy);
 	}
 	DLL_EXPORT double T_P_s_R1(double press, double entropy)
 	{
-		return T_R1_P_s(press, entropy);
+		return _T_P_s_R1(press, entropy);
 	}
 	DLL_EXPORT double cp_P_s_R1(double press, double entropy)
 	{
-		return cp_R1_P_s(press, entropy);
+		return _cp_P_s_R1(press, entropy);
 	}
 	DLL_EXPORT double cv_P_s_R1(double press, double entropy)
 	{
-		return cv_R1_P_s(press, entropy);
+		return _cv_P_s_R1(press, entropy);
 	}
 	DLL_EXPORT double w_P_s_R1(double press, double entropy)
 	{
-		return w_R1_P_s(press, entropy);
+		return _w_P_s_R1(press, entropy);
 	}
 
 	//properties as functions of enthalpy and entropy
