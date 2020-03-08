@@ -205,7 +205,7 @@ static double _gibbs_R2_dpi_dtau(double pi, double tau)
 //State Property Functions as a Function of Temperature and Pressure
 
 //specific volume of region 2 as a function of temperature and pressure
-double v_R2_T_P(double inputTemp, double inputPress)
+double _v_P_T_R2(double inputPress, double inputTemp)
 {
 	//MPa
 	const double pStar = 1;
@@ -220,7 +220,7 @@ double v_R2_T_P(double inputTemp, double inputPress)
 	return (R * inputTemp * pi * gibbs_dpi) / inputPress / 1E+03;
 }
 //specific internal energy of region 2 as a function of temperature and pressure
-double u_R2_T_P(double inputTemp, double inputPress)
+double _u_P_T_R2(double inputPress, double inputTemp)
 {
 	//MPa
 	const double pStar = 1;
@@ -235,7 +235,7 @@ double u_R2_T_P(double inputTemp, double inputPress)
 	return R * inputTemp * ((tau * gibbs_dtau) - (pi * gibbs_dpi));
 }
 //specific entropy of region 2 as a function of temperature and pressure
-double s_R2_T_P(double inputTemp, double inputPress)
+double _s_P_T_R2(double inputPress, double inputTemp)
 {
 	//MPa
 	const double pStar = 1;
@@ -250,7 +250,7 @@ double s_R2_T_P(double inputTemp, double inputPress)
 	return R * ((tau * gibbs_dtau) - gibbs);
 }
 //specific enthalpy of region 2 as a function of temperature and pressure
-double h_R2_T_P(double inputTemp, double inputPress)
+double _h_P_T_R2(double inputPress, double inputTemp)
 {
 	//MPa
 	const double pStar = 1;
@@ -264,7 +264,7 @@ double h_R2_T_P(double inputTemp, double inputPress)
 	return R * inputTemp * tau * gibbs_dtau;
 }
 //specific isobaric heat capacity of region 2 as a function of temperature and pressure
-double cp_R2_T_P(double inputTemp, double inputPress)
+double _cp_P_T_R2(double inputPress, double inputTemp)
 {
 	//MPa
 	const double pStar = 1;
@@ -278,7 +278,7 @@ double cp_R2_T_P(double inputTemp, double inputPress)
 	return R * (-1) * pow(tau, 2) * gibbs_ddtau;
 }
 //specific isochoric heat capacity of region 2 as a function of temperature and pressure
-double cv_R2_T_P(double inputTemp, double inputPress)
+double _cv_P_T_R2(double inputPress, double inputTemp)
 {
 	//MPa
 	const double pStar = 1;
@@ -301,7 +301,7 @@ double cv_R2_T_P(double inputTemp, double inputPress)
 	return R * (c1 - c5);
 }
 //speed of sound of region 2 as a function of temperature and pressure
-double w_R2_T_P(double inputTemp, double inputPress)
+double _w_P_T_R2(double inputPress, double inputTemp)
 {
 	//convert to J / (kg * K) from kJ / (kg * K)
 	double _R = R * 1000;
@@ -453,37 +453,37 @@ double T_R2_P_h(double inputPress, double inputEnth)
 double v_R2_P_h(double inputPress, double inputEnth)
 {
 	double T = T_R2_P_h(inputPress, inputEnth);
-	return v_R2_T_P(T, inputPress);
+	return _v_P_T_R2(inputPress,T);
 }
 //specific internal energy of region 2 as a function of pressure and enthalpy
 double u_R2_P_h(double inputPress, double inputEnth)
 {
 	double T = T_R2_P_h(inputPress, inputEnth);
-	return u_R2_T_P(T, inputPress);
+	return _u_P_T_R2(inputPress,T);
 }
 //specific entropy of region 2 as a function of pressure and enthalpy
 double s_R2_P_h(double inputPress, double inputEnth)
 {
 	double T = T_R2_P_h(inputPress, inputEnth);
-	return s_R2_T_P(T, inputPress);
+	return _s_P_T_R2(inputPress,T);
 }
 //specific isobaric heat capacity of region 2 as a function of pressure and enthalpy
 double cp_R2_P_h(double inputPress, double inputEnth)
 {
 	double T = T_R2_P_h(inputPress, inputEnth);
-	return cp_R2_T_P(T, inputPress);
+	return _cp_P_T_R2(inputPress,T);
 }
 //specific isochoric heat capacity of region 2 as a function of pressure and enthalpy
 double cv_R2_P_h(double inputPress, double inputEnth)
 {
 	double T = T_R2_P_h(inputPress, inputEnth);
-	return cv_R2_T_P(T, inputPress);
+	return _cv_P_T_R2(inputPress,T);
 }
 //speed of sound of region 2 as a function of pressure and enthalpy
 double w_R2_P_h(double inputPress, double inputEnth)
 {
 	double T = T_R2_P_h(inputPress, inputEnth);
-	return w_R2_T_P(T, inputPress);
+	return _w_P_T_R2(inputPress,T);
 }
 
 //Temperature as a function of pressure and entropy for region 2a
@@ -594,37 +594,37 @@ static double T_R2_P_s(double inputPress, double inputEntr)
 double v_R2_P_s(double inputPress, double inputEntr)
 {
 	double T = T_R2_P_s(inputPress, inputEntr);
-	return v_R2_T_P(T, inputPress);
+	return _v_P_T_R2(inputPress,T);
 }
 //specific internal energy of region 2 as a function of pressure and entropy
 double u_R2_P_s(double inputPress, double inputEntr)
 {
 	double T = T_R2_P_s(inputPress, inputEntr);
-	return u_R2_T_P(T, inputPress);
+	return _u_P_T_R2(inputPress,T);
 }
 //specific entropy of region 2 as a function of pressure and entropy
 double h_R2_P_s(double inputPress, double inputEntr)
 {
 	double T = T_R2_P_s(inputPress, inputEntr);
-	return h_R2_T_P(T, inputPress);
+	return _h_P_T_R2(inputPress,T);
 }
 //specific isobaric heat capacity of region 2 as a function of pressure and entropy
 double cp_R2_P_s(double inputPress, double inputEntr)
 {
 	double T = T_R2_P_s(inputPress, inputEntr);
-	return cp_R2_T_P(T, inputPress);
+	return _cp_P_T_R2(inputPress,T);
 }
 //specific isochoric heat capacity of region 2 as a function of pressure and entropy
 double cv_R2_P_s(double inputPress, double inputEntr)
 {
 	double T = T_R2_P_s(inputPress, inputEntr);
-	return cv_R2_T_P(T, inputPress);
+	return _cv_P_T_R2(inputPress,T);
 }
 //speed of sound of region 2 as a function of pressure and entropy
 double w_R2_P_s(double inputPress, double inputEntr)
 {
 	double T = T_R2_P_s(inputPress, inputEntr);
-	return w_R2_T_P(T, inputPress);
+	return _w_P_T_R2(inputPress,T);
 }
 
 //enthalpy on the boundary of regions 2b and 2a
@@ -764,7 +764,7 @@ double v_R2_h_s(double inputEnthalpy, double inputEntropy)
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
 	double T = T_R2_P_h(P, inputEnthalpy);
 
-	return v_R2_T_P(T, P);
+	return _v_P_T_R2(P,T);
 }
 //specific internal energy of region 2 as a function of enthalpy and entropy
 double u_R2_h_s(double inputEnthalpy, double inputEntropy)
@@ -772,7 +772,7 @@ double u_R2_h_s(double inputEnthalpy, double inputEntropy)
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
 	double T = T_R2_P_h(P, inputEnthalpy);
 
-	return u_R2_T_P(T, P);
+	return _u_P_T_R2(P,T);
 }
 //specific isobaric heat capacity of region 2 as a function of enthalpy and entropy
 double cp_R2_h_s(double inputEnthalpy, double inputEntropy)
@@ -780,7 +780,7 @@ double cp_R2_h_s(double inputEnthalpy, double inputEntropy)
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
 	double T = T_R2_P_h(P, inputEnthalpy);
 
-	return cp_R2_T_P(T, P);
+	return _cp_P_T_R2(P,T);
 }
 //specific isochoric heat capacity of region 2 as a function of enthalpy and entropy
 double cv_R2_h_s(double inputEnthalpy, double inputEntropy)
@@ -788,7 +788,7 @@ double cv_R2_h_s(double inputEnthalpy, double inputEntropy)
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
 	double T = T_R2_P_h(P, inputEnthalpy);
 
-	return cv_R2_T_P(T, P);
+	return _cv_P_T_R2(P,T);
 }
 //speed of sound of region 2 as a function of enthalpy and entropy
 double w_R2_h_s(double inputEnthalpy, double inputEntropy)
@@ -796,5 +796,5 @@ double w_R2_h_s(double inputEnthalpy, double inputEntropy)
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
 	double T = T_R2_P_h(P, inputEnthalpy);
 
-	return w_R2_T_P(T, P);
+	return _w_P_T_R2(P,T);
 }

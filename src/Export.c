@@ -187,33 +187,33 @@
 	//REGION 2:
 	//properties as functions of temperature and pressure
 
-	DLL_EXPORT double v_T_P_R2(double temp, double press)
+	DLL_EXPORT double v_P_T_R2(double press, double temp)
 	{
-		return v_R2_T_P(temp, press);
+		return _v_P_T_R2(press,temp);
 	}
-	DLL_EXPORT double u_T_P_R2(double temp, double press)
+	DLL_EXPORT double u_P_T_R2(double press, double temp)
 	{
-		return u_R2_T_P(temp, press);
+		return _u_P_T_R2(press,temp);
 	}
-	DLL_EXPORT double s_T_P_R2(double temp, double press)
+	DLL_EXPORT double s_P_T_R2(double press, double temp)
 	{
-		return s_R2_T_P(temp, press);
+		return _s_P_T_R2(press,temp);
 	}
-	DLL_EXPORT double h_T_P_R2(double temp, double press)
+	DLL_EXPORT double h_P_T_R2(double press, double temp)
 	{
-		return h_R2_T_P(temp, press);
+		return _h_P_T_R2(press,temp);
 	}
-	DLL_EXPORT double cp_T_P_R2(double temp, double press)
+	DLL_EXPORT double cp_P_T_R2(double press, double temp)
 	{
-		return cp_R2_T_P(temp, press);
+		return _cp_P_T_R2(press,temp);
 	}
-	DLL_EXPORT double cv_T_P_R2(double temp, double press)
+	DLL_EXPORT double cv_P_T_R2(double press, double temp)
 	{
-		return cv_R2_T_P(temp, press);
+		return _cv_P_T_R2(press,temp);
 	}
-	DLL_EXPORT double w_T_P_R2(double temp, double press)
+	DLL_EXPORT double w_P_T_R2(double press, double temp)
 	{
-		return w_R2_T_P(temp, press);
+		return _w_P_T_R2(press,temp);
 	}
 
 	//properties as functions of pressure and enthalpy
