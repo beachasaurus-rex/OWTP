@@ -19,7 +19,7 @@ double _v_P_T(double P, double T)
         && P <= 100
     )
     {
-        return v_R1_T_P(T,P);
+        return _v_P_T_R1(P,T);
     }
     //region 2
     else if
@@ -87,7 +87,7 @@ double _u_P_T(double P, double T)
         && P <= 100
     )
     {
-        return u_R1_T_P(T,P);
+        return _u_P_T_R1(P,T);
     }
     //region 2
     else if
@@ -155,7 +155,7 @@ double _s_P_T(double P, double T)
         && P <= 100
     )
     {
-        return s_R1_T_P(T,P);
+        return _s_P_T_R1(P,T);
     }
     //region 2
     else if
@@ -223,7 +223,7 @@ double _h_P_T(double P, double T)
         && P <= 100
     )
     {
-        return h_R1_T_P(T,P);
+        return _h_P_T_R1(P,T);
     }
     //region 2
     else if
@@ -291,7 +291,7 @@ double _cp_P_T(double P, double T)
         && P <= 100
     )
     {
-        return cp_R1_T_P(T,P);
+        return _cp_P_T_R1(P,T);
     }
     //region 2
     else if
@@ -359,7 +359,7 @@ double _cv_P_T(double P, double T)
         && P <= 100
     )
     {
-        return cv_R1_T_P(T,P);
+        return _cv_P_T_R1(P,T);
     }
     //region 2
     else if
@@ -427,7 +427,7 @@ double _w_P_T(double P, double T)
         && P <= 100
     )
     {
-        return w_R1_T_P(T,P);
+        return _w_P_T_R1(P,T);
     }
     //region 2
     else if
@@ -491,7 +491,7 @@ double _T_P_h(double P, double h)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double h_sat = h_R1_T_P(tSat, P);
+        double h_sat = _h_P_T_R1( P,tSat);
 
         if
         (
@@ -500,7 +500,7 @@ double _T_P_h(double P, double h)
         )
         {
             double tStar = T_R1_P_h(P,h);
-            double hStar = h_R1_T_P(tStar, P);
+            double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
             if
@@ -590,7 +590,7 @@ double _T_P_h(double P, double h)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    double hSat_R1 = _h_P_T_R1( P,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -635,7 +635,7 @@ double _v_P_h(double P, double h)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double h_sat = h_R1_T_P(tSat, P);
+        double h_sat = _h_P_T_R1( P,tSat);
 
         if
         (
@@ -644,7 +644,7 @@ double _v_P_h(double P, double h)
         )
         {
             double tStar = T_R1_P_h(P,h);
-            double hStar = h_R1_T_P(tStar, P);
+            double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
             if
@@ -734,7 +734,7 @@ double _v_P_h(double P, double h)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    double hSat_R1 = _h_P_T_R1( P,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -780,7 +780,7 @@ double _s_P_h(double P, double h)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double h_sat = h_R1_T_P(tSat, P);
+        double h_sat = _h_P_T_R1( P,tSat);
 
         if
         (
@@ -789,7 +789,7 @@ double _s_P_h(double P, double h)
         )
         {
             double tStar = T_R1_P_h(P,h);
-            double hStar = h_R1_T_P(tStar, P);
+            double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
             if
@@ -879,7 +879,7 @@ double _s_P_h(double P, double h)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    double hSat_R1 = _h_P_T_R1( P,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -925,7 +925,7 @@ double _u_P_h(double P, double h)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double h_sat = h_R1_T_P(tSat, P);
+        double h_sat = _h_P_T_R1( P,tSat);
 
         if
         (
@@ -934,7 +934,7 @@ double _u_P_h(double P, double h)
         )
         {
             double tStar = T_R1_P_h(P,h);
-            double hStar = h_R1_T_P(tStar, P);
+            double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
             if
@@ -1024,7 +1024,7 @@ double _u_P_h(double P, double h)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    double hSat_R1 = _h_P_T_R1( P,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -1070,7 +1070,7 @@ double _cp_P_h(double P, double h)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double h_sat = h_R1_T_P(tSat, P);
+        double h_sat = _h_P_T_R1( P,tSat);
 
         if
         (
@@ -1079,7 +1079,7 @@ double _cp_P_h(double P, double h)
         )
         {
             double tStar = T_R1_P_h(P,h);
-            double hStar = h_R1_T_P(tStar, P);
+            double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
             if
@@ -1171,7 +1171,7 @@ double _cp_P_h(double P, double h)
     // //undefined for this region
     // //TODO: determine which error should propogate
     // double tSat_R4 = _Tsat_P_R4(P);
-    // double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    // double hSat_R1 = _h_P_T_R1( P,tSat_R4);
     // double hSat_R2 = h_R2_T_P(tSat_R4, P);
     // //region 4
     // if
@@ -1209,7 +1209,7 @@ double _cv_P_h(double P, double h)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double h_sat = h_R1_T_P(tSat, P);
+        double h_sat = _h_P_T_R1( P,tSat);
 
         if
         (
@@ -1218,7 +1218,7 @@ double _cv_P_h(double P, double h)
         )
         {
             double tStar = T_R1_P_h(P,h);
-            double hStar = h_R1_T_P(tStar, P);
+            double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
             if
@@ -1310,7 +1310,7 @@ double _cv_P_h(double P, double h)
     // //undefined for this region
     // //TODO: determine which error should propogate
     // double tSat_R4 = _Tsat_P_R4(P);
-    // double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    // double hSat_R1 = _h_P_T_R1( P,tSat_R4);
     // double hSat_R2 = h_R2_T_P(tSat_R4, P);
     // //region 4
     // if
@@ -1348,7 +1348,7 @@ double _w_P_h(double P, double h)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double h_sat = h_R1_T_P(tSat, P);
+        double h_sat = _h_P_T_R1( P,tSat);
 
         if
         (
@@ -1357,7 +1357,7 @@ double _w_P_h(double P, double h)
         )
         {
             double tStar = T_R1_P_h(P,h);
-            double hStar = h_R1_T_P(tStar, P);
+            double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
             if
@@ -1449,7 +1449,7 @@ double _w_P_h(double P, double h)
     // //undefined for this region
     // //TODO: determine which error should propogate
     // double tSat_R4 = _Tsat_P_R4(P);
-    // double hSat_R1 = h_R1_T_P(tSat_R4, P);
+    // double hSat_R1 = _h_P_T_R1( P,tSat_R4);
     // double hSat_R2 = h_R2_T_P(tSat_R4, P);
     // //region 4
     // if
@@ -1488,7 +1488,7 @@ double _T_P_s(double P, double s)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double s_sat = s_R1_T_P(tSat, P);
+        double s_sat = _s_P_T_R1( P,tSat);
 
         if
         (
@@ -1586,7 +1586,7 @@ double _T_P_s(double P, double s)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R1 = _s_P_T_R1( P,tSat_R4);
     double sSat_R2 = s_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -1631,7 +1631,7 @@ double _v_P_s(double P, double s)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double s_sat = s_R1_T_P(tSat, P);
+        double s_sat = _s_P_T_R1( P,tSat);
 
         if
         (
@@ -1729,7 +1729,7 @@ double _v_P_s(double P, double s)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R1 = _s_P_T_R1( P,tSat_R4);
     double sSat_R2 = s_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -1775,7 +1775,7 @@ double _h_P_s(double P, double s)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double s_sat = s_R1_T_P(tSat, P);
+        double s_sat = _s_P_T_R1( P,tSat);
 
         if
         (
@@ -1873,7 +1873,7 @@ double _h_P_s(double P, double s)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R1 = _s_P_T_R1( P,tSat_R4);
     double sSat_R2 = s_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -1919,7 +1919,7 @@ double _u_P_s(double P, double s)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double s_sat = s_R1_T_P(tSat, P);
+        double s_sat = _s_P_T_R1( P,tSat);
 
         if
         (
@@ -2017,7 +2017,7 @@ double _u_P_s(double P, double s)
     }
 
     double tSat_R4 = _Tsat_P_R4(P);
-    double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    double sSat_R1 = _s_P_T_R1( P,tSat_R4);
     double sSat_R2 = s_R2_T_P(tSat_R4, P);
     //region 4
     if
@@ -2063,7 +2063,7 @@ double _cp_P_s(double P, double s)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double s_sat = s_R1_T_P(tSat, P);
+        double s_sat = _s_P_T_R1( P,tSat);
 
         if
         (
@@ -2163,7 +2163,7 @@ double _cp_P_s(double P, double s)
     // //undefined for this region
     // //TODO: determine which error should propogate
     // double tSat_R4 = _Tsat_P_R4(P);
-    // double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    // double sSat_R1 = _s_P_T_R1( P,tSat_R4);
     // double sSat_R2 = s_R2_T_P(tSat_R4, P);
     // //region 4
     // if
@@ -2208,7 +2208,7 @@ double _cv_P_s(double P, double s)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double s_sat = s_R1_T_P(tSat, P);
+        double s_sat = _s_P_T_R1( P,tSat);
 
         if
         (
@@ -2308,7 +2308,7 @@ double _cv_P_s(double P, double s)
     // //undefined for this region
     // //TODO: determine which error should propogate
     // double tSat_R4 = _Tsat_P_R4(P);
-    // double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    // double sSat_R1 = _s_P_T_R1( P,tSat_R4);
     // double sSat_R2 = s_R2_T_P(tSat_R4, P);
     // //region 4
     // if
@@ -2353,7 +2353,7 @@ double _w_P_s(double P, double s)
     )
     {
         double tSat = _Tsat_P_R4(P);
-        double s_sat = s_R1_T_P(tSat, P);
+        double s_sat = _s_P_T_R1( P,tSat);
 
         if
         (
@@ -2453,7 +2453,7 @@ double _w_P_s(double P, double s)
     // //undefined for this region
     // //TODO: determine which error should propogate
     // double tSat_R4 = _Tsat_P_R4(P);
-    // double sSat_R1 = s_R1_T_P(tSat_R4, P);
+    // double sSat_R1 = _s_P_T_R1( P,tSat_R4);
     // double sSat_R2 = s_R2_T_P(tSat_R4, P);
     // //region 4
     // if
@@ -2567,7 +2567,7 @@ double _T_h_s(double h, double s)
     //region 4
     double tSat_R4 = _Tsat_h_s_R4(h,s);
     double pSat_R4 = _Psat_h_s_R4(h,s);
-    double hSat_R1 = h_R1_T_P(tSat_R4, pSat_R4);
+    double hSat_R1 = _h_P_T_R1( pSat_R4,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, pSat_R4);
     if
     (
@@ -2679,7 +2679,7 @@ double _P_h_s(double h, double s)
     //region 4
     double tSat_R4 = _Tsat_h_s_R4(h,s);
     double pSat_R4 = _Psat_h_s_R4(h,s);
-    double hSat_R1 = h_R1_T_P(tSat_R4, pSat_R4);
+    double hSat_R1 = _h_P_T_R1( pSat_R4,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, pSat_R4);
     if
     (
@@ -2791,7 +2791,7 @@ double _v_h_s(double h, double s)
     //region 4
     double tSat_R4 = _Tsat_h_s_R4(h,s);
     double pSat_R4 = _Psat_h_s_R4(h,s);
-    double hSat_R1 = h_R1_T_P(tSat_R4, pSat_R4);
+    double hSat_R1 = _h_P_T_R1( pSat_R4,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, pSat_R4);
     if
     (
@@ -2904,7 +2904,7 @@ double _u_h_s(double h, double s)
     //region 4
     double tSat_R4 = _Tsat_h_s_R4(h,s);
     double pSat_R4 = _Psat_h_s_R4(h,s);
-    double hSat_R1 = h_R1_T_P(tSat_R4, pSat_R4);
+    double hSat_R1 = _h_P_T_R1( pSat_R4,tSat_R4);
     double hSat_R2 = h_R2_T_P(tSat_R4, pSat_R4);
     if
     (

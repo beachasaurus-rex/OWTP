@@ -110,7 +110,7 @@ static double _gibbs_dpi_dtau_R1(double pi, double tau)
 //State Property Functions as a Function of Temperature and Pressure
 
 //specific volume of region 1 as a function of temperature and pressure
-double v_R1_T_P(double inputTemp, double inputPressure)
+double _v_P_T_R1(double inputPressure, double inputTemp)
 {
 	//MPa
 	const double pStar = 16.53;
@@ -125,7 +125,7 @@ double v_R1_T_P(double inputTemp, double inputPressure)
 	return (R * inputTemp * pi * gibbs_dpi) / inputPressure / 1E+03;
 }
 //specific internal energy of region 1 as a function of temperature and pressure
-double u_R1_T_P(double inputTemp, double inputPressure)
+double _u_P_T_R1(double inputPressure, double inputTemp)
 {
 	//MPa
 	const double pStar = 16.53;
@@ -140,7 +140,7 @@ double u_R1_T_P(double inputTemp, double inputPressure)
 	return R * inputTemp * ((tau * gibbs_dtau) - (pi * gibbs_dpi));
 }
 //specific entropy of region 1 as a function of temperature and pressure
-double s_R1_T_P(double inputTemp, double inputPressure)
+double _s_P_T_R1(double inputPressure, double inputTemp)
 {
 	//MPa
 	const double pStar = 16.53;
@@ -155,7 +155,7 @@ double s_R1_T_P(double inputTemp, double inputPressure)
 	return R * ((tau * gibbs_dtau) - gibbs);
 }
 //specific enthalpy of region 1 as a function of temperature and pressure
-double h_R1_T_P(double inputTemp, double inputPressure)
+double _h_P_T_R1(double inputPressure, double inputTemp)
 {
 	//MPa
 	const double pStar = 16.53;
@@ -169,7 +169,7 @@ double h_R1_T_P(double inputTemp, double inputPressure)
 	return R * inputTemp * tau * gibbs_dtau;
 }
 //specific isobaric heat capacity of region 1 as a function of temperature and pressure
-double cp_R1_T_P(double inputTemp, double inputPressure)
+double _cp_P_T_R1(double inputPressure, double inputTemp)
 {
 	//MPa
 	const double pStar = 16.53;
@@ -183,7 +183,7 @@ double cp_R1_T_P(double inputTemp, double inputPressure)
 	return R * (-1) * pow(tau, 2) * gibbs_ddtau;
 }
 //specific isochoric heat capacity of region 1 as a function of temperature and pressure
-double cv_R1_T_P(double inputTemp, double inputPressure)
+double _cv_P_T_R1(double inputPressure, double inputTemp)
 {
 	//MPa
 	const double pStar = 16.53;
@@ -200,7 +200,7 @@ double cv_R1_T_P(double inputTemp, double inputPressure)
 	return R * ((-1 * gibbs_ddtau * pow(tau,2)) + (pow((gibbs_dpi - (tau * gibbs_dtau_dpi)),2) / gibbs_ddpi));
 }
 //speed of sound of region 1 as a function of temperature and pressure
-double w_R1_T_P(double inputTemp, double inputPressure)
+double _w_P_T_R1(double inputPressure, double inputTemp)
 {
 	//convert to J / (kg * K) from kJ / (kg * K)
 	double _R = R * 1000;
@@ -258,37 +258,37 @@ double T_R1_P_h(double inputPressure, double inputEnthalpy)
 double v_R1_P_h(double inputPressure, double inputEnthalpy)
 {
 	double T = T_R1_P_h(inputPressure, inputEnthalpy);
-	return v_R1_T_P(T, inputPressure);
+	return _v_P_T_R1(inputPressure,T);
 }
 //specific internal energy of region 1 as a function of pressure and enthalpy
 double u_R1_P_h(double inputPressure, double inputEnthalpy)
 {
 	double T = T_R1_P_h(inputPressure, inputEnthalpy);
-	return u_R1_T_P(T, inputPressure);
+	return _u_P_T_R1(inputPressure,T);
 }
 //specific entropy of region 1 as a function of pressure and enthalpy
 double s_R1_P_h(double inputPressure, double inputEnthalpy)
 {
 	double T = T_R1_P_h(inputPressure, inputEnthalpy);
-	return s_R1_T_P(T, inputPressure);
+	return _s_P_T_R1(inputPressure,T);
 }
 //specific isobaric heat capacity of region 1 as a function of pressure and enthalpy
 double cp_R1_P_h(double inputPressure, double inputEnthalpy)
 {
 	double T = T_R1_P_h(inputPressure, inputEnthalpy);
-	return cp_R1_T_P(T, inputPressure);
+	return _cp_P_T_R1(inputPressure,T);
 }
 //specific isochoric heat capacity of region 1 as a function of pressure and enthalpy
 double cv_R1_P_h(double inputPressure, double inputEnthalpy)
 {
 	double T = T_R1_P_h(inputPressure, inputEnthalpy);
-	return cv_R1_T_P(T, inputPressure);
+	return _cv_P_T_R1(inputPressure,T);
 }
 //speed of sound of region 1 as a function of pressure and enthalpy
 double w_R1_P_h(double inputPressure, double inputEnthalpy)
 {
 	double T = T_R1_P_h(inputPressure, inputEnthalpy);
-	return w_R1_T_P(T, inputPressure);
+	return _w_P_T_R1(inputPressure,T);
 }
 
 
@@ -329,37 +329,37 @@ double T_R1_P_s(double inputPressure, double inputEntropy)
 double v_R1_P_s(double inputPressure, double inputEntropy)
 {
 	double T = T_R1_P_s(inputPressure, inputEntropy);
-	return v_R1_T_P(T, inputPressure);
+	return _v_P_T_R1(inputPressure,T);
 }
 //specific internal energy of region 1 as a function of pressure and entropy
 double u_R1_P_s(double inputPressure, double inputEntropy)
 {
 	double T = T_R1_P_s(inputPressure, inputEntropy);
-	return u_R1_T_P(T, inputPressure);
+	return _u_P_T_R1(inputPressure,T);
 }
 //specific enthalpy of region 1 as a function of pressure and entropy
 double h_R1_P_s(double inputPressure, double inputEntropy)
 {
 	double T = T_R1_P_s(inputPressure, inputEntropy);
-	return h_R1_T_P(T, inputPressure);
+	return _h_P_T_R1(inputPressure,T);
 }
 //specific isobaric heat capacity of region 1 as a function of pressure and entropy
 double cp_R1_P_s(double inputPressure, double inputEntropy)
 {
 	double T = T_R1_P_s(inputPressure, inputEntropy);
-	return cp_R1_T_P(T, inputPressure);
+	return _cp_P_T_R1(inputPressure,T);
 }
 //specific isochoric heat capacity of region 1 as a function of pressure and entropy
 double cv_R1_P_s(double inputPressure, double inputEntropy)
 {
 	double T = T_R1_P_s(inputPressure, inputEntropy);
-	return cv_R1_T_P(T, inputPressure);
+	return _cv_P_T_R1(inputPressure,T);
 }
 //speed of sound of region 1 as a function of pressure and entropy
 double w_R1_P_s(double inputPressure, double inputEntropy)
 {
 	double T = T_R1_P_s(inputPressure, inputEntropy);
-	return w_R1_T_P(T, inputPressure);
+	return _w_P_T_R1(inputPressure,T);
 }
 
 
@@ -407,33 +407,33 @@ double v_R1_h_s(double inputEnth, double inputEntr)
 	double press = P_R1_h_s(inputEnth, inputEntr);
 	double temp = T_R1_h_s(inputEnth, inputEntr);
 
-	return v_R1_T_P(temp, press);
+	return _v_P_T_R1(press,temp);
 }
 double u_R1_h_s(double inputEnth, double inputEntr)
 {
 	double press = P_R1_h_s(inputEnth, inputEntr);
 	double temp = T_R1_h_s(inputEnth, inputEntr);
 
-	return u_R1_T_P(temp, press);
+	return _u_P_T_R1(press,temp);
 }
 double cp_R1_h_s(double inputEnth, double inputEntr)
 {
 	double press = P_R1_h_s(inputEnth, inputEntr);
 	double temp = T_R1_h_s(inputEnth, inputEntr);
 
-	return cp_R1_T_P(temp, press);
+	return _cp_P_T_R1(press,temp);
 }
 double cv_R1_h_s(double inputEnth, double inputEntr)
 {
 	double press = P_R1_h_s(inputEnth, inputEntr);
 	double temp = T_R1_h_s(inputEnth, inputEntr);
 
-	return cv_R1_T_P(temp, press);
+	return _cv_P_T_R1(press,temp);
 }
 double w_R1_h_s(double inputEnth, double inputEntr)
 {
 	double press = P_R1_h_s(inputEnth, inputEntr);
 	double temp = T_R1_h_s(inputEnth, inputEntr);
 
-	return w_R1_T_P(temp, press);
+	return _w_P_T_R1(press,temp);
 }

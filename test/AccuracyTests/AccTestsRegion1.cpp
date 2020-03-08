@@ -13,43 +13,43 @@ extern "C"
     //REGION 1:
 	//properties as a function of temperature and pressure
 
-	DLL_IMPORT  double v_T_P_R1(double, double);
-	DLL_IMPORT  double u_T_P_R1(double, double);
-	DLL_IMPORT  double s_T_P_R1(double, double);
-	DLL_IMPORT  double h_T_P_R1(double, double);
-	DLL_IMPORT  double cp_T_P_R1(double, double);
-	DLL_IMPORT  double cv_T_P_R1(double, double);
-	DLL_IMPORT  double w_T_P_R1(double, double);
+	DLL_IMPORT  double v_P_T_R1(double,double);
+	DLL_IMPORT  double u_P_T_R1(double,double);
+	DLL_IMPORT  double s_P_T_R1(double,double);
+	DLL_IMPORT  double h_P_T_R1(double,double);
+	DLL_IMPORT  double cp_P_T_R1(double,double);
+	DLL_IMPORT  double cv_P_T_R1(double,double);
+	DLL_IMPORT  double w_P_T_R1(double,double);
 
 	//properties as a function of pressure and enthalpy
 
-	DLL_IMPORT  double v_P_h_R1(double, double);
-	DLL_IMPORT  double u_P_h_R1(double, double);
-	DLL_IMPORT  double s_P_h_R1(double, double);
-	DLL_IMPORT  double T_P_h_R1(double, double);
-	DLL_IMPORT  double cp_P_h_R1(double, double);
-	DLL_IMPORT  double cv_P_h_R1(double, double);
-	DLL_IMPORT  double w_P_h_R1(double, double);
+	DLL_IMPORT  double v_P_h_R1(double,double);
+	DLL_IMPORT  double u_P_h_R1(double,double);
+	DLL_IMPORT  double s_P_h_R1(double,double);
+	DLL_IMPORT  double T_P_h_R1(double,double);
+	DLL_IMPORT  double cp_P_h_R1(double,double);
+	DLL_IMPORT  double cv_P_h_R1(double,double);
+	DLL_IMPORT  double w_P_h_R1(double,double);
 
 	//properties as a function of pressure and entropy
 
-	DLL_IMPORT  double v_P_s_R1(double, double);
-	DLL_IMPORT  double u_P_s_R1(double, double);
-	DLL_IMPORT  double h_P_s_R1(double, double);
-	DLL_IMPORT  double T_P_s_R1(double, double);
-	DLL_IMPORT  double cp_P_s_R1(double, double);
-	DLL_IMPORT  double cv_P_s_R1(double, double);
-	DLL_IMPORT  double w_P_s_R1(double, double);
+	DLL_IMPORT  double v_P_s_R1(double,double);
+	DLL_IMPORT  double u_P_s_R1(double,double);
+	DLL_IMPORT  double h_P_s_R1(double,double);
+	DLL_IMPORT  double T_P_s_R1(double,double);
+	DLL_IMPORT  double cp_P_s_R1(double,double);
+	DLL_IMPORT  double cv_P_s_R1(double,double);
+	DLL_IMPORT  double w_P_s_R1(double,double);
 
 	//properties as a function of enthalpy and entropy
 
-	DLL_IMPORT double v_h_s_R1(double, double);
-	DLL_IMPORT double u_h_s_R1(double, double);
-	DLL_IMPORT double P_h_s_R1(double, double);
-	DLL_IMPORT double T_h_s_R1(double, double);
-	DLL_IMPORT double cp_h_s_R1(double, double);
-	DLL_IMPORT double cv_h_s_R1(double, double);
-	DLL_IMPORT double w_h_s_R1(double, double);
+	DLL_IMPORT double v_h_s_R1(double,double);
+	DLL_IMPORT double u_h_s_R1(double,double);
+	DLL_IMPORT double P_h_s_R1(double,double);
+	DLL_IMPORT double T_h_s_R1(double,double);
+	DLL_IMPORT double cp_h_s_R1(double,double);
+	DLL_IMPORT double cv_h_s_R1(double,double);
+	DLL_IMPORT double w_h_s_R1(double,double);
 }
 
 //The temperature and pressure data points for Region1 were
@@ -57,233 +57,233 @@ extern "C"
 //Inductrial Formulation 1997 for the Thermodynamic
 //Properties of Water and Steam" in Table 5 on page 9.
 
-TEST_F(AccTestsRegion1, v_T_P_300K_3MPa)
+TEST_F(AccTestsRegion1, v_P_T_300K_3MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
     const double vExp = 0.100215168E-02;
 
-	double v = v_T_P_R1(testTemp, testPressure);
+	double v = v_P_T_R1(testPressure,testTemp);
 	double vErr = AbsRelativeErr(v, vExp);
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion1, u_T_P_300K_3MPa)
+TEST_F(AccTestsRegion1, u_P_T_300K_3MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
     const double uExp = 0.112324818E+03;
 
-	double u = u_T_P_R1(testTemp, testPressure);
+	double u = u_P_T_R1(testPressure,testTemp);
 	double uErr = AbsRelativeErr(u, uExp);
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(AccTestsRegion1, s_T_P_300K_3MPa)
+TEST_F(AccTestsRegion1, s_P_T_300K_3MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
     const double sExp = 0.392294792;
 
-	double s = s_T_P_R1(testTemp, testPressure);
+	double s = s_P_T_R1(testPressure,testTemp);
 	double sErr = AbsRelativeErr(s, sExp);
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(AccTestsRegion1, h_T_P_300K_3MPa)
+TEST_F(AccTestsRegion1, h_P_T_300K_3MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
     const double hExp = 0.115331273E+03;
 
-	double h = h_T_P_R1(testTemp, testPressure);
+	double h = h_P_T_R1(testPressure,testTemp);
 	double hErr = AbsRelativeErr(h, hExp);
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegion1, cp_T_P_300K_3MPa)
+TEST_F(AccTestsRegion1, cp_P_T_300K_3MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
     const double cpExp = 0.417301218E+01;
 
-	double cp = cp_T_P_R1(testTemp, testPressure);
+	double cp = cp_P_T_R1(testPressure,testTemp);
 	double cpErr = AbsRelativeErr(cp, cpExp);
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(AccTestsRegion1, cv_T_P_300K_3MPa)
+TEST_F(AccTestsRegion1, cv_P_T_300K_3MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
     const double cvExp = 4.121201603587;
 
-	double cv = cv_T_P_R1(testTemp, testPressure);
+	double cv = cv_P_T_R1(testPressure,testTemp);
 	double cvErr = AbsRelativeErr(cv, cvExp);
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(AccTestsRegion1, w_T_P_300K_3MPa)
+TEST_F(AccTestsRegion1, w_P_T_300K_3MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
     const double wExp = 0.150773921E+04;
 
-	double w = w_T_P_R1(testTemp, testPressure);
+	double w = w_P_T_R1(testPressure,testTemp);
 	double wErr = AbsRelativeErr(w, wExp);
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(AccTestsRegion1, v_T_P_300K_80MPa)
+TEST_F(AccTestsRegion1, v_P_T_300K_80MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
     const double vExp = 0.971180894E-03;
 
-	double v = v_T_P_R1(testTemp, testPressure);
+	double v = v_P_T_R1(testPressure,testTemp);
 	double vErr = AbsRelativeErr(v, vExp);
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion1, u_T_P_300K_80MPa)
+TEST_F(AccTestsRegion1, u_P_T_300K_80MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
     const double uExp = 0.106448356E+03;
 
-	double u = u_T_P_R1(testTemp, testPressure);
+	double u = u_P_T_R1(testPressure,testTemp);
 	double uErr = AbsRelativeErr(u, uExp);
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(AccTestsRegion1, s_T_P_300K_80MPa)
+TEST_F(AccTestsRegion1, s_P_T_300K_80MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
     const double sExp = 0.368563852;
 
-	double s = s_T_P_R1(testTemp, testPressure);
+	double s = s_P_T_R1(testPressure,testTemp);
 	double sErr = AbsRelativeErr(s, sExp);
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(AccTestsRegion1, h_T_P_300K_80MPa)
+TEST_F(AccTestsRegion1, h_P_T_300K_80MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
     const double hExp = 0.184142828E+03;
 
-	double h = h_T_P_R1(testTemp, testPressure);
+	double h = h_P_T_R1(testPressure,testTemp);
 	double hErr = AbsRelativeErr(h, hExp);
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegion1, cp_T_P_300K_80MPa)
+TEST_F(AccTestsRegion1, cp_P_T_300K_80MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
     const double cpExp = 0.401008987E+01;
 
-	double cp = cp_T_P_R1(testTemp, testPressure);
+	double cp = cp_P_T_R1(testPressure,testTemp);
 	double cpErr = AbsRelativeErr(cp, cpExp);
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(AccTestsRegion1, cv_T_P_300K_80MPa)
+TEST_F(AccTestsRegion1, cv_P_T_300K_80MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
     const double cvExp = 3.917366061845;
 
-	double cv = cv_T_P_R1(testTemp, testPressure);
+	double cv = cv_P_T_R1(testPressure,testTemp);
 	double cvErr = AbsRelativeErr(cv, cvExp);
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(AccTestsRegion1, w_T_P_300K_80MPa)
+TEST_F(AccTestsRegion1, w_P_T_300K_80MPa)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
     const double wExp = 0.163469054E+04;
 
-	double w = w_T_P_R1(testTemp, testPressure);
+	double w = w_P_T_R1(testPressure,testTemp);
 	double wErr = AbsRelativeErr(w, wExp);
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(AccTestsRegion1, v_T_P_500K_3MPa)
+TEST_F(AccTestsRegion1, v_P_T_500K_3MPa)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
     const double vExp = 0.120241800E-02;
 
-	double v = v_T_P_R1(testTemp, testPressure);
+	double v = v_P_T_R1(testPressure,testTemp);
 	double vErr = AbsRelativeErr(v, vExp);
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion1, u_T_P_500K_3MPa)
+TEST_F(AccTestsRegion1, u_P_T_500K_3MPa)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
     const double uExp = 0.971934985E+03;
 
-	double u = u_T_P_R1(testTemp, testPressure);
+	double u = u_P_T_R1(testPressure,testTemp);
 	double uErr = AbsRelativeErr(u, uExp);
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(AccTestsRegion1, s_T_P_500K_3MPa)
+TEST_F(AccTestsRegion1, s_P_T_500K_3MPa)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
     const double sExp = 0.258041912E+01;
 
-	double s = s_T_P_R1(testTemp, testPressure);
+	double s = s_P_T_R1(testPressure,testTemp);
 	double sErr = AbsRelativeErr(s, sExp);
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(AccTestsRegion1, h_T_P_500K_3MPa)
+TEST_F(AccTestsRegion1, h_P_T_500K_3MPa)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
     const double hExp = 0.975542239E+03;
 
-	double h = h_T_P_R1(testTemp, testPressure);
+	double h = h_P_T_R1(testPressure,testTemp);
 	double hErr = AbsRelativeErr(h, hExp);
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegion1, cp_T_P_500K_3MPa)
+TEST_F(AccTestsRegion1, cp_P_T_500K_3MPa)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
     const double cpExp = 0.465580682E+01;
 
-	double cp = cp_T_P_R1(testTemp, testPressure);
+	double cp = cp_P_T_R1(testPressure,testTemp);
 	double cpErr = AbsRelativeErr(cp, cpExp);
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(AccTestsRegion1, cv_T_P_500K_3MPa)
+TEST_F(AccTestsRegion1, cv_P_T_500K_3MPa)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
     const double cvExp = 3.221392229028;
 
-	double cv = cv_T_P_R1(testTemp, testPressure);
+	double cv = cv_P_T_R1(testPressure,testTemp);
 	double cvErr = AbsRelativeErr(cv, cvExp);
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(AccTestsRegion1, w_T_P_500K_3MPa)
+TEST_F(AccTestsRegion1, w_P_T_500K_3MPa)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
     const double wExp = 0.124071337E+04;
 
-	double w = w_T_P_R1(testTemp, testPressure);
+	double w = w_P_T_R1(testPressure,testTemp);
 	double wErr = AbsRelativeErr(w, wExp);
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
