@@ -2507,8 +2507,8 @@ double _T_h_s(double h, double s)
     }
 
     //region 2
-    tStar = T_R2_h_s(h,s);
-    pStar = P_R2_h_s(h,s);
+    tStar = _T_h_s_R2(h,s);
+    pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
     double pB23 = _P_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
@@ -2619,8 +2619,8 @@ double _P_h_s(double h, double s)
     }
 
     //region 2
-    tStar = T_R2_h_s(h,s);
-    pStar = P_R2_h_s(h,s);
+    tStar = _T_h_s_R2(h,s);
+    pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
     double pB23 = _P_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
@@ -2731,8 +2731,8 @@ double _v_h_s(double h, double s)
     }
 
     //region 2
-    tStar = T_R2_h_s(h,s);
-    pStar = P_R2_h_s(h,s);
+    tStar = _T_h_s_R2(h,s);
+    pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
     double pB23 = _P_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
@@ -2761,7 +2761,7 @@ double _v_h_s(double h, double s)
         )
     )
     {
-        return v_R2_h_s(h,s);
+        return _v_h_s_R2(h,s);
     }
 
     //region 3
@@ -2844,8 +2844,8 @@ double _u_h_s(double h, double s)
     }
 
     //region 2
-    tStar = T_R2_h_s(h,s);
-    pStar = P_R2_h_s(h,s);
+    tStar = _T_h_s_R2(h,s);
+    pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
     double pB23 = _P_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
@@ -2874,7 +2874,7 @@ double _u_h_s(double h, double s)
         )
     )
     {
-        return u_R2_h_s(h,s);
+        return _u_h_s_R2(h,s);
     }
 
     //region 3
@@ -2957,8 +2957,8 @@ double _cv_h_s(double h, double s)
     }
 
     //region 2
-    tStar = T_R2_h_s(h,s);
-    pStar = P_R2_h_s(h,s);
+    tStar = _T_h_s_R2(h,s);
+    pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
     double pB23 = _P_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
@@ -2987,7 +2987,7 @@ double _cv_h_s(double h, double s)
         )
     )
     {
-        return cv_R2_h_s(h,s);
+        return _cv_h_s_R2(h,s);
     }
 
     //region 3
@@ -3047,8 +3047,8 @@ double _cp_h_s(double h, double s)
     }
 
     //region 2
-    tStar = T_R2_h_s(h,s);
-    pStar = P_R2_h_s(h,s);
+    tStar = _T_h_s_R2(h,s);
+    pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
     double pB23 = _P_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
@@ -3077,7 +3077,7 @@ double _cp_h_s(double h, double s)
         )
     )
     {
-        return cp_R2_h_s(h,s);
+        return _cp_h_s_R2(h,s);
     }
 
     //region 3
@@ -3137,8 +3137,8 @@ double _w_h_s(double h, double s)
     }
 
     //region 2
-    tStar = T_R2_h_s(h,s);
-    pStar = P_R2_h_s(h,s);
+    tStar = _T_h_s_R2(h,s);
+    pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
     double pB23 = _P_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
@@ -3167,7 +3167,7 @@ double _w_h_s(double h, double s)
         )
     )
     {
-        return w_R2_h_s(h,s);
+        return _w_h_s_R2(h,s);
     }
 
     //region 3

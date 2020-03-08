@@ -708,7 +708,7 @@ double _P_R2c_h_s(double eta, double sigma)
 //State Property Functions as a Function of Enthalpy and Entropy
 
 //pressure of region 2 as a function of enthalpy and entropy
-double P_R2_h_s(double inputEnthalpy, double inputEntropy)
+double _P_h_s_R2(double inputEnthalpy, double inputEntropy)
 {
 	//kJ / (kg * K)
 	const double sBound = 5.85;
@@ -753,47 +753,47 @@ double P_R2_h_s(double inputEnthalpy, double inputEntropy)
 	}
 }
 //temperature of region 2 as a function of enthalpy and entropy
-double T_R2_h_s(double inputEnthalpy, double inputEntropy)
+double _T_h_s_R2(double inputEnthalpy, double inputEntropy)
 {
-	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
+	double P = _P_h_s_R2(inputEnthalpy, inputEntropy);
 	return _T_P_h_R2(P, inputEnthalpy);
 }
 //specific volume of region 2 as a function of enthalpy and entropy
-double v_R2_h_s(double inputEnthalpy, double inputEntropy)
+double _v_h_s_R2(double inputEnthalpy, double inputEntropy)
 {
-	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
+	double P = _P_h_s_R2(inputEnthalpy, inputEntropy);
 	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _v_P_T_R2(P,T);
 }
 //specific internal energy of region 2 as a function of enthalpy and entropy
-double u_R2_h_s(double inputEnthalpy, double inputEntropy)
+double _u_h_s_R2(double inputEnthalpy, double inputEntropy)
 {
-	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
+	double P = _P_h_s_R2(inputEnthalpy, inputEntropy);
 	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _u_P_T_R2(P,T);
 }
 //specific isobaric heat capacity of region 2 as a function of enthalpy and entropy
-double cp_R2_h_s(double inputEnthalpy, double inputEntropy)
+double _cp_h_s_R2(double inputEnthalpy, double inputEntropy)
 {
-	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
+	double P = _P_h_s_R2(inputEnthalpy, inputEntropy);
 	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _cp_P_T_R2(P,T);
 }
 //specific isochoric heat capacity of region 2 as a function of enthalpy and entropy
-double cv_R2_h_s(double inputEnthalpy, double inputEntropy)
+double _cv_h_s_R2(double inputEnthalpy, double inputEntropy)
 {
-	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
+	double P = _P_h_s_R2(inputEnthalpy, inputEntropy);
 	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _cv_P_T_R2(P,T);
 }
 //speed of sound of region 2 as a function of enthalpy and entropy
-double w_R2_h_s(double inputEnthalpy, double inputEntropy)
+double _w_h_s_R2(double inputEnthalpy, double inputEntropy)
 {
-	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
+	double P = _P_h_s_R2(inputEnthalpy, inputEntropy);
 	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _w_P_T_R2(P,T);
