@@ -23,15 +23,15 @@ static double _gibbs_ideal_R2(double pi, double tau)
 
 	return sum;
 }
-static double _gibbs_ideal_R2_dpi(double pi)
+static double _gibbs_ideal_dpi_R2(double pi)
 {
 	return 1 / pi;
 }
-static double _gibbs_ideal_R2_ddpi(double pi)
+static double _gibbs_ideal_ddpi_R2(double pi)
 {
 	return -1 / pow(pi, 2);
 }
-static double _gibbs_ideal_R2_dtau(double tau)
+static double _gibbs_ideal_dtau_R2(double tau)
 {
 	const int _J0_R2[10] = { 0, 1, -5, -4, -3, -2, -1, 2, 3 };
 	const double _n0_R2[10] = { -9.6927686500217, 10.086655968018, -0.005608791128302, 0.071452738081455, -0.40710498223928, 1.4240819171444, -4.383951131945, -0.28408632460772, 0.021268463753307 };
@@ -45,7 +45,7 @@ static double _gibbs_ideal_R2_dtau(double tau)
 
 	return sum;
 }
-static double _gibbs_ideal_R2_ddtau(double tau)
+static double _gibbs_ideal_ddtau_R2(double tau)
 {
 	const int _J0_R2[10] = { 0, 1, -5, -4, -3, -2, -1, 2, 3 };
 	const double _n0_R2[10] = { -9.6927686500217, 10.086655968018, -0.005608791128302, 0.071452738081455, -0.40710498223928, 1.4240819171444, -4.383951131945, -0.28408632460772, 0.021268463753307 };
@@ -59,7 +59,7 @@ static double _gibbs_ideal_R2_ddtau(double tau)
 
 	return sum;
 }
-static double _gibbs_ideal_R2_dpi_dtau()
+static double _gibbs_ideal_dpi_dtau_R2()
 {
 	return 0;
 }
@@ -81,7 +81,7 @@ static double _gibbs_res_R2(double pi, double tau)
 
 	return sum;
 }
-static double _gibbs_res_R2_dpi(double pi, double tau)
+static double _gibbs_res_dpi_R2(double pi, double tau)
 {
 	const int _Ir_R2[44] = { 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 6, 6, 6, 7, 7, 7, 8, 8, 9, 10, 10, 10, 16, 16, 18, 20, 20, 20, 21, 22, 23, 24, 24, 24 };
 	const int _Jr_R2[44] = { 0, 1, 2, 3, 6, 1, 2, 4, 7, 36, 0, 1, 3, 6, 35, 1, 2, 3, 7, 3, 16, 35, 0, 11, 25, 8, 36, 13, 4, 10, 14, 29, 50, 57, 20, 35, 48, 21, 53, 39, 26, 40, 58 };
@@ -96,7 +96,7 @@ static double _gibbs_res_R2_dpi(double pi, double tau)
 
 	return sum;
 }
-static double _gibbs_res_R2_ddpi(double pi, double tau)
+static double _gibbs_res_ddpi_R2(double pi, double tau)
 {
 	const int _Ir_R2[44] = { 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 6, 6, 6, 7, 7, 7, 8, 8, 9, 10, 10, 10, 16, 16, 18, 20, 20, 20, 21, 22, 23, 24, 24, 24 };
 	const int _Jr_R2[44] = { 0, 1, 2, 3, 6, 1, 2, 4, 7, 36, 0, 1, 3, 6, 35, 1, 2, 3, 7, 3, 16, 35, 0, 11, 25, 8, 36, 13, 4, 10, 14, 29, 50, 57, 20, 35, 48, 21, 53, 39, 26, 40, 58 };
@@ -111,7 +111,7 @@ static double _gibbs_res_R2_ddpi(double pi, double tau)
 
 	return sum;
 }
-static double _gibbs_res_R2_dtau(double pi, double tau)
+static double _gibbs_res_dtau_R2(double pi, double tau)
 {
 	const int _Ir_R2[44] = { 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 6, 6, 6, 7, 7, 7, 8, 8, 9, 10, 10, 10, 16, 16, 18, 20, 20, 20, 21, 22, 23, 24, 24, 24 };
 	const int _Jr_R2[44] = { 0, 1, 2, 3, 6, 1, 2, 4, 7, 36, 0, 1, 3, 6, 35, 1, 2, 3, 7, 3, 16, 35, 0, 11, 25, 8, 36, 13, 4, 10, 14, 29, 50, 57, 20, 35, 48, 21, 53, 39, 26, 40, 58 };
@@ -126,7 +126,7 @@ static double _gibbs_res_R2_dtau(double pi, double tau)
 
 	return sum;
 }
-static double _gibbs_res_R2_ddtau(double pi, double tau)
+static double _gibbs_res_ddtau_R2(double pi, double tau)
 {
 	const int _Ir_R2[44] = { 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 6, 6, 6, 7, 7, 7, 8, 8, 9, 10, 10, 10, 16, 16, 18, 20, 20, 20, 21, 22, 23, 24, 24, 24 };
 	const int _Jr_R2[44] = { 0, 1, 2, 3, 6, 1, 2, 4, 7, 36, 0, 1, 3, 6, 35, 1, 2, 3, 7, 3, 16, 35, 0, 11, 25, 8, 36, 13, 4, 10, 14, 29, 50, 57, 20, 35, 48, 21, 53, 39, 26, 40, 58 };
@@ -141,7 +141,7 @@ static double _gibbs_res_R2_ddtau(double pi, double tau)
 
 	return sum;
 }
-static double _gibbs_res_R2_dpi_dtau(double pi, double tau)
+static double _gibbs_res_dpi_dtau_R2(double pi, double tau)
 {
 	const int _Ir_R2[44] = { 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 6, 6, 6, 7, 7, 7, 8, 8, 9, 10, 10, 10, 16, 16, 18, 20, 20, 20, 21, 22, 23, 24, 24, 24 };
 	const int _Jr_R2[44] = { 0, 1, 2, 3, 6, 1, 2, 4, 7, 36, 0, 1, 3, 6, 35, 1, 2, 3, 7, 3, 16, 35, 0, 11, 25, 8, 36, 13, 4, 10, 14, 29, 50, 57, 20, 35, 48, 21, 53, 39, 26, 40, 58 };
@@ -166,38 +166,38 @@ static double _gibbs_R2(double pi, double tau)
 
 	return gibbs_ideal + gibbs_res;
 }
-static double _gibbs_R2_dpi(double pi, double tau)
+static double _gibbs_dpi_R2(double pi, double tau)
 {
-	double gibbs_ideal_dpi = _gibbs_ideal_R2_dpi(pi);
-	double gibbs_res_dpi = _gibbs_res_R2_dpi(pi, tau);
+	double gibbs_ideal_dpi = _gibbs_ideal_dpi_R2(pi);
+	double gibbs_res_dpi = _gibbs_res_dpi_R2(pi, tau);
 
 	return gibbs_ideal_dpi + gibbs_res_dpi;
 }
-static double _gibbs_R2_ddpi(double pi, double tau)
+static double _gibbs_ddpi_R2(double pi, double tau)
 {
-	double gibbs_ideal_ddpi = _gibbs_ideal_R2_ddpi(pi);
-	double gibbs_res_ddpi = _gibbs_res_R2_ddpi(pi, tau);
+	double gibbs_ideal_ddpi = _gibbs_ideal_ddpi_R2(pi);
+	double gibbs_res_ddpi = _gibbs_res_ddpi_R2(pi, tau);
 
 	return gibbs_ideal_ddpi + gibbs_res_ddpi;
 }
-static double _gibbs_R2_dtau(double pi, double tau)
+static double _gibbs_dtau_R2(double pi, double tau)
 {
-	double gibbs_ideal_dtau = _gibbs_ideal_R2_dtau(tau);
-	double gibbs_res_dtau = _gibbs_res_R2_dtau(pi, tau);
+	double gibbs_ideal_dtau = _gibbs_ideal_dtau_R2(tau);
+	double gibbs_res_dtau = _gibbs_res_dtau_R2(pi, tau);
 
 	return gibbs_ideal_dtau + gibbs_res_dtau;
 }
-static double _gibbs_R2_ddtau(double pi, double tau)
+static double _gibbs_ddtau_R2(double pi, double tau)
 {
-	double gibbs_ideal_ddtau = _gibbs_ideal_R2_ddtau(tau);
-	double gibbs_res_ddtau = _gibbs_res_R2_ddtau(pi, tau);
+	double gibbs_ideal_ddtau = _gibbs_ideal_ddtau_R2(tau);
+	double gibbs_res_ddtau = _gibbs_res_ddtau_R2(pi, tau);
 
 	return gibbs_ideal_ddtau + gibbs_res_ddtau;
 }
-static double _gibbs_R2_dpi_dtau(double pi, double tau)
+static double _gibbs_dpi_dtau_R2(double pi, double tau)
 {
-	double gibbs_ideal_dpi_dtau = _gibbs_ideal_R2_dpi_dtau();
-	double gibbs_res_dpi_dtau = _gibbs_res_R2_dpi_dtau(pi, tau);
+	double gibbs_ideal_dpi_dtau = _gibbs_ideal_dpi_dtau_R2();
+	double gibbs_res_dpi_dtau = _gibbs_res_dpi_dtau_R2(pi, tau);
 
 	return gibbs_ideal_dpi_dtau + gibbs_res_dpi_dtau;
 }
@@ -214,7 +214,7 @@ double _v_P_T_R2(double inputPress, double inputTemp)
 
 	double pi = inputPress / pStar;
 	double tau = tStar / inputTemp;
-	double gibbs_dpi = _gibbs_R2_dpi(pi, tau);
+	double gibbs_dpi = _gibbs_dpi_R2(pi, tau);
 
 	//divide by 1E+03 for difference in units from R & pressure
 	return (R * inputTemp * pi * gibbs_dpi) / inputPress / 1E+03;
@@ -229,8 +229,8 @@ double _u_P_T_R2(double inputPress, double inputTemp)
 
 	double pi = inputPress / pStar;
 	double tau = tStar / inputTemp;
-	double gibbs_dpi = _gibbs_R2_dpi(pi, tau);
-	double gibbs_dtau = _gibbs_R2_dtau(pi, tau);
+	double gibbs_dpi = _gibbs_dpi_R2(pi, tau);
+	double gibbs_dtau = _gibbs_dtau_R2(pi, tau);
 
 	return R * inputTemp * ((tau * gibbs_dtau) - (pi * gibbs_dpi));
 }
@@ -245,7 +245,7 @@ double _s_P_T_R2(double inputPress, double inputTemp)
 	double pi = inputPress / pStar;
 	double tau = tStar / inputTemp;
 	double gibbs = _gibbs_R2(pi, tau);
-	double gibbs_dtau = _gibbs_R2_dtau(pi, tau);
+	double gibbs_dtau = _gibbs_dtau_R2(pi, tau);
 
 	return R * ((tau * gibbs_dtau) - gibbs);
 }
@@ -259,7 +259,7 @@ double _h_P_T_R2(double inputPress, double inputTemp)
 
 	double pi = inputPress / pStar;
 	double tau = tStar / inputTemp;
-	double gibbs_dtau = _gibbs_R2_dtau(pi, tau);
+	double gibbs_dtau = _gibbs_dtau_R2(pi, tau);
 
 	return R * inputTemp * tau * gibbs_dtau;
 }
@@ -273,7 +273,7 @@ double _cp_P_T_R2(double inputPress, double inputTemp)
 
 	double pi = inputPress / pStar;
 	double tau = tStar / inputTemp;
-	double gibbs_ddtau = _gibbs_R2_ddtau(pi, tau);
+	double gibbs_ddtau = _gibbs_ddtau_R2(pi, tau);
 
 	return R * (-1) * pow(tau, 2) * gibbs_ddtau;
 }
@@ -287,10 +287,10 @@ double _cv_P_T_R2(double inputPress, double inputTemp)
 
 	double pi = inputPress / pStar;
 	double tau = tStar / inputTemp;
-	double gibbs_ddtau = _gibbs_R2_ddtau(pi, tau);
-	double gibbs_res_dpi = _gibbs_res_R2_dpi(pi, tau);
-	double gibbs_res_ddpi = _gibbs_res_R2_ddpi(pi, tau);
-	double gibbs_res_dpi_dtau = _gibbs_res_R2_dpi_dtau(pi, tau);
+	double gibbs_ddtau = _gibbs_ddtau_R2(pi, tau);
+	double gibbs_res_dpi = _gibbs_res_dpi_R2(pi, tau);
+	double gibbs_res_ddpi = _gibbs_res_ddpi_R2(pi, tau);
+	double gibbs_res_dpi_dtau = _gibbs_res_dpi_dtau_R2(pi, tau);
 
 	double c1 = -1 * pow(tau, 2) * gibbs_ddtau;
 	double c2 = 1 + (pi * gibbs_res_dpi) - (pi * tau * gibbs_res_dpi_dtau);
@@ -313,10 +313,10 @@ double _w_P_T_R2(double inputPress, double inputTemp)
 
 	double pi = inputPress / pStar;
 	double tau = tStar / inputTemp;
-	double gibbs_ddtau = _gibbs_R2_ddtau(pi, tau);
-	double gibbs_res_dpi = _gibbs_res_R2_dpi(pi, tau);
-	double gibbs_res_ddpi = _gibbs_res_R2_ddpi(pi, tau);
-	double gibbs_res_dpi_dtau = _gibbs_res_R2_dpi_dtau(pi, tau);
+	double gibbs_ddtau = _gibbs_ddtau_R2(pi, tau);
+	double gibbs_res_dpi = _gibbs_res_dpi_R2(pi, tau);
+	double gibbs_res_ddpi = _gibbs_res_ddpi_R2(pi, tau);
+	double gibbs_res_dpi_dtau = _gibbs_res_dpi_dtau_R2(pi, tau);
 
 	double c1 = 1 + (2 * pi * gibbs_res_dpi) + pow(pi * gibbs_res_dpi, 2);
 	double c2 = 1 - (pow(pi, 2) * gibbs_res_ddpi);
@@ -331,7 +331,7 @@ double _w_P_T_R2(double inputPress, double inputTemp)
 }
 
 //P(h) for the region 2 boundary
-static double _P_R2B_T_P_h(double inputEnthalpy)
+static double _P_h_R2B(double inputEnthalpy)
 {
 	const double _n_R2B_T_P_h[5] = { 0.90584278514723E+03, -0.67955786399241, 0.12809002730136E-03, 0.26526571908428E+04, 0.45257578905948E+01 };
 	//MPa
@@ -345,7 +345,7 @@ static double _P_R2B_T_P_h(double inputEnthalpy)
 }
 
 //Temperature as a function of pressure and enthalpy for region 2a
-static double _T_R2a_P_h(double pi, double eta)
+static double _T_P_h_R2a(double pi, double eta)
 {
 	const int _I_R2a_T_P_h[35] = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7 };
 	const int _J_R2a_T_P_h[35] = { 0, 1, 2, 3, 7, 20, 0, 1, 2, 3, 7, 9, 11, 18, 44, 0, 2, 7, 36, 38, 40, 42, 44, 24, 44, 12, 32, 44, 32, 36, 42, 34, 44, 28 };
@@ -365,7 +365,7 @@ static double _T_R2a_P_h(double pi, double eta)
 }
 
 //Temperature as a function of pressure and enthalpy for region 2b
-static double _T_R2b_P_h(double pi, double eta)
+static double _T_P_h_R2b(double pi, double eta)
 {
 	const int _I_R2b_T_P_h[39] = { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 6, 7, 7, 9, 9 };
 	const int _J_R2b_T_P_h[39] = { 0, 1, 2, 12, 18, 24, 28, 40, 0, 2, 6, 12, 18, 24, 28, 40, 2, 8, 18, 40, 1, 2, 12, 24, 2, 12, 18, 24, 28, 40, 18, 24, 40, 28, 2, 28, 1, 40 };
@@ -384,7 +384,7 @@ static double _T_R2b_P_h(double pi, double eta)
 }
 
 //Temperature as a function of pressure and enthalpy for region 2c
-static double _T_R2c_P_h(double pi, double eta)
+static double _T_P_h_R2c(double pi, double eta)
 {
 	const int _I_R2c_T_P_h[24] = { -7, -7, -6, -6, -5, -5, -2, -2, -1, -1, 0, 0, 1, 1, 2, 6, 6, 6, 6, 6, 6, 6, 6 };
 	const int _J_R2c_T_P_h[24] = { 0, 4, 0, 2, 0, 2, 0, 1, 0, 2, 0, 1, 4, 8, 4, 0, 1, 4, 10, 12, 16, 20, 22 };
@@ -410,7 +410,7 @@ double _T_P_h_R2(double inputPress, double inputEnth)
 {
 	//MPa
 	double P_R2a_Bound = 4;
-	double PBound = _P_R2B_T_P_h(inputEnth);
+	double PBound = _P_h_R2B(inputEnth);
 
 	if (inputPress <= P_R2a_Bound)
 	{
@@ -422,7 +422,7 @@ double _T_P_h_R2(double inputPress, double inputEnth)
 		double pi = inputPress / pStar;
 		double eta = inputEnth / hStar;
 
-		return _T_R2a_P_h(pi, eta);
+		return _T_P_h_R2a(pi, eta);
 	}
 	else if (inputPress < PBound)
 	{
@@ -434,7 +434,7 @@ double _T_P_h_R2(double inputPress, double inputEnth)
 		double pi = inputPress / pStar;
 		double eta = inputEnth / hStar;
 
-		return _T_R2b_P_h(pi, eta);
+		return _T_P_h_R2b(pi, eta);
 	}
 	else
 	{
@@ -446,7 +446,7 @@ double _T_P_h_R2(double inputPress, double inputEnth)
 		double pi = inputPress / pStar;
 		double eta = inputEnth / hStar;
 
-		return _T_R2c_P_h(pi, eta);
+		return _T_P_h_R2c(pi, eta);
 	}
 }
 //specific volume of region 2 as a function of pressure and enthalpy
@@ -487,7 +487,7 @@ double _w_P_h_R2(double inputPress, double inputEnth)
 }
 
 //Temperature as a function of pressure and entropy for region 2a
-static double _T_R2a_P_s(double pi, double sigma)
+static double _T_P_s_R2a(double pi, double sigma)
 {
 	const double _I_R2a_T_P_s[46] = { -1.5, -1.5, -1.5, -1.5, -1.5, -1.5, -1.25, -1.25, -1.25, -1, -1, -1, -1, -1, -1, -0.75, -0.75, -0.5, -0.5, -0.5, -0.5, -0.25, -0.25, -0.25, -0.25, 0.25, 0.25, 0.25, 0.25, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.75, 0.75, 0.75, 0.75, 1, 1, 1.25, 1.25, 1.5, 1.5 };
 	const double _J_R2a_T_P_s[46] = { -24, -23, -19, -13, -11, -10, -19, -15, -6, -26, -21, -17, -16, -9, -8, -15, -14, -26, -13, -9, -7, -27, -25, -11, -6, 1, 4, 8, 11, 0, 1, 5, 6, 10, 14, 16, 0, 4, 9, 17, 7, 18, 3, 15, 5, 18 };
@@ -506,7 +506,7 @@ static double _T_R2a_P_s(double pi, double sigma)
 }
 
 //Temperature as a function of pressure and entropy for region 2b
-static double _T_R2b_P_s(double pi, double sigma)
+static double _T_P_s_R2b(double pi, double sigma)
 {
 	const double _I_R2b_T_P_s[44] = { -6, -6, -5, -5, -4, -4, -4, -3, -3, -3, -3, -2, -2, -2, -2, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5 };
 	const double _J_R2b_T_P_s[44] = { 0, 11, 0, 11, 0, 1, 11, 0, 1, 11, 12, 0, 1, 6, 10, 0, 1, 5, 8, 9, 0, 1, 2, 4, 5, 6, 9, 0, 1, 2, 3, 7, 8, 0, 1, 5, 0, 1, 3, 0, 1, 0, 1, 2 };
@@ -525,7 +525,7 @@ static double _T_R2b_P_s(double pi, double sigma)
 }
 
 //Temperature as a function of pressure and entropy for region 2c
-static double _T_R2c_P_s(double pi, double sigma)
+static double _T_P_s_R2c(double pi, double sigma)
 {
 	const double _I_R2c_T_P_s[30] = { -2, -2, -1, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7 };
 	const double _J_R2c_T_P_s[30] = { 0, 1, 0, 0, 1, 2, 3, 0, 1, 3, 4, 0, 1, 2, 0, 1, 5, 0, 1, 4, 0, 1, 2, 0, 1, 0, 1, 3, 4, 5 };
@@ -546,7 +546,7 @@ static double _T_R2c_P_s(double pi, double sigma)
 //State Property Functions as a Function of Pressure and Entropy
 
 //temperature of region 2 as a function of pressure and entropy
-static double _T_P_s_R2(double inputPress, double inputEntr)
+double _T_P_s_R2(double inputPress, double inputEntr)
 {
 	//MPa
 	double P_R2a_Bound = 4;
@@ -563,7 +563,7 @@ static double _T_P_s_R2(double inputPress, double inputEntr)
 		double pi = inputPress / pStar;
 		double sigma = inputEntr / sStar;
 
-		return _T_R2a_P_s(pi, sigma);
+		return _T_P_s_R2a(pi, sigma);
 	}
 	else if (inputEntr > SBound)
 	{
@@ -575,7 +575,7 @@ static double _T_P_s_R2(double inputPress, double inputEntr)
 		double pi = inputPress / pStar;
 		double sigma = inputEntr / sStar;
 
-		return _T_R2b_P_s(pi, sigma);
+		return _T_P_s_R2b(pi, sigma);
 	}
 	else
 	{
@@ -587,7 +587,7 @@ static double _T_P_s_R2(double inputPress, double inputEntr)
 		double pi = inputPress / pStar;
 		double sigma = inputEntr / sStar;
 
-		return _T_R2c_P_s(pi, sigma);
+		return _T_P_s_R2c(pi, sigma);
 	}
 }
 //specific volume of region 2 as a function of pressure and entropy
@@ -628,7 +628,7 @@ double _w_P_s_R2(double inputPress, double inputEntr)
 }
 
 //enthalpy on the boundary of regions 2b and 2a
-static double _h_R2B_P_h_s(double inputEntropy)
+static double _h_s_R2B(double inputEntropy)
 {
 	const double _n_R2B_P_h_s[4] = { -0.349898083432139E+04, 0.257560716905876E+04, -0.421073558227969E+03, 0.276349063799944E+02 };
 	//kJ / kg
@@ -642,7 +642,7 @@ static double _h_R2B_P_h_s(double inputEntropy)
 }
 
 //Pressure as a function of enthalpy and entropy for region 2a
-static double _P_R2a_h_s(double eta, double sigma)
+static double _P_h_s_R2a(double eta, double sigma)
 {
 	const double _I_R2a_P_h_s[29] = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 6, 7 };
 	const double _J_R2a_P_h_s[29] = { 1, 3, 6, 16, 20, 22, 0, 1, 2, 3, 5, 6, 10, 16, 20, 22, 3, 16, 20, 0, 2, 3, 6, 16, 16, 3, 16, 3, 1 };
@@ -663,7 +663,7 @@ static double _P_R2a_h_s(double eta, double sigma)
 }
 
 //Pressure as a function of enthalpy and entropy for region 2b
-static double _P_R2b_h_s(double eta, double sigma)
+static double _P_h_s_R2b(double eta, double sigma)
 {
 	const double _I_R2b_P_h_s[33] = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 8, 12, 14 };
 	const double _J_R2b_P_h_s[33] = { 0, 1, 2, 4, 8, 0, 1, 2, 3, 5, 12, 1, 6, 18, 0, 1, 7, 12, 1, 16, 1, 12, 1, 8, 18, 1, 16, 1, 3, 14, 18, 10, 16 };
@@ -685,7 +685,7 @@ static double _P_R2b_h_s(double eta, double sigma)
 }
 
 //Pressure as a function of enthalpy and entropy for region 2c
-double _P_R2c_h_s(double eta, double sigma)
+double _P_h_s_R2c(double eta, double sigma)
 {
 	const double _I_R2c_P_h_s[31] = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 6, 6, 10, 12, 16 };
 	const double _J_R2c_P_h_s[31] = { 0, 1, 2, 3, 4, 8, 0, 2, 5, 8, 14, 2, 3, 7, 10, 18, 0, 5, 8, 16, 18, 18, 1, 4, 6, 14, 8, 18, 7, 7, 10 };
@@ -713,7 +713,7 @@ double _P_h_s_R2(double inputEnthalpy, double inputEntropy)
 	//kJ / (kg * K)
 	const double sBound = 5.85;
 	//kJ / kg
-	double hBound = _h_R2B_P_h_s(inputEntropy);
+	double hBound = _h_s_R2B(inputEntropy);
 
 	if (inputEntropy < sBound)
 	{
@@ -725,7 +725,7 @@ double _P_h_s_R2(double inputEnthalpy, double inputEntropy)
 		double eta = inputEnthalpy / hStar;
 		double sigma = inputEntropy / sStar;
 
-		return _P_R2c_h_s(eta, sigma);
+		return _P_h_s_R2c(eta, sigma);
 	}
 	else if (inputEnthalpy > hBound)
 	{
@@ -737,7 +737,7 @@ double _P_h_s_R2(double inputEnthalpy, double inputEntropy)
 		double eta = inputEnthalpy / hStar;
 		double sigma = inputEntropy / sStar;
 
-		return _P_R2b_h_s(eta, sigma);
+		return _P_h_s_R2b(eta, sigma);
 	}
 	else
 	{
@@ -749,7 +749,7 @@ double _P_h_s_R2(double inputEnthalpy, double inputEntropy)
 		double eta = inputEnthalpy / hStar;
 		double sigma = inputEntropy / sStar;
 
-		return _P_R2a_h_s(eta, sigma);
+		return _P_h_s_R2a(eta, sigma);
 	}
 }
 //temperature of region 2 as a function of enthalpy and entropy
