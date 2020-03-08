@@ -924,3 +924,45 @@ DLL_EXPORT double w_h_s(double h, double s)
 {
     return _w_h_s(h,s);
 }
+
+DLL_EXPORT double PSat_T(double T)
+{
+    return _Psat_T_R4(T);
+}
+DLL_EXPORT double v_T_x(double T, double x)
+{
+    return _v_T_x_R4(T,x);
+}
+DLL_EXPORT double u_T_x(double T, double x)
+{
+    return _u_T_x_R4(T,x);
+}
+DLL_EXPORT double h_T_x(double T, double x)
+{
+    return _h_T_x_R4(T,x);
+}
+DLL_EXPORT double s_T_x(double T, double x)
+{
+    return _s_T_x_R4(T,x);
+}
+
+DLL_EXPORT double TSat_P(double P)
+{
+    return _Tsat_P_R4(P);
+}
+DLL_EXPORT double v_P_x(double P, double x)
+{
+    return _v_P_x_R4(P,x);
+}
+DLL_EXPORT double u_P_x(double P, double x)
+{
+    return _u_P_x_R4(P,x);
+}
+DLL_EXPORT double h_P_x(double P, double x)
+{
+    return _h_P_x_R4(P,x);
+}
+DLL_EXPORT double s_P_x(double P, double x)
+{
+    return _s_P_x_R4(P,x);
+}
