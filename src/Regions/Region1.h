@@ -364,7 +364,7 @@ double _w_P_s_R1(double inputPressure, double inputEntropy)
 
 
 //Pressure function as a function of Enthalpy and Entropy
-static double _press_R1_h_s(double eta, double sigma)
+static double _press_h_s_R1(double eta, double sigma)
 {
 	const int _Ii_R1_P_h_s[20] = { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 4, 4, 5 };
 	const int _Ji_R1_P_h_s[20] = { 0, 1, 2, 4, 5, 6, 8, 14, 0, 1, 4, 6, 0, 1, 10, 4, 1, 4, 0 };
@@ -384,7 +384,7 @@ static double _press_R1_h_s(double eta, double sigma)
 
 //State Property Functions as a Function of Enthalpy and Entropy
 
-double P_R1_h_s(double inputEnth, double inputEntr)
+double _P_h_s_R1(double inputEnth, double inputEntr)
 {
 	//kJ / kg
 	const double hStar = 3400;
@@ -394,46 +394,46 @@ double P_R1_h_s(double inputEnth, double inputEntr)
 	double eta = inputEnth / hStar;
 	double sigma = inputEntr / sStar;
 
-	return _press_R1_h_s(eta, sigma);
+	return _press_h_s_R1(eta, sigma);
 }
-double T_R1_h_s(double inputEnth, double inputEntr)
+double _T_h_s_R1(double inputEnth, double inputEntr)
 {
-	double press = P_R1_h_s(inputEnth, inputEntr);
+	double press = _P_h_s_R1(inputEnth, inputEntr);
 
 	return _T_P_h_R1(press, inputEnth);
 }
-double v_R1_h_s(double inputEnth, double inputEntr)
+double _v_h_s_R1(double inputEnth, double inputEntr)
 {
-	double press = P_R1_h_s(inputEnth, inputEntr);
-	double temp = T_R1_h_s(inputEnth, inputEntr);
+	double press = _P_h_s_R1(inputEnth, inputEntr);
+	double temp = _T_h_s_R1(inputEnth, inputEntr);
 
 	return _v_P_T_R1(press,temp);
 }
-double u_R1_h_s(double inputEnth, double inputEntr)
+double _u_h_s_R1(double inputEnth, double inputEntr)
 {
-	double press = P_R1_h_s(inputEnth, inputEntr);
-	double temp = T_R1_h_s(inputEnth, inputEntr);
+	double press = _P_h_s_R1(inputEnth, inputEntr);
+	double temp = _T_h_s_R1(inputEnth, inputEntr);
 
 	return _u_P_T_R1(press,temp);
 }
-double cp_R1_h_s(double inputEnth, double inputEntr)
+double _cp_h_s_R1(double inputEnth, double inputEntr)
 {
-	double press = P_R1_h_s(inputEnth, inputEntr);
-	double temp = T_R1_h_s(inputEnth, inputEntr);
+	double press = _P_h_s_R1(inputEnth, inputEntr);
+	double temp = _T_h_s_R1(inputEnth, inputEntr);
 
 	return _cp_P_T_R1(press,temp);
 }
-double cv_R1_h_s(double inputEnth, double inputEntr)
+double _cv_h_s_R1(double inputEnth, double inputEntr)
 {
-	double press = P_R1_h_s(inputEnth, inputEntr);
-	double temp = T_R1_h_s(inputEnth, inputEntr);
+	double press = _P_h_s_R1(inputEnth, inputEntr);
+	double temp = _T_h_s_R1(inputEnth, inputEntr);
 
 	return _cv_P_T_R1(press,temp);
 }
-double w_R1_h_s(double inputEnth, double inputEntr)
+double _w_h_s_R1(double inputEnth, double inputEntr)
 {
-	double press = P_R1_h_s(inputEnth, inputEntr);
-	double temp = T_R1_h_s(inputEnth, inputEntr);
+	double press = _P_h_s_R1(inputEnth, inputEntr);
+	double temp = _T_h_s_R1(inputEnth, inputEntr);
 
 	return _w_P_T_R1(press,temp);
 }

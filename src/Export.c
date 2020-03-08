@@ -157,31 +157,31 @@
 
 	DLL_EXPORT double v_h_s_R1(double enthalpy, double entropy)
 	{
-		return v_R1_h_s(enthalpy, entropy);
+		return _v_h_s_R1(enthalpy, entropy);
 	}
 	DLL_EXPORT double u_h_s_R1(double enthalpy, double entropy)
 	{
-		return u_R1_h_s(enthalpy, entropy);
+		return _u_h_s_R1(enthalpy, entropy);
 	}
 	DLL_EXPORT double P_h_s_R1(double enthalpy, double entropy)
 	{
-		return P_R1_h_s(enthalpy, entropy);
+		return _P_h_s_R1(enthalpy, entropy);
 	}
 	DLL_EXPORT double T_h_s_R1(double enthalpy, double entropy)
 	{
-		return T_R1_h_s(enthalpy, entropy);
+		return _T_h_s_R1(enthalpy, entropy);
 	}
 	DLL_EXPORT double cp_h_s_R1(double enthalpy, double entropy)
 	{
-		return cp_R1_h_s(enthalpy, entropy);
+		return _cp_h_s_R1(enthalpy, entropy);
 	}
 	DLL_EXPORT double cv_h_s_R1(double enthalpy, double entropy)
 	{
-		return cv_R1_h_s(enthalpy, entropy);
+		return _cv_h_s_R1(enthalpy, entropy);
 	}
 	DLL_EXPORT double w_h_s_R1(double enthalpy, double entropy)
 	{
-		return w_R1_h_s(enthalpy, entropy);
+		return _w_h_s_R1(enthalpy, entropy);
 	}
 
 	//REGION 2:
