@@ -8,8 +8,6 @@
 	#include "ReferenceConstants.h"
 #endif
 
-#include "stdio.h"
-
 //gamma(pi,tau) ideal
 static double _gamma_ideal(double pi, double tau)
 {
