@@ -406,7 +406,7 @@ static double _T_R2c_P_h(double pi, double eta)
 //State Property Functions as a Function of Pressure and Enthalpy
 
 //temperature of region 2 as a function of pressure and enthalpy
-double T_R2_P_h(double inputPress, double inputEnth)
+double _T_P_h_R2(double inputPress, double inputEnth)
 {
 	//MPa
 	double P_R2a_Bound = 4;
@@ -450,39 +450,39 @@ double T_R2_P_h(double inputPress, double inputEnth)
 	}
 }
 //specific volume of region 2 as a function of pressure and enthalpy
-double v_R2_P_h(double inputPress, double inputEnth)
+double _v_P_h_R2(double inputPress, double inputEnth)
 {
-	double T = T_R2_P_h(inputPress, inputEnth);
+	double T = _T_P_h_R2(inputPress, inputEnth);
 	return _v_P_T_R2(inputPress,T);
 }
 //specific internal energy of region 2 as a function of pressure and enthalpy
-double u_R2_P_h(double inputPress, double inputEnth)
+double _u_P_h_R2(double inputPress, double inputEnth)
 {
-	double T = T_R2_P_h(inputPress, inputEnth);
+	double T = _T_P_h_R2(inputPress, inputEnth);
 	return _u_P_T_R2(inputPress,T);
 }
 //specific entropy of region 2 as a function of pressure and enthalpy
-double s_R2_P_h(double inputPress, double inputEnth)
+double _s_P_h_R2(double inputPress, double inputEnth)
 {
-	double T = T_R2_P_h(inputPress, inputEnth);
+	double T = _T_P_h_R2(inputPress, inputEnth);
 	return _s_P_T_R2(inputPress,T);
 }
 //specific isobaric heat capacity of region 2 as a function of pressure and enthalpy
-double cp_R2_P_h(double inputPress, double inputEnth)
+double _cp_P_h_R2(double inputPress, double inputEnth)
 {
-	double T = T_R2_P_h(inputPress, inputEnth);
+	double T = _T_P_h_R2(inputPress, inputEnth);
 	return _cp_P_T_R2(inputPress,T);
 }
 //specific isochoric heat capacity of region 2 as a function of pressure and enthalpy
-double cv_R2_P_h(double inputPress, double inputEnth)
+double _cv_P_h_R2(double inputPress, double inputEnth)
 {
-	double T = T_R2_P_h(inputPress, inputEnth);
+	double T = _T_P_h_R2(inputPress, inputEnth);
 	return _cv_P_T_R2(inputPress,T);
 }
 //speed of sound of region 2 as a function of pressure and enthalpy
-double w_R2_P_h(double inputPress, double inputEnth)
+double _w_P_h_R2(double inputPress, double inputEnth)
 {
-	double T = T_R2_P_h(inputPress, inputEnth);
+	double T = _T_P_h_R2(inputPress, inputEnth);
 	return _w_P_T_R2(inputPress,T);
 }
 
@@ -756,13 +756,13 @@ double P_R2_h_s(double inputEnthalpy, double inputEntropy)
 double T_R2_h_s(double inputEnthalpy, double inputEntropy)
 {
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
-	return T_R2_P_h(P, inputEnthalpy);
+	return _T_P_h_R2(P, inputEnthalpy);
 }
 //specific volume of region 2 as a function of enthalpy and entropy
 double v_R2_h_s(double inputEnthalpy, double inputEntropy)
 {
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
-	double T = T_R2_P_h(P, inputEnthalpy);
+	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _v_P_T_R2(P,T);
 }
@@ -770,7 +770,7 @@ double v_R2_h_s(double inputEnthalpy, double inputEntropy)
 double u_R2_h_s(double inputEnthalpy, double inputEntropy)
 {
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
-	double T = T_R2_P_h(P, inputEnthalpy);
+	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _u_P_T_R2(P,T);
 }
@@ -778,7 +778,7 @@ double u_R2_h_s(double inputEnthalpy, double inputEntropy)
 double cp_R2_h_s(double inputEnthalpy, double inputEntropy)
 {
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
-	double T = T_R2_P_h(P, inputEnthalpy);
+	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _cp_P_T_R2(P,T);
 }
@@ -786,7 +786,7 @@ double cp_R2_h_s(double inputEnthalpy, double inputEntropy)
 double cv_R2_h_s(double inputEnthalpy, double inputEntropy)
 {
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
-	double T = T_R2_P_h(P, inputEnthalpy);
+	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _cv_P_T_R2(P,T);
 }
@@ -794,7 +794,7 @@ double cv_R2_h_s(double inputEnthalpy, double inputEntropy)
 double w_R2_h_s(double inputEnthalpy, double inputEntropy)
 {
 	double P = P_R2_h_s(inputEnthalpy, inputEntropy);
-	double T = T_R2_P_h(P, inputEnthalpy);
+	double T = _T_P_h_R2(P, inputEnthalpy);
 
 	return _w_P_T_R2(P,T);
 }
