@@ -895,3 +895,32 @@ DLL_EXPORT double w_P_s(double P, double s)
 {
     return _w_P_s(P,s);
 }
+
+DLL_EXPORT double T_h_s(double h, double s)
+{
+    return _T_h_s(h,s);
+}
+DLL_EXPORT double P_h_s(double h, double s)
+{
+    return _P_h_s(h,s);
+}
+DLL_EXPORT double v_h_s(double h, double s)
+{
+    return _v_h_s(h,s);
+}
+DLL_EXPORT double u_h_s(double h, double s)
+{
+    return _u_h_s(h,s);
+}
+DLL_EXPORT double cv_h_s(double h, double s)
+{
+    return _cv_h_s(h,s);
+}
+DLL_EXPORT double cp_h_s(double h, double s)
+{
+    return _cp_h_s(h,s);
+}
+DLL_EXPORT double w_h_s(double h, double s)
+{
+    return _w_h_s(h,s);
+}
