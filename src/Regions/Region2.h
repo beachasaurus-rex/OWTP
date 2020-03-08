@@ -546,7 +546,7 @@ static double _T_R2c_P_s(double pi, double sigma)
 //State Property Functions as a Function of Pressure and Entropy
 
 //temperature of region 2 as a function of pressure and entropy
-static double T_R2_P_s(double inputPress, double inputEntr)
+static double _T_P_s_R2(double inputPress, double inputEntr)
 {
 	//MPa
 	double P_R2a_Bound = 4;
@@ -591,39 +591,39 @@ static double T_R2_P_s(double inputPress, double inputEntr)
 	}
 }
 //specific volume of region 2 as a function of pressure and entropy
-double v_R2_P_s(double inputPress, double inputEntr)
+double _v_P_s_R2(double inputPress, double inputEntr)
 {
-	double T = T_R2_P_s(inputPress, inputEntr);
+	double T = _T_P_s_R2(inputPress, inputEntr);
 	return _v_P_T_R2(inputPress,T);
 }
 //specific internal energy of region 2 as a function of pressure and entropy
-double u_R2_P_s(double inputPress, double inputEntr)
+double _u_P_s_R2(double inputPress, double inputEntr)
 {
-	double T = T_R2_P_s(inputPress, inputEntr);
+	double T = _T_P_s_R2(inputPress, inputEntr);
 	return _u_P_T_R2(inputPress,T);
 }
 //specific entropy of region 2 as a function of pressure and entropy
-double h_R2_P_s(double inputPress, double inputEntr)
+double _h_P_s_R2(double inputPress, double inputEntr)
 {
-	double T = T_R2_P_s(inputPress, inputEntr);
+	double T = _T_P_s_R2(inputPress, inputEntr);
 	return _h_P_T_R2(inputPress,T);
 }
 //specific isobaric heat capacity of region 2 as a function of pressure and entropy
-double cp_R2_P_s(double inputPress, double inputEntr)
+double _cp_P_s_R2(double inputPress, double inputEntr)
 {
-	double T = T_R2_P_s(inputPress, inputEntr);
+	double T = _T_P_s_R2(inputPress, inputEntr);
 	return _cp_P_T_R2(inputPress,T);
 }
 //specific isochoric heat capacity of region 2 as a function of pressure and entropy
-double cv_R2_P_s(double inputPress, double inputEntr)
+double _cv_P_s_R2(double inputPress, double inputEntr)
 {
-	double T = T_R2_P_s(inputPress, inputEntr);
+	double T = _T_P_s_R2(inputPress, inputEntr);
 	return _cv_P_T_R2(inputPress,T);
 }
 //speed of sound of region 2 as a function of pressure and entropy
-double w_R2_P_s(double inputPress, double inputEntr)
+double _w_P_s_R2(double inputPress, double inputEntr)
 {
-	double T = T_R2_P_s(inputPress, inputEntr);
+	double T = _T_P_s_R2(inputPress, inputEntr);
 	return _w_P_T_R2(inputPress,T);
 }
 

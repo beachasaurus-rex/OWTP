@@ -1528,7 +1528,7 @@ double _T_P_s(double P, double s)
             && s <= s_max
         )
         {
-            double tStar = T_R2_P_s(P,s);
+            double tStar = _T_P_s_R2(P,s);
             double pB23 = _P_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
@@ -1671,7 +1671,7 @@ double _v_P_s(double P, double s)
             && s <= s_max
         )
         {
-            double tStar = T_R2_P_s(P,s);
+            double tStar = _T_P_s_R2(P,s);
             double pB23 = _P_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
@@ -1699,7 +1699,7 @@ double _v_P_s(double P, double s)
                 )
             )
             {
-                return v_R2_P_s(P,s);
+                return _v_P_s_R2(P,s);
             }
         }
     }
@@ -1815,7 +1815,7 @@ double _h_P_s(double P, double s)
             && s <= s_max
         )
         {
-            double tStar = T_R2_P_s(P,s);
+            double tStar = _T_P_s_R2(P,s);
             double pB23 = _P_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
@@ -1843,7 +1843,7 @@ double _h_P_s(double P, double s)
                 )
             )
             {
-                return h_R2_P_s(P,s);
+                return _h_P_s_R2(P,s);
             }
         }
     }
@@ -1959,7 +1959,7 @@ double _u_P_s(double P, double s)
             && s <= s_max
         )
         {
-            double tStar = T_R2_P_s(P,s);
+            double tStar = _T_P_s_R2(P,s);
             double pB23 = _P_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
@@ -1987,7 +1987,7 @@ double _u_P_s(double P, double s)
                 )
             )
             {
-                return u_R2_P_s(P,s);
+                return _u_P_s_R2(P,s);
             }
         }
     }
@@ -2103,7 +2103,7 @@ double _cp_P_s(double P, double s)
             && s <= s_max
         )
         {
-            double tStar = T_R2_P_s(P,s);
+            double tStar = _T_P_s_R2(P,s);
             double pB23 = _P_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
@@ -2131,7 +2131,7 @@ double _cp_P_s(double P, double s)
                 )
             )
             {
-                return cp_R2_P_s(P,s);
+                return _cp_P_s_R2(P,s);
             }
         }
     }
@@ -2248,7 +2248,7 @@ double _cv_P_s(double P, double s)
             && s <= s_max
         )
         {
-            double tStar = T_R2_P_s(P,s);
+            double tStar = _T_P_s_R2(P,s);
             double pB23 = _P_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
@@ -2276,7 +2276,7 @@ double _cv_P_s(double P, double s)
                 )
             )
             {
-                return cv_R2_P_s(P,s);
+                return _cv_P_s_R2(P,s);
             }
         }
     }
@@ -2393,7 +2393,7 @@ double _w_P_s(double P, double s)
             && s <= s_max
         )
         {
-            double tStar = T_R2_P_s(P,s);
+            double tStar = _T_P_s_R2(P,s);
             double pB23 = _P_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
@@ -2421,7 +2421,7 @@ double _w_P_s(double P, double s)
                 )
             )
             {
-                return w_R2_P_s(P,s);
+                return _w_P_s_R2(P,s);
             }
         }
     }
