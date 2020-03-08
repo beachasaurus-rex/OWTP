@@ -499,7 +499,7 @@ double _T_P_h(double P, double h)
             && h <= h_sat
         )
         {
-            double tStar = T_R1_P_h(P,h);
+            double tStar = _T_P_h_R1(P,h);
             double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
@@ -643,7 +643,7 @@ double _v_P_h(double P, double h)
             && h <= h_sat
         )
         {
-            double tStar = T_R1_P_h(P,h);
+            double tStar = _T_P_h_R1(P,h);
             double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
@@ -654,7 +654,7 @@ double _v_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return v_R1_P_h(P,h);
+                return _v_P_h_R1(P,h);
             }
         }
     }
@@ -788,7 +788,7 @@ double _s_P_h(double P, double h)
             && h <= h_sat
         )
         {
-            double tStar = T_R1_P_h(P,h);
+            double tStar = _T_P_h_R1(P,h);
             double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
@@ -799,7 +799,7 @@ double _s_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return s_R1_P_h(P,h);
+                return _s_P_h_R1(P,h);
             }
         }
     }
@@ -933,7 +933,7 @@ double _u_P_h(double P, double h)
             && h <= h_sat
         )
         {
-            double tStar = T_R1_P_h(P,h);
+            double tStar = _T_P_h_R1(P,h);
             double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
@@ -944,7 +944,7 @@ double _u_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return u_R1_P_h(P,h);
+                return _u_P_h_R1(P,h);
             }
         }
     }
@@ -1078,7 +1078,7 @@ double _cp_P_h(double P, double h)
             && h <= h_sat
         )
         {
-            double tStar = T_R1_P_h(P,h);
+            double tStar = _T_P_h_R1(P,h);
             double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
@@ -1089,7 +1089,7 @@ double _cp_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return cp_R1_P_h(P,h);
+                return _cp_P_h_R1(P,h);
             }
         }
     }
@@ -1217,7 +1217,7 @@ double _cv_P_h(double P, double h)
             && h <= h_sat
         )
         {
-            double tStar = T_R1_P_h(P,h);
+            double tStar = _T_P_h_R1(P,h);
             double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
@@ -1228,7 +1228,7 @@ double _cv_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return cv_R1_P_h(P,h);
+                return _cv_P_h_R1(P,h);
             }
         }
     }
@@ -1356,7 +1356,7 @@ double _w_P_h(double P, double h)
             && h <= h_sat
         )
         {
-            double tStar = T_R1_P_h(P,h);
+            double tStar = _T_P_h_R1(P,h);
             double hStar = _h_P_T_R1( P,tStar);
             double pSat = _Psat_T_R4(tStar);
 
@@ -1367,7 +1367,7 @@ double _w_P_h(double P, double h)
                 && P >= pSat
             )
             {
-                return w_R1_P_h(P,h);
+                return _w_P_h_R1(P,h);
             }
         }
     }
