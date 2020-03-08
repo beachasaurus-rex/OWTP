@@ -209,7 +209,7 @@ static double _dgamma_dpi_dtau(double pi, double tau)
 }
 
 //v(P,T)
-double _v_P_T_R4(double P, double T)
+double _v_P_T_R5(double P, double T)
 {
     const double pStar = 1;
     const double tStar = 1000;
@@ -220,7 +220,7 @@ double _v_P_T_R4(double P, double T)
     return (R * T * pi * _dgamma_dpi(pi, tau)) / P / 1E+03;
 }
 //u(P,T)
-double _u_P_T_R4(double P, double T)
+double _u_P_T_R5(double P, double T)
 {
     const double pStar = 1;
     const double tStar = 1000;
@@ -230,7 +230,7 @@ double _u_P_T_R4(double P, double T)
     return R * T * (tau * _dgamma_dtau(pi,tau) - pi * _dgamma_dpi(pi,tau));
 }
 //s(P,T)
-double _s_P_T_R4(double P, double T)
+double _s_P_T_R5(double P, double T)
 {
     const double pStar = 1;
     const double tStar = 1000;
@@ -240,7 +240,7 @@ double _s_P_T_R4(double P, double T)
     return R * (tau * _dgamma_dtau(pi,tau) - _gamma(pi,tau));
 }
 //h(P,T)
-double _h_P_T_R4(double P, double T)
+double _h_P_T_R5(double P, double T)
 {
     const double pStar = 1;
     const double tStar = 1000;
@@ -250,7 +250,7 @@ double _h_P_T_R4(double P, double T)
     return R * T * tau * _dgamma_dtau(pi,tau);
 }
 //cp(P,T)
-double _cp_P_T_R4(double P, double T)
+double _cp_P_T_R5(double P, double T)
 {
     const double pStar = 1;
     const double tStar = 1000;
@@ -260,7 +260,7 @@ double _cp_P_T_R4(double P, double T)
     return R * -pow(tau,2) * _dgamma_ddtau(pi,tau);
 }
 //cv(P,T)
-double _cv_P_T_R4(double P, double T)
+double _cv_P_T_R5(double P, double T)
 {
     const double pStar = 1;
     const double tStar = 1000;
@@ -275,7 +275,7 @@ double _cv_P_T_R4(double P, double T)
     return R * (a - (b / c));
 }
 //w(P,T)
-double _w_P_T_R4(double P, double T)
+double _w_P_T_R5(double P, double T)
 {
     //convert to J / (kg * K) from kJ / (kg * K)
     double _R = R * 1000;

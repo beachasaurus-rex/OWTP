@@ -685,7 +685,7 @@ static double _P_R2b_h_s(double eta, double sigma)
 }
 
 //Pressure as a function of enthalpy and entropy for region 2c
-static double _P_R2c_h_s(double eta, double sigma)
+double _P_R2c_h_s(double eta, double sigma)
 {
 	const double _I_R2c_P_h_s[31] = { 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 6, 6, 10, 12, 16 };
 	const double _J_R2c_P_h_s[31] = { 0, 1, 2, 3, 4, 8, 0, 2, 5, 8, 14, 2, 3, 7, 10, 18, 0, 5, 8, 16, 18, 18, 1, 4, 6, 14, 8, 18, 7, 7, 10 };

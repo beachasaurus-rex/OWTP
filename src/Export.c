@@ -1,6 +1,6 @@
-#ifndef ALL_H
-	#define ALL_H
-	#include "All.h"
+#ifndef OWTP_H
+	#define OWTP_H
+	#include "OWTP.h"
 #endif
 
 #define DLL_EXPORT __declspec(dllexport)
@@ -478,10 +478,6 @@
 	{
 		return _T_R3b_P_h(press,enth);
 	}
-	DLL_EXPORT double T_P_h_R3(double press, double enth)
-	{
-		return _T_P_h_R3(press,enth);
-	}
 
 	//subregion boundary equations v(P,h)
 
@@ -492,10 +488,6 @@
 	DLL_EXPORT double v_R3b_P_h(double press, double enth)
 	{
 		return _v_R3b_P_h(press,enth);
-	}
-	DLL_EXPORT double v_P_h_R3(double press, double enth)
-	{
-		return _v_P_h_R3(press,enth);
 	}
 
 	//subregion boundary equation h(P)
@@ -522,10 +514,6 @@
 	{
 		return _T_R3b_P_s(press, entr);
 	}
-	DLL_EXPORT double T_P_s_R3(double press, double entr)
-	{
-		return _T_P_s_R3(press,entr);
-	}
 
 	//subregion boundary equations v(P,s)
 
@@ -536,10 +524,6 @@
 	DLL_EXPORT double v_R3b_P_s(double press, double entr)
 	{
 		return _v_R3b_P_s(press, entr);
-	}
-	DLL_EXPORT double v_P_s_R3(double press, double entr)
-	{
-		return _v_P_s_R3(press,entr);
 	}
 
 	//properties as functions of density and temperature
@@ -635,6 +619,68 @@
 		return _w_P_T_R3(press,temp);
 	}
 
+    //properties as functions of pressure and enthalpy
+
+    DLL_EXPORT double v_P_h_R3(double press, double enth)
+	{
+		return _v_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double T_P_h_R3(double press, double enth)
+	{
+		return _T_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double u_P_h_R3(double press, double enth)
+	{
+		return _u_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double s_P_h_R3(double press, double enth)
+    {
+        return _s_P_h_R3(press,enth);
+    }
+    DLL_EXPORT double cv_P_h_R3(double press, double enth)
+	{
+		return _cv_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double cp_P_h_R3(double press, double enth)
+	{
+		return _cp_P_h_R3(press,enth);
+	}
+    DLL_EXPORT double w_P_h_R3(double press, double enth)
+	{
+		return _w_P_h_R3(press,enth);
+	}
+
+    //properties as functions of pressure and entropy
+
+    DLL_EXPORT double v_P_s_R3(double press, double entr)
+	{
+		return _v_P_s_R3(press,entr);
+	}
+    DLL_EXPORT double T_P_s_R3(double press, double entr)
+	{
+		return _T_P_s_R3(press,entr);
+	}
+    DLL_EXPORT double u_P_s_R3(double press, double entr)
+	{
+		return _u_P_s_R3(press,entr);
+	}
+    DLL_EXPORT double h_P_s_R3(double press, double entr)
+    {
+        return _h_P_s_R3(press,entr);
+    }
+    DLL_EXPORT double cv_P_s_R3(double press, double entr)
+	{
+		return _cv_P_s_R3(press,entr);
+	}
+    DLL_EXPORT double cp_P_s_R3(double press, double entr)
+	{
+		return _cp_P_s_R3(press,entr);
+	}
+    DLL_EXPORT double w_P_s_R3(double press, double entr)
+	{
+		return _w_P_s_R3(press,entr);
+	}
+
 	//properties as functions of enthalpy and entropy
 
 	DLL_EXPORT double p_R3a_h_s(double enth, double entr)
@@ -697,34 +743,226 @@
 		return _x_h_s_R4(h,s);
 	}
 
+    DLL_EXPORT double v_P_x_R4(double P, double x)
+    {
+        return _v_P_x_R4(P,x);
+    }
+    DLL_EXPORT double h_P_x_R4(double P, double x)
+    {
+        return _h_P_x_R4(P,x);
+    }
+    DLL_EXPORT double s_P_x_R4(double P, double x)
+    {
+        return _s_P_x_R4(P,x);
+    }
+    DLL_EXPORT double u_P_x_R4(double P, double x)
+    {
+        return _u_P_x_R4(P,x);
+    }
+
+    DLL_EXPORT double v_T_x_R4(double T, double x)
+    {
+        return _v_T_x_R4(T,x);
+    }
+    DLL_EXPORT double h_T_x_R4(double T, double x)
+    {
+        return _h_T_x_R4(T,x);
+    }
+    DLL_EXPORT double s_T_x_R4(double T, double x)
+    {
+        return _s_T_x_R4(T,x);
+    }
+    DLL_EXPORT double u_T_x_R4(double T, double x)
+    {
+        return _u_T_x_R4(T,x);
+    }
+
 	//Region 5:
 
-	DLL_EXPORT double v_P_T_R4(double P, double T)
+	DLL_EXPORT double v_P_T_R5(double P, double T)
 	{
-		return _v_P_T_R4(P,T);
+		return _v_P_T_R5(P,T);
 	}
-	DLL_EXPORT double u_P_T_R4(double P, double T)
+	DLL_EXPORT double u_P_T_R5(double P, double T)
 	{
-		return _u_P_T_R4(P,T);
+		return _u_P_T_R5(P,T);
 	}
-	DLL_EXPORT double s_P_T_R4(double P, double T)
+	DLL_EXPORT double s_P_T_R5(double P, double T)
 	{
-		return _s_P_T_R4(P,T);
+		return _s_P_T_R5(P,T);
 	}
-	DLL_EXPORT double h_P_T_R4(double P, double T)
+	DLL_EXPORT double h_P_T_R5(double P, double T)
 	{
-		return _h_P_T_R4(P,T);
+		return _h_P_T_R5(P,T);
 	}
-	DLL_EXPORT double cp_P_T_R4(double P, double T)
+	DLL_EXPORT double cp_P_T_R5(double P, double T)
 	{
-		return _cp_P_T_R4(P,T);
+		return _cp_P_T_R5(P,T);
 	}
-	DLL_EXPORT double cv_P_T_R4(double P, double T)
+	DLL_EXPORT double cv_P_T_R5(double P, double T)
 	{
-		return _cv_P_T_R4(P,T);
+		return _cv_P_T_R5(P,T);
 	}
-	DLL_EXPORT double w_P_T_R4(double P, double T)
+	DLL_EXPORT double w_P_T_R5(double P, double T)
 	{
-		return _w_P_T_R4(P,T);
+		return _w_P_T_R5(P,T);
 	}
 #endif
+
+DLL_EXPORT double v_P_T(double P, double T)
+{
+	return _v_P_T(P,T);
+}
+DLL_EXPORT double u_P_T(double P, double T)
+{
+	return _u_P_T(P,T);
+}
+DLL_EXPORT double s_P_T(double P, double T)
+{
+	return _s_P_T(P,T);
+}
+DLL_EXPORT double h_P_T(double P, double T)
+{
+	return _h_P_T(P,T);
+}
+DLL_EXPORT double cp_P_T(double P, double T)
+{
+	return _cp_P_T(P,T);
+}
+DLL_EXPORT double cv_P_T(double P, double T)
+{
+	return _cv_P_T(P,T);
+}
+DLL_EXPORT double w_P_T(double P, double T)
+{
+	return _w_P_T(P,T);
+}
+
+DLL_EXPORT double T_P_h(double P, double h)
+{
+    return _T_P_h(P,h);
+}
+DLL_EXPORT double v_P_h(double P, double h)
+{
+    return _v_P_h(P,h);
+}
+DLL_EXPORT double s_P_h(double P, double h)
+{
+    return _s_P_h(P,h);
+}
+DLL_EXPORT double u_P_h(double P, double h)
+{
+    return _u_P_h(P,h);
+}
+DLL_EXPORT double cp_P_h(double P, double h)
+{
+    return _cp_P_h(P,h);
+}
+DLL_EXPORT double cv_P_h(double P, double h)
+{
+    return _cv_P_h(P,h);
+}
+DLL_EXPORT double w_P_h(double P, double h)
+{
+    return _w_P_h(P,h);
+}
+
+DLL_EXPORT double T_P_s(double P, double s)
+{
+    return _T_P_s(P,s);
+}
+DLL_EXPORT double v_P_s(double P, double s)
+{
+    return _v_P_s(P,s);
+}
+DLL_EXPORT double h_P_s(double P, double s)
+{
+    return _h_P_s(P,s);
+}
+DLL_EXPORT double u_P_s(double P, double s)
+{
+    return _u_P_s(P,s);
+}
+DLL_EXPORT double cp_P_s(double P, double s)
+{
+    return _cp_P_s(P,s);
+}
+DLL_EXPORT double cv_P_s(double P, double s)
+{
+    return _cv_P_s(P,s);
+}
+DLL_EXPORT double w_P_s(double P, double s)
+{
+    return _w_P_s(P,s);
+}
+
+DLL_EXPORT double T_h_s(double h, double s)
+{
+    return _T_h_s(h,s);
+}
+DLL_EXPORT double P_h_s(double h, double s)
+{
+    return _P_h_s(h,s);
+}
+DLL_EXPORT double v_h_s(double h, double s)
+{
+    return _v_h_s(h,s);
+}
+DLL_EXPORT double u_h_s(double h, double s)
+{
+    return _u_h_s(h,s);
+}
+DLL_EXPORT double cv_h_s(double h, double s)
+{
+    return _cv_h_s(h,s);
+}
+DLL_EXPORT double cp_h_s(double h, double s)
+{
+    return _cp_h_s(h,s);
+}
+DLL_EXPORT double w_h_s(double h, double s)
+{
+    return _w_h_s(h,s);
+}
+
+DLL_EXPORT double PSat_T(double T)
+{
+    return _Psat_T_R4(T);
+}
+DLL_EXPORT double v_T_x(double T, double x)
+{
+    return _v_T_x_R4(T,x);
+}
+DLL_EXPORT double u_T_x(double T, double x)
+{
+    return _u_T_x_R4(T,x);
+}
+DLL_EXPORT double h_T_x(double T, double x)
+{
+    return _h_T_x_R4(T,x);
+}
+DLL_EXPORT double s_T_x(double T, double x)
+{
+    return _s_T_x_R4(T,x);
+}
+
+DLL_EXPORT double TSat_P(double P)
+{
+    return _Tsat_P_R4(P);
+}
+DLL_EXPORT double v_P_x(double P, double x)
+{
+    return _v_P_x_R4(P,x);
+}
+DLL_EXPORT double u_P_x(double P, double x)
+{
+    return _u_P_x_R4(P,x);
+}
+DLL_EXPORT double h_P_x(double P, double x)
+{
+    return _h_P_x_R4(P,x);
+}
+DLL_EXPORT double s_P_x(double P, double x)
+{
+    return _s_P_x_R4(P,x);
+}

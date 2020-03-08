@@ -1,5 +1,6 @@
 #get all of the source files
 set(SRCS Export.c
+	OWTP.h
 	All.h
 	Regions/ReferenceConstants.h
 	Regions/Region1.h
