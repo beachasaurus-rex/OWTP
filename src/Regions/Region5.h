@@ -9,7 +9,7 @@
 #endif
 
 //gamma(pi,tau) ideal
-static double _gamma_ideal(double pi, double tau)
+static double _gamma_ideal_R5(double pi, double tau)
 {
     const int J[6] = {0, 1, -3, -2, -1, 2};
     const double n[6] = {-13.179983674201, 6.8540841634434, -0.024805148933466, 0.36901534980333, -3.1161318213925, -0.32961626538917};
@@ -25,17 +25,17 @@ static double _gamma_ideal(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/dpi ideal
-static double _dgamma_dpi_ideal(double pi)
+static double _dgamma_dpi_ideal_R5(double pi)
 {
     return 1.0 / pi;
 }
 //dgamma(pi,tau)/ddpi ideal
-static double _dgamma_ddpi_ideal(double pi)
+static double _dgamma_ddpi_ideal_R5(double pi)
 {
     return -1.0 / pow(pi, 2);
 }
 //dgamma(pi,tau)/dtau ideal
-static double _dgamma_dtau_ideal(double pi, double tau)
+static double _dgamma_dtau_ideal_R5(double pi, double tau)
 {
     const int J[6] = {0, 1, -3, -2, -1, 2};
     const double n[6] = {-13.179983674201, 6.8540841634434, -0.024805148933466, 0.36901534980333, -3.1161318213925, -0.32961626538917};
@@ -51,7 +51,7 @@ static double _dgamma_dtau_ideal(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/ddtau ideal
-static double _dgamma_ddtau_ideal(double pi, double tau)
+static double _dgamma_ddtau_ideal_R5(double pi, double tau)
 {
     const int J[6] = {0, 1, -3, -2, -1, 2};
     const double n[6] = {-13.179983674201, 6.8540841634434, -0.024805148933466, 0.36901534980333, -3.1161318213925, -0.32961626538917};
@@ -67,13 +67,13 @@ static double _dgamma_ddtau_ideal(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/dpidtau ideal
-static double _dgamma_dpi_dtau_ideal()
+static double _dgamma_dpi_dtau_ideal_R5()
 {
     return 0;
 }
 
 //gamma(pi,tau) residual
-static double _gamma_res(double pi, double tau)
+static double _gamma_res_R5(double pi, double tau)
 {
     const int I[6] = {1, 1, 1, 2, 2, 3};
     const int J[6] = {1, 2, 3, 3, 9, 7};
@@ -90,7 +90,7 @@ static double _gamma_res(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/dpi residual
-static double _dgamma_dpi_res(double pi, double tau)
+static double _dgamma_dpi_res_R5(double pi, double tau)
 {
     const int I[6] = {1, 1, 1, 2, 2, 3};
     const int J[6] = {1, 2, 3, 3, 9, 7};
@@ -107,7 +107,7 @@ static double _dgamma_dpi_res(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/ddpi residual
-static double _dgamma_ddpi_res(double pi, double tau)
+static double _dgamma_ddpi_res_R5(double pi, double tau)
 {
     const int I[6] = {1, 1, 1, 2, 2, 3};
     const int J[6] = {1, 2, 3, 3, 9, 7};
@@ -124,7 +124,7 @@ static double _dgamma_ddpi_res(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/dtau residual
-static double _dgamma_dtau_res(double pi, double tau)
+static double _dgamma_dtau_res_R5(double pi, double tau)
 {
     const int I[6] = {1, 1, 1, 2, 2, 3};
     const int J[6] = {1, 2, 3, 3, 9, 7};
@@ -141,7 +141,7 @@ static double _dgamma_dtau_res(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/ddtau residual
-static double _dgamma_ddtau_res(double pi, double tau)
+static double _dgamma_ddtau_res_R5(double pi, double tau)
 {
     const int I[6] = {1, 1, 1, 2, 2, 3};
     const int J[6] = {1, 2, 3, 3, 9, 7};
@@ -158,7 +158,7 @@ static double _dgamma_ddtau_res(double pi, double tau)
     return sum;
 }
 //dgamma(pi,tau)/dpidtau residual
-static double _dgamma_dpi_dtau_res(double pi, double tau)
+static double _dgamma_dpi_dtau_res_R5(double pi, double tau)
 {
     const int I[6] = {1, 1, 1, 2, 2, 3};
     const int J[6] = {1, 2, 3, 3, 9, 7};
@@ -176,34 +176,34 @@ static double _dgamma_dpi_dtau_res(double pi, double tau)
 }
 
 //gamma(pi,tau)
-static double _gamma(double pi, double tau)
+static double _gamma_R5(double pi, double tau)
 {
-    return  _gamma_ideal(pi,tau) + _gamma_res(pi,tau);
+    return  _gamma_ideal_R5(pi,tau) + _gamma_res_R5(pi,tau);
 }
 //dgamma(pi,tau)/dpi
-static double _dgamma_dpi(double pi, double tau)
+static double _dgamma_dpi_R5(double pi, double tau)
 {
-    return  _dgamma_dpi_ideal(pi) + _dgamma_dpi_res(pi,tau);
+    return  _dgamma_dpi_ideal_R5(pi) + _dgamma_dpi_res_R5(pi,tau);
 }
 //dgamma(pi,tau)/ddpi
-static double _dgamma_ddpi(double pi, double tau)
+static double _dgamma_ddpi_R5(double pi, double tau)
 {
-    return  _dgamma_ddpi_ideal(pi) + _dgamma_ddpi_res(pi,tau);
+    return  _dgamma_ddpi_ideal_R5(pi) + _dgamma_ddpi_res_R5(pi,tau);
 }
 //dgamma(pi,tau)/dtau
-static double _dgamma_dtau(double pi, double tau)
+static double _dgamma_dtau_R5(double pi, double tau)
 {
-    return  _dgamma_dtau_ideal(pi,tau) + _dgamma_dtau_res(pi,tau);
+    return  _dgamma_dtau_ideal_R5(pi,tau) + _dgamma_dtau_res_R5(pi,tau);
 }
 //dgamma(pi,tau)/ddtau
-static double _dgamma_ddtau(double pi, double tau)
+static double _dgamma_ddtau_R5(double pi, double tau)
 {
-    return  _dgamma_ddtau_ideal(pi,tau) + _dgamma_ddtau_res(pi,tau);
+    return  _dgamma_ddtau_ideal_R5(pi,tau) + _dgamma_ddtau_res_R5(pi,tau);
 }
 //dgamma(pi,tau)/dpidtau
-static double _dgamma_dpi_dtau(double pi, double tau)
+static double _dgamma_dpi_dtau_R5(double pi, double tau)
 {
-    return  _dgamma_dpi_dtau_ideal() + _dgamma_dpi_dtau_res(pi,tau);
+    return  _dgamma_dpi_dtau_ideal_R5() + _dgamma_dpi_dtau_res_R5(pi,tau);
 }
 
 //v(P,T)
@@ -215,7 +215,7 @@ double _v_P_T_R5(double P, double T)
     double tau = tStar / T;
 
     //divide by 1E+03 for difference in units from R & pressure
-    return (R * T * pi * _dgamma_dpi(pi, tau)) / P / 1E+03;
+    return (R * T * pi * _dgamma_dpi_R5(pi, tau)) / P / 1E+03;
 }
 //u(P,T)
 double _u_P_T_R5(double P, double T)
@@ -225,7 +225,7 @@ double _u_P_T_R5(double P, double T)
     double pi = P / pStar;
     double tau = tStar / T;
 
-    return R * T * (tau * _dgamma_dtau(pi,tau) - pi * _dgamma_dpi(pi,tau));
+    return R * T * (tau * _dgamma_dtau_R5(pi,tau) - pi * _dgamma_dpi_R5(pi,tau));
 }
 //s(P,T)
 double _s_P_T_R5(double P, double T)
@@ -235,7 +235,7 @@ double _s_P_T_R5(double P, double T)
     double pi = P / pStar;
     double tau = tStar / T;
 
-    return R * (tau * _dgamma_dtau(pi,tau) - _gamma(pi,tau));
+    return R * (tau * _dgamma_dtau_R5(pi,tau) - _gamma_R5(pi,tau));
 }
 //h(P,T)
 double _h_P_T_R5(double P, double T)
@@ -245,7 +245,7 @@ double _h_P_T_R5(double P, double T)
     double pi = P / pStar;
     double tau = tStar / T;
 
-    return R * T * tau * _dgamma_dtau(pi,tau);
+    return R * T * tau * _dgamma_dtau_R5(pi,tau);
 }
 //cp(P,T)
 double _cp_P_T_R5(double P, double T)
@@ -255,7 +255,7 @@ double _cp_P_T_R5(double P, double T)
     double pi = P / pStar;
     double tau = tStar / T;
 
-    return R * -pow(tau,2) * _dgamma_ddtau(pi,tau);
+    return R * -pow(tau,2) * _dgamma_ddtau_R5(pi,tau);
 }
 //cv(P,T)
 double _cv_P_T_R5(double P, double T)
@@ -265,10 +265,10 @@ double _cv_P_T_R5(double P, double T)
     double pi = P / pStar;
     double tau = tStar / T;
 
-    double a = -pow(tau,2) * _dgamma_ddtau(pi,tau);
-    double b = pow(1 + pi * _dgamma_dpi_res(pi,tau) - tau * pi
-        * _dgamma_dpi_dtau_res(pi,tau), 2);
-    double c = 1 - pow(pi,2) * _dgamma_ddpi_res(pi,tau);
+    double a = -pow(tau,2) * _dgamma_ddtau_R5(pi,tau);
+    double b = pow(1 + pi * _dgamma_dpi_res_R5(pi,tau) - tau * pi
+        * _dgamma_dpi_dtau_res_R5(pi,tau), 2);
+    double c = 1 - pow(pi,2) * _dgamma_ddpi_res_R5(pi,tau);
 
     return R * (a - (b / c));
 }
@@ -282,12 +282,12 @@ double _w_P_T_R5(double P, double T)
     double pi = P / pStar;
     double tau = tStar / T;
 
-    double a = 1 + 2 * pi * _dgamma_dpi_res(pi,tau) +
-        pow(pi,2) * pow(_dgamma_dpi_res(pi,tau), 2);
-    double b = pow(1 + pi * _dgamma_dpi_res(pi,tau) - tau * pi
-        * _dgamma_dpi_dtau_res(pi,tau), 2);
-    double c = 1 - pow(pi,2) * _dgamma_ddpi_res(pi,tau);
-    double d = pow(tau,2) * _dgamma_ddtau(pi,tau);
+    double a = 1 + 2 * pi * _dgamma_dpi_res_R5(pi,tau) +
+        pow(pi,2) * pow(_dgamma_dpi_res_R5(pi,tau), 2);
+    double b = pow(1 + pi * _dgamma_dpi_res_R5(pi,tau) - tau * pi
+        * _dgamma_dpi_dtau_res_R5(pi,tau), 2);
+    double c = 1 - pow(pi,2) * _dgamma_ddpi_res_R5(pi,tau);
+    double d = pow(tau,2) * _dgamma_ddtau_R5(pi,tau);
 
     double e = a / (c + (b / d));
     return pow(_R * T * e, 0.5);
