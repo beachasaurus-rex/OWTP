@@ -4,7 +4,7 @@
 #endif
 
 //MPa
-double _pSat_R3_R4_b(double temp)
+double _PSat_T_R3_R4_b(double temp)
 {
 	const double _nArr[10] = {1167.0521452767, -724213.16703206, -17.073846940092, 12020.82470247, -3232555.0322333, 14.91510861353, -4823.2657361591, 405113.40542057, -0.23855557567849, 650.17534844798};
 
@@ -27,7 +27,7 @@ double _pSat_R3_R4_b(double temp)
 }
 
 //K
-double _tSat_R3_R4_b(double press)
+double _TSat_P_R3_R4_b(double press)
 {
 	const double _nArr[10] = {1167.0521452767, -724213.16703206, -17.073846940092, 12020.82470247, -3232555.0322333, 14.91510861353, -4823.2657361591, 405113.40542057, -0.23855557567849, 650.17534844798};
 
@@ -53,7 +53,7 @@ double _tSat_R3_R4_b(double press)
 }
 
 //SaturatedPressure(Enthalpy)
-double _pSat_h_R3_R4(double enth)
+double _PSat_h_R3_R4_b(double enth)
 {
     const double hPrime = 1.670858218E+03;
     const double h2Prime = 2.563592004E+03;
@@ -90,7 +90,7 @@ double _pSat_h_R3_R4(double enth)
 }
 
 //SaturatedPressure(Entropy)
-double _pSat_s_R3_R4(double entr)
+double _PSat_s_R3_R4_b(double entr)
 {
     const double sPrime = 3.778281340;
     const double s2Prime = 5.210887825;

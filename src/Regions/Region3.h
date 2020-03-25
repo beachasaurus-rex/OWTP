@@ -295,7 +295,7 @@ double _v_P_T_R3(double press, double temp)
 	//MPa
 	const double pSat_643d15K = 21.04336732;
 	//MPa
-	double pSat_623d15K = _pSat_R3_R4_b(623.15);
+	double pSat_623d15K = _PSat_T_R3_R4_b(623.15);
 	//MPa
 	const double p3cd = 19.00881189173929;
 	//MPa
@@ -303,7 +303,7 @@ double _v_P_T_R3(double press, double temp)
 	//MPa
 	const double pSat_v0d00385 = 21.90096265;
 	//K
-	double Tsat = _tSat_R3_R4_b(press);
+	double Tsat = _TSat_P_R3_R4_b(press);
 
 	//subregions a, b
 	if

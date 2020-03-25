@@ -46,17 +46,17 @@
 
 	//Boundary - Region 3 & 4:
 
-	DLL_EXPORT double pSat_R3_R4_b(double temp)
+	DLL_EXPORT double PSat_T_R3_R4_b(double temp)
 	{
-		return _pSat_R3_R4_b(temp);
+		return _PSat_T_R3_R4_b(temp);
 	}
-	DLL_EXPORT double tSat_R3_R4_b(double press)
+	DLL_EXPORT double TSat_P_R3_R4_b(double press)
 	{
-		return _tSat_R3_R4_b(press);
+		return _TSat_P_R3_R4_b(press);
 	}
-	DLL_EXPORT double pSat_s_R3_R4(double entr)
+	DLL_EXPORT double PSat_s_R3_R4_b(double entr)
 	{
-		return _pSat_s_R3_R4(entr);
+		return _PSat_s_R3_R4_b(entr);
 	}
 
 	//REGION 1:
@@ -499,9 +499,9 @@
 
 	//subregion boundary equation PSat(P,h)
 
-	DLL_EXPORT double pSat_h_R3_R4(double enth)
+	DLL_EXPORT double PSat_h_R3_R4_b(double enth)
 	{
-		return _pSat_h_R3_R4(enth);
+		return _PSat_h_R3_R4_b(enth);
 	}
 
 	//subregion boundary equations T(P,s)
