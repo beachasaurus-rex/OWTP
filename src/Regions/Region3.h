@@ -922,7 +922,7 @@ double _w_P_T_R3(double press, double temp)
 double _T_P_h_R3(double press, double enth)
 {
 	//kJ/kg
-	double hPred = _h_R3ab_P(press);
+	double hPred = _h_P_R3ab(press);
 
 	//subregion a
 	if
@@ -930,19 +930,19 @@ double _T_P_h_R3(double press, double enth)
 		enth < hPred
 	)
 	{
-		return _T_R3a_P_h(press,enth);
+		return _T_P_h_R3a(press,enth);
 	}
 	//subregion b
 	else
 	{
-		return _T_R3b_P_h(press,enth);
+		return _T_P_h_R3b(press,enth);
 	}
 }
 //specific volume as a function of pressure and enthalpy for region 3
 double _v_P_h_R3(double press, double enth)
 {
 	//kJ/kg
-	double hPred = _h_R3ab_P(press);
+	double hPred = _h_P_R3ab(press);
 
 	//subregion a
 	if
@@ -950,12 +950,12 @@ double _v_P_h_R3(double press, double enth)
 		enth < hPred
 	)
 	{
-		return _v_R3a_P_h(press,enth);
+		return _v_P_h_R3a(press,enth);
 	}
 	//subregion b
 	else
 	{
-		return _v_R3b_P_h(press,enth);
+		return _v_P_h_R3b(press,enth);
 	}
 }
 //specific internal energy as a function of pressure and enthalpy for region 3

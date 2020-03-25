@@ -470,31 +470,31 @@
 
 	//subregion boundary equations T(P,h)
 
-	DLL_EXPORT double T_R3a_P_h(double press, double enth)
+	DLL_EXPORT double T_P_h_R3a(double press, double enth)
 	{
-		return _T_R3a_P_h(press,enth);
+		return _T_P_h_R3a(press,enth);
 	}
-	DLL_EXPORT double T_R3b_P_h(double press, double enth)
+	DLL_EXPORT double T_P_h_R3b(double press, double enth)
 	{
-		return _T_R3b_P_h(press,enth);
+		return _T_P_h_R3b(press,enth);
 	}
 
 	//subregion boundary equations v(P,h)
 
-	DLL_EXPORT double v_R3a_P_h(double press, double enth)
+	DLL_EXPORT double v_P_h_R3a(double press, double enth)
 	{
-		return _v_R3a_P_h(press,enth);
+		return _v_P_h_R3a(press,enth);
 	}
-	DLL_EXPORT double v_R3b_P_h(double press, double enth)
+	DLL_EXPORT double v_P_h_R3b(double press, double enth)
 	{
-		return _v_R3b_P_h(press,enth);
+		return _v_P_h_R3b(press,enth);
 	}
 
 	//subregion boundary equation h(P)
 
-	DLL_EXPORT double h_R3ab_P(double press)
+	DLL_EXPORT double h_P_R3ab(double press)
 	{
-		return _h_R3ab_P(press);
+		return _h_P_R3ab(press);
 	}
 
 	//subregion boundary equation PSat(P,h)

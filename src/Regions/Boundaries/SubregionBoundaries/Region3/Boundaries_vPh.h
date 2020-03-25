@@ -13,7 +13,7 @@
 
 
 //Enthalpy(Pressure) for subregion boundary ab
-double _h_R3ab_P(double press)
+double _h_P_R3ab(double press)
 {
 	const double _n_h_P_R3ab[4] = {0.201464004206875E+04, 0.374696550136983E+01, -0.219921901054187E-01, 0.875131686009950E-04};
 
@@ -31,7 +31,7 @@ double _h_R3ab_P(double press)
 }
 
 //Temperature(Pressure,Enthalpy) for subregion a
-double _T_R3a_P_h(double press, double enth)
+double _T_P_h_R3a(double press, double enth)
 {
 	const int _I_T_P_h_R3a[31] = {-12, -12, -12, -12, -12, -12, -12, -12, -10, -10, -10, -8, -8, -8, -8, -5, -3, -2, -2, -2, -1, -1, 0, 0, 1, 3, 3, 4, 4, 10, 12};
 	const int _J_T_P_h_R3a[31] = {0, 1, 2, 6, 14, 16, 20, 22, 1, 5, 12, 0, 2, 4, 10, 2, 0, 1, 3, 4, 0, 2, 0, 1, 1, 0, 1, 0, 3, 4, 5};
@@ -60,7 +60,7 @@ double _T_R3a_P_h(double press, double enth)
 }
 
 //Temperature(Pressure,Enthalpy) for subregion b
-double _T_R3b_P_h(double press, double enth)
+double _T_P_h_R3b(double press, double enth)
 {
 	const int _I_T_P_h_R3b[33] = {-12, -12, -10, -10, -10, -10, -10, -8, -8, -8, -8, -8, -6, -6, -6, -4, -4, -3, -2, -2, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 5, 6, 8};
 	const int _J_T_P_h_R3b[33] = {0, 1, 0, 1, 5, 10, 12, 0, 1, 2, 4, 10, 0, 1, 2, 0, 1, 5, 0, 4, 2, 4, 6, 10, 14, 16, 0, 2, 1, 1, 1, 1, 1};
@@ -89,7 +89,7 @@ double _T_R3b_P_h(double press, double enth)
 }
 
 //v(Pressure,Enthalpy) for subregion a
-double _v_R3a_P_h(double press, double enth)
+double _v_P_h_R3a(double press, double enth)
 {
 	const int _I_v_P_h_R3a[32] = {-12, -12, -12, -12, -10, -10, -10, -8, -8, -6, -6, -6, -4, -4, -3, -2, -2, -1, -1, -1, -1, 0, 0, 1, 1, 1, 2, 2, 3, 4, 5, 8};
 	const int _J_v_P_h_R3a[32] = {6, 8, 12, 18, 4, 7, 10, 5, 12, 3, 4, 22, 2, 3, 7, 3, 16, 0, 1, 2, 3, 0, 1, 0, 1, 2, 0, 2, 0, 2, 2, 2};
@@ -118,7 +118,7 @@ double _v_R3a_P_h(double press, double enth)
 }
 
 //v(Pressure,Enthalpy) for subregion b
-double _v_R3b_P_h(double press, double enth)
+double _v_P_h_R3b(double press, double enth)
 {
 	const int _I_v_P_h_R3b[30] = {-12, -12, -8, -8, -8, -8, -8, -8, -6, -6, -6, -6, -6, -6, -4, -4, -4, -3, -3, -2, -2, -1, -1, -1, -1, 0, 1, 1, 2, 2};
 	const int _J_v_P_h_R3b[30] = {0, 1, 0, 1, 3, 6, 7, 8, 0, 1, 2, 5, 6, 10, 3, 6, 10, 0, 2, 1, 2, 0, 1, 4, 5, 0, 0, 1, 2, 6};
