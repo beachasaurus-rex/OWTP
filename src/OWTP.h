@@ -7,8 +7,8 @@
 double _v_P_T(double P, double T)
 {
     double pSat_r1 = _Psat_T_R4(T);
-    double p_r2r3 = _P_R2_R3_b(T);
-    double T_r2r3 = _T_R2_R3_b(P);
+    double p_r2r3 = _P_T_R2_R3_b(T);
+    double T_r2r3 = _T_P_R2_R3_b(P);
 
     //region 1
     if
@@ -75,8 +75,8 @@ double _v_P_T(double P, double T)
 double _u_P_T(double P, double T)
 {
     double pSat_r1 = _Psat_T_R4(T);
-    double p_r2r3 = _P_R2_R3_b(T);
-    double T_r2r3 = _T_R2_R3_b(P);
+    double p_r2r3 = _P_T_R2_R3_b(T);
+    double T_r2r3 = _T_P_R2_R3_b(P);
 
     //region 1
     if
@@ -143,8 +143,8 @@ double _u_P_T(double P, double T)
 double _s_P_T(double P, double T)
 {
     double pSat_r1 = _Psat_T_R4(T);
-    double p_r2r3 = _P_R2_R3_b(T);
-    double T_r2r3 = _T_R2_R3_b(P);
+    double p_r2r3 = _P_T_R2_R3_b(T);
+    double T_r2r3 = _T_P_R2_R3_b(P);
 
     //region 1
     if
@@ -211,8 +211,8 @@ double _s_P_T(double P, double T)
 double _h_P_T(double P, double T)
 {
     double pSat_r1 = _Psat_T_R4(T);
-    double p_r2r3 = _P_R2_R3_b(T);
-    double T_r2r3 = _T_R2_R3_b(P);
+    double p_r2r3 = _P_T_R2_R3_b(T);
+    double T_r2r3 = _T_P_R2_R3_b(P);
 
     //region 1
     if
@@ -279,8 +279,8 @@ double _h_P_T(double P, double T)
 double _cp_P_T(double P, double T)
 {
     double pSat_r1 = _Psat_T_R4(T);
-    double p_r2r3 = _P_R2_R3_b(T);
-    double T_r2r3 = _T_R2_R3_b(P);
+    double p_r2r3 = _P_T_R2_R3_b(T);
+    double T_r2r3 = _T_P_R2_R3_b(P);
 
     //region 1
     if
@@ -347,8 +347,8 @@ double _cp_P_T(double P, double T)
 double _cv_P_T(double P, double T)
 {
     double pSat_r1 = _Psat_T_R4(T);
-    double p_r2r3 = _P_R2_R3_b(T);
-    double T_r2r3 = _T_R2_R3_b(P);
+    double p_r2r3 = _P_T_R2_R3_b(T);
+    double T_r2r3 = _T_P_R2_R3_b(P);
 
     //region 1
     if
@@ -415,8 +415,8 @@ double _cv_P_T(double P, double T)
 double _w_P_T(double P, double T)
 {
     double pSat_r1 = _Psat_T_R4(T);
-    double p_r2r3 = _P_R2_R3_b(T);
-    double T_r2r3 = _T_R2_R3_b(P);
+    double p_r2r3 = _P_T_R2_R3_b(T);
+    double T_r2r3 = _T_P_R2_R3_b(P);
 
     //region 1
     if
@@ -533,7 +533,7 @@ double _T_P_h(double P, double h)
         )
         {
             double tStar = _T_P_h_R2(P,h);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double hB23 = _h_P_T_R2(pB23,tStar);
 
@@ -575,8 +575,8 @@ double _T_P_h(double P, double h)
     )
     {
         double tStar = _T_P_h_R3(P,h);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -677,7 +677,7 @@ double _v_P_h(double P, double h)
         )
         {
             double tStar = _T_P_h_R2(P,h);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double hB23 = _h_P_T_R2(pB23,tStar);
 
@@ -719,8 +719,8 @@ double _v_P_h(double P, double h)
     )
     {
         double tStar = _T_P_h_R3(P,h);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -822,7 +822,7 @@ double _s_P_h(double P, double h)
         )
         {
             double tStar = _T_P_h_R2(P,h);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double hB23 = _h_P_T_R2(pB23,tStar);
 
@@ -864,8 +864,8 @@ double _s_P_h(double P, double h)
     )
     {
         double tStar = _T_P_h_R3(P,h);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -967,7 +967,7 @@ double _u_P_h(double P, double h)
         )
         {
             double tStar = _T_P_h_R2(P,h);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double hB23 = _h_P_T_R2(pB23,tStar);
 
@@ -1009,8 +1009,8 @@ double _u_P_h(double P, double h)
     )
     {
         double tStar = _T_P_h_R3(P,h);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -1112,7 +1112,7 @@ double _cp_P_h(double P, double h)
         )
         {
             double tStar = _T_P_h_R2(P,h);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double hB23 = _h_P_T_R2(pB23,tStar);
 
@@ -1154,8 +1154,8 @@ double _cp_P_h(double P, double h)
     )
     {
         double tStar = _T_P_h_R3(P,h);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -1251,7 +1251,7 @@ double _cv_P_h(double P, double h)
         )
         {
             double tStar = _T_P_h_R2(P,h);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double hB23 = _h_P_T_R2(pB23,tStar);
 
@@ -1293,8 +1293,8 @@ double _cv_P_h(double P, double h)
     )
     {
         double tStar = _T_P_h_R3(P,h);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -1390,7 +1390,7 @@ double _w_P_h(double P, double h)
         )
         {
             double tStar = _T_P_h_R2(P,h);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double hB23 = _h_P_T_R2(pB23,tStar);
 
@@ -1432,8 +1432,8 @@ double _w_P_h(double P, double h)
     )
     {
         double tStar = _T_P_h_R3(P,h);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -1529,7 +1529,7 @@ double _T_P_s(double P, double s)
         )
         {
             double tStar = _T_P_s_R2(P,s);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -1571,8 +1571,8 @@ double _T_P_s(double P, double s)
     )
     {
         double tStar = _T_P_s_R3(P,s);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -1672,7 +1672,7 @@ double _v_P_s(double P, double s)
         )
         {
             double tStar = _T_P_s_R2(P,s);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -1714,8 +1714,8 @@ double _v_P_s(double P, double s)
     )
     {
         double tStar = _T_P_s_R3(P,s);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -1816,7 +1816,7 @@ double _h_P_s(double P, double s)
         )
         {
             double tStar = _T_P_s_R2(P,s);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -1858,8 +1858,8 @@ double _h_P_s(double P, double s)
     )
     {
         double tStar = _T_P_s_R3(P,s);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -1960,7 +1960,7 @@ double _u_P_s(double P, double s)
         )
         {
             double tStar = _T_P_s_R2(P,s);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2002,8 +2002,8 @@ double _u_P_s(double P, double s)
     )
     {
         double tStar = _T_P_s_R3(P,s);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -2104,7 +2104,7 @@ double _cp_P_s(double P, double s)
         )
         {
             double tStar = _T_P_s_R2(P,s);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2146,8 +2146,8 @@ double _cp_P_s(double P, double s)
     )
     {
         double tStar = _T_P_s_R3(P,s);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -2249,7 +2249,7 @@ double _cv_P_s(double P, double s)
         )
         {
             double tStar = _T_P_s_R2(P,s);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2291,8 +2291,8 @@ double _cv_P_s(double P, double s)
     )
     {
         double tStar = _T_P_s_R3(P,s);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -2394,7 +2394,7 @@ double _w_P_s(double P, double s)
         )
         {
             double tStar = _T_P_s_R2(P,s);
-            double pB23 = _P_R2_R3_b(tStar);
+            double pB23 = _P_T_R2_R3_b(tStar);
             double Psat = _Psat_T_R4(tStar);
             double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2436,8 +2436,8 @@ double _w_P_s(double P, double s)
     )
     {
         double tStar = _T_P_s_R3(P,s);
-        double TB23 = _T_R2_R3_b(P);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(P);
+        double pB23 = _P_T_R2_R3_b(tStar);
 
         if
         (
@@ -2510,7 +2510,7 @@ double _T_h_s(double h, double s)
     tStar = _T_h_s_R2(h,s);
     pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
-    double pB23 = _P_R2_R3_b(tStar);
+    double pB23 = _P_T_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
     double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2551,8 +2551,8 @@ double _T_h_s(double h, double s)
         && pStar <= 100
     )
     {
-        double TB23 = _T_R2_R3_b(pStar);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(pStar);
+        double pB23 = _P_T_R2_R3_b(tStar);
         if
         (
             tStar >= 623.15
@@ -2622,7 +2622,7 @@ double _P_h_s(double h, double s)
     tStar = _T_h_s_R2(h,s);
     pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
-    double pB23 = _P_R2_R3_b(tStar);
+    double pB23 = _P_T_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
     double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2663,8 +2663,8 @@ double _P_h_s(double h, double s)
         && pStar <= 100
     )
     {
-        double TB23 = _T_R2_R3_b(pStar);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(pStar);
+        double pB23 = _P_T_R2_R3_b(tStar);
         if
         (
             tStar >= 623.15
@@ -2734,7 +2734,7 @@ double _v_h_s(double h, double s)
     tStar = _T_h_s_R2(h,s);
     pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
-    double pB23 = _P_R2_R3_b(tStar);
+    double pB23 = _P_T_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
     double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2775,8 +2775,8 @@ double _v_h_s(double h, double s)
         && pStar <= 100
     )
     {
-        double TB23 = _T_R2_R3_b(pStar);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(pStar);
+        double pB23 = _P_T_R2_R3_b(tStar);
         if
         (
             tStar >= 623.15
@@ -2847,7 +2847,7 @@ double _u_h_s(double h, double s)
     tStar = _T_h_s_R2(h,s);
     pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
-    double pB23 = _P_R2_R3_b(tStar);
+    double pB23 = _P_T_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
     double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -2888,8 +2888,8 @@ double _u_h_s(double h, double s)
         && pStar <= 100
     )
     {
-        double TB23 = _T_R2_R3_b(pStar);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(pStar);
+        double pB23 = _P_T_R2_R3_b(tStar);
         if
         (
             tStar >= 623.15
@@ -2960,7 +2960,7 @@ double _cv_h_s(double h, double s)
     tStar = _T_h_s_R2(h,s);
     pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
-    double pB23 = _P_R2_R3_b(tStar);
+    double pB23 = _P_T_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
     double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -3001,8 +3001,8 @@ double _cv_h_s(double h, double s)
         && pStar <= 100
     )
     {
-        double TB23 = _T_R2_R3_b(pStar);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(pStar);
+        double pB23 = _P_T_R2_R3_b(tStar);
         if
         (
             tStar >= 623.15
@@ -3050,7 +3050,7 @@ double _cp_h_s(double h, double s)
     tStar = _T_h_s_R2(h,s);
     pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
-    double pB23 = _P_R2_R3_b(tStar);
+    double pB23 = _P_T_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
     double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -3091,8 +3091,8 @@ double _cp_h_s(double h, double s)
         && pStar <= 100
     )
     {
-        double TB23 = _T_R2_R3_b(pStar);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(pStar);
+        double pB23 = _P_T_R2_R3_b(tStar);
         if
         (
             tStar >= 623.15
@@ -3140,7 +3140,7 @@ double _w_h_s(double h, double s)
     tStar = _T_h_s_R2(h,s);
     pStar = _P_h_s_R2(h,s);
     pSat = _Psat_T_R4(tStar);
-    double pB23 = _P_R2_R3_b(tStar);
+    double pB23 = _P_T_R2_R3_b(tStar);
     double hB23 = _h_P_T_R2(pB23,tStar);
     double sB23 = _s_P_T_R2(pB23,tStar);
 
@@ -3181,8 +3181,8 @@ double _w_h_s(double h, double s)
         && pStar <= 100
     )
     {
-        double TB23 = _T_R2_R3_b(pStar);
-        double pB23 = _P_R2_R3_b(tStar);
+        double TB23 = _T_P_R2_R3_b(pStar);
+        double pB23 = _P_T_R2_R3_b(tStar);
         if
         (
             tStar >= 623.15

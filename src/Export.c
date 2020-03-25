@@ -35,13 +35,13 @@
 
 	//Boundary - Region 2 & 3:
 
-	DLL_EXPORT double P_R2_R3_b(double temp)
+	DLL_EXPORT double P_T_R2_R3_b(double temp)
 	{
-		return _P_R2_R3_b(temp);
+		return _P_T_R2_R3_b(temp);
 	}
-	DLL_EXPORT double T_R2_R3_b(double press)
+	DLL_EXPORT double T_P_R2_R3_b(double press)
 	{
-		return _T_R2_R3_b(press);
+		return _T_P_R2_R3_b(press);
 	}
 
 	//Boundary - Region 3 & 4:

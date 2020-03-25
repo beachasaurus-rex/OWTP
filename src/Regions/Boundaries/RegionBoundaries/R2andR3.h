@@ -4,7 +4,7 @@
 #endif
 
 //MPa
-double _P_R2_R3_b(double temp)
+double _P_T_R2_R3_b(double temp)
 {
 	const double _ni_R2_R3_b[5] = { 0.34805185628969E+03, -0.11671859879975E+01, 0.10192970039326E-02, 0.57254459862746E+03, 0.13918839778870E+02 };
 
@@ -18,7 +18,7 @@ double _P_R2_R3_b(double temp)
 		+ (_ni_R2_R3_b[2] * pow(theta, 2)));
 }
 //K
-double _T_R2_R3_b(double press)
+double _T_P_R2_R3_b(double press)
 {
 	const double _ni_R2_R3_b[5] = { 0.34805185628969E+03, -0.11671859879975E+01, 0.10192970039326E-02, 0.57254459862746E+03, 0.13918839778870E+02 };
 

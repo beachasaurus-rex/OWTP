@@ -7,8 +7,8 @@ class AccTestsRegionBoundaries : public AccTestBase {};
 
 extern "C"
 {
-    DLL_IMPORT double P_R2_R3_b(double);
-    DLL_IMPORT double T_R2_R3_b(double);
+    DLL_IMPORT double P_T_R2_R3_b(double);
+    DLL_IMPORT double T_P_R2_R3_b(double);
 
     DLL_IMPORT double pSat_R3_R4_b(double);
     DLL_IMPORT double tSat_R3_R4_b(double);
@@ -39,7 +39,7 @@ TEST_F(AccTestsRegionBoundaries, T_P_R2_R3)
     const double press = 0.165291643E+02;
     const double tExp = 0.623150000E+03;
 
-    double T = T_R2_R3_b(press);
+    double T = T_P_R2_R3_b(press);
     double TErr = AbsRelativeErr(T, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -49,7 +49,7 @@ TEST_F(AccTestsRegionBoundaries, P_T_R2_R3)
     const double T = 0.623150000E+03;
     const double pExp = 0.165291643E+02;
 
-    double press = P_R2_R3_b(T);
+    double press = P_T_R2_R3_b(T);
     double PErr = AbsRelativeErr(press, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
