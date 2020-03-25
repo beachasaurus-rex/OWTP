@@ -1009,11 +1009,11 @@ double _T_P_s_R3(double press, double entr)
 
     if (entr < sCrit)
     {
-        return _T_R3a_P_s(press, entr);
+        return _T_P_s_R3a(press, entr);
     }
     else
     {
-        return _T_R3b_P_s(press, entr);
+        return _T_P_s_R3b(press, entr);
     }
 }
 //specific volume as a function of pressure and entropy for region 3
@@ -1024,11 +1024,11 @@ double _v_P_s_R3(double press, double entr)
 
     if (entr < sCrit)
     {
-        return _v_R3a_P_s(press, entr);
+        return _v_P_s_R3a(press, entr);
     }
     else
     {
-        return _v_R3b_P_s(press, entr);
+        return _v_P_s_R3b(press, entr);
     }
 }
 //specific internal energy as a function of pressure and entropy for region 3

@@ -13,7 +13,7 @@
 
 
 //Temperature(Pressure,Entropy) for subregion a
-double _T_R3a_P_s(double press, double entr)
+double _T_P_s_R3a(double press, double entr)
 {
 	const int _I_T_P_s_R3a[33] = {-12, -12, -10, -10, -10, -10, -8, -8, -8, -8, -6, -6, -6, -5, -5, -5, -4, -4, -4, -2, -2, -1, -1, 0, 0, 0, 1, 2, 2, 3, 8, 8, 10};
 	const int _J_T_P_s_R3a[33] = {28, 32, 4, 10, 12, 14, 5, 7, 8, 28, 2, 6, 32, 0, 14, 32, 6, 10, 36, 1, 4, 1, 6, 0, 1, 4, 0, 0, 3, 2, 0, 1, 2};
@@ -42,7 +42,7 @@ double _T_R3a_P_s(double press, double entr)
 }
 
 //Temperature(Pressure,Entropy) for subregion b
-double _T_R3b_P_s(double press, double entr)
+double _T_P_s_R3b(double press, double entr)
 {
 	const int _I_T_P_s_R3b[28] = {-12, -12, -12, -12, -8, -8, -8, -6, -6, -6, -5, -5, -5, -5, -5, -4, -3, -3, -2, 0, 2, 3, 4, 5, 6, 8, 12, 14};
 	const int _J_T_P_s_R3b[28] = {1, 3, 4, 7, 0, 1, 3, 0, 2, 4, 0, 1, 2, 4, 6, 12, 1, 6, 2, 0, 1, 1, 0, 24, 0, 3, 1, 2};
@@ -71,7 +71,7 @@ double _T_R3b_P_s(double press, double entr)
 }
 
 //SpecifivVolume(Pressure,Entropy) for subregion a
-double _v_R3a_P_s(double press, double entr)
+double _v_P_s_R3a(double press, double entr)
 {
 	const int _I_v_P_s_R3a[28] = {-12, -12, -12, -10, -10, -10, -10, -8, -8, -8, -8, -6, -5, -4, -3, -3, -2, -2, -1, -1, 0, 0, 0, 1, 2, 4, 5, 6};
 	const int _J_v_P_s_R3a[28] = {10, 12, 14, 4, 8, 10, 20, 5, 6, 14, 16, 28, 1, 5, 2, 4, 3, 8, 1, 2, 0, 1, 3, 0, 0, 2, 2, 0};
@@ -100,7 +100,7 @@ double _v_R3a_P_s(double press, double entr)
 }
 
 //SpecifivVolume(Pressure,Entropy) for subregion b
-double _v_R3b_P_s(double press, double entr)
+double _v_P_s_R3b(double press, double entr)
 {
 	const int _I_v_P_s_R3b[31] = {-12, -12, -12, -12, -12, -12, -10, -10, -10, -10, -8, -5, -5, -5, -4, -4, -4, -4, -3, -2, -2, -2, -2, -2, -2, 0, 0, 0, 1, 1, 2};
 	const int _J_v_P_s_R3b[31] = {0, 1, 2, 3, 5, 6, 0, 1, 2, 4, 0, 1, 2, 3, 0, 1, 2, 3, 1, 0, 1, 2, 3, 4, 12, 0, 1, 2, 0, 2, 2};

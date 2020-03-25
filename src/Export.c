@@ -506,24 +506,24 @@
 
 	//subregion boundary equations T(P,s)
 
-	DLL_EXPORT double T_R3a_P_s(double press, double entr)
+	DLL_EXPORT double T_P_s_R3a(double press, double entr)
 	{
-		return _T_R3a_P_s(press, entr);
+		return _T_P_s_R3a(press, entr);
 	}
-	DLL_EXPORT double T_R3b_P_s(double press, double entr)
+	DLL_EXPORT double T_P_s_R3b(double press, double entr)
 	{
-		return _T_R3b_P_s(press, entr);
+		return _T_P_s_R3b(press, entr);
 	}
 
 	//subregion boundary equations v(P,s)
 
-	DLL_EXPORT double v_R3a_P_s(double press, double entr)
+	DLL_EXPORT double v_P_s_R3a(double press, double entr)
 	{
-		return _v_R3a_P_s(press, entr);
+		return _v_P_s_R3a(press, entr);
 	}
-	DLL_EXPORT double v_R3b_P_s(double press, double entr)
+	DLL_EXPORT double v_P_s_R3b(double press, double entr)
 	{
-		return _v_R3b_P_s(press, entr);
+		return _v_P_s_R3b(press, entr);
 	}
 
 	//properties as functions of density and temperature

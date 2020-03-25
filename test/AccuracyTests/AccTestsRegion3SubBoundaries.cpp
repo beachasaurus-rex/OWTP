@@ -57,12 +57,12 @@ extern "C"
 
     DLL_IMPORT double h_P_R3ab(double);
 
-    DLL_IMPORT double T_R3a_P_s(double, double);
-    DLL_IMPORT double T_R3b_P_s(double, double);
+    DLL_IMPORT double T_P_s_R3a(double, double);
+    DLL_IMPORT double T_P_s_R3b(double, double);
     DLL_IMPORT double T_P_s_R3(double, double);
 
-    DLL_IMPORT double v_R3a_P_s(double, double);
-    DLL_IMPORT double v_R3b_P_s(double, double);
+    DLL_IMPORT double v_P_s_R3a(double, double);
+    DLL_IMPORT double v_P_s_R3b(double, double);
     DLL_IMPORT double v_P_s_R3(double, double);
 
     DLL_IMPORT double P_h_s_R3a(double, double);
@@ -1089,7 +1089,7 @@ TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_a_20MPa_3d8s)
     const double s = 3.8;
     const double tExp = 6.282959869E+02;
 
-    double Ttest = T_R3a_P_s(press,s);
+    double Ttest = T_P_s_R3a(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1100,7 +1100,7 @@ TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_a_50MPa_3d6s)
     const double s = 3.6;
     const double tExp = 6.297158726E+02;
 
-    double Ttest = T_R3a_P_s(press,s);
+    double Ttest = T_P_s_R3a(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1111,7 +1111,7 @@ TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_a_100MPa_4d0s)
     const double s = 4.0;
     const double tExp = 7.056880237E+02;
 
-    double Ttest = T_R3a_P_s(press,s);
+    double Ttest = T_P_s_R3a(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1122,7 +1122,7 @@ TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_b_20MPa_5d0s)
     const double s = 5.0;
     const double tExp = 6.401176443E+02;
 
-    double Ttest = T_R3b_P_s(press,s);
+    double Ttest = T_P_s_R3b(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1133,7 +1133,7 @@ TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_b_50MPa_4d5s)
     const double s = 4.5;
     const double tExp = 7.163687517E+02;
 
-    double Ttest = T_R3b_P_s(press,s);
+    double Ttest = T_P_s_R3b(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1144,7 +1144,7 @@ TEST_F(AccTestsRegion3SubBoundaries, T_P_s_Subregion_b_100MPa_5d0s)
     const double s = 5.0;
     const double tExp = 8.474332825E+02;
 
-    double Ttest = T_R3b_P_s(press,s);
+    double Ttest = T_P_s_R3b(press,s);
     double TErr = AbsRelativeErr(Ttest, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -1229,7 +1229,7 @@ TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_a_20MPa_3d8s)
     const double s = 3.8;
     const double vExp = 1.733791463E-03;
 
-    double vTest = v_R3a_P_s(press,s);
+    double vTest = v_P_s_R3a(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
@@ -1240,7 +1240,7 @@ TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_a_50MPa_3d6s)
     const double s = 3.6;
     const double vExp = 1.469680170E-03;
 
-    double vTest = v_R3a_P_s(press,s);
+    double vTest = v_P_s_R3a(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
@@ -1251,7 +1251,7 @@ TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_a_100MPa_4d0s)
     const double s = 4.0;
     const double vExp = 1.555893131E-03;
 
-    double vTest = v_R3a_P_s(press,s);
+    double vTest = v_P_s_R3a(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
@@ -1262,7 +1262,7 @@ TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_b_20MPa_5d0s)
     const double s = 5.0;
     const double vExp = 6.262101987E-03;
 
-    double vTest = v_R3b_P_s(press,s);
+    double vTest = v_P_s_R3b(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
@@ -1273,7 +1273,7 @@ TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_b_50MPa_4d5s)
     const double s = 4.5;
     const double vExp = 2.332634294E-03;
 
-    double vTest = v_R3b_P_s(press,s);
+    double vTest = v_P_s_R3b(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
@@ -1284,7 +1284,7 @@ TEST_F(AccTestsRegion3SubBoundaries, v_P_s_Subregion_b_100MPa_5d0s)
     const double s = 5.0;
     const double vExp = 2.449610757E-03;
 
-    double vTest = v_R3b_P_s(press,s);
+    double vTest = v_P_s_R3b(press,s);
     double vErr = AbsRelativeErr(vTest, vExp);
     bool vPass = IsAcceptable(vErr);
     ASSERT_TRUE(vPass);
