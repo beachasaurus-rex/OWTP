@@ -57,7 +57,7 @@ extern "C"
 //Inductrial Formulation 1997 for the Thermodynamic
 //Properties of Water and Steam" in Table 15 on page 17.
 
-TEST_F(AccTestsRegion2, v_T_P_300K_0d0035MPa)
+TEST_F(AccTestsRegion2, v_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -68,7 +68,7 @@ TEST_F(AccTestsRegion2, v_T_P_300K_0d0035MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion2, u_T_P_300K_0d0035MPa)
+TEST_F(AccTestsRegion2, u_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -79,7 +79,7 @@ TEST_F(AccTestsRegion2, u_T_P_300K_0d0035MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(AccTestsRegion2, s_T_P_300K_0d0035MPa)
+TEST_F(AccTestsRegion2, s_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -90,7 +90,7 @@ TEST_F(AccTestsRegion2, s_T_P_300K_0d0035MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(AccTestsRegion2, h_T_P_300K_0d0035MPa)
+TEST_F(AccTestsRegion2, h_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -101,7 +101,7 @@ TEST_F(AccTestsRegion2, h_T_P_300K_0d0035MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegion2, cp_T_P_300K_0d0035MPa)
+TEST_F(AccTestsRegion2, cp_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -112,7 +112,7 @@ TEST_F(AccTestsRegion2, cp_T_P_300K_0d0035MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(AccTestsRegion2, cv_T_P_300K_0d0035MPa)
+TEST_F(AccTestsRegion2, cv_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -123,7 +123,7 @@ TEST_F(AccTestsRegion2, cv_T_P_300K_0d0035MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(AccTestsRegion2, w_T_P_300K_0d0035MPa)
+TEST_F(AccTestsRegion2, w_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -134,7 +134,7 @@ TEST_F(AccTestsRegion2, w_T_P_300K_0d0035MPa)
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(AccTestsRegion2, v_T_P_700K_0d0035MPa)
+TEST_F(AccTestsRegion2, v_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -145,7 +145,7 @@ TEST_F(AccTestsRegion2, v_T_P_700K_0d0035MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion2, u_T_P_700K_0d0035MPa)
+TEST_F(AccTestsRegion2, u_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -156,7 +156,7 @@ TEST_F(AccTestsRegion2, u_T_P_700K_0d0035MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(AccTestsRegion2, s_T_P_700K_0d0035MPa)
+TEST_F(AccTestsRegion2, s_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -167,7 +167,7 @@ TEST_F(AccTestsRegion2, s_T_P_700K_0d0035MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(AccTestsRegion2, h_T_P_700K_0d0035MPa)
+TEST_F(AccTestsRegion2, h_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -178,7 +178,7 @@ TEST_F(AccTestsRegion2, h_T_P_700K_0d0035MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegion2, cp_T_P_700K_0d0035MPa)
+TEST_F(AccTestsRegion2, cp_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -189,7 +189,7 @@ TEST_F(AccTestsRegion2, cp_T_P_700K_0d0035MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(AccTestsRegion2, cv_T_P_700K_0d0035MPa)
+TEST_F(AccTestsRegion2, cv_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -200,7 +200,7 @@ TEST_F(AccTestsRegion2, cv_T_P_700K_0d0035MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(AccTestsRegion2, w_T_P_700K_0d0035MPa)
+TEST_F(AccTestsRegion2, w_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -211,7 +211,7 @@ TEST_F(AccTestsRegion2, w_T_P_700K_0d0035MPa)
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(AccTestsRegion2, v_T_P_700K_30MPa)
+TEST_F(AccTestsRegion2, v_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -222,7 +222,7 @@ TEST_F(AccTestsRegion2, v_T_P_700K_30MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(AccTestsRegion2, u_T_P_700K_30MPa)
+TEST_F(AccTestsRegion2, u_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -233,7 +233,7 @@ TEST_F(AccTestsRegion2, u_T_P_700K_30MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(AccTestsRegion2, s_T_P_700K_30MPa)
+TEST_F(AccTestsRegion2, s_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -244,7 +244,7 @@ TEST_F(AccTestsRegion2, s_T_P_700K_30MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(AccTestsRegion2, h_T_P_700K_30MPa)
+TEST_F(AccTestsRegion2, h_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -255,7 +255,7 @@ TEST_F(AccTestsRegion2, h_T_P_700K_30MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(AccTestsRegion2, cp_T_P_700K_30MPa)
+TEST_F(AccTestsRegion2, cp_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -266,7 +266,7 @@ TEST_F(AccTestsRegion2, cp_T_P_700K_30MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(AccTestsRegion2, cv_T_P_700K_30MPa)
+TEST_F(AccTestsRegion2, cv_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -277,7 +277,7 @@ TEST_F(AccTestsRegion2, cv_T_P_700K_30MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(AccTestsRegion2, w_T_P_700K_30MPa)
+TEST_F(AccTestsRegion2, w_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
