@@ -35,7 +35,7 @@
 
 #ifndef R3_SUBBOUNDS_PT_H
 	#define R3_SUBBOUNDS_PT_H
-	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_TP.h"
+	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_PT.h"
 #endif
 
 #ifndef R3_SUBBOUNDS_PH_H
