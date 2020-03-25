@@ -11,9 +11,9 @@ set(SRCS Export.c
 	Regions/Boundaries/RegionBoundaries/MetastableRegion.h
 	Regions/Boundaries/RegionBoundaries/R2andR3.h
 	Regions/Boundaries/RegionBoundaries/R3andR4.h
-	Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h
-    Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_vPs.h
-    Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_vPh.h)
+	Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_TP.h
+    Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_Ps.h
+    Regions/Boundaries/SubregionBoundaries/Region3/Boundaries_Ph.h)
 
 add_library(${LIBNAME} SHARED ${SRCS})
 

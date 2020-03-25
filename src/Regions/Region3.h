@@ -8,19 +8,19 @@
 	#include "ReferenceConstants.h"
 #endif
 
-#ifndef R3_SUBBOUNDS_V_PT_H
-	#define R3_SUBBOUNDS_V_PT_H
-	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h"
+#ifndef R3_SUBBOUNDS_PT_H
+	#define R3_SUBBOUNDS_PT_H
+	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_TP.h"
 #endif
 
-#ifndef R3_SUBBOUNDS_V_PH_H
-    #define R3_SUBBOUNDS_V_PH_H
-    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_vPh.h"
+#ifndef R3_SUBBOUNDS_PH_H
+    #define R3_SUBBOUNDS_PH_H
+    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_Ph.h"
 #endif
 
-#ifndef R3_SUBBOUNDS_V_PS_H
-    #define R3_SUBBOUNDS_V_PS_H
-    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_vPs.h"
+#ifndef R3_SUBBOUNDS_PS_H
+    #define R3_SUBBOUNDS_PS_H
+    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_Ps.h"
 #endif
 
 #ifndef R3_R4_BOUNDS_H
