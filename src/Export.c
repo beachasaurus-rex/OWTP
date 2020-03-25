@@ -683,13 +683,13 @@
 
 	//properties as functions of enthalpy and entropy
 
-	DLL_EXPORT double p_R3a_h_s(double enth, double entr)
+	DLL_EXPORT double P_h_s_R3a(double enth, double entr)
 	{
-		return _p_R3a_h_s(enth,entr);
+		return _P_h_s_R3a(enth,entr);
 	}
-	DLL_EXPORT double p_R3b_h_s(double enth, double entr)
+	DLL_EXPORT double P_h_s_R3b(double enth, double entr)
 	{
-		return _p_R3b_h_s(enth,entr);
+		return _P_h_s_R3b(enth,entr);
 	}
 	DLL_EXPORT double P_h_s_R3(double enth, double entr)
 	{

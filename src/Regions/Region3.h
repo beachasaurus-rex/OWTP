@@ -52,7 +52,7 @@ static double _gibbs_R3(double del, double tau)
 	return sum;
 }
 //d(gibbs)/d(del)
-static double _gibbs_R3_ddel(double del, double tau)
+static double _gibbs_ddel_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -69,7 +69,7 @@ static double _gibbs_R3_ddel(double del, double tau)
 	return sum;
 }
 //d(gibbs)^2/d^2(del)
-static double _gibbs_R3_dddel(double del, double tau)
+static double _gibbs_dddel_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -86,7 +86,7 @@ static double _gibbs_R3_dddel(double del, double tau)
 	return sum;
 }
 //d(gibbs)/d(tau)
-static double _gibbs_R3_dtau(double del, double tau)
+static double _gibbs_dtau_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -103,7 +103,7 @@ static double _gibbs_R3_dtau(double del, double tau)
 	return sum;
 }
 //d(gibbs)^2/d^2(tau)
-static double _gibbs_R3_ddtau(double del, double tau)
+static double _gibbs_ddtau_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -120,7 +120,7 @@ static double _gibbs_R3_ddtau(double del, double tau)
 	return sum;
 }
 //d(gibbs)^2/(d(del) * d(tau))
-static double _gibbs_R3_ddel_dtau(double del, double tau)
+static double _gibbs_ddel_dtau_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -151,7 +151,7 @@ double _P_Rho_T_R3(double rho, double temp)
 	double tau = tStar / temp;
 
 	//divide by 1E+03 for difference in units from R & pressure
-	return _gibbs_R3_ddel(del, tau) * del * rho * R * temp / 1E+03;
+	return _gibbs_ddel_R3(del, tau) * del * rho * R * temp / 1E+03;
 }
 //specific internal energy as a function of density and temperature for region 3
 double _u_Rho_T_R3(double rho, double temp)
@@ -164,7 +164,7 @@ double _u_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return _gibbs_R3_dtau(del, tau) * tau * R * temp;
+	return _gibbs_dtau_R3(del, tau) * tau * R * temp;
 }
 //specific entropy as a function of density and temperature for region 3
 double _s_Rho_T_R3(double rho, double temp)
@@ -177,7 +177,7 @@ double _s_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return R * ((tau * _gibbs_R3_dtau(del, tau)) - _gibbs_R3(del, tau));
+	return R * ((tau * _gibbs_dtau_R3(del, tau)) - _gibbs_R3(del, tau));
 }
 //specific enthalpy as a function of density and temperature for region 3
 double _h_Rho_T_R3(double rho, double temp)
@@ -190,8 +190,8 @@ double _h_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return R * temp * ((tau * _gibbs_R3_dtau(del, tau)) +
-		(del * _gibbs_R3_ddel(del, tau)));
+	return R * temp * ((tau * _gibbs_dtau_R3(del, tau)) +
+		(del * _gibbs_ddel_R3(del, tau)));
 }
 //specific isochoric heat capacity as a function of density and temperature for region 3
 double _cv_Rho_T_R3(double rho, double temp)
@@ -204,7 +204,7 @@ double _cv_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return -R * pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
+	return -R * pow(tau, 2) * _gibbs_ddtau_R3(del, tau);
 }
 //specific isobaric heat capacity as a function of density and temperature for region 3
 double _cp_Rho_T_R3(double rho, double temp)
@@ -217,11 +217,11 @@ double _cp_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	double a1 = -pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
-	double a2 = pow((del * _gibbs_R3_ddel(del, tau))-
-		(del * tau * _gibbs_R3_ddel_dtau(del, tau)), 2);
-	double a3 = (2 * del * _gibbs_R3_ddel(del, tau)) +
-		(pow(del, 2) * _gibbs_R3_dddel(del, tau));
+	double a1 = -pow(tau, 2) * _gibbs_ddtau_R3(del, tau);
+	double a2 = pow((del * _gibbs_ddel_R3(del, tau))-
+		(del * tau * _gibbs_ddel_dtau_R3(del, tau)), 2);
+	double a3 = (2 * del * _gibbs_ddel_R3(del, tau)) +
+		(pow(del, 2) * _gibbs_dddel_R3(del, tau));
 	double a4 = a1 + (a2 / a3);
 
 	return R * a4;
@@ -239,11 +239,11 @@ double _w_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	double a1 = (2 * del * _gibbs_R3_ddel(del, tau)) +
-		(pow(del, 2) * _gibbs_R3_dddel(del, tau));
-	double a2 = pow((del * _gibbs_R3_ddel(del, tau)) -
-		(del * tau * _gibbs_R3_ddel_dtau(del, tau)), 2);
-	double a3 = pow(tau,2) * _gibbs_R3_ddtau(del, tau);
+	double a1 = (2 * del * _gibbs_ddel_R3(del, tau)) +
+		(pow(del, 2) * _gibbs_dddel_R3(del, tau));
+	double a2 = pow((del * _gibbs_ddel_R3(del, tau)) -
+		(del * tau * _gibbs_ddel_dtau_R3(del, tau)), 2);
+	double a3 = pow(tau,2) * _gibbs_ddtau_R3(del, tau);
 	double a4 = a1 - (a2 / a3);
 
 	return pow(_R * temp * a4, 0.5);
@@ -1075,7 +1075,7 @@ double _w_P_s_R3(double press, double entr)
 //Properties as functions of enthalpy and entropy for region 3
 
 //P(h,s) for subregion a
-double _p_R3a_h_s(double h, double s)
+double _P_h_s_R3a(double h, double s)
 {
 	const int _I_P_h_s_R3a[33] = {0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8, 10, 10, 14, 18, 20, 22, 22, 24, 28, 28, 32, 32};
 	const int _J_P_h_s_R3a[33] = {0, 1, 5, 0, 3, 4, 8, 14, 6, 16, 0, 2, 3, 0, 1, 4, 5, 28, 28, 24, 1, 32, 36, 22, 28, 36, 16, 28, 36, 16, 36, 10, 28};
@@ -1103,7 +1103,7 @@ double _p_R3a_h_s(double h, double s)
     return sum * pStar;
 }
 //P(h,s) for subregion b
-double _p_R3b_h_s(double h, double s)
+double _P_h_s_R3b(double h, double s)
 {
 	const int _I_P_h_s_R3b[35] = {-12, -12, -12, -12, -12, -10, -10, -10, -10, -8, -8, -6, -6, -6, -6, -5, -4, -4, -4, -3, -3, -3, -3, -2, -2, -1, 0, 2, 2, 5, 6, 8, 10, 14, 14};
 	const int _J_P_h_s_R3b[35] = {2, 10, 12, 14, 20, 2, 10, 14, 18, 2, 8, 2, 6, 7, 8, 10, 4, 5, 8, 1, 3, 5, 6, 0, 1, 0, 3, 0, 1, 0, 1, 1, 1, 3, 7};
@@ -1147,7 +1147,7 @@ double _P_h_s_R3(double enth, double entr)
 		|| entr <= sCrit
 	)
 	{
-		return _p_R3a_h_s(enth, entr);
+		return _P_h_s_R3a(enth, entr);
 	}
 	else if
 	(
@@ -1155,7 +1155,7 @@ double _P_h_s_R3(double enth, double entr)
 		|| entr > sCrit
 	)
 	{
-		return _p_R3b_h_s(enth, entr);
+		return _P_h_s_R3b(enth, entr);
 	}
 }
 //T(h,s) for region 3

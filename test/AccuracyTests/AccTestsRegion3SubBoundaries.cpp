@@ -65,8 +65,8 @@ extern "C"
     DLL_IMPORT double v_R3b_P_s(double, double);
     DLL_IMPORT double v_P_s_R3(double, double);
 
-    DLL_IMPORT double p_R3a_h_s(double, double);
-    DLL_IMPORT double p_R3b_h_s(double, double);
+    DLL_IMPORT double P_h_s_R3a(double, double);
+    DLL_IMPORT double P_h_s_R3b(double, double);
 }
 
 //The test data points for the following tests were
@@ -1370,7 +1370,7 @@ TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_a_1700h_3d8s)
     const double s = 3.8;
     const double pExp = 2.555703246E+01;
 
-    double pTest = p_R3a_h_s(h,s);
+    double pTest = P_h_s_R3a(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -1381,7 +1381,7 @@ TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_a_2000h_4d2s)
     const double s = 4.2;
     const double pExp = 4.540873468E+01;
 
-    double pTest = p_R3a_h_s(h,s);
+    double pTest = P_h_s_R3a(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -1392,7 +1392,7 @@ TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_a_2100h_4d3s)
     const double s = 4.3;
     const double pExp = 6.078123340E+01;
 
-    double pTest = p_R3a_h_s(h,s);
+    double pTest = P_h_s_R3a(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -1403,7 +1403,7 @@ TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_b_2600h_5d1s)
     const double s = 5.1;
     const double pExp = 3.434999263E+01;
 
-    double pTest = p_R3b_h_s(h,s);
+    double pTest = P_h_s_R3b(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -1414,7 +1414,7 @@ TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_b_2400h_4d7s)
     const double s = 4.7;
     const double pExp = 6.363924887E+01;
 
-    double pTest = p_R3b_h_s(h,s);
+    double pTest = P_h_s_R3b(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -1425,7 +1425,7 @@ TEST_F(AccTestsRegion3SubBoundaries, P_h_s_Subregion_b_2700h_5d0s)
     const double s = 5.0;
     const double pExp = 8.839043281E+01;
 
-    double pTest = p_R3b_h_s(h,s);
+    double pTest = P_h_s_R3b(h,s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
