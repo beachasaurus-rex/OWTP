@@ -7,13 +7,13 @@ class AccTestsRegionBoundaries : public AccTestBase {};
 
 extern "C"
 {
-    DLL_IMPORT double P_R2_R3_b(double);
-    DLL_IMPORT double T_R2_R3_b(double);
+    DLL_IMPORT double P_T_R2_R3_b(double);
+    DLL_IMPORT double T_P_R2_R3_b(double);
 
-    DLL_IMPORT double pSat_R3_R4_b(double);
-    DLL_IMPORT double tSat_R3_R4_b(double);
-    DLL_IMPORT double pSat_h_R3_R4(double);
-    DLL_IMPORT double pSat_s_R3_R4(double);
+    DLL_IMPORT double PSat_T_R3_R4_b(double);
+    DLL_IMPORT double TSat_P_R3_R4_b(double);
+    DLL_IMPORT double PSat_h_R3_R4_b(double);
+    DLL_IMPORT double PSat_s_R3_R4_b(double);
 
     DLL_IMPORT double h1_prime(double);
     DLL_IMPORT double h3a_prime(double);
@@ -34,22 +34,22 @@ extern "C"
 //Properties of Water and Steam" on page 6, immediately before
 //the section regarding the equations for Region 1.
 
-TEST_F(AccTestsRegionBoundaries, T_P_R2_R3)
+TEST_F(AccTestsRegionBoundaries, T_P_R2_R3_0d165291643Ep02MPa)
 {
     const double press = 0.165291643E+02;
     const double tExp = 0.623150000E+03;
 
-    double T = T_R2_R3_b(press);
+    double T = T_P_R2_R3_b(press);
     double TErr = AbsRelativeErr(T, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, P_T_R2_R3)
+TEST_F(AccTestsRegionBoundaries, P_T_R2_R3_0d623150000Ep03K)
 {
     const double T = 0.623150000E+03;
     const double pExp = 0.165291643E+02;
 
-    double press = P_R2_R3_b(T);
+    double press = P_T_R2_R3_b(T);
     double PErr = AbsRelativeErr(press, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
@@ -65,7 +65,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_T_R3_R4_300k)
     const double temp = 300;
     const double pExp = 0.353658941E-02;
 
-    double pActual = pSat_R3_R4_b(temp);
+    double pActual = PSat_T_R3_R4_b(temp);
     double PErr = AbsRelativeErr(pActual, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
@@ -75,7 +75,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_T_R3_R4_500k)
     const double temp = 500;
     const double pExp = 0.263889776E+01;
 
-    double pActual = pSat_R3_R4_b(temp);
+    double pActual = PSat_T_R3_R4_b(temp);
     double PErr = AbsRelativeErr(pActual, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
@@ -85,7 +85,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_T_R3_R4_600k)
     const double temp = 600;
     const double pExp = 0.123443146E+02;
 
-    double pActual = pSat_R3_R4_b(temp);
+    double pActual = PSat_T_R3_R4_b(temp);
     double PErr = AbsRelativeErr(pActual, pExp);
     bool PPass = IsAcceptable(PErr);
     ASSERT_TRUE(PPass);
@@ -101,7 +101,7 @@ TEST_F(AccTestsRegionBoundaries, Tsat_P_R3_R4_0d1MPa)
     const double press = 0.1;
     const double tExp = 0.372755919E+03;
 
-    double tActual = tSat_R3_R4_b(press);
+    double tActual = TSat_P_R3_R4_b(press);
     double TErr = AbsRelativeErr(tActual, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -111,7 +111,7 @@ TEST_F(AccTestsRegionBoundaries, Tsat_P_R3_R4_1MPa)
     const double press = 1;
     const double tExp = 0.453035632E+03;
 
-    double tActual = tSat_R3_R4_b(press);
+    double tActual = TSat_P_R3_R4_b(press);
     double TErr = AbsRelativeErr(tActual, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -121,7 +121,7 @@ TEST_F(AccTestsRegionBoundaries, Tsat_P_R3_R4_10MPa)
     const double press = 10;
     const double tExp = 0.584149488E+03;
 
-    double tActual = tSat_R3_R4_b(press);
+    double tActual = TSat_P_R3_R4_b(press);
     double TErr = AbsRelativeErr(tActual, tExp);
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
@@ -138,7 +138,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_h_R3_R4_1700h)
     const double h = 1700;
     const double pExp = 1.724175718E+01;
 
-    double pTest = pSat_h_R3_R4(h);
+    double pTest = PSat_h_R3_R4_b(h);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -148,7 +148,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_h_R3_R4_2000h)
     const double h = 2000;
     const double pExp = 2.193442957E+01;
 
-    double pTest = pSat_h_R3_R4(h);
+    double pTest = PSat_h_R3_R4_b(h);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -158,7 +158,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_h_R3_R4_2400h)
     const double h = 2400;
     const double pExp = 2.018090839E+01;
 
-    double pTest = pSat_h_R3_R4(h);
+    double pTest = PSat_h_R3_R4_b(h);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -175,7 +175,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_s_R3_R4_3d8s)
     const double s = 3.8;
     const double pExp = 1.687755057E+01;
 
-    double pTest = pSat_s_R3_R4(s);
+    double pTest = PSat_s_R3_R4_b(s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -185,7 +185,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_s_R3_R4_4d2s)
     const double s = 4.2;
     const double pExp = 2.164451789E+01;
 
-    double pTest = pSat_s_R3_R4(s);
+    double pTest = PSat_s_R3_R4_b(s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);
@@ -195,7 +195,7 @@ TEST_F(AccTestsRegionBoundaries, Psat_s_R3_R4_5d2s)
     const double s = 5.2;
     const double pExp = 1.668968482E+01;
 
-    double pTest = pSat_s_R3_R4(s);
+    double pTest = PSat_s_R3_R4_b(s);
     double pErr = AbsRelativeErr(pTest, pExp);
     bool pPass = IsAcceptable(pErr);
     ASSERT_TRUE(pPass);

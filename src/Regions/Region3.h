@@ -8,19 +8,19 @@
 	#include "ReferenceConstants.h"
 #endif
 
-#ifndef R3_SUBBOUNDS_V_PT_H
-	#define R3_SUBBOUNDS_V_PT_H
-	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_vTP.h"
+#ifndef R3_SUBBOUNDS_PT_H
+	#define R3_SUBBOUNDS_PT_H
+	#include "Boundaries/SubregionBoundaries/Region3/Boundaries_PT.h"
 #endif
 
-#ifndef R3_SUBBOUNDS_V_PH_H
-    #define R3_SUBBOUNDS_V_PH_H
-    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_vPh.h"
+#ifndef R3_SUBBOUNDS_PH_H
+    #define R3_SUBBOUNDS_PH_H
+    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_Ph.h"
 #endif
 
-#ifndef R3_SUBBOUNDS_V_PS_H
-    #define R3_SUBBOUNDS_V_PS_H
-    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_vPs.h"
+#ifndef R3_SUBBOUNDS_PS_H
+    #define R3_SUBBOUNDS_PS_H
+    #include "Boundaries/SubregionBoundaries/Region3/Boundaries_Ps.h"
 #endif
 
 #ifndef R3_R4_BOUNDS_H
@@ -52,7 +52,7 @@ static double _gibbs_R3(double del, double tau)
 	return sum;
 }
 //d(gibbs)/d(del)
-static double _gibbs_R3_ddel(double del, double tau)
+static double _gibbs_ddel_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -69,7 +69,7 @@ static double _gibbs_R3_ddel(double del, double tau)
 	return sum;
 }
 //d(gibbs)^2/d^2(del)
-static double _gibbs_R3_dddel(double del, double tau)
+static double _gibbs_dddel_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -86,7 +86,7 @@ static double _gibbs_R3_dddel(double del, double tau)
 	return sum;
 }
 //d(gibbs)/d(tau)
-static double _gibbs_R3_dtau(double del, double tau)
+static double _gibbs_dtau_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -103,7 +103,7 @@ static double _gibbs_R3_dtau(double del, double tau)
 	return sum;
 }
 //d(gibbs)^2/d^2(tau)
-static double _gibbs_R3_ddtau(double del, double tau)
+static double _gibbs_ddtau_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -120,7 +120,7 @@ static double _gibbs_R3_ddtau(double del, double tau)
 	return sum;
 }
 //d(gibbs)^2/(d(del) * d(tau))
-static double _gibbs_R3_ddel_dtau(double del, double tau)
+static double _gibbs_ddel_dtau_R3(double del, double tau)
 {
 	const double _Ii_R3[39] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11 };
 	const double  _Ji_R3[39] = { 0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26 };
@@ -151,7 +151,7 @@ double _P_Rho_T_R3(double rho, double temp)
 	double tau = tStar / temp;
 
 	//divide by 1E+03 for difference in units from R & pressure
-	return _gibbs_R3_ddel(del, tau) * del * rho * R * temp / 1E+03;
+	return _gibbs_ddel_R3(del, tau) * del * rho * R * temp / 1E+03;
 }
 //specific internal energy as a function of density and temperature for region 3
 double _u_Rho_T_R3(double rho, double temp)
@@ -164,7 +164,7 @@ double _u_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return _gibbs_R3_dtau(del, tau) * tau * R * temp;
+	return _gibbs_dtau_R3(del, tau) * tau * R * temp;
 }
 //specific entropy as a function of density and temperature for region 3
 double _s_Rho_T_R3(double rho, double temp)
@@ -177,7 +177,7 @@ double _s_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return R * ((tau * _gibbs_R3_dtau(del, tau)) - _gibbs_R3(del, tau));
+	return R * ((tau * _gibbs_dtau_R3(del, tau)) - _gibbs_R3(del, tau));
 }
 //specific enthalpy as a function of density and temperature for region 3
 double _h_Rho_T_R3(double rho, double temp)
@@ -190,8 +190,8 @@ double _h_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return R * temp * ((tau * _gibbs_R3_dtau(del, tau)) +
-		(del * _gibbs_R3_ddel(del, tau)));
+	return R * temp * ((tau * _gibbs_dtau_R3(del, tau)) +
+		(del * _gibbs_ddel_R3(del, tau)));
 }
 //specific isochoric heat capacity as a function of density and temperature for region 3
 double _cv_Rho_T_R3(double rho, double temp)
@@ -204,7 +204,7 @@ double _cv_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	return -R * pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
+	return -R * pow(tau, 2) * _gibbs_ddtau_R3(del, tau);
 }
 //specific isobaric heat capacity as a function of density and temperature for region 3
 double _cp_Rho_T_R3(double rho, double temp)
@@ -217,11 +217,11 @@ double _cp_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	double a1 = -pow(tau, 2) * _gibbs_R3_ddtau(del, tau);
-	double a2 = pow((del * _gibbs_R3_ddel(del, tau))-
-		(del * tau * _gibbs_R3_ddel_dtau(del, tau)), 2);
-	double a3 = (2 * del * _gibbs_R3_ddel(del, tau)) +
-		(pow(del, 2) * _gibbs_R3_dddel(del, tau));
+	double a1 = -pow(tau, 2) * _gibbs_ddtau_R3(del, tau);
+	double a2 = pow((del * _gibbs_ddel_R3(del, tau))-
+		(del * tau * _gibbs_ddel_dtau_R3(del, tau)), 2);
+	double a3 = (2 * del * _gibbs_ddel_R3(del, tau)) +
+		(pow(del, 2) * _gibbs_dddel_R3(del, tau));
 	double a4 = a1 + (a2 / a3);
 
 	return R * a4;
@@ -239,11 +239,11 @@ double _w_Rho_T_R3(double rho, double temp)
 	double del = rho / rhoStar;
 	double tau = tStar / temp;
 
-	double a1 = (2 * del * _gibbs_R3_ddel(del, tau)) +
-		(pow(del, 2) * _gibbs_R3_dddel(del, tau));
-	double a2 = pow((del * _gibbs_R3_ddel(del, tau)) -
-		(del * tau * _gibbs_R3_ddel_dtau(del, tau)), 2);
-	double a3 = pow(tau,2) * _gibbs_R3_ddtau(del, tau);
+	double a1 = (2 * del * _gibbs_ddel_R3(del, tau)) +
+		(pow(del, 2) * _gibbs_dddel_R3(del, tau));
+	double a2 = pow((del * _gibbs_ddel_R3(del, tau)) -
+		(del * tau * _gibbs_ddel_dtau_R3(del, tau)), 2);
+	double a3 = pow(tau,2) * _gibbs_ddtau_R3(del, tau);
 	double a4 = a1 - (a2 / a3);
 
 	return pow(_R * temp * a4, 0.5);
@@ -295,7 +295,7 @@ double _v_P_T_R3(double press, double temp)
 	//MPa
 	const double pSat_643d15K = 21.04336732;
 	//MPa
-	double pSat_623d15K = _pSat_R3_R4_b(623.15);
+	double pSat_623d15K = _PSat_T_R3_R4_b(623.15);
 	//MPa
 	const double p3cd = 19.00881189173929;
 	//MPa
@@ -303,7 +303,7 @@ double _v_P_T_R3(double press, double temp)
 	//MPa
 	const double pSat_v0d00385 = 21.90096265;
 	//K
-	double Tsat = _tSat_R3_R4_b(press);
+	double Tsat = _TSat_P_R3_R4_b(press);
 
 	//subregions a, b
 	if
@@ -312,17 +312,17 @@ double _v_P_T_R3(double press, double temp)
 		&& press <= 100
 	)
 	{
-		double Tab = _T3ab_v_T_P(press);
+		double Tab = _T_P_R3ab(press);
 
 		//subregion a
 		if (temp <= Tab)
 		{
-			return _va_P_T(press,temp);
+			return _v_P_T_R3a(press,temp);
 		}
 		//subregion b
 		else
 		{
-			return _vb_P_T(press,temp);
+			return _v_P_T_R3b(press,temp);
 		}
 	}
 	//subregions c, d, e, f
@@ -332,14 +332,14 @@ double _v_P_T_R3(double press, double temp)
 		&& press <= 40
 	)
 	{
-		double Tab = _T3ab_v_T_P(press);
-		double Tcd = _T3cd_v_T_P(press);
-		double Tef = _T3ef_v_T_P(press);
+		double Tab = _T_P_R3ab(press);
+		double Tcd = _T_P_R3cd(press);
+		double Tef = _T_P_R3ef(press);
 
 		//subregion c
 		if (temp <= Tcd)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion d
 		else if
@@ -348,7 +348,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tab
 		)
 		{
-			return _vd_P_T(press,temp);
+			return _v_P_T_R3d(press,temp);
 		}
 		//subregion e
 		else if
@@ -357,12 +357,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tef
 		)
 		{
-			return _ve_P_T(press,temp);
+			return _v_P_T_R3e(press,temp);
 		}
 		//subregion f
 		else
 		{
-			return _vf_P_T(press,temp);
+			return _v_P_T_R3f(press,temp);
 		}
 	}
 	//subregions c, g, h, i, j, k
@@ -372,16 +372,16 @@ double _v_P_T_R3(double press, double temp)
 		&& press <= 25
 	)
 	{
-		double Tcd = _T3cd_v_T_P(press);
-		double Tef = _T3ef_v_T_P(press);
-		double Tgh = _T3gh_v_T_P(press);
-		double Tij = _T3ij_v_T_P(press);
-		double Tjk = _T3jk_v_T_P(press);
+		double Tcd = _T_P_R3cd(press);
+		double Tef = _T_P_R3ef(press);
+		double Tgh = _T_P_R3gh(press);
+		double Tij = _T_P_R3ij(press);
+		double Tjk = _T_P_R3jk(press);
 
 		//subregion c
 		if (temp <= Tcd)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion g
 		else if
@@ -390,7 +390,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tgh
 		)
 		{
-			return _vg_P_T(press,temp);
+			return _v_P_T_R3g(press,temp);
 		}
 		//subregion h
 		else if
@@ -399,7 +399,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tef
 		)
 		{
-			return _vh_P_T(press,temp);
+			return _v_P_T_R3h(press,temp);
 		}
 		//subregion i
 		else if
@@ -408,7 +408,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tij
 		)
 		{
-			return _vi_P_T(press,temp);
+			return _v_P_T_R3i(press,temp);
 		}
 		//subregion j
 		else if
@@ -417,12 +417,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tjk
 		)
 		{
-			return _vj_P_T(press,temp);
+			return _v_P_T_R3j(press,temp);
 		}
 		//subregion k
 		else
 		{
-			return _vk_P_T(press,temp);
+			return _v_P_T_R3k(press,temp);
 		}
 	}
 	//subregions c, l, h, i, j, k
@@ -432,16 +432,16 @@ double _v_P_T_R3(double press, double temp)
 		&& press <= 23.5
 	)
 	{
-		double Tcd = _T3cd_v_T_P(press);
-		double Tef = _T3ef_v_T_P(press);
-		double Tgh = _T3gh_v_T_P(press);
-		double Tij = _T3ij_v_T_P(press);
-		double Tjk = _T3jk_v_T_P(press);
+		double Tcd = _T_P_R3cd(press);
+		double Tef = _T_P_R3ef(press);
+		double Tgh = _T_P_R3gh(press);
+		double Tij = _T_P_R3ij(press);
+		double Tjk = _T_P_R3jk(press);
 
 		//subregion c
 		if (temp <= Tcd)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion l
 		else if
@@ -450,7 +450,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tgh
 		)
 		{
-			return _vl_P_T(press,temp);
+			return _v_P_T_R3l(press,temp);
 		}
 		//subregion h
 		else if
@@ -459,7 +459,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tef
 		)
 		{
-			return _vh_P_T(press,temp);
+			return _v_P_T_R3h(press,temp);
 		}
 		//subregion i
 		else if
@@ -468,7 +468,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tij
 		)
 		{
-			return _vi_P_T(press,temp);
+			return _v_P_T_R3i(press,temp);
 		}
 		//subregion j
 		else if
@@ -477,12 +477,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tjk
 		)
 		{
-			return _vj_P_T(press,temp);
+			return _v_P_T_R3j(press,temp);
 		}
 		//subregion k
 		else
 		{
-			return _vk_P_T(press,temp);
+			return _v_P_T_R3k(press,temp);
 		}
 	}
 	//subregions c, l, m, n, o, p, j, k
@@ -492,18 +492,18 @@ double _v_P_T_R3(double press, double temp)
 		&& press <= 23
 	)
 	{
-		double Tcd = _T3cd_v_T_P(press);
-		double Tef = _T3ef_v_T_P(press);
-		double Tgh = _T3gh_v_T_P(press);
-		double Tij = _T3ij_v_T_P(press);
-		double Tjk = _T3jk_v_T_P(press);
-		double Tmn = _T3mn_v_T_P(press);
-		double Top = _T3op_v_T_P(press);
+		double Tcd = _T_P_R3cd(press);
+		double Tef = _T_P_R3ef(press);
+		double Tgh = _T_P_R3gh(press);
+		double Tij = _T_P_R3ij(press);
+		double Tjk = _T_P_R3jk(press);
+		double Tmn = _T_P_R3mn(press);
+		double Top = _T_P_R3op(press);
 
 		//subregion c
 		if (temp <= Tcd)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion l
 		else if
@@ -512,7 +512,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tgh
 		)
 		{
-			return _vl_P_T(press,temp);
+			return _v_P_T_R3l(press,temp);
 		}
 		//subregion m
 		else if
@@ -521,7 +521,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tmn
 		)
 		{
-			return _vm_P_T(press,temp);
+			return _v_P_T_R3m(press,temp);
 		}
 		//subregion n
 		else if
@@ -530,7 +530,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tef
 		)
 		{
-			return _vn_P_T(press,temp);
+			return _v_P_T_R3n(press,temp);
 		}
 		//subregion o
 		else if
@@ -539,7 +539,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Top
 		)
 		{
-			return _vo_P_T(press,temp);
+			return _v_P_T_R3o(press,temp);
 		}
 		//subregion p
 		else if
@@ -548,7 +548,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tij
 		)
 		{
-			return _vp_P_T(press,temp);
+			return _v_P_T_R3p(press,temp);
 		}
 		//subregion j
 		else if
@@ -557,12 +557,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tjk
 		)
 		{
-			return _vj_P_T(press,temp);
+			return _v_P_T_R3j(press,temp);
 		}
 		//subregion k
 		else
 		{
-			return _vk_P_T(press,temp);
+			return _v_P_T_R3k(press,temp);
 		}
 	}
 	//subregions c, q, r, k || critical subregions
@@ -580,11 +580,11 @@ double _v_P_T_R3(double press, double temp)
 			&& press <= 22.5
 		)
 		{
-			double Tef = _T3ef_v_T_P(press);
-			double Tqu = _T3qu_v_T_P(press);
-			double Trx = _T3rx_v_T_P(press);
-			double Twx = _T3wx_v_T_P(press);
-			double Tuv = _T3uv_v_T_P(press);
+			double Tef = _T_P_R3ef(press);
+			double Tqu = _T_P_R3qu(press);
+			double Trx = _T_P_R3rx(press);
+			double Twx = _T_P_R3wx(press);
+			double Tuv = _T_P_R3uv(press);
 
 			//subregion u
 			if
@@ -593,7 +593,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Tuv
 			)
 			{
-				return _vu_P_T(press,temp);
+				return _v_P_T_R3u(press,temp);
 			}
 			//subregion w
 			else if
@@ -602,7 +602,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Twx
 			)
 			{
-				return _vw_P_T(press,temp);
+				return _v_P_T_R3w(press,temp);
 			}
 			//subregion v
 			else if
@@ -611,7 +611,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Tef
 			)
 			{
-				return _vv_P_T(press,temp);
+				return _v_P_T_R3v(press,temp);
 			}
 			//subregion x
 			else if
@@ -620,7 +620,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Trx
 			)
 			{
-				return _vx_P_T(press,temp);
+				return _v_P_T_R3x(press,temp);
 			}
 		}
 		//subregions u, z, y, x
@@ -630,11 +630,11 @@ double _v_P_T_R3(double press, double temp)
 			&& press <= 22.11
 		)
 		{
-			double Tef = _T3ef_v_T_P(press);
-			double Tqu = _T3qu_v_T_P(press);
-			double Trx = _T3rx_v_T_P(press);
-			double Twx = _T3wx_v_T_P(press);
-			double Tuv = _T3uv_v_T_P(press);
+			double Tef = _T_P_R3ef(press);
+			double Tqu = _T_P_R3qu(press);
+			double Trx = _T_P_R3rx(press);
+			double Twx = _T_P_R3wx(press);
+			double Tuv = _T_P_R3uv(press);
 
 			//subregion u
 			if
@@ -643,7 +643,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Tuv
 			)
 			{
-				return _vu_P_T(press,temp);
+				return _v_P_T_R3u(press,temp);
 			}
 			//subregion z
 			else if
@@ -652,7 +652,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Twx
 			)
 			{
-				return _vz_P_T(press,temp);
+				return _v_P_T_R3z(press,temp);
 			}
 			//subregion y
 			else if
@@ -661,7 +661,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Tef
 			)
 			{
-				return _vy_P_T(press,temp);
+				return _v_P_T_R3y(press,temp);
 			}
 			//subregion x
 			else if
@@ -670,7 +670,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Trx
 			)
 			{
-				return _vx_P_T(press,temp);
+				return _v_P_T_R3x(press,temp);
 			}
 		}
 		//subregions u, y
@@ -681,8 +681,8 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tsat
 		)
 		{
-			double Tqu = _T3qu_v_T_P(press);
-			double Tuv = _T3uv_v_T_P(press);
+			double Tqu = _T_P_R3qu(press);
+			double Tuv = _T_P_R3uv(press);
 
 			//subregion u
 			if
@@ -691,12 +691,12 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Tuv
 			)
 			{
-				return _vu_P_T(press,temp);
+				return _v_P_T_R3u(press,temp);
 			}
 			//subregion y
 			else if (temp > Tqu)
 			{
-				return _vy_P_T(press,temp);
+				return _v_P_T_R3y(press,temp);
 			}
 		}
 		//subregions u
@@ -707,12 +707,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tsat
 		)
 		{
-			double Tqu = _T3qu_v_T_P(press);
+			double Tqu = _T_P_R3qu(press);
 
 			//subregion u
 			if (temp > Tqu)
 			{
-				return _vu_P_T(press,temp);
+				return _v_P_T_R3u(press,temp);
 			}
 		}
 		//subregions z, x
@@ -723,13 +723,13 @@ double _v_P_T_R3(double press, double temp)
 			&& temp >= Tsat
 		)
 		{
-			double Trx = _T3rx_v_T_P(press);
-			double Twx = _T3wx_v_T_P(press);
+			double Trx = _T_P_R3rx(press);
+			double Twx = _T_P_R3wx(press);
 
 			//subregion z
 			if (temp <= Twx)
 			{
-				return _vz_P_T(press,temp);
+				return _v_P_T_R3z(press,temp);
 			}
 			//subregion x
 			else if
@@ -738,7 +738,7 @@ double _v_P_T_R3(double press, double temp)
 				&& temp <= Trx
 			)
 			{
-				return _vx_P_T(press,temp);
+				return _v_P_T_R3x(press,temp);
 			}
 		}
 		//subregions x
@@ -749,24 +749,24 @@ double _v_P_T_R3(double press, double temp)
 			&& temp >= Tsat
 		)
 		{
-			double Trx = _T3rx_v_T_P(press);
+			double Trx = _T_P_R3rx(press);
 
 			//subregion x
 			if (temp <= Trx)
 			{
-				return _vx_P_T(press,temp);
+				return _v_P_T_R3x(press,temp);
 			}
 		}
 
-		double Tcd = _T3cd_v_T_P(press);
-		double Tjk = _T3jk_v_T_P(press);
-		double Tqu = _T3qu_v_T_P(press);
-		double Trx = _T3rx_v_T_P(press);
+		double Tcd = _T_P_R3cd(press);
+		double Tjk = _T_P_R3jk(press);
+		double Tqu = _T_P_R3qu(press);
+		double Trx = _T_P_R3rx(press);
 
 		//subregion c
 		if (temp <= Tcd)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion q
 		else if
@@ -775,7 +775,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tqu
 		)
 		{
-			return _vq_P_T(press,temp);
+			return _v_P_T_R3q(press,temp);
 		}
 		//subregion r
 		else if
@@ -784,12 +784,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tjk
 		)
 		{
-			return _vr_P_T(press,temp);
+			return _v_P_T_R3r(press,temp);
 		}
 		//subregion k
 		else
 		{
-			return _vk_P_T(press,temp);
+			return _v_P_T_R3k(press,temp);
 		}
 	}
 	//subregions c, s, r, k
@@ -799,13 +799,13 @@ double _v_P_T_R3(double press, double temp)
 		&& press <= pSat_643d15K
 	)
 	{
-		double Tcd = _T3cd_v_T_P(press);
-		double Tjk = _T3jk_v_T_P(press);
+		double Tcd = _T_P_R3cd(press);
+		double Tjk = _T_P_R3jk(press);
 
 		//subregion c
 		if (temp <= Tcd)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion s
 		else if
@@ -814,7 +814,7 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tsat
 		)
 		{
-			return _vs_P_T(press,temp);
+			return _v_P_T_R3s(press,temp);
 		}
 		//subregion r
 		else if
@@ -823,12 +823,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tjk
 		)
 		{
-			return _vr_P_T(press,temp);
+			return _v_P_T_R3r(press,temp);
 		}
 		//subregion k
 		else
 		{
-			return _vk_P_T(press,temp);
+			return _v_P_T_R3k(press,temp);
 		}
 	}
 	//subregions c, s, t
@@ -838,12 +838,12 @@ double _v_P_T_R3(double press, double temp)
 		&& press <= 20.5
 	)
 	{
-		double Tcd = _T3cd_v_T_P(press);
+		double Tcd = _T_P_R3cd(press);
 
 		//subregion c
 		if (temp <= Tcd)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion s
 		else if
@@ -852,12 +852,12 @@ double _v_P_T_R3(double press, double temp)
 			&& temp <= Tsat
 		)
 		{
-			return _vs_P_T(press,temp);
+			return _v_P_T_R3s(press,temp);
 		}
 		//subregion t
 		else
 		{
-			return _vt_P_T(press,temp);
+			return _v_P_T_R3t(press,temp);
 		}
 	}
 	//subregions c, t
@@ -870,12 +870,12 @@ double _v_P_T_R3(double press, double temp)
 		//subregion c
 		if (temp <= Tsat)
 		{
-			return _vc_P_T(press,temp);
+			return _v_P_T_R3c(press,temp);
 		}
 		//subregion t
 		else
 		{
-			return _vt_P_T(press,temp);
+			return _v_P_T_R3t(press,temp);
 		}
 	}
 }
@@ -922,7 +922,7 @@ double _w_P_T_R3(double press, double temp)
 double _T_P_h_R3(double press, double enth)
 {
 	//kJ/kg
-	double hPred = _h_R3ab_P(press);
+	double hPred = _h_P_R3ab(press);
 
 	//subregion a
 	if
@@ -930,19 +930,19 @@ double _T_P_h_R3(double press, double enth)
 		enth < hPred
 	)
 	{
-		return _T_R3a_P_h(press,enth);
+		return _T_P_h_R3a(press,enth);
 	}
 	//subregion b
 	else
 	{
-		return _T_R3b_P_h(press,enth);
+		return _T_P_h_R3b(press,enth);
 	}
 }
 //specific volume as a function of pressure and enthalpy for region 3
 double _v_P_h_R3(double press, double enth)
 {
 	//kJ/kg
-	double hPred = _h_R3ab_P(press);
+	double hPred = _h_P_R3ab(press);
 
 	//subregion a
 	if
@@ -950,12 +950,12 @@ double _v_P_h_R3(double press, double enth)
 		enth < hPred
 	)
 	{
-		return _v_R3a_P_h(press,enth);
+		return _v_P_h_R3a(press,enth);
 	}
 	//subregion b
 	else
 	{
-		return _v_R3b_P_h(press,enth);
+		return _v_P_h_R3b(press,enth);
 	}
 }
 //specific internal energy as a function of pressure and enthalpy for region 3
@@ -1009,11 +1009,11 @@ double _T_P_s_R3(double press, double entr)
 
     if (entr < sCrit)
     {
-        return _T_R3a_P_s(press, entr);
+        return _T_P_s_R3a(press, entr);
     }
     else
     {
-        return _T_R3b_P_s(press, entr);
+        return _T_P_s_R3b(press, entr);
     }
 }
 //specific volume as a function of pressure and entropy for region 3
@@ -1024,11 +1024,11 @@ double _v_P_s_R3(double press, double entr)
 
     if (entr < sCrit)
     {
-        return _v_R3a_P_s(press, entr);
+        return _v_P_s_R3a(press, entr);
     }
     else
     {
-        return _v_R3b_P_s(press, entr);
+        return _v_P_s_R3b(press, entr);
     }
 }
 //specific internal energy as a function of pressure and entropy for region 3
@@ -1075,7 +1075,7 @@ double _w_P_s_R3(double press, double entr)
 //Properties as functions of enthalpy and entropy for region 3
 
 //P(h,s) for subregion a
-double _p_R3a_h_s(double h, double s)
+double _P_h_s_R3a(double h, double s)
 {
 	const int _I_P_h_s_R3a[33] = {0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8, 10, 10, 14, 18, 20, 22, 22, 24, 28, 28, 32, 32};
 	const int _J_P_h_s_R3a[33] = {0, 1, 5, 0, 3, 4, 8, 14, 6, 16, 0, 2, 3, 0, 1, 4, 5, 28, 28, 24, 1, 32, 36, 22, 28, 36, 16, 28, 36, 16, 36, 10, 28};
@@ -1103,7 +1103,7 @@ double _p_R3a_h_s(double h, double s)
     return sum * pStar;
 }
 //P(h,s) for subregion b
-double _p_R3b_h_s(double h, double s)
+double _P_h_s_R3b(double h, double s)
 {
 	const int _I_P_h_s_R3b[35] = {-12, -12, -12, -12, -12, -10, -10, -10, -10, -8, -8, -6, -6, -6, -6, -5, -4, -4, -4, -3, -3, -3, -3, -2, -2, -1, 0, 2, 2, 5, 6, 8, 10, 14, 14};
 	const int _J_P_h_s_R3b[35] = {2, 10, 12, 14, 20, 2, 10, 14, 18, 2, 8, 2, 6, 7, 8, 10, 4, 5, 8, 1, 3, 5, 6, 0, 1, 0, 3, 0, 1, 0, 1, 1, 1, 3, 7};
@@ -1147,7 +1147,7 @@ double _P_h_s_R3(double enth, double entr)
 		|| entr <= sCrit
 	)
 	{
-		return _p_R3a_h_s(enth, entr);
+		return _P_h_s_R3a(enth, entr);
 	}
 	else if
 	(
@@ -1155,7 +1155,7 @@ double _P_h_s_R3(double enth, double entr)
 		|| entr > sCrit
 	)
 	{
-		return _p_R3b_h_s(enth, entr);
+		return _P_h_s_R3b(enth, entr);
 	}
 }
 //T(h,s) for region 3

@@ -23,7 +23,7 @@ extern "C"
 //Inductrial Formulation 1997 for the Thermodynamic
 //Properties of Water and Steam" in Table 5 on page 9.
 
-TEST_F(OWTPAccTests_Props_PT, v_P_T_300K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, v_P_T_3MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
@@ -34,7 +34,7 @@ TEST_F(OWTPAccTests_Props_PT, v_P_T_300K_3MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(OWTPAccTests_Props_PT, u_P_T_300K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, u_P_T_3MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
@@ -45,7 +45,7 @@ TEST_F(OWTPAccTests_Props_PT, u_P_T_300K_3MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(OWTPAccTests_Props_PT, s_P_T_300K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, s_P_T_3MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
@@ -56,7 +56,7 @@ TEST_F(OWTPAccTests_Props_PT, s_P_T_300K_3MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(OWTPAccTests_Props_PT, h_P_T_300K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, h_P_T_3MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
@@ -67,7 +67,7 @@ TEST_F(OWTPAccTests_Props_PT, h_P_T_300K_3MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cp_P_T_300K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, cp_P_T_3MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
@@ -78,7 +78,7 @@ TEST_F(OWTPAccTests_Props_PT, cp_P_T_300K_3MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cv_P_T_300K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, cv_P_T_3MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
@@ -89,7 +89,7 @@ TEST_F(OWTPAccTests_Props_PT, cv_P_T_300K_3MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(OWTPAccTests_Props_PT, w_P_T_300K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, w_P_T_3MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 3;
@@ -100,7 +100,7 @@ TEST_F(OWTPAccTests_Props_PT, w_P_T_300K_3MPa)
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(OWTPAccTests_Props_PT, v_P_T_300K_80MPa)
+TEST_F(OWTPAccTests_Props_PT, v_P_T_80MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
@@ -111,7 +111,7 @@ TEST_F(OWTPAccTests_Props_PT, v_P_T_300K_80MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(OWTPAccTests_Props_PT, u_P_T_300K_80MPa)
+TEST_F(OWTPAccTests_Props_PT, u_P_T_80MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
@@ -122,7 +122,7 @@ TEST_F(OWTPAccTests_Props_PT, u_P_T_300K_80MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(OWTPAccTests_Props_PT, s_P_T_300K_80MPa)
+TEST_F(OWTPAccTests_Props_PT, s_P_T_80MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
@@ -133,7 +133,7 @@ TEST_F(OWTPAccTests_Props_PT, s_P_T_300K_80MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(OWTPAccTests_Props_PT, h_P_T_300K_80MPa)
+TEST_F(OWTPAccTests_Props_PT, h_P_T_80MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
@@ -144,7 +144,7 @@ TEST_F(OWTPAccTests_Props_PT, h_P_T_300K_80MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cp_P_T_300K_80MPa)
+TEST_F(OWTPAccTests_Props_PT, cp_P_T_80MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
@@ -155,7 +155,7 @@ TEST_F(OWTPAccTests_Props_PT, cp_P_T_300K_80MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cv_P_T_300K_80MPa)
+TEST_F(OWTPAccTests_Props_PT, cv_P_T_80MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
@@ -166,7 +166,7 @@ TEST_F(OWTPAccTests_Props_PT, cv_P_T_300K_80MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(OWTPAccTests_Props_PT, w_P_T_300K_80MPa)
+TEST_F(OWTPAccTests_Props_PT, w_P_T_80MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 80;
@@ -177,7 +177,7 @@ TEST_F(OWTPAccTests_Props_PT, w_P_T_300K_80MPa)
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(OWTPAccTests_Props_PT, v_P_T_500K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, v_P_T_3MPa_500K)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
@@ -188,7 +188,7 @@ TEST_F(OWTPAccTests_Props_PT, v_P_T_500K_3MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(OWTPAccTests_Props_PT, u_P_T_500K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, u_P_T_3MPa_500K)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
@@ -199,7 +199,7 @@ TEST_F(OWTPAccTests_Props_PT, u_P_T_500K_3MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(OWTPAccTests_Props_PT, s_P_T_500K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, s_P_T_3MPa_500K)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
@@ -210,7 +210,7 @@ TEST_F(OWTPAccTests_Props_PT, s_P_T_500K_3MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(OWTPAccTests_Props_PT, h_P_T_500K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, h_P_T_3MPa_500K)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
@@ -221,7 +221,7 @@ TEST_F(OWTPAccTests_Props_PT, h_P_T_500K_3MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cp_P_T_500K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, cp_P_T_3MPa_500K)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
@@ -232,7 +232,7 @@ TEST_F(OWTPAccTests_Props_PT, cp_P_T_500K_3MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cv_P_T_500K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, cv_P_T_3MPa_500K)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
@@ -243,7 +243,7 @@ TEST_F(OWTPAccTests_Props_PT, cv_P_T_500K_3MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(OWTPAccTests_Props_PT, w_P_T_500K_3MPa)
+TEST_F(OWTPAccTests_Props_PT, w_P_T_3MPa_500K)
 {
 	const double testTemp = 500;
 	const double testPressure = 3;
@@ -262,7 +262,7 @@ TEST_F(OWTPAccTests_Props_PT, w_P_T_500K_3MPa)
 //Inductrial Formulation 1997 for the Thermodynamic
 //Properties of Water and Steam" in Table 15 on page 17.
 
-TEST_F(OWTPAccTests_Props_PT, v_P_T_300K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, v_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -273,7 +273,7 @@ TEST_F(OWTPAccTests_Props_PT, v_P_T_300K_0d0035MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(OWTPAccTests_Props_PT, u_P_T_300K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, u_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -284,7 +284,7 @@ TEST_F(OWTPAccTests_Props_PT, u_P_T_300K_0d0035MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(OWTPAccTests_Props_PT, s_P_T_300K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, s_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -295,7 +295,7 @@ TEST_F(OWTPAccTests_Props_PT, s_P_T_300K_0d0035MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(OWTPAccTests_Props_PT, h_P_T_300K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, h_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -306,7 +306,7 @@ TEST_F(OWTPAccTests_Props_PT, h_P_T_300K_0d0035MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cp_P_T_300K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, cp_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -317,7 +317,7 @@ TEST_F(OWTPAccTests_Props_PT, cp_P_T_300K_0d0035MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cv_P_T_300K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, cv_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -328,7 +328,7 @@ TEST_F(OWTPAccTests_Props_PT, cv_P_T_300K_0d0035MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(OWTPAccTests_Props_PT, w_P_T_300K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, w_P_T_0d0035MPa_300K)
 {
 	const double testTemp = 300;
 	const double testPressure = 0.0035;
@@ -339,7 +339,7 @@ TEST_F(OWTPAccTests_Props_PT, w_P_T_300K_0d0035MPa)
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(OWTPAccTests_Props_PT, v_P_T_700K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, v_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -350,7 +350,7 @@ TEST_F(OWTPAccTests_Props_PT, v_P_T_700K_0d0035MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(OWTPAccTests_Props_PT, u_P_T_700K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, u_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -361,7 +361,7 @@ TEST_F(OWTPAccTests_Props_PT, u_P_T_700K_0d0035MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(OWTPAccTests_Props_PT, s_P_T_700K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, s_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -372,7 +372,7 @@ TEST_F(OWTPAccTests_Props_PT, s_P_T_700K_0d0035MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(OWTPAccTests_Props_PT, h_P_T_700K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, h_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -383,7 +383,7 @@ TEST_F(OWTPAccTests_Props_PT, h_P_T_700K_0d0035MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cp_P_T_700K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, cp_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -394,7 +394,7 @@ TEST_F(OWTPAccTests_Props_PT, cp_P_T_700K_0d0035MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cv_P_T_700K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, cv_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -405,7 +405,7 @@ TEST_F(OWTPAccTests_Props_PT, cv_P_T_700K_0d0035MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(OWTPAccTests_Props_PT, w_P_T_700K_0d0035MPa)
+TEST_F(OWTPAccTests_Props_PT, w_P_T_0d0035MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 0.0035;
@@ -416,7 +416,7 @@ TEST_F(OWTPAccTests_Props_PT, w_P_T_700K_0d0035MPa)
 	bool wPass = IsAcceptable(wErr);
 	ASSERT_TRUE(wPass);
 }
-TEST_F(OWTPAccTests_Props_PT, v_P_T_700K_30MPa)
+TEST_F(OWTPAccTests_Props_PT, v_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -427,7 +427,7 @@ TEST_F(OWTPAccTests_Props_PT, v_P_T_700K_30MPa)
 	bool vPass = IsAcceptable(vErr);
 	ASSERT_TRUE(vPass);
 }
-TEST_F(OWTPAccTests_Props_PT, u_P_T_700K_30MPa)
+TEST_F(OWTPAccTests_Props_PT, u_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -438,7 +438,7 @@ TEST_F(OWTPAccTests_Props_PT, u_P_T_700K_30MPa)
 	bool uPass = IsAcceptable(uErr);
 	ASSERT_TRUE(uPass);
 }
-TEST_F(OWTPAccTests_Props_PT, s_P_T_700K_30MPa)
+TEST_F(OWTPAccTests_Props_PT, s_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -449,7 +449,7 @@ TEST_F(OWTPAccTests_Props_PT, s_P_T_700K_30MPa)
 	bool sPass = IsAcceptable(sErr);
 	ASSERT_TRUE(sPass);
 }
-TEST_F(OWTPAccTests_Props_PT, h_P_T_700K_30MPa)
+TEST_F(OWTPAccTests_Props_PT, h_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -460,7 +460,7 @@ TEST_F(OWTPAccTests_Props_PT, h_P_T_700K_30MPa)
 	bool hPass = IsAcceptable(hErr);
 	ASSERT_TRUE(hPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cp_P_T_700K_30MPa)
+TEST_F(OWTPAccTests_Props_PT, cp_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -471,7 +471,7 @@ TEST_F(OWTPAccTests_Props_PT, cp_P_T_700K_30MPa)
 	bool cpPass = IsAcceptable(cpErr);
 	ASSERT_TRUE(cpPass);
 }
-TEST_F(OWTPAccTests_Props_PT, cv_P_T_700K_30MPa)
+TEST_F(OWTPAccTests_Props_PT, cv_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;
@@ -482,7 +482,7 @@ TEST_F(OWTPAccTests_Props_PT, cv_P_T_700K_30MPa)
 	bool cvPass = IsAcceptable(cvErr);
 	ASSERT_TRUE(cvPass);
 }
-TEST_F(OWTPAccTests_Props_PT, w_P_T_700K_30MPa)
+TEST_F(OWTPAccTests_Props_PT, w_P_T_30MPa_700K)
 {
 	const double testTemp = 700;
 	const double testPressure = 30;

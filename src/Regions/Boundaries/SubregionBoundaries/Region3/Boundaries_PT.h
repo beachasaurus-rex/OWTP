@@ -12,8 +12,8 @@
 
 
 
-//Generic boundary equation for all subregions except ab, ef, op
-static double _T3_v_T_P(double press, const int* IArr, const double* nArr, int arrSize)
+//Generic boundary equation for all subregions except ab, ef, op, wx
+static double _T_P_R3_gen(double press, const int* IArr, const double* nArr, int arrSize)
 {
 	//K
 	const double tStar = 1;
@@ -30,8 +30,8 @@ static double _T3_v_T_P(double press, const int* IArr, const double* nArr, int a
 	return sum * tStar;
 }
 
-//Generic boundary equation for subregions ab, op
-static double _T3_ab_op_wx_v_T_P(double press, const int* IArr, const double* nArr,
+//Generic boundary equation for subregions ab, op, wx
+static double _T_P_R3_ab_op_wx(double press, const int* IArr, const double* nArr,
 	int arrSize)
 {
 	//K
@@ -50,27 +50,27 @@ static double _T3_ab_op_wx_v_T_P(double press, const int* IArr, const double* nA
 }
 
 //Boundary Equations R3ab
-double _T3ab_v_T_P(double press)
+double _T_P_R3ab(double press)
 {
 	const int _I_v_T_P_R3ab[5] = { 0, 1, 2, -1, -2 };
 	const double _n_v_T_P_R3ab[5] = { 1547.93642129415, -187.661219490113, 21.3144632222113, -1918.87498864292, 918.419702359447 };
 
 	const int N = 5;
-	return _T3_ab_op_wx_v_T_P(press, _I_v_T_P_R3ab, _n_v_T_P_R3ab, N);
+	return _T_P_R3_ab_op_wx(press, _I_v_T_P_R3ab, _n_v_T_P_R3ab, N);
 }
 
 //Boundary Equations R3cd
-double _T3cd_v_T_P(double press)
+double _T_P_R3cd(double press)
 {
 	const int _I_v_T_P_R3cd[4] = { 0, 1, 2, 3 };
 	const double _n_v_T_P_R3cd[4] = { 585.276966696349, 2.78233532206915, -1.27283549295878E-02, 1.59090746562729E-04 };
 
 	const int N = 4;
-	return _T3_v_T_P(press, _I_v_T_P_R3cd, _n_v_T_P_R3cd, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3cd, _n_v_T_P_R3cd, N);
 }
 
 //Boundary Equations R3ef
-double _T3ef_v_T_P(double press)
+double _T_P_R3ef(double press)
 {
 	const double dPiSat_dPi = 3.727888004;
 	//K
@@ -83,178 +83,104 @@ double _T3ef_v_T_P(double press)
 }
 
 //Boundary Equations R3gh
-double _T3gh_v_T_P(double press)
+double _T_P_R3gh(double press)
 {
 	const int _I_v_T_P_R3gh[5] = { 0, 1, 2, 3, 4 };
 	const double _n_v_T_P_R3gh[5] = { -24928.4240900418, 4281.43584791546, -269.02917314013, 7.51608051114157, -7.87105249910383E-02 };
 
 	const int N = 5;
-	return _T3_v_T_P(press, _I_v_T_P_R3gh, _n_v_T_P_R3gh, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3gh, _n_v_T_P_R3gh, N);
 }
 
 //Boundary Equations R3ij
-double _T3ij_v_T_P(double press)
+double _T_P_R3ij(double press)
 {
 	const int _I_v_T_P_R3ij[5] = { 0, 1, 2, 3, 4 };
 	const double _n_v_T_P_R3ij[5] = { 584.814781649163, -0.616179320924617, 0.260763050899562, -5.87071076864459E-03, 5.15308185433082E-05 };
 
 	const int N = 5;
-	return _T3_v_T_P(press, _I_v_T_P_R3ij, _n_v_T_P_R3ij, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3ij, _n_v_T_P_R3ij, N);
 }
 
 //Boundary Equations R3jk
-double _T3jk_v_T_P(double press)
+double _T_P_R3jk(double press)
 {
 	const int _I_v_T_P_R3jk[5] = { 0, 1, 2, 3, 4 };
 	const double _n_v_T_P_R3jk[5] = { 617.229772068439, -7.70600270141675, 0.697072596851896, -1.57391839848015E-02, 1.37897492684194E-04 };
 
 	const int N = 5;
-	return _T3_v_T_P(press, _I_v_T_P_R3jk, _n_v_T_P_R3jk, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3jk, _n_v_T_P_R3jk, N);
 }
 
 //Boundary Equations R3mn
-double _T3mn_v_T_P(double press)
+double _T_P_R3mn(double press)
 {
 	const int _I_v_T_P_R3mn[5] = { 0, 1, 2, 3 };
 	const double _n_v_T_P_R3mn[5] = { 535.339483742384, 7.61978122720128, -0.158365725441648, 1.92871054508108E-03 };
 
 	const int N = 5;
-	return _T3_v_T_P(press, _I_v_T_P_R3mn, _n_v_T_P_R3mn, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3mn, _n_v_T_P_R3mn, N);
 }
 
 //Boundary Equations R3op
-double _T3op_v_T_P(double press)
+double _T_P_R3op(double press)
 {
 	const int _I_v_T_P_R3op[13] = { 0, 1, 2, -1, -2 };
 	const double _n_v_T_P_R3op[13] = { 969.461372400213, -332.500170441278, 64.2859598466067, 773.845935768222, -1523.13732937084 };
 
 	const int N = 13;
-	return _T3_ab_op_wx_v_T_P(press, _I_v_T_P_R3op, _n_v_T_P_R3op, N);
+	return _T_P_R3_ab_op_wx(press, _I_v_T_P_R3op, _n_v_T_P_R3op, N);
 }
 
 //Boundary Equations R3qu
-double _T3qu_v_T_P(double press)
+double _T_P_R3qu(double press)
 {
 	const int _I_v_T_P_R3qu[12] = { 0, 1, 2, 3 };
 	const double _n_v_T_P_R3qu[12] = { 565.603648239126, 5.29062258221222, -0.102020639611016, 1.22240301070145E-03 };
 
 	const int N = 12;
-	return _T3_v_T_P(press, _I_v_T_P_R3qu, _n_v_T_P_R3qu, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3qu, _n_v_T_P_R3qu, N);
 }
 
 //Boundary Equations R3rx
-double _T3rx_v_T_P(double press)
+double _T_P_R3rx(double press)
 {
 	const int _I_v_T_P_R3rx[4] = { 0, 1, 2, 3 };
 	const double _n_v_T_P_R3rx[4] = { 584.561202520006, -1.02961025163669, 0.243293362700452, -2.94905044740799E-03 };
 
 	const int N = 4;
-	return _T3_v_T_P(press, _I_v_T_P_R3rx, _n_v_T_P_R3rx, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3rx, _n_v_T_P_R3rx, N);
 }
 
 //Boundary Equations R3uv
-double _T3uv_v_T_P(double press)
+double _T_P_R3uv(double press)
 {
 	const int _I_v_T_P_R3uv[4] = {0, 1, 2, 3};
 	const double _n_v_T_P_R3uv[4] = {528.199646263062, 8.90579602135307, -0.222814134903755, 2.86791682263697E-03};
 
 	const int N = 4;
-	return _T3_v_T_P(press, _I_v_T_P_R3uv, _n_v_T_P_R3uv, N);
+	return _T_P_R3_gen(press, _I_v_T_P_R3uv, _n_v_T_P_R3uv, N);
 }
 
 //Boundary Equations R3wx
-double _T3wx_v_T_P(double press)
+double _T_P_R3wx(double press)
 {
 	const int _I_v_T_P_R3wx[5] = {0, 1, 2, -1, -2};
 	const double _n_v_T_P_R3wx[5] = {7.2805260914538, 97.3505869861952, 14.7370491183191, 329.196213998375, 873.371668682417};
 
 	const int N = 5;
-	return _T3_ab_op_wx_v_T_P(press, _I_v_T_P_R3wx, _n_v_T_P_R3wx, N);
+	return _T_P_R3_ab_op_wx(press, _I_v_T_P_R3wx, _n_v_T_P_R3wx, N);
 }
+
+
+
 
 //Backwards equations for v(P,T)
 
 
-//Iteration Constants R3a
-
-
-//Iteration Constants R3b
-
-
-//Iteration Constants R3c
-
-
-//Iteration Constants R3d
-
-
-//Iteration Constants R3e
-
-
-//Iteration Constants R3f
-
-
-//Iteration Constants R3g
-
-
-//Iteration Constants R3h
-
-
-//Iteration Constants R3i
-
-
-//Iteration Constants R3j
-
-
-//Iteration Constants R3k
-
-
-//Iteration Constants R3l
-
-
-//Iteration Constants R3m
-
-
-//Iteration Constants R3n
-
-
-//Iteration Constants R3o
-
-
-//Iteration Constants R3p
-
-
-//Iteration Constants R3q
-
-
-//Iteration Constants R3r
-
-
-//Iteration Constants R3s
-
-
-//Iteration Constants R3t
-
-
-//Iteration Constants R3u
-
-
-//Iteration Constants R3v
-
-
-//Iteration Constants R3w
-
-
-//Iteration Constants R3x
-
-
-//Iteration Constants R3y
-
-
-//Iteration Constants R3z
-
 
 //Generic backward equation for omega(pi,theta)
-static double _omega_pi_theta(double press, double temp, double pStar, double tStar,
+static double _omega_pi_theta_R3(double press, double temp, double pStar, double tStar,
 	double a, double b, double c, double d, double e, const int* IArr, const int* JArr,
 	const double* nArr, int arrSize)
 {
@@ -273,7 +199,7 @@ static double _omega_pi_theta(double press, double temp, double pStar, double tS
 }
 
 //Backwards equation for v(P,T) for subregion a
-double _va_P_T(double press, double temp)
+double _v_P_T_R3a(double press, double temp)
 {
 	const int _I_v_T_P_R3a[30] = {-12, -12, -12, -10, -10, -10, -8, -8, -8, -6, -5, -5, -5, -4, -3, -3, -3, -3, -2, -2, -2, -1, -1, -1, 0, 0, 1, 1, 2, 2};
 	const int _J_v_T_P_R3a[30] = {5, 10, 12, 5, 10, 12, 5, 8, 10, 1, 1, 5, 10, 8, 0, 1, 3, 6, 0, 2, 3, 0, 1, 2, 0, 1, 0, 2, 0, 2};
@@ -294,14 +220,14 @@ double _va_P_T(double press, double temp)
 
 	const int N = 30;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e, _I_v_T_P_R3a,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e, _I_v_T_P_R3a,
 		_J_v_T_P_R3a, _n_v_T_P_R3a, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion b
-double _vb_P_T(double press, double temp)
+double _v_P_T_R3b(double press, double temp)
 {
 	const int _I_v_T_P_R3b[32] = {-12, -12, -10, -10, -8, -6, -6, -6, -5, -5, -5, -4, -4, -4, -3, -3, -3, -3, -3, -2, -2, -2, -1, -1, 0, 0, 1, 1, 2, 3, 4, 4};
 	const int _J_v_T_P_R3b[32] = {10, 12, 8, 14, 8, 5, 6, 8, 5, 8, 10, 2, 4, 5, 0, 1, 2, 3, 5, 0, 2, 5, 0, 2, 0, 1, 0, 2, 0, 2, 0, 1};
@@ -322,14 +248,14 @@ double _vb_P_T(double press, double temp)
 
 	const int N = 32;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e, _I_v_T_P_R3b,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e, _I_v_T_P_R3b,
 		_J_v_T_P_R3b, _n_v_T_P_R3b, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion c
-double _vc_P_T(double press, double temp)
+double _v_P_T_R3c(double press, double temp)
 {
 	const int _I_v_T_P_R3c[35] = {-12, -12, -12, -10, -10, -10, -8, -8, -8, -6, -5, -5, -5, -4, -4, -3, -3, -2, -2, -2, -1, -1, -1, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 8};
 	const int _J_v_T_P_R3c[35] = {6, 8, 10, 6, 8, 10, 5, 6, 7, 8, 1, 4, 7, 2, 8, 0, 3, 0, 4, 5, 0, 1, 2, 0, 1, 2, 0, 2, 0, 1, 3, 7, 0, 7, 1};
@@ -350,14 +276,14 @@ double _vc_P_T(double press, double temp)
 
 	const int N = 35;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3c, _J_v_T_P_R3c, _n_v_T_P_R3c, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion d
-double _vd_P_T(double press, double temp)
+double _v_P_T_R3d(double press, double temp)
 {
 	const int _I_v_T_P_R3d[38] = {-12, -12, -12, -12, -12, -12, -10, -10, -10, -10, -10, -10, -10, -8, -8, -8, -8, -6, -6, -5, -5, -5, -5, -4, -4, -4, -3, -3, -2, -2, -1, -1, -1, 0, 0, 1, 1, 3};
 	const int _J_v_T_P_R3d[38] = {4, 6, 7, 10, 12, 16, 0, 2, 4, 6, 8, 10, 14, 3, 7, 8, 10, 6, 8, 1, 2, 5, 7, 0, 1, 7, 2, 4, 0, 1, 0, 1, 5, 0, 2, 0, 6, 0};
@@ -378,14 +304,14 @@ double _vd_P_T(double press, double temp)
 
 	const int N = 38;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3d, _J_v_T_P_R3d, _n_v_T_P_R3d, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion e
-double _ve_P_T(double press, double temp)
+double _v_P_T_R3e(double press, double temp)
 {
 	const int _I_v_T_P_R3e[29] = {-12, -12, -10, -10, -10, -10, -10, -8, -8, -8, -6, -5, -4, -4, -3, -3, -3, -2, -2, -2, -2, -1, 0, 0, 1, 1, 1, 2, 2};
 	const int _J_v_T_P_R3e[29] = {14, 16, 3, 6, 10, 14, 16, 7, 8, 10, 6, 6, 2, 4, 2, 6, 7, 0, 1, 3, 4, 0, 0, 1, 0, 4, 6, 0, 2};
@@ -406,14 +332,14 @@ double _ve_P_T(double press, double temp)
 
 	const int N = 29;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3e, _J_v_T_P_R3e, _n_v_T_P_R3e, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion f
-double _vf_P_T(double press, double temp)
+double _v_P_T_R3f(double press, double temp)
 {
 	const int _I_v_T_P_R3f[42] = {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5, 6, 7, 7, 10, 12, 12, 12, 14, 14, 14, 14, 14, 16, 16, 18, 18, 20, 20, 20, 22, 24, 24, 28, 32};
 	const int _J_v_T_P_R3f[42] = {-3, -2, -1, 0, 1, 2, -1, 1, 2, 3, 0, 1, -5, -2, 0, -3, -8, 1, -6, -4, 1, -6, -10, -8, -4, -12, -10, -8, -6, -4, -10, -8, -12, -10, -12, -10, -6, -12, -12, -4, -12, -12};
@@ -434,14 +360,14 @@ double _vf_P_T(double press, double temp)
 
 	const int N = 42;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3f, _J_v_T_P_R3f, _n_v_T_P_R3f, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion g
-double _vg_P_T(double press, double temp)
+double _v_P_T_R3g(double press, double temp)
 {
 	const int _I_v_T_P_R3g[38] = {-12, -12, -12, -12, -12, -12, -10, -10, -10, -8, -8, -8, -8, -6, -6, -5, -5, -4, -3, -2, -2, -2, -2, -1, -1, -1, 0, 0, 0, 1, 1, 1, 3, 5, 6, 8, 10, 10};
 	const int _J_v_T_P_R3g[38] = {7, 12, 14, 18, 22, 24, 14, 20, 24, 7, 8, 10, 12, 8, 22, 7, 20, 22, 7, 3, 5, 14, 24, 2, 8, 18, 0, 1, 2, 0, 1, 3, 24, 22, 12, 3, 0, 6};
@@ -462,14 +388,14 @@ double _vg_P_T(double press, double temp)
 
 	const int N = 38;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3g, _J_v_T_P_R3g, _n_v_T_P_R3g, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion h
-double _vh_P_T(double press, double temp)
+double _v_P_T_R3h(double press, double temp)
 {
 	const int _I_v_T_P_R3h[29] = {-12, -12, -10, -10, -10, -10, -10, -10, -8, -8, -8, -8, -8, -6, -6, -6, -5, -5, -5, -4, -4, -3, -3, -2, -1, -1, 0, 1, 1};
 	const int _J_v_T_P_R3h[29] = {8, 12, 4, 6, 8, 10, 14, 16, 0, 1, 6, 7, 8, 4, 6, 8, 2, 3, 4, 2, 4, 1, 2, 0, 0, 2, 0, 0, 2};
@@ -490,14 +416,14 @@ double _vh_P_T(double press, double temp)
 
 	const int N = 29;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3h, _J_v_T_P_R3h, _n_v_T_P_R3h, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion i
-double _vi_P_T(double press, double temp)
+double _v_P_T_R3i(double press, double temp)
 {
 	const int _I_v_T_P_R3i[42] = {0, 0, 0, 1, 1, 1, 1, 2, 3, 3, 4, 4, 4, 5, 5, 5, 7, 7, 8, 8, 10, 12, 12, 12, 14, 14, 14, 14, 18, 18, 18, 18, 18, 20, 20, 22, 24, 24, 32, 32, 36, 36};
 	const int _J_v_T_P_R3i[42] = {0, 1, 10, -4, -2, -1, 0, 0, -5, 0, -3, -2, -1, -6, -1, 12, -4, -3, -6, 10, -8, -12, -6, -4, -10, -8, -4, 5, -12, -10, -8, -6, 2, -12, -10, -12, -12, -8, -10, -5, -10, -8};
@@ -518,14 +444,14 @@ double _vi_P_T(double press, double temp)
 
 	const int N = 42;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3i, _J_v_T_P_R3i, _n_v_T_P_R3i, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion j
-double _vj_P_T(double press, double temp)
+double _v_P_T_R3j(double press, double temp)
 {
 	const int _I_v_T_P_R3j[29] = {0, 0, 0, 1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5, 6, 10, 12, 12, 14, 14, 14, 16, 18, 20, 20, 24, 24, 28, 28};
 	const int _J_v_T_P_R3j[29] = {-1, 0, 1, -2, -1, 1, -1, 1, -2, -2, 2, -3, -2, 0, 3, -6, -8, -3, -10, -8, -5, -10, -12, -12, -10, -12, -6, -12, -5};
@@ -546,14 +472,14 @@ double _vj_P_T(double press, double temp)
 
 	const int N = 29;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3j, _J_v_T_P_R3j, _n_v_T_P_R3j, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion k
-double _vk_P_T(double press, double temp)
+double _v_P_T_R3k(double press, double temp)
 {
 	const int _I_v_T_P_R3k[34] = {-2, -2, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 5, 5, 5, 6, 6, 6, 6, 8, 10, 12};
 	const int _J_v_T_P_R3k[34] = {10, 12, -5, 6, -12, -6, -2, -1, 0, 1, 2, 3, 14, -3, -2, 0, 1, 2, -8, -6, -3, -2, 0, 4, -12, -6, -3, -12, -10, -8, -5, -12, -12, -10};
@@ -574,14 +500,14 @@ double _vk_P_T(double press, double temp)
 
 	const int N = 34;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3k, _J_v_T_P_R3k, _n_v_T_P_R3k, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion l
-double _vl_P_T(double press, double temp)
+double _v_P_T_R3l(double press, double temp)
 {
 	const int _I_v_T_P_R3l[43] = {-12, -12, -12, -12, -12, -10, -10, -8, -8, -8, -8, -8, -8, -8, -6, -5, -5, -4, -4, -3, -3, -3, -3, -2, -2, -2, -1, -1, -1, 0, 0, 0, 0, 1, 1, 2, 4, 5, 5, 6, 10, 10, 14};
 	const int _J_v_T_P_R3l[43] = {14, 16, 18, 20, 22, 14, 24, 6, 10, 12, 14, 18, 24, 36, 8, 4, 5, 7, 16, 1, 3, 18, 20, 2, 3, 10, 0, 1, 3, 0, 1, 2, 12, 0, 16, 1, 0, 0, 1, 14, 4, 12, 10};
@@ -602,14 +528,14 @@ double _vl_P_T(double press, double temp)
 
 	const int N = 43;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3l, _J_v_T_P_R3l, _n_v_T_P_R3l, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion m
-double _vm_P_T(double press, double temp)
+double _v_P_T_R3m(double press, double temp)
 {
 	const int _I_v_T_P_R3m[40] = {0, 3, 8, 20, 1, 3, 4, 5, 1, 6, 2, 4, 14, 2, 5, 3, 0, 1, 1, 1, 28, 2, 16, 0, 5, 0, 3, 4, 12, 16, 1, 8, 14, 0, 2, 3, 4, 8, 14, 24};
 	const int _J_v_T_P_R3m[40] = {0, 0, 0, 2, 5, 5, 5, 5, 6, 6, 7, 8, 8, 10, 10, 12, 14, 14, 18, 20, 20, 22, 22, 24, 24, 28, 28, 28, 28, 28, 32, 32, 32, 36, 36, 36, 36, 36, 36, 36};
@@ -630,14 +556,14 @@ double _vm_P_T(double press, double temp)
 
 	const int N = 40;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3m, _J_v_T_P_R3m, _n_v_T_P_R3m, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion n
-double _vn_P_T(double press, double temp)
+double _v_P_T_R3n(double press, double temp)
 {
 	const int _I_v_T_P_R3n[39] = {0, 3, 4, 6, 7, 10, 12, 14, 18, 0, 3, 5, 6, 8, 12, 0, 3, 7, 12, 2, 3, 4, 2, 4, 7, 4, 3, 5, 6, 0, 0, 3, 1, 0, 1, 0, 1, 0, 1};
 	const int _J_v_T_P_R3n[39] = {-12, -12, -12, -12, -12, -12, -12, -12, -12, -10, -10, -10, -10, -10, -10, -8, -8, -8, -8, -6, -6, -6, -5, -5, -5, -4, -3, -3, -3, -2, -1, -1, 0, 1, 1, 2, 4, 5, 6};
@@ -658,14 +584,14 @@ double _vn_P_T(double press, double temp)
 
 	const int N = 39;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3n, _J_v_T_P_R3n, _n_v_T_P_R3n, N);
 
 	return vStar * exp(omega);
 }
 
 //Backwards equation for v(P,T) for subregion o
-double _vo_P_T(double press, double temp)
+double _v_P_T_R3o(double press, double temp)
 {
 	const int _I_v_T_P_R3o[24] = {0, 0, 0, 2, 3, 4, 4, 4, 4, 4, 5, 5, 6, 7, 8, 8, 8, 10, 10, 14, 14, 20, 20, 24};
 	const int _J_v_T_P_R3o[24] = {-12, -4, -1, -1, -10, -12, -8, -5, -4, -1, -4, -3, -8, -12, -10, -8, -4, -12, -8, -12, -8, -12, -10, -12};
@@ -686,14 +612,14 @@ double _vo_P_T(double press, double temp)
 
 	const int N =24;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3o, _J_v_T_P_R3o, _n_v_T_P_R3o, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion p
-double _vp_P_T(double press, double temp)
+double _v_P_T_R3p(double press, double temp)
 {
 	const int _I_v_T_P_R3p[27] = {0, 0, 0, 0, 1, 2, 3, 3, 4, 6, 7, 7, 8, 10, 12, 12, 12, 14, 14, 14, 16, 18, 20, 22, 24, 24, 36};
 	const int _J_v_T_P_R3p[27] = {-1, 0, 1, 2, 1, -1, -3, 0, -2, -2, -5, -4, -2, -3, -12, -6, -5, -10, -8, -3, -8, -8, -10, -10, -12, -8, -12};
@@ -714,14 +640,14 @@ double _vp_P_T(double press, double temp)
 
 	const int N = 27;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3p, _J_v_T_P_R3p, _n_v_T_P_R3p, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion q
-double _vq_P_T(double press, double temp)
+double _v_P_T_R3q(double press, double temp)
 {
 	const int _I_v_T_P_R3q[24] = {-12, -12, -10, -10, -10, -10, -8, -6, -5, -5, -4, -4, -3, -2, -2, -2, -2, -1, -1, -1, 0, 1, 1, 1};
 	const int _J_v_T_P_R3q[24] = {10, 12, 6, 7, 8, 10, 8, 6, 2, 5, 3, 4, 3, 0, 1, 2, 4, 0, 1, 2, 0, 0, 1, 3};
@@ -742,14 +668,14 @@ double _vq_P_T(double press, double temp)
 
 	const int N = 24;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3q, _J_v_T_P_R3q, _n_v_T_P_R3q, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion r
-double _vr_P_T(double press, double temp)
+double _v_P_T_R3r(double press, double temp)
 {
 	const int _I_v_T_P_R3r[27] = {-8, -8, -3, -3, -3, -3, -3, 0, 0, 0, 0, 3, 3, 8, 8, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 12, 14};
 	const int _J_v_T_P_R3r[27] = {6, 14, -3, 3, 4, 5, 8, -1, 0, 1, 5, -6, -2, -12, -10, -8, -5, -12, -10, -8, -6, -5, -4, -3, -2, -12, -12};
@@ -770,14 +696,14 @@ double _vr_P_T(double press, double temp)
 
 	const int N = 27;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3r, _J_v_T_P_R3r, _n_v_T_P_R3r, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion s
-double _vs_P_T(double press, double temp)
+double _v_P_T_R3s(double press, double temp)
 {
 	const int _I_v_T_P_R3s[29] = {-12, -12, -10, -8, -6, -5, -5, -4, -4, -3, -3, -2, -1, -1, -1, 0, 0, 0, 0, 1, 1, 3, 3, 3, 4, 4, 4, 5, 14};
 	const int _J_v_T_P_R3s[29] = {20, 24, 22, 14, 36, 8, 16, 6, 32, 3, 8, 4, 1, 2, 3, 0, 1, 4, 28, 0, 32, 0, 1, 2, 3, 18, 24, 4, 24};
@@ -798,14 +724,14 @@ double _vs_P_T(double press, double temp)
 
 	const int N = 29;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3s, _J_v_T_P_R3s, _n_v_T_P_R3s, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion t
-double _vt_P_T(double press, double temp)
+double _v_P_T_R3t(double press, double temp)
 {
 	const int _I_v_T_P_R3t[33] = {0, 0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 7, 7, 7, 7, 7, 10, 10, 10, 10, 10, 18, 20, 22, 22, 24, 28, 32, 32, 32, 36};
 	const int _J_v_T_P_R3t[33] = {0, 1, 4, 12, 0, 10, 0, 6, 14, 3, 8, 0, 10, 3, 4, 7, 20, 36, 10, 12, 14, 16, 22, 18, 32, 22, 36, 24, 28, 22, 32, 36, 36};
@@ -826,14 +752,14 @@ double _vt_P_T(double press, double temp)
 
 	const int N = 33;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3t, _J_v_T_P_R3t, _n_v_T_P_R3t, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion u
-double _vu_P_T(double press, double temp)
+double _v_P_T_R3u(double press, double temp)
 {
 	const int _I_v_T_P_R3u[38] = {-12, -10, -10, -10, -8, -8, -8, -6, -6, -5, -5, -5, -3, -1, -1, -1, -1, 0, 0, 1, 2, 2, 3, 5, 5, 5, 6, 6, 8, 8, 10, 12, 12, 12, 14, 14, 14, 14};
 	const int _J_v_T_P_R3u[38] = {14, 10, 12, 14, 10, 12, 14, 8, 12, 4, 8, 12, 2, -1, 1, 12, 14, -3, 1, -2, 5, 10, -5, -4, 2, 3, -5, 2, -8, 8, -4, -12, -4, 4, -12, -10, -6, 6};
@@ -854,14 +780,14 @@ double _vu_P_T(double press, double temp)
 
 	const int N = 38;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3u, _J_v_T_P_R3u, _n_v_T_P_R3u, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion v
-double _vv_P_T(double press, double temp)
+double _v_P_T_R3v(double press, double temp)
 {
 	const int _I_v_T_P_R3v[39] = {-10, -8, -6, -6, -6, -6, -6, -6, -5, -5, -5, -5, -5, -5, -4, -4, -4, -4, -3, -3, -3, -2, -2, -1, -1, 0, 0, 0, 1, 1, 3, 4, 4, 4, 5, 8, 10, 12, 14};
 	const int _J_v_T_P_R3v[39] = {-8, -12, -12, -3, 5, 6, 8, 10, 1, 2, 6, 8, 10, 14, -12, -10, -6, 10, -3, 10, 12, 2, 4, -2, 0, -2, 6, 10, -12, -10, 3, -6, 3, 10, 2, -12, -2, -3, 1};
@@ -882,14 +808,14 @@ double _vv_P_T(double press, double temp)
 
 	const int N = 39;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3v, _J_v_T_P_R3v, _n_v_T_P_R3v, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion w
-double _vw_P_T(double press, double temp)
+double _v_P_T_R3w(double press, double temp)
 {
 	const int _I_v_T_P_R3w[35] = {-12, -12, -10, -10, -8, -8, -8, -6, -6, -6, -6, -5, -4, -4, -3, -3, -2, -2, -1, -1, -1, 0, 0, 1, 2, 2, 3, 3, 5, 5, 5, 8, 8, 10, 10};
 	const int _J_v_T_P_R3w[35] = {8, 14, -1, 8, 6, 8, 14, -4, -3, 2, 8, -10, -1, 3, -10, 3, 1, 2, -8, -4, 1, -12, 1, -1, -1, 2, -12, -5, -10, -8, -6, -12, -10, -12, -8};
@@ -910,14 +836,14 @@ double _vw_P_T(double press, double temp)
 
 	const int N = 35;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3w, _J_v_T_P_R3w, _n_v_T_P_R3w, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion x
-double _vx_P_T(double press, double temp)
+double _v_P_T_R3x(double press, double temp)
 {
 	const int _I_v_T_P_R3x[36] = {-8, -6, -5, -4, -4, -4, -3, -3, -1, 0, 0, 0, 1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 8, 8, 8, 8, 10, 12, 12, 12, 12, 14, 14, 14, 14};
 	const int _J_v_T_P_R3x[36] = {14, 10, 10, 1, 2, 14, -2, 12, 5, 0, 4, 10, -10, -1, 6, -12, 0, 8, 3, -6, -2, 1, 1, -6, -3, 1, 8, -8, -10, -8, -5, -4, -12, -10, -8, -6};
@@ -938,14 +864,14 @@ double _vx_P_T(double press, double temp)
 
 	const int N = 36;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3x, _J_v_T_P_R3x, _n_v_T_P_R3x, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion y
-double _vy_P_T(double press, double temp)
+double _v_P_T_R3y(double press, double temp)
 {
 	const int _I_v_T_P_R3y[20] = {0, 0, 0, 0, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 8, 8, 10, 12};
 	const int _J_v_T_P_R3y[20] = {-3, 1, 5, 8, 8, -4, -1, 4, 5, -8, 4, 8, -6, 6, -2, 1, -8, -2, -5, -8};
@@ -966,14 +892,14 @@ double _vy_P_T(double press, double temp)
 
 	const int N = 20;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3y, _J_v_T_P_R3y, _n_v_T_P_R3y, N);
 
 	return vStar * omega;
 }
 
 //Backwards equation for v(P,T) for subregion z
-double _vz_P_T(double press, double temp)
+double _v_P_T_R3z(double press, double temp)
 {
 	const int _I_v_T_P_R3z[23] = {-8, -6, -5, -5, -4, -4, -4, -3, -3, -3, -2, -1, 0, 1, 2, 3, 3, 6, 6, 6, 6, 8, 8};
 	const int _J_v_T_P_R3z[23] = {3, 6, 6, 8, 5, 6, 8, -2, 5, 6, 2, -6, 3, 1, 6, -6, -2, -6, -5, -4, -1, -8, -4};
@@ -994,7 +920,7 @@ double _vz_P_T(double press, double temp)
 
 	const int N = 23;
 
-	double omega = _omega_pi_theta(press, temp, pStar, tStar, a, b, c, d, e,
+	double omega = _omega_pi_theta_R3(press, temp, pStar, tStar, a, b, c, d, e,
 		_I_v_T_P_R3z, _J_v_T_P_R3z, _n_v_T_P_R3z, N);
 
 	return vStar * omega;
