@@ -21,8 +21,13 @@ environment:
       build_system: cmake
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 
+    - generator: "Unix Makefiles"
+      build_system: cmake
+      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1604
+
 configuration:
   - Debug
+  - Release
 
 before_build:
     - ci\before_build.sh
