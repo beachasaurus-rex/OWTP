@@ -30,13 +30,13 @@ configuration:
   # - Release
 
 before_build:
-    - ./ci/before_build.sh
+    - sudo ./ci/before_build.sh
 
 build_script:
-    - ./ci/build_script.sh
+    - sudo ./ci/build_script.sh
 
 test_script:
-    - ./ci/test_script.sh
+    - sudo ./ci/test_script.sh
 
 after_test:
     - ps: ./ci/after_test.ps1
