@@ -6,20 +6,20 @@ branches:
 
 environment:
   matrix:
-    - compiler: msvc-16-seh
-      generator: "Visual Studio 16 2019"
-      build_system: cmake
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-
-    - compiler: msvc-15-seh
-      generator: "Visual Studio 15 2017"
-      build_system: cmake
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-
-    - compiler: msvc-14-seh
-      generator: "Visual Studio 14 2015"
-      build_system: cmake
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+    # - compiler: msvc-16-seh
+    #   generator: "Visual Studio 16 2019"
+    #   build_system: cmake
+    #   APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+    #
+    # - compiler: msvc-15-seh
+    #   generator: "Visual Studio 15 2017"
+    #   build_system: cmake
+    #   APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    #
+    # - compiler: msvc-14-seh
+    #   generator: "Visual Studio 14 2015"
+    #   build_system: cmake
+    #   APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 
     - generator: "Unix Makefiles"
       build_system: cmake
@@ -27,7 +27,7 @@ environment:
 
 configuration:
   - Debug
-  - Release
+  # - Release
 
 before_build:
     - ci\before_build.sh
