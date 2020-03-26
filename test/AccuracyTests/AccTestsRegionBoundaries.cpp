@@ -34,7 +34,7 @@ extern "C"
 //Properties of Water and Steam" on page 6, immediately before
 //the section regarding the equations for Region 1.
 
-TEST_F(AccTestsRegionBoundaries, T_P_R2_R3)
+TEST_F(AccTestsRegionBoundaries, T_P_R2_R3_0d165291643Ep02MPa)
 {
     const double press = 0.165291643E+02;
     const double tExp = 0.623150000E+03;
@@ -44,7 +44,7 @@ TEST_F(AccTestsRegionBoundaries, T_P_R2_R3)
     bool TPass = IsAcceptable(TErr);
     ASSERT_TRUE(TPass);
 }
-TEST_F(AccTestsRegionBoundaries, P_T_R2_R3)
+TEST_F(AccTestsRegionBoundaries, P_T_R2_R3_0d623150000Ep03K)
 {
     const double T = 0.623150000E+03;
     const double pExp = 0.165291643E+02;
