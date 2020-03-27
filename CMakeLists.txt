@@ -1,4 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
+
+if (WIN32)
+    set(_WIN32 TRUE)
+endif (WIN32)
+
 set(CMAKE_CXX_FLAGS_RELEASE "/MT")
 set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
 set(CMAKE_CXX_STANDARD 11)
