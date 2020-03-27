@@ -23,6 +23,7 @@ environment:
 
 configuration:
   - Debug
+  - Release
 
 before_build:
     - ci\before_build.sh
