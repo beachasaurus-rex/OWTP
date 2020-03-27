@@ -34,6 +34,10 @@ for:
           - ci\before_build_debug.sh
       build_script:
           - ci\build_script_debug.sh
+      test_script:
+          - ci\test_script.sh
+      after_test:
+          - ps: .\ci\after_test.ps1
 
     - matrix:
         only:
@@ -43,9 +47,3 @@ for:
           - ci\before_build_release.sh
       build_script:
           - ci\build_script_release.sh
-
-test_script:
-    - ci\test_script.sh
-
-after_test:
-    - ps: .\ci\after_test.ps1
