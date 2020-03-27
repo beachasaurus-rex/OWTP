@@ -4,6 +4,10 @@ branches:
   only:
     - master
 
+configuration:
+  - Debug
+  - Release
+
 environment:
   matrix:
     - compiler: msvc-16-seh
@@ -21,15 +25,25 @@ environment:
       build_system: cmake
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 
-configuration:
-  - Debug
-  - Release
+for:
+    - matrix:
+        only:
+            - configuration: Debug
 
-before_build:
-    - ci\before_build.sh
+      before_build:
+          - ci\before_build_debug.sh
+      build_script:
+          - ci\build_script_debug.sh
 
-build_script:
-    - ci\build_script.sh
+for:
+    - matrix:
+        only:
+            - configuration: Release
+
+      before_build:
+          - ci\before_build_release.sh
+      build_script:
+          - ci\build_script_release.sh
 
 test_script:
     - ci\test_script.sh
