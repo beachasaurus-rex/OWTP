@@ -35,7 +35,6 @@ for:
       build_script:
           - ci\build_script_debug.sh
 
-for:
     - matrix:
         only:
             - configuration: Release
