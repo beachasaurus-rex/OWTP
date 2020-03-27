@@ -1,5 +1,7 @@
-#ifndef DLL_IMPORT
+#ifdef _WIN32
     #define DLL_IMPORT __declspec(dllimport)
+#else
+    #define DLL_IMPORT
 #endif
 
 #ifndef MATH_H

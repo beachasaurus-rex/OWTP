@@ -3,7 +3,11 @@
 	#include "OWTP.h"
 #endif
 
-#define DLL_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+    #define DLLEXPORT __declspec(dllexport)
+#else
+    #define DLLEXPORT
+#endif
 
 #if _DEBUG
 	//Boundary - Around the Metastable Region:
