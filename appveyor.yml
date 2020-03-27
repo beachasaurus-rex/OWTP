@@ -8,6 +8,11 @@ configuration:
   - Debug
   - Release
 
+platform:
+    - x86
+    - x64
+    - Any CPU
+
 environment:
   matrix:
     - compiler: msvc-16-seh
