@@ -30,15 +30,15 @@ configuration:
   # - Release
 
 before_build:
-    - chmod +rx ./ci/before_build.sh
+    - chmod +rx ./ci/before_build.sh &&
       ./ci/before_build.sh
 
 build_script:
-    - chmod +rx ./ci/build_script.sh
+    - chmod +rx ./ci/build_script.sh &&
       ./ci/build_script.sh
 
 test_script:
-    - chmod +rx ./ci/test_script.sh
+    - chmod +rx ./ci/test_script.sh &&
       ./ci/test_script.sh
 
 after_test:
