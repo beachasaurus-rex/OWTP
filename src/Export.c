@@ -62,6 +62,10 @@ DLL_EXPORT double w_P_h(double P, double h)
 {
     return _w_P_h(P,h);
 }
+DLL_EXPORT double x_P_h(double P, double h)
+{
+    return _x_P_h_R4(P,h);
+}
 
 DLL_EXPORT double T_P_s(double P, double s)
 {
@@ -91,6 +95,10 @@ DLL_EXPORT double w_P_s(double P, double s)
 {
     return _w_P_s(P,s);
 }
+DLL_EXPORT double x_P_s(double P, double s)
+{
+    return _x_P_s_R4(P,s);
+}
 
 DLL_EXPORT double T_h_s(double h, double s)
 {
@@ -119,6 +127,10 @@ DLL_EXPORT double cp_h_s(double h, double s)
 DLL_EXPORT double w_h_s(double h, double s)
 {
     return _w_h_s(h,s);
+}
+DLL_EXPORT double x_h_s(double h, double s)
+{
+    return _x_h_s_R4(h,s);
 }
 
 DLL_EXPORT double PSat_T(double T)
